@@ -3,25 +3,61 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TableListComponent } from './table-list/table-list.component';
-import { TypographyComponent } from './typography/typography.component';
-import { IconsComponent } from './icons/icons.component';
-import { MapsComponent } from './maps/maps.component';
+
 import { NotificationsComponent } from './notifications/notifications.component';
-import { UpgradeComponent } from './upgrade/upgrade.component';
+import {LandingComponent} from "./landing/landing.component";
+import {LoginSponserComponent} from "./login-sponser/login-sponser.component";
+import {LoginOpsComponent} from "./login-ops/login-ops.component";
+import {DashboardSponserComponent} from "./dashboard-sponser/dashboard-sponser.component";
+import {DashboardOpsComponent} from "./dashboard-ops/dashboard-ops.component";
 
 const routes: Routes =[
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
-    { path: '',               redirectTo: 'dashboard', pathMatch: 'full' }
+    {
+        path: '',
+        redirectTo: 'landing',
+        pathMatch: 'full'
+    },
+    {
+        path: 'landing',
+        component: LandingComponent
+
+
+    },
+    {
+        path: 'login-sponser',
+        component: LoginSponserComponent
+
+    },
+
+    {
+        path: 'login-ops',
+        component: LoginOpsComponent
+
+    },
+    {
+        path: 'dashboard-sponser',
+        component: DashboardSponserComponent,
+        children: [
+            { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
+            { path: 'user-profile', component: UserProfileComponent },
+            { path: 'user-profile',   component: UserProfileComponent },
+            { path: 'table-list',     component: TableListComponent },
+            { path: 'notifications',  component: NotificationsComponent },
+        ]
+    },
+    {
+        path: 'dashboard-ops',
+        component: DashboardOpsComponent,
+        children: [
+            { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
+            { path: 'user-profile', component: UserProfileComponent },
+            { path: 'user-profile',   component: UserProfileComponent },
+            { path: 'table-list',     component: TableListComponent },
+            { path: 'notifications',  component: NotificationsComponent },
+        ]
+    }
 ];
 
 @NgModule({
