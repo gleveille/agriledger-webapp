@@ -4,5 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  blockchainURL:'http://139.59.243.90:5000',
+  apiURL: 'http://127.0.0.1',
+  apiPORT: '3000'
 };
