@@ -12,6 +12,8 @@ import {LoginSponserComponent} from "./login-sponser/login-sponser.component";
 import {LoginOpsComponent} from "./login-ops/login-ops.component";
 import {DashboardSponserComponent} from "./dashboard-sponser/dashboard-sponser.component";
 import {DashboardOpsComponent} from "./dashboard-ops/dashboard-ops.component";
+import {PasswordChangeComponent} from "./password-change/password-change.component";
+import {IssuerRegistrationComponent} from "./issuer-registration/issuer-registration.component";
 
 const routes: Routes =[
     {
@@ -31,6 +33,21 @@ const routes: Routes =[
 
     },
 
+    {
+        path: 'login-ops',
+        component: LoginOpsComponent
+
+    },
+    {
+        path: 'password-change',
+        component: PasswordChangeComponent
+
+    },
+    {
+        path: 'issuer-registration',
+        component: IssuerRegistrationComponent
+
+    },
     {
         path: 'login-ops',
         component: LoginOpsComponent

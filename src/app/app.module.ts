@@ -17,6 +17,10 @@ import { LandingComponent } from './landing/landing.component';
 import { LoginSponserComponent } from './login-sponser/login-sponser.component';
 import { LoginOpsComponent } from './login-ops/login-ops.component';
 import { DashboardOpsComponent } from './dashboard-ops/dashboard-ops.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { IssuerRegistrationComponent } from './issuer-registration/issuer-registration.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { DashboardOpsComponent } from './dashboard-ops/dashboard-ops.component';
     LoginSponserComponent,
     LoginOpsComponent,
     DashboardOpsComponent,
+    ChangePasswordComponent,
+    IssuerRegistrationComponent,
+    PasswordChangeComponent,
+    PasswordResetComponent,
 
   ],
   imports: [
