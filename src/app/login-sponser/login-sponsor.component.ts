@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-login-sponser',
-  templateUrl: './login-sponser.component.html',
-  styleUrls: ['./login-sponser.component.css']
+  selector: 'app-login-sponsor',
+  templateUrl: './login-sponsor.component.html',
+  styleUrls: ['./login-sponsor.component.css']
 })
 export class LoginSponserComponent implements OnInit {
 

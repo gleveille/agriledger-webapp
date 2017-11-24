@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardSponserComponent } from './dashboard-sponser.component';
+import { DashboardSponserComponent } from './dashboard-sponsor.component';
 
 describe('DashboardSponserComponent', () => {
   let component: DashboardSponserComponent;

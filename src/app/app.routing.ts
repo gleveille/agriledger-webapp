@@ -8,12 +8,12 @@ import { TableListComponent } from './table-list/table-list.component';
 
 import { NotificationsComponent } from './notifications/notifications.component';
 import {LandingComponent} from "./landing/landing.component";
-import {LoginSponserComponent} from "./login-sponser/login-sponser.component";
 import {LoginOpsComponent} from "./login-ops/login-ops.component";
-import {DashboardSponserComponent} from "./dashboard-sponser/dashboard-sponser.component";
 import {DashboardOpsComponent} from "./dashboard-ops/dashboard-ops.component";
 import {PasswordChangeComponent} from "./password-change/password-change.component";
-import {IssuerRegistrationComponent} from "./issuer-registration/issuer-registration.component";
+import {AccountActivationComponent} from "./account-activation/account-activation.component";
+import {LoginSponserComponent} from "./login-sponser/login-sponsor.component";
+import {DashboardSponserComponent} from "./dashboard-sponser/dashboard-sponsor.component";
 
 const routes: Routes =[
     {
@@ -28,7 +28,7 @@ const routes: Routes =[
 
     },
     {
-        path: 'login-sponser',
+        path: 'login-sponsor',
         component: LoginSponserComponent
 
     },
@@ -44,8 +44,8 @@ const routes: Routes =[
 
     },
     {
-        path: 'issuer-registration',
-        component: IssuerRegistrationComponent
+        path: 'account-activation',
+        component: AccountActivationComponent
 
     },
     {
@@ -54,7 +54,7 @@ const routes: Routes =[
 
     },
     {
-        path: 'dashboard-sponser',
+        path: 'dashboard-sponsor',
         component: DashboardSponserComponent,
         children: [
             { path: '', redirectTo: 'user-profile', pathMatch: 'full' },

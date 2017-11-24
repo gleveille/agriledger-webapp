@@ -8,9 +8,9 @@ import {NavbarComponent} from '../components/navbar/navbar.component';
 declare const $: any;
 
 @Component({
-  selector: 'app-dashboard-sponser',
-  templateUrl: './dashboard-sponser.component.html',
-  styleUrls: ['./dashboard-sponser.component.css']
+  selector: 'app-dashboard-sponsor',
+  templateUrl: './dashboard-sponsor.component.html',
+  styleUrls: ['./dashboard-sponsor.component.css']
 })
 export class DashboardSponserComponent implements OnInit {
 
