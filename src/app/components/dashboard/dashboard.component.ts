@@ -20,7 +20,9 @@ export class DashboardSponserComponent implements OnInit {
 
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
-    constructor( public location: Location, private router: Router) {}
+    constructor( public location: Location, private router: Router) {
+        console.log('dashboard ctr called')
+    }
 
     ngOnInit() {
         $.material.init();

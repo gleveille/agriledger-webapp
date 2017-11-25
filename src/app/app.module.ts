@@ -21,8 +21,6 @@ import {ToastyModule} from 'ng2-toasty';
 import {ToastService} from "./services/toast.service";
 import {AuthenticationGuard} from "./guards/authentication.guard";
 import {AuthorizationGuard} from "./guards/authorization.guard";
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PageNotAuthorisedComponent } from './page-not-authorised/page-not-authorised.component';
 import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {InterceptorService} from "./services/interceptor.service";
@@ -38,8 +36,6 @@ import {InterceptorService} from "./services/interceptor.service";
     PasswordChangeComponent,
     PasswordResetComponent,
     AccountActivationComponent,
-    PageNotFoundComponent,
-    PageNotAuthorisedComponent,
 
   ],
   imports: [
