@@ -24,6 +24,7 @@ import {AuthorizationGuard} from "./guards/authorization.guard";
 import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {InterceptorService} from "./services/interceptor.service";
+import {AlreadyHaveBlockchainGuard} from "./guards/already-have-blockchain.guard";
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import {InterceptorService} from "./services/interceptor.service";
           useClass: InterceptorService,
           multi: true
       },
-      UserService,ToastService,AuthenticationGuard,AuthorizationGuard,AlreadyAuthenticatedGuard],
+      UserService,ToastService,AuthenticationGuard,AuthorizationGuard,AlreadyAuthenticatedGuard,AlreadyHaveBlockchainGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

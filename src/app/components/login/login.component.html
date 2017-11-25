@@ -72,7 +72,7 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" (click)="login()"  class="btn btn-danger pull-right">Sign In</button>
+                                <button type="submit" [disabled]="!user.email || !user.password" (click)="login()"  class="btn btn-danger pull-right">Sign In</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>

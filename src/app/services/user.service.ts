@@ -3,6 +3,7 @@ import {Iuser} from "../interface/user.interface";
 import {UserApi} from '../api.config';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import {Observable} from 'rxjs/Observable';
 import {HttpClient} from "@angular/common/http";
 @Injectable()
 export class UserService {
@@ -51,8 +52,26 @@ export class UserService {
   }
 
   getUser(){
+    console.log(this.user)
+    if(this.user && this.user.id){
+      console.log('from cache')
+      return Observable.of(this.user);
+    }
       return this.http.get(`${UserApi.findById.url()}/${localStorage.getItem('userId')}`);
   };
 
+  setUserFromGuard(user:Iuser){
+    this.user=user;
+  }
+
+
+    changePassword(oldPassword:string,newPassword:string)
+    {
+        return this.http.post(`${UserApi.changePassword.url()}`,
+            {oldPassword:oldPassword,newPassword:newPassword}).do((data)=>{
+          this.user.isPasswordChanged=true;
+        });
+
+    }
 
 }

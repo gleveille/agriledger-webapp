@@ -12,6 +12,7 @@ import {DashboardSponserComponent} from "./components/dashboard/dashboard.compon
 import {AuthenticationGuard} from "./guards/authentication.guard";
 import {AuthorizationGuard} from "./guards/authorization.guard";
 import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
+import {AlreadyHaveBlockchainGuard} from "./guards/already-have-blockchain.guard";
 
 const routes: Routes =[
     {
@@ -35,12 +36,17 @@ const routes: Routes =[
 
     {
         path: 'password-change',
-        component: PasswordChangeComponent
+        component: PasswordChangeComponent,
+        canActivate:[AuthenticationGuard]
 
     },
     {
         path: 'account-activation',
-        component: AccountActivationComponent
+        component: AccountActivationComponent,
+        canActivate:[AuthenticationGuard,AlreadyHaveBlockchainGuard],
+        data: {
+            expectedRole: ['sponsor']
+        },
 
     },
 
