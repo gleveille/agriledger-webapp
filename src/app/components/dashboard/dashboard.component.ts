@@ -9,8 +9,8 @@ declare const $: any;
 
 @Component({
   selector: 'app-dashboard-sponsor',
-  templateUrl: './dashboard-sponsor.component.html',
-  styleUrls: ['./dashboard-sponsor.component.css']
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardSponserComponent implements OnInit {
 

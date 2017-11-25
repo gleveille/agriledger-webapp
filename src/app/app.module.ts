@@ -14,7 +14,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { AccountActivationComponent } from './components/account-activation/account-activation.component';
-import {DashboardSponserComponent} from "./components/dashboard-sponser/dashboard-sponsor.component";
+import {DashboardSponserComponent} from "./components/dashboard/dashboard.component";
 import {LoginComponent} from "./components/login/login.component";
 import {UserService} from "./services/user.service";
 import {ToastyModule} from 'ng2-toasty';

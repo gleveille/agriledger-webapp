@@ -8,7 +8,7 @@ import {LandingComponent} from "./components/landing/landing.component";
 import {PasswordChangeComponent} from "./components/password-change/password-change.component";
 import {AccountActivationComponent} from "./components/account-activation/account-activation.component";
 import {LoginComponent} from "./components/login/login.component";
-import {DashboardSponserComponent} from "./components/dashboard-sponser/dashboard-sponsor.component";
+import {DashboardSponserComponent} from "./components/dashboard/dashboard.component";
 import {AuthenticationGuard} from "./guards/authentication.guard";
 import {AuthorizationGuard} from "./guards/authorization.guard";
 import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
