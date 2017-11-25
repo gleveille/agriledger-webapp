@@ -52,6 +52,7 @@ export class UserService {
   }
 
   getUser(){
+    // first time ,this method will be called from authorization guard
     console.log(this.user)
     if(this.user && this.user.id){
       console.log('from cache')
@@ -74,4 +75,17 @@ export class UserService {
 
     }
 
+    logout(){
+        return this.http.post(`${UserApi.logout.url()}`,
+            {}).do((data)=>{
+          this.resetState();
+          localStorage.removeItem('accessToken');
+          localStorage.removeItem('userId');
+
+        });
+    }
+
+    resetState(){
+      this.user={};
+    }
 }

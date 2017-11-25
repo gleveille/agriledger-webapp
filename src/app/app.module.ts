@@ -25,6 +25,7 @@ import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {InterceptorService} from "./services/interceptor.service";
 import {AlreadyHaveBlockchainGuard} from "./guards/already-have-blockchain.guard";
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {AlreadyHaveBlockchainGuard} from "./guards/already-have-blockchain.guard
     PasswordChangeComponent,
     PasswordResetComponent,
     AccountActivationComponent,
+    HeaderComponent,
 
   ],
   imports: [
