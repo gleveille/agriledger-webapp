@@ -4,14 +4,15 @@ import 'rxjs/add/operator/filter';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
-import {NavbarComponent} from '../components/navbar/navbar.component';
+import {NavbarComponent} from '../../shared/navbar/navbar.component';
 declare const $: any;
+
 @Component({
-  selector: 'app-dashboard-ops',
-  templateUrl: './dashboard-ops.component.html',
-  styleUrls: ['./dashboard-ops.component.css']
+  selector: 'app-dashboard-sponsor',
+  templateUrl: './dashboard-sponsor.component.html',
+  styleUrls: ['./dashboard-sponsor.component.css']
 })
-export class DashboardOpsComponent implements OnInit {
+export class DashboardSponserComponent implements OnInit {
 
     private _router: Subscription;
     private lastPoppedUrl: string;
@@ -78,6 +79,5 @@ export class DashboardOpsComponent implements OnInit {
         }
         return bool;
     }
-
 
 }

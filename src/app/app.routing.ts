@@ -2,18 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TableListComponent } from './table-list/table-list.component';
-
-import { NotificationsComponent } from './notifications/notifications.component';
-import {LandingComponent} from "./landing/landing.component";
-import {LoginOpsComponent} from "./login-ops/login-ops.component";
-import {DashboardOpsComponent} from "./dashboard-ops/dashboard-ops.component";
-import {PasswordChangeComponent} from "./password-change/password-change.component";
-import {AccountActivationComponent} from "./account-activation/account-activation.component";
-import {LoginSponserComponent} from "./login-sponser/login-sponsor.component";
-import {DashboardSponserComponent} from "./dashboard-sponser/dashboard-sponsor.component";
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { TableListComponent } from './components/table-list/table-list.component';
+import {LandingComponent} from "./components/landing/landing.component";
+import {PasswordChangeComponent} from "./components/password-change/password-change.component";
+import {AccountActivationComponent} from "./components/account-activation/account-activation.component";
+import {LoginComponent} from "./components/login/login.component";
+import {DashboardSponserComponent} from "./components/dashboard-sponser/dashboard-sponsor.component";
+import {AuthenticationGuard} from "./guards/authentication.guard";
+import {AuthorizationGuard} from "./guards/authorization.guard";
+import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
 
 const routes: Routes =[
     {
@@ -23,21 +21,18 @@ const routes: Routes =[
     },
     {
         path: 'landing',
-        component: LandingComponent
+        component: LandingComponent,
+        canActivate:[AlreadyAuthenticatedGuard],
 
 
     },
     {
-        path: 'login-sponsor',
-        component: LoginSponserComponent
+        path: 'login',
+        component: LoginComponent,
+        canActivate:[AlreadyAuthenticatedGuard],
 
     },
 
-    {
-        path: 'login-ops',
-        component: LoginOpsComponent
-
-    },
     {
         path: 'password-change',
         component: PasswordChangeComponent
@@ -48,33 +43,24 @@ const routes: Routes =[
         component: AccountActivationComponent
 
     },
-    {
-        path: 'login-ops',
-        component: LoginOpsComponent
 
-    },
     {
-        path: 'dashboard-sponsor',
+        path: 'dashboard',
         component: DashboardSponserComponent,
+        data: {
+            expectedRole: ['sponsor','ops']
+        },
+        canActivate:[AuthenticationGuard,AuthorizationGuard],
+
         children: [
             { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
             { path: 'user-profile', component: UserProfileComponent },
             { path: 'user-profile',   component: UserProfileComponent },
-            { path: 'table-list',     component: TableListComponent },
-            { path: 'notifications',  component: NotificationsComponent },
+            { path: 'table-list',     component: TableListComponent }
         ]
     },
-    {
-        path: 'dashboard-ops',
-        component: DashboardOpsComponent,
-        children: [
-            { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
-            { path: 'user-profile', component: UserProfileComponent },
-            { path: 'user-profile',   component: UserProfileComponent },
-            { path: 'table-list',     component: TableListComponent },
-            { path: 'notifications',  component: NotificationsComponent },
-        ]
-    }
+    { path: '**', redirectTo: '' }
+
 ];
 
 @NgModule({

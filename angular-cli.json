@@ -20,9 +20,9 @@
       "prefix": "app",
       "styles": [
           "../node_modules/bootstrap/dist/css/bootstrap.css",
-          "../node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
-          "./assets/sass/material-dashboard.scss",
-          "./assets/css/demo.css"
+        "../node_modules/ng2-toasty/bundles/style-material.css",
+        "../node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+          "./assets/sass/material-dashboard.scss"
       ],
       "scripts": [
           "../node_modules/jquery/dist/jquery.js",
@@ -31,9 +31,7 @@
           "../node_modules/bootstrap-material-design/dist/js/material.min.js",
           "../node_modules/arrive/src/arrive.js",
           "../node_modules/moment/moment.js",
-          "../node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
-          "../node_modules/bootstrap-notify/bootstrap-notify.js",
-          "../node_modules/chartist/dist/chartist.js"
+          "../node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

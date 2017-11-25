@@ -1,51 +1,64 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
+import { ComponentsModule } from './shared/components.module';
 
 import { AppComponent } from './app.component';
 
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TableListComponent } from './table-list/table-list.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { LandingComponent } from './landing/landing.component';
-import { LoginOpsComponent } from './login-ops/login-ops.component';
-import { DashboardOpsComponent } from './dashboard-ops/dashboard-ops.component';
-import { PasswordChangeComponent } from './password-change/password-change.component';
-import { PasswordResetComponent } from './password-reset/password-reset.component';
-import { AccountActivationComponent } from './account-activation/account-activation.component';
-import {DashboardSponserComponent} from "./dashboard-sponser/dashboard-sponsor.component";
-import {LoginSponserComponent} from "./login-sponser/login-sponsor.component";
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { TableListComponent } from './components/table-list/table-list.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { PasswordChangeComponent } from './components/password-change/password-change.component';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { AccountActivationComponent } from './components/account-activation/account-activation.component';
+import {DashboardSponserComponent} from "./components/dashboard-sponser/dashboard-sponsor.component";
+import {LoginComponent} from "./components/login/login.component";
+import {UserService} from "./services/user.service";
+import {ToastyModule} from 'ng2-toasty';
+import {ToastService} from "./services/toast.service";
+import {AuthenticationGuard} from "./guards/authentication.guard";
+import {AuthorizationGuard} from "./guards/authorization.guard";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotAuthorisedComponent } from './page-not-authorised/page-not-authorised.component';
+import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {InterceptorService} from "./services/interceptor.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     UserProfileComponent,
     TableListComponent,
-    NotificationsComponent,
     DashboardSponserComponent,
     LandingComponent,
-    LoginSponserComponent,
-    LoginOpsComponent,
-    DashboardOpsComponent,
+    LoginComponent,
     PasswordChangeComponent,
     PasswordResetComponent,
     AccountActivationComponent,
+    PageNotFoundComponent,
+    PageNotAuthorisedComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     ComponentsModule,
-RouterModule,
-    AppRoutingModule
+    RouterModule,
+    AppRoutingModule,
+    ToastyModule.forRoot()
+
   ],
-  providers: [],
+  providers: [
+      {
+          provide: HTTP_INTERCEPTORS,
+          useClass: InterceptorService,
+          multi: true
+      },
+      UserService,ToastService,AuthenticationGuard,AuthorizationGuard,AlreadyAuthenticatedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

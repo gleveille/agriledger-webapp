@@ -1,5 +1,5 @@
 import {environment} from '../environments/environment';
-export const ServerUrl=environment.apiPORT+':'+environment.apiPORT;
+export const ServerUrl=environment.apiURL+':'+environment.apiPORT;
 export const BlockChainServerUrl=environment.blockchainURL;
 
 
@@ -18,6 +18,21 @@ const ContainerApi={
 
 };
 
+
+const UserApi={
+    login:{
+        url:()=>ServerUrl+'/api/users/login'
+    },
+    logout:{
+        url:()=>ServerUrl+'/api/users/logout'
+    },
+    changePassword:{
+        url:()=>ServerUrl+'/api/users/change-password'
+    },
+    findById:{
+        url:()=>ServerUrl+'/api/users'
+    }
+}
 
 
 const marketApi={
@@ -182,3 +197,6 @@ const marketApi={
         "url":()=> BlockChainServerUrl+"/api/transactions/get"
     }
 }
+
+
+export {UserApi,ProfileApi,BlockChainApi}
