@@ -26,9 +26,7 @@ export class PasswordChangeComponent implements OnInit {
             this.router.navigate(['/dashboard']);
 
     },(err)=>{
-       const errMsg = err.status ? `${err.status} - ${err.statusText}` : 'Server error';
-       this.toastService.error('Password',errMsg);
-       console.log(err);
+       this.toastService.error('Password',err.message);
     });
     }
 }

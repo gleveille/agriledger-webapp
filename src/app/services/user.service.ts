@@ -4,6 +4,8 @@ import {UserApi,OnboardingApi} from '../api.config';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
+
 import {HttpClient} from "@angular/common/http";
 @Injectable()
 export class UserService {
@@ -71,6 +73,9 @@ export class UserService {
         return this.http.post(`${UserApi.changePassword.url()}`,
             {oldPassword:oldPassword,newPassword:newPassword}).do((data)=>{
           this.user.isPasswordChanged=true;
+        })
+        .catch((res)=> {
+            return this.errorHandler(res);
         });
 
     }
@@ -93,6 +98,36 @@ export class UserService {
         return this.http.post(`${OnboardingApi.createAccount.url()}`,
             {userId:this.user.id}).do((data)=>{
             this.user.isRegisteredOnBlockchain=true;
-        });
+        })
+            .catch((res)=> {
+                return this.errorHandler(res);
+            });
+    }
+
+    errorHandler(res:any):Observable<any>{
+      let msg='';
+      if(res.error){
+        try{
+          let data=JSON.parse(res.error);
+          console.log(data)
+          if(data && data.message){
+              msg=data.message;
+
+          }
+        }
+
+        catch(err) {
+        }
+      }
+      else{
+
+          msg=res.statusText||'Server error.Try again';
+      }
+
+      msg= msg ? msg :'Something went wrong';
+
+      console.log(msg);
+        return Observable.throw({message:msg,status:res.status});
+
     }
 }
