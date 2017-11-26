@@ -20,12 +20,17 @@ import {UserService} from "./services/user.service";
 import {ToastyModule} from 'ng2-toasty';
 import {ToastService} from "./services/toast.service";
 import {AuthenticationGuard} from "./guards/authentication.guard";
-import {AuthorizationGuard} from "./guards/authorization.guard";
+import {DashboardAuthorizationGuard} from "./guards/dashboardAuthorization.guard";
 import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {InterceptorService} from "./services/interceptor.service";
-import {AlreadyHaveBlockchainGuard} from "./guards/already-have-blockchain.guard";
 import { HeaderComponent } from './shared/header/header.component';
+import { OnboardingComponent } from './onboarding/onboarding.component';
+import { Page403Component } from './page403/page403.component';
+import { IssuerRegistrationComponent } from './issuer-registration/issuer-registration.component';
+import {AlreadyChangedPasswordGuard} from "./guards/onboarding-guard/already-changed-password.guard";
+import {AlreadyRegisteredOnBlockchainGuard} from "./guards/onboarding-guard/already-registered-on-blockchain.guard";
+import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.guard";
 
 @NgModule({
   declarations: [
@@ -39,6 +44,9 @@ import { HeaderComponent } from './shared/header/header.component';
     PasswordResetComponent,
     AccountActivationComponent,
     HeaderComponent,
+    OnboardingComponent,
+    Page403Component,
+    IssuerRegistrationComponent,
 
   ],
   imports: [
@@ -57,7 +65,16 @@ import { HeaderComponent } from './shared/header/header.component';
           useClass: InterceptorService,
           multi: true
       },
-      UserService,ToastService,AuthenticationGuard,AuthorizationGuard,AlreadyAuthenticatedGuard,AlreadyHaveBlockchainGuard],
+      UserService,
+      ToastService,
+      AuthenticationGuard,
+      DashboardAuthorizationGuard,
+      AlreadyAuthenticatedGuard,
+      AlreadyChangedPasswordGuard,
+      AlreadyRegisteredOnBlockchainGuard,
+      AlreadyAnIssuerGuard
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

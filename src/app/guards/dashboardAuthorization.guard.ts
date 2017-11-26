@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class AuthorizationGuard implements CanActivate {
+export class DashboardAuthorizationGuard implements CanActivate {
   constructor(private userService:UserService,private router:Router){
 
   }
@@ -16,25 +16,35 @@ export class AuthorizationGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       const expectedRole:Array<string> = route.data.expectedRole;
-      console.log('inside authorization guard')
-      console.log('expected role for this route is ',expectedRole)
+      console.log('inside dashboard authorization guard')
+      console.log('expected role for this dashboard is ',expectedRole)
       return this.userService.getUser()
           .map((user:Iuser)=>{
           console.log(user);
+          console.log('found role is '+ user.role)
           if(user && expectedRole.includes(user.role)){
               this.userService.setUserFromGuard(user);
               if(user && !user.isPasswordChanged){
-                  this.router.navigate(['/password-change']);
+                  this.router.navigate(['/onboarding/password-change']);
                   return false;
               }
+              if(user && !user.isRegisteredOnBlockchain){
+                  this.router.navigate(['/onboarding/account-activation']);
+                  return false;
+              }
+
               if(user && !user.isIssuerOnBlockchain){
-                  this.router.navigate(['/account-activation']);
+                  this.router.navigate(['/onboarding/issuer-registration']);
                   return false;
               }
 
               return true;
           }
+          else{
+              this.router.navigate(['/unauthorised']);
               return false;
+
+          }
           })
           .catch(res => {
               console.log(res);

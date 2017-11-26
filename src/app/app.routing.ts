@@ -10,9 +10,14 @@ import {AccountActivationComponent} from "./components/account-activation/accoun
 import {LoginComponent} from "./components/login/login.component";
 import {DashboardSponserComponent} from "./components/dashboard/dashboard.component";
 import {AuthenticationGuard} from "./guards/authentication.guard";
-import {AuthorizationGuard} from "./guards/authorization.guard";
+import {DashboardAuthorizationGuard} from "./guards/dashboardAuthorization.guard";
 import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
-import {AlreadyHaveBlockchainGuard} from "./guards/already-have-blockchain.guard";
+import {OnboardingComponent} from "./onboarding/onboarding.component";
+import {Page403Component} from "./page403/page403.component";
+import {IssuerRegistrationComponent} from "./issuer-registration/issuer-registration.component";
+import {AlreadyChangedPasswordGuard} from "./guards/onboarding-guard/already-changed-password.guard";
+import {AlreadyRegisteredOnBlockchainGuard} from "./guards/onboarding-guard/already-registered-on-blockchain.guard";
+import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.guard";
 
 const routes: Routes =[
     {
@@ -33,22 +38,50 @@ const routes: Routes =[
         canActivate:[AlreadyAuthenticatedGuard],
 
     },
-
     {
-        path: 'password-change',
-        component: PasswordChangeComponent,
-        canActivate:[AuthenticationGuard]
+        path: 'unauthorised',
+        component: Page403Component,
+        canActivate:[AuthenticationGuard],
+
 
     },
-    {
-        path: 'account-activation',
-        component: AccountActivationComponent,
-        canActivate:[AuthenticationGuard,AlreadyHaveBlockchainGuard],
-        data: {
-            expectedRole: ['sponsor']
-        },
 
+
+    {
+        path: 'onboarding',
+        component: OnboardingComponent,
+        children: [
+            { path: '', redirectTo: 'password-change', pathMatch: 'full'},
+            {
+                path: 'password-change',
+                component: PasswordChangeComponent,
+                canActivate:[AuthenticationGuard,AlreadyChangedPasswordGuard],
+
+                data: {
+                    expectedRole: ['sponsor']
+                },
+            },
+            {
+                path: 'account-activation',
+                component: AccountActivationComponent,
+                canActivate:[AuthenticationGuard,AlreadyRegisteredOnBlockchainGuard],
+
+                data: {
+                    expectedRole: ['sponsor']
+                }
+            },
+            {
+                path: 'issuer-registration',
+                component: IssuerRegistrationComponent,
+                canActivate:[AuthenticationGuard,AlreadyAnIssuerGuard],
+
+                data: {
+                    expectedRole: ['sponsor']
+                }
+            }
+        ]
     },
+
 
     {
         path: 'dashboard',
@@ -56,7 +89,7 @@ const routes: Routes =[
         data: {
             expectedRole: ['sponsor','ops']
         },
-        canActivate:[AuthenticationGuard,AuthorizationGuard],
+        canActivate:[AuthenticationGuard,DashboardAuthorizationGuard],
 
         children: [
             { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
