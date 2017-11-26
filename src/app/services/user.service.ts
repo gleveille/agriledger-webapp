@@ -92,7 +92,7 @@ export class UserService {
     createAccountOnBlockchain(){
         return this.http.post(`${OnboardingApi.createAccount.url()}`,
             {userId:this.user.id}).do((data)=>{
-            //this.user.isPasswordChanged=true;
+            this.user.isRegisteredOnBlockchain=true;
         });
     }
 }
