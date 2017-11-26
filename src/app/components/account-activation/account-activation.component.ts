@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Iuser} from "../../interface/user.interface";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-account-activation',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountActivationComponent implements OnInit {
 
-  constructor() { }
+  user={} as Iuser;
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
+    this.userService.getUser().subscribe((user:Iuser)=>{
+      this.user=user;
+    },(err)=>{
+      console.log(err);
+    });
   }
 
+    createBlockchainAccount(){
+    console.log('creating')
+    this.userService.createAccountOnBlockchain().subscribe((user:Iuser)=>{
+      console.log('succcesss')
+    },(err)=>{
+        console.log(err);
+    });
+
+    }
 }

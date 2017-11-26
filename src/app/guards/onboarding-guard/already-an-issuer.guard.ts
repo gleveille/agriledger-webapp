@@ -35,8 +35,8 @@ export class AlreadyAnIssuerGuard implements CanActivate {
                         return false;
                     }
 
-                    if(user && !user.isIssuerOnBlockchain){
-                        this.router.navigate(['/onboarding/dashboard']);
+                    if(user && user.isIssuerOnBlockchain){
+                        this.router.navigate(['/dashboard']);
                         return false;
                     }
                     return true;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Iuser} from "../interface/user.interface";
-import {UserApi} from '../api.config';
+import {UserApi,OnboardingApi} from '../api.config';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
@@ -87,5 +87,12 @@ export class UserService {
 
     resetState(){
       this.user={};
+    }
+
+    createAccountOnBlockchain(){
+        return this.http.post(`${OnboardingApi.createAccount.url()}`,
+            {userId:this.user.id}).do((data)=>{
+            //this.user.isPasswordChanged=true;
+        });
     }
 }

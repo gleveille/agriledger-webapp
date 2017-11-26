@@ -35,6 +35,24 @@ const UserApi={
 }
 
 
+const OnboardingApi={
+    createAccount:{
+        url:()=>ServerUrl+'/api/blockchain/account',
+        method:'POST'
+    },
+    logout:{
+        url:()=>ServerUrl+'/api/users/logout'
+    },
+    changePassword:{
+        url:()=>ServerUrl+'/api/users/change-password'
+    },
+    findById:{
+        url:()=>ServerUrl+'/api/users'
+    }
+}
+
+
+
 const marketApi={
     //Get all trading area
     "getTradingArea":{
@@ -199,4 +217,4 @@ const marketApi={
 }
 
 
-export {UserApi,ProfileApi,BlockChainApi}
+export {UserApi,ProfileApi,BlockChainApi,OnboardingApi}

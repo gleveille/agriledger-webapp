@@ -16,13 +16,13 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="control-label">Sponsor Name</label>
-                    <input [disabled]="true" type="text" class="form-control" >
+                    <input [disabled]="true" [(ngModel)]="user.name"  name="name" type="text" class="form-control" >
                   </div>
                 </div>
               </div>
 
 
-              <button type="submit" class="btn btn-danger pull-right">Create Account</button>
+              <button (click)="createBlockchainAccount()" type="submit" class="btn btn-danger pull-right">Create Account</button>
               <div class="clearfix"></div>
             </form>
           </div>

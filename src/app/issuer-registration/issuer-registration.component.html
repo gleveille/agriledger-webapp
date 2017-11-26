@@ -1,3 +1,50 @@
-<p>
-  issuer-registration works!
-</p>
+<app-header></app-header>
+
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Become an Issuer</h4>
+            <p class="category">Once you become an issuer,your account will be activated</p>
+          </div>
+          <div class="card-content">
+            <form>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="control-label">Sponsor Name</label>
+                    <input [disabled]="true" [(ngModel)]="user.name"  name="sponserName" type="text" class="form-control" >
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="control-label">Issuer Name</label>
+                    <input  [(ngModel)]="issuer.name"  name="issuerName" type="text" class="form-control" >
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="control-label">Description</label>
+                    <input [(ngModel)]="issuer.description"  name="description" type="text" class="form-control" >
+                  </div>
+                </div>
+
+
+              </div>
+
+
+              <button (click)="registerAsIssuer()" type="submit" class="btn btn-danger pull-right">Register</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
