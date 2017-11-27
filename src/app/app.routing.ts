@@ -90,7 +90,7 @@ const routes:Routes = [
         data: {
             expectedRole: ['sponsor', 'ops']
         },
-        /*canActivate:[AuthenticationGuard,DashboardAuthorizationGuard],*/
+        canActivate:[AuthenticationGuard,DashboardAuthorizationGuard],
 
         children: [
             {path: '', redirectTo: 'user-profile', pathMatch: 'full'},
