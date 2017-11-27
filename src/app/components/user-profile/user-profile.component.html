@@ -186,111 +186,110 @@
 -->
 
 
-
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2 ">
+            <div class="col-lg-8 col-lg-offset-2">
                 <div class="card">
                     <div class="card-header" data-background-color="red">
                         <h4 class="title">My Account</h4>
                     </div>
                     <div class="card-content" style="margin-top: 30px;">
-                            <div class=" card-profile">
-                                <div class="card-avatar">
-                                    <a href="javascipt:void(0)">
-                                        <img class="img" src="../assets/img/default-avatar.png" />
-                                    </a>
-                                </div>
+                        <div class=" card-profile">
+                            <div class="card-avatar">
+                                <a href="javascipt:void(0)">
+                                    <img class="img" src="../assets/img/default-avatar.png"/>
+                                </a>
+                            </div>
 
-                                <div class="content" style="padding-left: 20px;padding-right: 20px;">
-                                    <h4 class="card-title" style="text-transform: capitalize">{{user?.name}} </h4>
-                                    <p class="text-gray">
-                                        <span>{{user?.email}}</span>
-                                        &nbsp;
-                                        <span style="border:0.5px solid  #999999;"></span>
-                                        &nbsp;
-                                        <span>{{user?.phone||'Mob. not available'}}</span>
-                                    </p>
+                            <div class="content" style="padding-left: 20px;padding-right: 20px;">
+                                <h4 class="card-title" style="text-transform: capitalize">{{user?.name}} </h4>
+                                <p class="text-gray">
+                                    <span>{{user?.email}}</span>
+                                    &nbsp;
+                                    <span style="border:0.5px solid  #999999;"></span>
+                                    &nbsp;
+                                    <span>{{user?.phone||'Mob. not available'}}</span>
+                                </p>
 
-                                    <div class=" card-content">
-                                        <div class="col-md-4 ">
-                                            <div *ngIf="user?.isRegisteredOnBlockchain" class="form-group label-floating has-success">
-                                                <label class="control-label">Blockchain Account</label>
-                                                <input [disabled]="true" type="text" value="Active" class="form-control" />
+                                <div class=" card-content">
+                                    <div class="col-md-4 ">
+                                        <div *ngIf="user?.isRegisteredOnBlockchain"
+                                             class="form-group label-floating has-success">
+                                            <label class="control-label">Blockchain Account</label>
+                                            <input [disabled]="true" type="text" value="Active" class="form-control"/>
                                                 <span class="form-control-feedback">
                                     <i class="material-icons">done</i>
                                 </span>
-                                            </div>
-
-                                            <div *ngIf="!user?.isRegisteredOnBlockchain" class="form-group label-floating has-error">
-                                                <label class="control-label">Blockchain Account</label>
-                                                <input [disabled]="true" type="text" value="Inactive" class="form-control" />
-                                                <span class="material-icons form-control-feedback">clear</span>
-
-                                            </div>
-
-
                                         </div>
 
-
-
-
-                                        <div *ngIf="user?.isRegisteredOnBlockchain"  class="col-md-4">
-                                            <div class="form-group label-floating has-success">
-                                                <label class="control-label">Initial ACC Transfered</label>
-                                                <input [disabled]="true" type="text" value="100 ACC" class="form-control" />
-                                                <span class="form-control-feedback">
-                                    <i class="material-icons">done</i>
-                                </span>
-                                            </div>
-
-                                            <div  *ngIf="!user?.isRegisteredOnBlockchain" class="form-group label-floating has-error">
-                                                <label class="control-label">Initial ACC Transfered</label>
-                                                <input [disabled]="true" type="text" value="Pending" class="form-control" />
-                                                <span class="material-icons form-control-feedback">clear</span>
-
-                                            </div>
-
-
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div *ngIf="user?.isIssuerOnBlockchain"  class="form-group label-floating has-success">
-                                                <label class="control-label">Issuer Account</label>
-                                                <input [disabled]="true" type="text" value="Active" class="form-control" />
-                                                <span class="form-control-feedback">
-                                    <i class="material-icons">done</i>
-                                </span>
-                                            </div>
-
-                                            <div *ngIf="!user?.isIssuerOnBlockchain"  class="form-group label-floating has-error">
-                                                <label class="control-label">Issuer Account</label>
-                                                <input [disabled]="true" type="text" value="Inactive" class="form-control" />
-                                                <span class="material-icons form-control-feedback">clear</span>
-
-                                            </div>
-
+                                        <div *ngIf="!user?.isRegisteredOnBlockchain"
+                                             class="form-group label-floating has-error">
+                                            <label class="control-label">Blockchain Account</label>
+                                            <input [disabled]="true" type="text" value="Inactive" class="form-control"/>
+                                            <span class="material-icons form-control-feedback">clear</span>
 
                                         </div>
 
 
                                     </div>
 
-                                    <p>
-                                        <i class="material-icons">info_outline</i>
-                                        <span  style="position: relative;bottom: 7px;" class="text-gray">To change any information please contact us</span>
-                                    </p>
 
-                                    <!--
-                                                        <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
-                                    -->
+                                    <div *ngIf="user?.isRegisteredOnBlockchain" class="col-md-4">
+                                        <div class="form-group label-floating has-success">
+                                            <label class="control-label">Initial ACC Transfered</label>
+                                            <input [disabled]="true" type="text" value="100 ACC" class="form-control"/>
+                                                <span class="form-control-feedback">
+                                    <i class="material-icons">done</i>
+                                </span>
+                                        </div>
+
+                                        <div *ngIf="!user?.isRegisteredOnBlockchain"
+                                             class="form-group label-floating has-error">
+                                            <label class="control-label">Initial ACC Transfered</label>
+                                            <input [disabled]="true" type="text" value="Pending" class="form-control"/>
+                                            <span class="material-icons form-control-feedback">clear</span>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div *ngIf="user?.isIssuerOnBlockchain"
+                                             class="form-group label-floating has-success">
+                                            <label class="control-label">Issuer Account</label>
+                                            <input [disabled]="true" type="text" value="Active" class="form-control"/>
+                                                <span class="form-control-feedback">
+                                    <i class="material-icons">done</i>
+                                </span>
+                                        </div>
+
+                                        <div *ngIf="!user?.isIssuerOnBlockchain"
+                                             class="form-group label-floating has-error">
+                                            <label class="control-label">Issuer Account</label>
+                                            <input [disabled]="true" type="text" value="Inactive" class="form-control"/>
+                                            <span class="material-icons form-control-feedback">clear</span>
+
+                                        </div>
+
+
+                                    </div>
+
+
                                 </div>
 
+                                <p>
+                                    <i class="material-icons">info_outline</i>
+                                    <span style="position: relative;bottom: 7px;" class="text-gray">To change any information please contact us</span>
+                                </p>
 
-
-
+                                <!--
+                                                    <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+                                -->
                             </div>
+
+
+                        </div>
 
                     </div>
                 </div>
