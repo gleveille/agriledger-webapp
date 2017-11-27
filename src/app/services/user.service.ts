@@ -105,10 +105,11 @@ export class UserService {
     }
 
     errorHandler(res:any):Observable<any>{
+      console.log(res);
       let msg='';
       if(res.error){
         try{
-          let data=JSON.parse(res.error);
+          const data=JSON.parse(res.error);
           console.log(data)
           if(data && data.message){
               msg=data.message;
