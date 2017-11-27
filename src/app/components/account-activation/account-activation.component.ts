@@ -24,7 +24,7 @@ export class AccountActivationComponent implements OnInit {
 
     createBlockchainAccount(){
     this.userService.createAccountOnBlockchain().subscribe((user:Iuser)=>{
-        this.toastService.success('Account','Your account have been created.we are transferring some ACC');
+        this.toastService.success('Account','Your account have been created.we have transferred few ACC.it might take while');
         this.router.navigate(['/onboarding/issuer-registration']);
     },(err)=>{
       console.log(err);
