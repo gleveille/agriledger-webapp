@@ -2080,13 +2080,13 @@ label.control-label {
 .form-group .checkbox label,
 .form-group .radio label,
 .form-group label {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.42857;
   color: #AAAAAA;
   font-weight: 400;
 }
 .form-group label.control-label {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.07143;
   color: #AAAAAA;
   font-weight: 400;
@@ -3420,7 +3420,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   background-color: #3f51b5;
 }
 .navbar.navbar-transparent {
-  background-color: transparent;
+  background-color: white;
   box-shadow: none;
   border-bottom: 0;
 }
