@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { TableListComponent } from './components/table-list/table-list.component';
+import {NgModule} from '@angular/core';
+import {CommonModule,} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+import {Routes, RouterModule} from '@angular/router';
+import {UserProfileComponent} from './components/user-profile/user-profile.component';
+import {TableListComponent} from './components/table-list/table-list.component';
 import {LandingComponent} from "./components/landing/landing.component";
 import {PasswordChangeComponent} from "./components/password-change/password-change.component";
 import {AccountActivationComponent} from "./components/account-activation/account-activation.component";
@@ -18,8 +18,11 @@ import {IssuerRegistrationComponent} from "./issuer-registration/issuer-registra
 import {AlreadyChangedPasswordGuard} from "./guards/onboarding-guard/already-changed-password.guard";
 import {AlreadyRegisteredOnBlockchainGuard} from "./guards/onboarding-guard/already-registered-on-blockchain.guard";
 import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.guard";
+import {AssetsComponent} from "./assets/assets.component";
+import {AssetPoolComponent} from "./asset-pool/asset-pool.component";
+import {WalletComponent} from "./wallet/wallet.component";
 
-const routes: Routes =[
+const routes:Routes = [
     {
         path: '',
         redirectTo: 'landing',
@@ -28,34 +31,32 @@ const routes: Routes =[
     {
         path: 'landing',
         component: LandingComponent,
-        canActivate:[AlreadyAuthenticatedGuard],
+        canActivate: [AlreadyAuthenticatedGuard],
 
 
     },
     {
         path: 'login',
         component: LoginComponent,
-        canActivate:[AlreadyAuthenticatedGuard],
+        canActivate: [AlreadyAuthenticatedGuard],
 
     },
     {
         path: 'unauthorised',
         component: Page403Component,
-        canActivate:[AuthenticationGuard],
+        canActivate: [AuthenticationGuard],
 
 
     },
-
-
     {
         path: 'onboarding',
         component: OnboardingComponent,
         children: [
-            { path: '', redirectTo: 'password-change', pathMatch: 'full'},
+            {path: '', redirectTo: 'password-change', pathMatch: 'full'},
             {
                 path: 'password-change',
                 component: PasswordChangeComponent,
-                canActivate:[AuthenticationGuard,AlreadyChangedPasswordGuard],
+                canActivate: [AuthenticationGuard, AlreadyChangedPasswordGuard],
 
                 data: {
                     expectedRole: ['sponsor']
@@ -64,7 +65,7 @@ const routes: Routes =[
             {
                 path: 'account-activation',
                 component: AccountActivationComponent,
-                canActivate:[AuthenticationGuard,AlreadyRegisteredOnBlockchainGuard],
+                canActivate: [AuthenticationGuard, AlreadyRegisteredOnBlockchainGuard],
 
                 data: {
                     expectedRole: ['sponsor']
@@ -73,7 +74,7 @@ const routes: Routes =[
             {
                 path: 'issuer-registration',
                 component: IssuerRegistrationComponent,
-                canActivate:[AuthenticationGuard,AlreadyAnIssuerGuard],
+                canActivate: [AuthenticationGuard, AlreadyAnIssuerGuard],
 
                 data: {
                     expectedRole: ['sponsor']
@@ -87,28 +88,30 @@ const routes: Routes =[
         path: 'dashboard',
         component: DashboardSponserComponent,
         data: {
-            expectedRole: ['sponsor','ops']
+            expectedRole: ['sponsor', 'ops']
         },
-        canActivate:[AuthenticationGuard,DashboardAuthorizationGuard],
+        /*canActivate:[AuthenticationGuard,DashboardAuthorizationGuard],*/
 
         children: [
-            { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
-            { path: 'user-profile', component: UserProfileComponent },
-            { path: 'user-profile',   component: UserProfileComponent },
-            { path: 'table-list',     component: TableListComponent }
+            {path: '', redirectTo: 'user-profile', pathMatch: 'full'},
+            {path: 'user-profile', component: UserProfileComponent},
+            {path: 'table-list', component: TableListComponent},
+            {path: 'assets', component: AssetsComponent},
+            {path: 'assets-pool', component: AssetPoolComponent},
+            {path: 'wallet-page', component: WalletComponent}
         ]
     },
-    { path: '**', redirectTo: '' }
+    {path: '**', redirectTo: ''}
 
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        RouterModule.forRoot(routes)
+    ],
+    exports: [],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -31,6 +31,9 @@ import { IssuerRegistrationComponent } from './issuer-registration/issuer-regist
 import {AlreadyChangedPasswordGuard} from "./guards/onboarding-guard/already-changed-password.guard";
 import {AlreadyRegisteredOnBlockchainGuard} from "./guards/onboarding-guard/already-registered-on-blockchain.guard";
 import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.guard";
+import { AssetsComponent } from './assets/assets.component';
+import { AssetPoolComponent } from './asset-pool/asset-pool.component';
+import { WalletComponent } from './wallet/wallet.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.
     OnboardingComponent,
     Page403Component,
     IssuerRegistrationComponent,
+    AssetsComponent,
+    AssetPoolComponent,
+    WalletComponent,
 
   ],
   imports: [
