@@ -2,8 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule,} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {Routes, RouterModule} from '@angular/router';
-import {UserProfileComponent} from './components/user-profile/user-profile.component';
-import {TableListComponent} from './components/table-list/table-list.component';
+import {AccountComponent} from './components/account/account.component';
 import {LandingComponent} from "./components/landing/landing.component";
 import {PasswordChangeComponent} from "./components/password-change/password-change.component";
 import {AccountActivationComponent} from "./components/account-activation/account-activation.component";
@@ -21,6 +20,7 @@ import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.
 import {AssetsComponent} from "./assets/assets.component";
 import {AssetPoolComponent} from "./asset-pool/asset-pool.component";
 import {WalletComponent} from "./wallet/wallet.component";
+import {FarmersComponent} from "./farmers/farmers.component";
 
 const routes:Routes = [
     {
@@ -93,12 +93,13 @@ const routes:Routes = [
         canActivate:[AuthenticationGuard,DashboardAuthorizationGuard],
 
         children: [
-            {path: '', redirectTo: 'user-profile', pathMatch: 'full'},
-            {path: 'user-profile', component: UserProfileComponent},
-            {path: 'table-list', component: TableListComponent},
+            {path: '', redirectTo: 'farmers', pathMatch: 'full'},
+            {path: 'farmers', component: FarmersComponent},
             {path: 'assets', component: AssetsComponent},
             {path: 'assets-pool', component: AssetPoolComponent},
-            {path: 'wallet-page', component: WalletComponent}
+            {path: 'wallet-page', component: WalletComponent},
+            {path: 'account', component: AccountComponent},
+
         ]
     },
     {path: '**', redirectTo: ''}

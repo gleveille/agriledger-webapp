@@ -3,11 +3,11 @@ import {UserService} from "../../services/user.service";
 import {Iuser} from "../../interface/user.interface";
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-account',
+  templateUrl: './account.component.html',
+  styleUrls: ['./account.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class AccountComponent implements OnInit {
 
 
   user={} as Iuser;

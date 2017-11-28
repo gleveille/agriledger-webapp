@@ -8,8 +8,7 @@ import { ComponentsModule } from './shared/components.module';
 
 import { AppComponent } from './app.component';
 
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { TableListComponent } from './components/table-list/table-list.component';
+import { AccountComponent } from './components/account/account.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
@@ -34,12 +33,16 @@ import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.
 import { AssetsComponent } from './assets/assets.component';
 import { AssetPoolComponent } from './asset-pool/asset-pool.component';
 import { WalletComponent } from './wallet/wallet.component';
+import { FarmersComponent } from './farmers/farmers.component';
+import {ErrorHandlerService} from "./services/error-handler.service";
+import {FarmerService} from "./services/farmer.service";
+import { SpinnerComponent } from './spinner/spinner.component';
+import { ErrorShowComponent } from './error-show/error-show.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserProfileComponent,
-    TableListComponent,
+    AccountComponent,
     DashboardSponserComponent,
     LandingComponent,
     LoginComponent,
@@ -53,6 +56,9 @@ import { WalletComponent } from './wallet/wallet.component';
     AssetsComponent,
     AssetPoolComponent,
     WalletComponent,
+    FarmersComponent,
+    SpinnerComponent,
+    ErrorShowComponent,
 
   ],
   imports: [
@@ -71,8 +77,10 @@ import { WalletComponent } from './wallet/wallet.component';
           useClass: InterceptorService,
           multi: true
       },
+      ErrorHandlerService,
       UserService,
       ToastService,
+      FarmerService,
       AuthenticationGuard,
       DashboardAuthorizationGuard,
       AlreadyAuthenticatedGuard,

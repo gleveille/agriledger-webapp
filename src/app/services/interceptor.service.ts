@@ -17,7 +17,7 @@ export class InterceptorService implements HttpInterceptor {
 
         request = request.clone({
             setHeaders: {
-                Authorization: `${localStorage.getItem('accessToken')}`
+                'X-Access-Token': `${localStorage.getItem('accessToken')}`
             }
         });
 

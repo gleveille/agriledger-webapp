@@ -1,0 +1,48 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Farmers</h4>
+            <p class="category">List of all farmers</p>
+          </div>
+          <div class="card-content table-responsive">
+
+            <div *ngIf="farmerResolvedStatus==='pending'" style="margin-top: 200px;">
+              <app-spinner></app-spinner>
+            </div>
+
+            <h5 class="text-center text-gray" *ngIf="farmerResolvedStatus==='resolved' && !farmers.length">
+              No Farmer onboarded yet
+            </h5>
+
+            <table class="table" *ngIf="farmerResolvedStatus==='resolved' && farmers.length">
+              <thead  >
+              <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Phone</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let farmer of farmers">
+                <td>{{farmer?.name}}</td>
+                <td>Niger</td>
+                <td>Oud-Turnhout</td>
+                <td  >36738</td>
+              </tr>
+              </tbody>
+            </table>
+
+
+            <app-error-show [error]="'We could not fetch farmers.Try again'" *ngIf="farmerResolvedStatus==='rejected'"></app-error-show>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

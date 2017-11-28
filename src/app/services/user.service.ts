@@ -5,13 +5,13 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
-
 import {HttpClient} from "@angular/common/http";
+import {ErrorHandlerService} from "./error-handler.service";
 @Injectable()
 export class UserService {
 
   user={} as Iuser;
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,private errorHandler:ErrorHandlerService) {
     console.log('access token is',localStorage.getItem('accessToken') ,'userId is ',localStorage.getItem('userId'));
   }
 
@@ -75,7 +75,7 @@ export class UserService {
           this.user.isPasswordChanged=true;
         })
         .catch((res)=> {
-            return this.errorHandler(res);
+            return this.errorHandler.handle(res);
         });
 
     }
@@ -100,35 +100,21 @@ export class UserService {
             this.user.isRegisteredOnBlockchain=true;
         })
             .catch((res)=> {
-                return this.errorHandler(res);
+                return this.errorHandler.handle(res);
             });
     }
 
-    errorHandler(res:any):Observable<any>{
-      console.log(res);
-      let msg='';
-      if(res.error){
-        try{
-          const data=JSON.parse(res.error);
-          console.log(data)
-          if(data && data.message){
-              msg=data.message;
-
-          }
-        }
-
-        catch(err) {
-        }
+    getUsersByRole(role:string){
+      if(!role){
+        return Observable.throw('Role is not found');
       }
-      else{
-
-          msg=res.statusText||'Server error.Try again';
-      }
-
-      msg= msg ? msg :'Something went wrong';
-
-      console.log(msg);
-        return Observable.throw({message:msg,status:res.status});
-
+        return this.http.get(`${UserApi.list.url()}?filter[where][role]=${role}`)
+            .do((farmers:any)=>{
+                console.log(farmers);
+            })
+            .catch((res)=> {
+                return this.errorHandler.handle(res);
+            });
     }
+
 }

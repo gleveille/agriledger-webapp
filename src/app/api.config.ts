@@ -1,3 +1,7 @@
+
+// This  file contains list of all the api this angular application uses.
+// This file also documenting how to use the api
+
 import {environment} from '../environments/environment';
 export const ServerUrl=environment.apiURL+':'+environment.apiPORT;
 export const BlockChainServerUrl=environment.blockchainURL;
@@ -21,16 +25,29 @@ const ContainerApi={
 
 const UserApi={
     login:{
-        url:()=>ServerUrl+'/api/users/login'
+        url:()=>ServerUrl+'/api/users/login',
+        method:'POST'
+
     },
     logout:{
-        url:()=>ServerUrl+'/api/users/logout'
+        url:()=>ServerUrl+'/api/users/logout',
+        method:'POST'
+
     },
     changePassword:{
-        url:()=>ServerUrl+'/api/users/change-password'
+        url:()=>ServerUrl+'/api/users/change-password',
+        method:'POST'
+
     },
     findById:{
-        url:()=>ServerUrl+'/api/users'
+        url:()=>ServerUrl+'/api/users',
+        method:'POST'
+
+    },
+    list:{
+        url:()=>ServerUrl+'/api/users',
+        method:'GET'
+
     }
 }
 
@@ -39,15 +56,6 @@ const OnboardingApi={
     createAccount:{
         url:()=>ServerUrl+'/api/blockchain/account',
         method:'POST'
-    },
-    logout:{
-        url:()=>ServerUrl+'/api/users/logout'
-    },
-    changePassword:{
-        url:()=>ServerUrl+'/api/users/change-password'
-    },
-    findById:{
-        url:()=>ServerUrl+'/api/users'
     }
 }
 
