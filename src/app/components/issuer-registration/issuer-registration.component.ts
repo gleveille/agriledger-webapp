@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Iuser} from "../../interface/user.interface";
 import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
 import {ToastData, ToastOptions, ToastyService} from "ng2-toasty";
 import 'rxjs/add/observable/interval';
+import {Subscription} from "rxjs/Subscription";
 @Component({
   selector: 'app-issuer-registration',
   templateUrl: './issuer-registration.component.html',
   styleUrls: ['./issuer-registration.component.css']
 })
-export class IssuerRegistrationComponent implements OnInit {
+export class IssuerRegistrationComponent implements OnInit,OnDestroy {
 
     account={} as any;
     issuer={name:null,description:null};
     toast={} as ToastData;
     timer:any=null;
+    subscription:Subscription;
     constructor(private userService:UserService,private toastyService:ToastyService) { }
 
     ngOnInit() {
@@ -29,7 +31,7 @@ export class IssuerRegistrationComponent implements OnInit {
     getBlockchainAccount(){
 
         console.log('polling server ')
-        const subscription=this.userService.getBlockchainAccount().subscribe((account:any)=>{
+        this.subscription=this.userService.getBlockchainAccount().subscribe((account:any)=>{
             this.account=account;
             console.log(this.account);
 
@@ -42,12 +44,12 @@ export class IssuerRegistrationComponent implements OnInit {
                 const msg=`${this.account.balance} ACC transferred`
                 this.showToast('success',msg,true);
 
-                subscription.unsubscribe();
+                this.subscription.unsubscribe();
 
             }
             else{
                 this.clearToast();
-                this.showToast('wait','In Progress',true);
+                this.showToast('wait','Hold on! We have initialsed the tranfer',true);
 
             }
 
@@ -61,7 +63,7 @@ export class IssuerRegistrationComponent implements OnInit {
 
     showToast(type:string,message:string,showClose:boolean=false){
         const toastOptions: ToastOptions = {
-            title: 'Transferring ACC',
+            title: 'Wallet Balance',
             msg:message,
             showClose:showClose,
             timeout:500000,
@@ -109,6 +111,14 @@ export class IssuerRegistrationComponent implements OnInit {
             console.log(err);
         });
 */
+    }
+
+    ngOnDestroy(){
+
+        if(this.subscription)
+            this.subscription.unsubscribe();
+        this.clearToast();
+
     }
 
 }
