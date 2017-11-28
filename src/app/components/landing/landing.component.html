@@ -11,7 +11,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand"  href="javascript:void (0)">Agriledger</a>
+                    <a class="navbar-brand" href="javascript:void (0)">Agriledger</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navigation-example">
@@ -59,38 +59,38 @@
         </a>
     </div>
 
-    <!--
-        <footer class="footer">
-          <div class="container">
-            <nav class="pull-left">
-              <ul>
-                <li>
-                  <a href="http://www.creative-tim.com">
-                    Agriledger Team
-                  </a>
-                </li>
-                <li>
-                  <a href="http://presentation.creative-tim.com">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="http://blog.creative-tim.com">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="http://www.creative-tim.com/license">
-                    Licenses
-                  </a>
-                </li>
-              </ul>
+    <footer class="footer" style="bottom: 0px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: lightgrey;">
+        <div class="container">
+            <nav class="">
+                <ul>
+                    <li>
+                        <a [routerLink]="['/about-us']" href="javascript:void(0)">
+                            About us
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/privacy']" href="javascript:void(0)">
+                            Privacy Policy
+                        </a>
+                    </li>
+
+                    <li>
+                        <a [routerLink]="['/terms']" href="javascript:void(0)">
+                            Terms & Conditions
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/contact-us']" href="javascript:void(0)">
+                            Contact us
+                        </a>
+                    </li>
+                </ul>
             </nav>
-            <div class="copyright pull-right">
-              &copy; 2016, made with <i class="fa fa-heart heart"></i> by Creative Tim
-            </div>
-          </div>
-        </footer>
-    -->
+        </div>
+    </footer>
 
 </section>
