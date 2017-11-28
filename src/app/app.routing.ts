@@ -21,6 +21,10 @@ import {AssetsComponent} from "./assets/assets.component";
 import {AssetPoolComponent} from "./asset-pool/asset-pool.component";
 import {WalletComponent} from "./wallet/wallet.component";
 import {FarmersComponent} from "./farmers/farmers.component";
+import {AboutUsComponent} from "./shared/about-us/about-us.component";
+import {ContactComponent} from "./shared/contact/contact.component";
+import {PrivacyComponent} from "./shared/privacy/privacy.component";
+import {TermsComponent} from "./shared/terms/terms.component";
 
 const routes:Routes = [
     {
@@ -32,21 +36,32 @@ const routes:Routes = [
         path: 'landing',
         component: LandingComponent,
         canActivate: [AlreadyAuthenticatedGuard],
-
-
     },
     {
         path: 'login',
         component: LoginComponent,
         canActivate: [AlreadyAuthenticatedGuard],
-
     },
     {
         path: 'unauthorised',
         component: Page403Component,
         canActivate: [AuthenticationGuard],
-
-
+    },
+    {
+        path: 'about-us',
+        component: AboutUsComponent,
+    },
+    {
+        path: 'contact-us',
+        component: ContactComponent,
+    },
+    {
+        path: 'privacy',
+        component: PrivacyComponent,
+    },
+    {
+        path: 'terms',
+        component: TermsComponent,
     },
     {
         path: 'onboarding',
@@ -97,9 +112,8 @@ const routes:Routes = [
             {path: 'farmers', component: FarmersComponent},
             {path: 'assets', component: AssetsComponent},
             {path: 'assets-pool', component: AssetPoolComponent},
-            {path: 'wallet-page', component: WalletComponent},
             {path: 'account', component: AccountComponent},
-
+            {path: 'wallet', component: WalletComponent}
         ]
     },
     {path: '**', redirectTo: ''}
