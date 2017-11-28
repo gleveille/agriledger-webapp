@@ -21,17 +21,13 @@
               <thead  >
               <tr>
                 <th>Name</th>
-                <th>Country</th>
-                <th>City</th>
                 <th>Phone</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let farmer of farmers">
                 <td>{{farmer?.name}}</td>
-                <td>Niger</td>
-                <td>Oud-Turnhout</td>
-                <td  >36738</td>
+                <td>{{farmer?.phone}}</td>
               </tr>
               </tbody>
             </table>

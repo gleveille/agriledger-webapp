@@ -24,20 +24,20 @@ import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {InterceptorService} from "./services/interceptor.service";
 import { HeaderComponent } from './shared/header/header.component';
-import { OnboardingComponent } from './onboarding/onboarding.component';
-import { Page403Component } from './page403/page403.component';
-import { IssuerRegistrationComponent } from './issuer-registration/issuer-registration.component';
+import { OnboardingComponent } from './components/onboarding/onboarding.component';
+import { Page403Component } from './shared/page403/page403.component';
+import { IssuerRegistrationComponent } from './components/issuer-registration/issuer-registration.component';
 import {AlreadyChangedPasswordGuard} from "./guards/onboarding-guard/already-changed-password.guard";
 import {AlreadyRegisteredOnBlockchainGuard} from "./guards/onboarding-guard/already-registered-on-blockchain.guard";
 import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.guard";
-import { AssetsComponent } from './assets/assets.component';
-import { AssetPoolComponent } from './asset-pool/asset-pool.component';
-import { WalletComponent } from './wallet/wallet.component';
-import { FarmersComponent } from './farmers/farmers.component';
+import { AssetsComponent } from './components/assets/assets.component';
+import { AssetPoolComponent } from './components/asset-pool/asset-pool.component';
+import { WalletComponent } from './components/wallet/wallet.component';
+import { FarmersComponent } from './components/farmers/farmers.component';
 import {ErrorHandlerService} from "./services/error-handler.service";
 import {FarmerService} from "./services/farmer.service";
-import { SpinnerComponent } from './spinner/spinner.component';
-import { ErrorShowComponent } from './error-show/error-show.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { ErrorShowComponent } from './shared/error-show/error-show.component';
 
 @NgModule({
   declarations: [

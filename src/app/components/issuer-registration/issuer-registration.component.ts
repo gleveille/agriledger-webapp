@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Iuser} from "../interface/user.interface";
-import {UserService} from "../services/user.service";
+import {Iuser} from "../../interface/user.interface";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-issuer-registration',
