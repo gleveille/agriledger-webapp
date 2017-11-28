@@ -13,12 +13,7 @@
           <div class="card-content">
             <form>
               <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="control-label">Sponsor Name</label>
-                    <input [disabled]="true" [(ngModel)]="user.name"  name="sponserName" type="text" class="form-control" >
-                  </div>
-                </div>
+
 
                 <div class="col-md-12">
                   <div class="form-group">
@@ -38,8 +33,14 @@
               </div>
 
 
-              <button (click)="registerAsIssuer()" type="submit" class="btn btn-danger pull-right">Register</button>
+              <button [disabled]="!account?.balance" (click)="registerAsIssuer()" type="submit" class="btn btn-danger pull-right">Register</button>
               <div class="clearfix"></div>
+
+              <div *ngIf="!account?.balance">
+                <label>
+                  <b>Hold on:</b> We have initialised the transfer of ACC.once transfered you can click on the button
+                </label>
+              </div>
             </form>
           </div>
         </div>

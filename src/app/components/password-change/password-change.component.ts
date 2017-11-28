@@ -22,7 +22,7 @@ export class PasswordChangeComponent implements OnInit {
     }
     this.userService.changePassword(this.credential.oldPassword,this.credential.newPassword)
         .subscribe((data:any)=>{
-            this.toastService.error('Password','Changed Sucessfully');
+            this.toastService.success('Password','Changed Sucessfully');
             this.router.navigate(['/dashboard']);
 
     },(err)=>{

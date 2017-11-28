@@ -6,6 +6,7 @@ export interface Iuser{
     password?:string,
     name?:string,
     phone?:string,
+    walletAddress?:string,
     isPasswordChanged?:boolean,
     isRegisteredOnBlockchain?:boolean,
     isIssuerOnBlockchain?:boolean,

@@ -56,6 +56,11 @@ const OnboardingApi={
     createAccount:{
         url:()=>ServerUrl+'/api/blockchain/account',
         method:'POST'
+    },
+    getAccount:{
+        url:()=>ServerUrl+'/api/blockchain/account',
+        method:'GET',
+        params:'address'
     }
 }
 

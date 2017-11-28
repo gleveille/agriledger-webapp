@@ -3,10 +3,15 @@ import {Iuser} from "../interface/user.interface";
 import {UserApi,OnboardingApi} from '../api.config';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/retry';
+
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
 import {ErrorHandlerService} from "./error-handler.service";
+import {retry} from "rxjs/operator/retry";
 @Injectable()
 export class UserService {
 
@@ -116,5 +121,24 @@ export class UserService {
                 return this.errorHandler.handle(res);
             });
     }
+
+    getBlockchainAccount(){
+        return Observable.interval(1000)
+            .switchMap((val)=>{
+            console.log(val)
+            return this.http.get(`${UserApi.findById.url()}/${localStorage.getItem('userId')}`)
+        })
+            .switchMap((user:any)=>{
+                return this.http.get(`${OnboardingApi.getAccount.url()}?address=${user.walletAddress}`);
+            })
+            .retry(3)
+            .do((final:any)=>{
+                console.log(final);
+            })
+            .catch((res)=> {
+                return this.errorHandler.handle(res);
+            });
+    }
+
 
 }
