@@ -51,6 +51,27 @@ const UserApi={
     }
 }
 
+const WalletApi={
+    getAccount:{
+        url:()=>ServerUrl+'/api/blockchain/account',
+        method:'GET',
+        params:'address'
+    },
+    getTransaction:{
+        url:()=>ServerUrl+'/api/blockchain/transactions',
+        method:'GET',
+        params:['senderPublicKey','recipientId']
+    }
+}
+
+const AssetApi={
+    getAssets:{
+        url:()=>ServerUrl+'/api/assets',
+        method:'GET',
+        params:['filterType','filterName']
+    }
+
+};
 
 const OnboardingApi={
     createAccount:{
@@ -58,7 +79,7 @@ const OnboardingApi={
         method:'POST'
     },
     getAccount:{
-        url:()=>ServerUrl+'/api/blockchain/account',
+        url:()=>WalletApi.getAccount.url(),
         method:'GET',
         params:'address'
     },
@@ -68,6 +89,8 @@ const OnboardingApi={
         params:'address'
     }
 }
+
+
 
 
 
@@ -235,4 +258,4 @@ const marketApi={
 }
 
 
-export {UserApi,ProfileApi,BlockChainApi,OnboardingApi}
+export {UserApi,ProfileApi,BlockChainApi,OnboardingApi,WalletApi,AssetApi}

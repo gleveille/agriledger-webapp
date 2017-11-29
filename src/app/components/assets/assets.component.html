@@ -7,25 +7,40 @@
             <h4 class="title">Assets</h4>
             <p class="category">List of Assets of all the Farmers</p>
           </div>
+
+          <div class="padding" style="padding: 15px;">
+            <div class="dropdown">
+              <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                Filter by Category <span style="font-weight: bolder" [hidden]="!chosenCategory">({{chosenCategory}})</span>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="javascript:void(0)" (click)="getAssets('category','rice')">Rice</a></li>
+                <li><a href="javascript:void(0)" (click)="getAssets('category','potato')">Potato</a></li>
+                <li><a href="javascript:void(0)" (click)="getAssets('category','tomato')">Tomato</a></li>
+
+              </ul>
+            </div>
+          </div>
+
           <div class="card-content table-responsive">
+
             <table class="table">
               <thead  >
-              <tr>
+              <tr >
                 <th>Name</th>
                 <th>Category</th>
-                <th>Grade/Quality</th>
                 <th>Quantity</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td><label class="container">
+              <tr *ngFor="let asset of assets" [routerLink]="['../assets',asset.id]">
+                <td><span>
                   <input type="checkbox" checked="checked">
-                  <span class="checkmark"></span>
-                </label>Dakota Rice</td>
-                <td>Rice</td>
-                <td>Oud-Turnhout</td>
-                <td  >36738</td>
+                </span>
+                  <span style="position:relative;top:-3px;">{{asset?.name}}</span></td>
+                <td>{{asset?.category}}</td>
+                <td>{{asset?.quantity}}</td>
               </tr>
               </tbody>
             </table>

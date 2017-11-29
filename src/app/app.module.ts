@@ -38,6 +38,10 @@ import {ErrorHandlerService} from "./services/error-handler.service";
 import {FarmerService} from "./services/farmer.service";
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ErrorShowComponent } from './shared/error-show/error-show.component';
+import {AssetsService} from "./services/assets.service";
+import {AssetsPoolService} from "./services/assets-pool.service";
+import {WalletService} from "./services/wallet.service";
+import { AssetViewComponent } from './asset-view/asset-view.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +63,7 @@ import { ErrorShowComponent } from './shared/error-show/error-show.component';
     FarmersComponent,
     SpinnerComponent,
     ErrorShowComponent,
+    AssetViewComponent,
 
   ],
   imports: [
@@ -81,6 +86,9 @@ import { ErrorShowComponent } from './shared/error-show/error-show.component';
       UserService,
       ToastService,
       FarmerService,
+      AssetsService,
+      AssetsPoolService,
+      WalletService,
       AuthenticationGuard,
       DashboardAuthorizationGuard,
       AlreadyAuthenticatedGuard,

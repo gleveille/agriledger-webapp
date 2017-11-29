@@ -9,7 +9,9 @@
                     <h4 class="title">Balance</h4>
                 </div>
                     <div class="card-content text-center" >
-                        <h2 class="card-title " style="text-transform: capitalize">{{'200 ACC'}} </h2>
+                        <app-spinner [type]="'bounce'" *ngIf="accountRequestStatus==='pending'"></app-spinner>
+
+                        <h2 class="card-title " style="text-transform: capitalize">{{account?.balance}} ACC </h2>
 
                         <a href="#" class="btn btn-primary " >Transfer</a>
 
@@ -35,17 +37,36 @@
                                 <thead  >
                                 <tr>
                                     <th>Transaction ID</th>
-                                    <th>Your Address</th>
-                                    <th>Recipient Address</th>
                                     <th>Amount</th>
+                                    <th>Sender Address</th>
+
+                                    <th>Recipient Address</th>
+                                    <th>BlockId</th>
+                                    <th>Remark</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>qwewr</td>
-                                    <td>sdfjhk</td>
-                                    <td>Ournhot</td>
-                                    <td >36738</td>
+
+                                <app-spinner [type]="'bounce'" *ngIf="txnRequestStatus==='pending'"></app-spinner>
+
+                                <tr *ngFor="let txn of transactions">
+                                    <td data-toggle="tooltip" data-placement="left" title="{{txn?.id}}">
+                                        {{txn?.id | slice:0:10}}{{txn?.id?'...':''}}
+                                    </td>
+                                    <td>{{txn?.amountShow}}</td>
+                                    <td data-toggle="tooltip" data-placement="left" title="{{txn?.senderId}}">
+                                        {{txn?.senderId | slice:0:10}}{{txn?.senderId?'...':''}}
+                                    </td>
+                                    <td data-toggle="tooltip" data-placement="left" title="{{txn?.recipientId}}">
+                                        {{txn?.recipientId | slice:0:10}}{{txn?.recipientId?'...':''}}
+                                    </td>
+                                    <td data-toggle="tooltip" data-placement="left" title="{{txn?.blockId}}">
+                                        {{txn?.blockId | slice:0:10}}{{txn?.blockId?'...':''}}
+                                    </td>
+
+                                    <td >{{txn?.message}}</td>
+
                                 </tr>
                                 </tbody>
                             </table>

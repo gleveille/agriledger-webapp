@@ -25,6 +25,7 @@ import {AboutUsComponent} from "./shared/about-us/about-us.component";
 import {ContactComponent} from "./shared/contact/contact.component";
 import {PrivacyComponent} from "./shared/privacy/privacy.component";
 import {TermsComponent} from "./shared/terms/terms.component";
+import {AssetViewComponent} from "./asset-view/asset-view.component";
 
 const routes:Routes = [
     {
@@ -111,6 +112,8 @@ const routes:Routes = [
             {path: '', redirectTo: 'farmers', pathMatch: 'full'},
             {path: 'farmers', component: FarmersComponent},
             {path: 'assets', component: AssetsComponent},
+            {path: 'assets/:assetId', component: AssetViewComponent},
+
             {path: 'assets-pool', component: AssetPoolComponent},
             {path: 'account', component: AccountComponent},
             {path: 'wallet', component: WalletComponent}
