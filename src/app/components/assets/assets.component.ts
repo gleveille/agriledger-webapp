@@ -13,6 +13,7 @@ export class AssetsComponent implements OnInit {
   assetsRequestStatus:string='resolved';
   assets:any[]=[];
   chosenCategory=null;
+  chosenStatus=null;
   constructor(private assetsService:AssetsService,private toastService:ToastService,private router:Router) { }
 
   ngOnInit() {
@@ -20,9 +21,14 @@ export class AssetsComponent implements OnInit {
     this.getAssets(null,null);
   }
     getAssets(filterType,filterName){
-    if(filterName){
+    if(filterName && filterType==='category'){
       this.chosenCategory=filterName;
+      this.chosenStatus=null;
     }
+        if(filterName && filterType==='status'){
+            this.chosenStatus=filterName;
+            this.chosenCategory=null;
+        }
         this.assetsRequestStatus='pending';
         this.assetsService.getAssets(filterType,filterName).subscribe((assets:any[])=>{
             this.assetsRequestStatus='resolved';

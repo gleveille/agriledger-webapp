@@ -213,63 +213,27 @@
                                 </p>
 
                                 <div class=" card-content">
-                                    <div class="col-md-4 ">
-                                        <div *ngIf="user?.isRegisteredOnBlockchain"
-                                             class="form-group label-floating has-success">
-                                            <label class="control-label">Blockchain Account</label>
-                                            <input [disabled]="true" type="text" value="Active" class="form-control"/>
-                                                <span class="form-control-feedback">
-                                    <i class="material-icons">done</i>
-                                </span>
-                                        </div>
-
-                                        <div *ngIf="!user?.isRegisteredOnBlockchain"
-                                             class="form-group label-floating has-error">
-                                            <label class="control-label">Blockchain Account</label>
-                                            <input [disabled]="true" type="text" value="Inactive" class="form-control"/>
-                                            <span class="material-icons form-control-feedback">clear</span>
-
-                                        </div>
-
-
-                                    </div>
-
-
-                                    <div *ngIf="user?.isRegisteredOnBlockchain" class="col-md-4">
+                                    <div class="col-md-6 ">
                                         <div class="form-group label-floating has-success">
-                                            <label class="control-label">Initial ACC Transfered</label>
-                                            <input [disabled]="true" type="text" value="100 ACC" class="form-control"/>
+                                            <label class="control-label">Blockchain Account</label>
+                                            <input [disabled]="true" type="text" value="Registered" class="form-control"/>
                                                 <span class="form-control-feedback">
                                     <i class="material-icons">done</i>
                                 </span>
                                         </div>
 
-                                        <div *ngIf="!user?.isRegisteredOnBlockchain"
-                                             class="form-group label-floating has-error">
-                                            <label class="control-label">Initial ACC Transfered</label>
-                                            <input [disabled]="true" type="text" value="Pending" class="form-control"/>
-                                            <span class="material-icons form-control-feedback">clear</span>
-                                        </div>
 
 
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <div *ngIf="user?.isIssuerOnBlockchain"
-                                             class="form-group label-floating has-success">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group label-floating has-success">
                                             <label class="control-label">Issuer Account</label>
                                             <input [disabled]="true" type="text" value="Active" class="form-control"/>
                                                 <span class="form-control-feedback">
                                     <i class="material-icons">done</i>
                                 </span>
-                                        </div>
-
-                                        <div *ngIf="!user?.isIssuerOnBlockchain"
-                                             class="form-group label-floating has-error">
-                                            <label class="control-label">Issuer Account</label>
-                                            <input [disabled]="true" type="text" value="Inactive" class="form-control"/>
-                                            <span class="material-icons form-control-feedback">clear</span>
-
                                         </div>
 
 
@@ -280,7 +244,8 @@
 
                                 <p>
                                     <i class="material-icons">info_outline</i>
-                                    <span style="position: relative;bottom: 7px;" class="text-gray">To change any information please contact us</span>
+                                    <span style="position: relative;bottom: 7px;" class="text-gray">To change any information please contact us at
+                                        <b>help@agriledger.co</b></span>
                                 </p>
 
                                 <!--

@@ -49,4 +49,14 @@ export class AssetsService {
                 return this.errorHandler.handle(res);
             });
     }
+
+    updateAsset(asset:any){
+        const url=`${AssetApi.getAssets.url()}/${asset.id}`;
+
+        return this.http.put(`${url}`,asset)
+            .retry(3)
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
+    }
 }

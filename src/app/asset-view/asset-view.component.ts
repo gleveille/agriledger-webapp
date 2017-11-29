@@ -3,6 +3,8 @@ import {ActivatedRoute} from "@angular/router";
 import {WalletService} from "../services/wallet.service";
 import 'rxjs/add/operator/concatMap';
 import {AssetsService} from "../services/assets.service";
+import {ToastService} from "../services/toast.service";
+import {IserviceError} from "../interface/serviceError.interface";
 
 @Component({
   selector: 'app-asset-view',
@@ -11,8 +13,8 @@ import {AssetsService} from "../services/assets.service";
 })
 export class AssetViewComponent implements OnInit {
 
-  asset={user:{}};
-  constructor(private activatedRoute:ActivatedRoute,private assetService:AssetsService) { }
+  asset={user:{},status:null};
+  constructor(private activatedRoute:ActivatedRoute,private assetService:AssetsService,private toastService:ToastService) { }
 
 
   ngOnInit() {
@@ -27,4 +29,16 @@ export class AssetViewComponent implements OnInit {
       })
   }
 
+    changeStatus(status:string){
+    this.asset.status=status;
+    console.log(this.asset)
+        this.assetService.updateAsset(this.asset).subscribe((asset)=>{
+    this.asset=asset;
+    const msg=`changed to ${status}`;
+    this.toastService.success('Status',msg);
+    console.log(asset)
+        },(err:IserviceError)=>{
+            this.toastService.error('Status',err.message);
+    })
+  }
 }

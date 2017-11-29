@@ -109,7 +109,8 @@ const routes:Routes = [
         canActivate:[AuthenticationGuard,DashboardAuthorizationGuard],
 
         children: [
-            {path: '', redirectTo: 'farmers', pathMatch: 'full'},
+            {path: '', redirectTo: 'account', pathMatch: 'full'},
+            {path: 'account', component: AccountComponent},
             {path: 'farmers', component: FarmersComponent},
             {path: 'assets', component: AssetsComponent},
             {path: 'assets/:assetId', component: AssetViewComponent},

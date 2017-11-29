@@ -8,20 +8,40 @@
             <p class="category">List of Assets of all the Farmers</p>
           </div>
 
-          <div class="padding" style="padding: 15px;">
-            <div class="dropdown">
-              <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                Filter by Category <span style="font-weight: bolder" [hidden]="!chosenCategory">({{chosenCategory}})</span>
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="javascript:void(0)" (click)="getAssets('category','rice')">Rice</a></li>
-                <li><a href="javascript:void(0)" (click)="getAssets('category','potato')">Potato</a></li>
-                <li><a href="javascript:void(0)" (click)="getAssets('category','tomato')">Tomato</a></li>
+          <div class="row" style="padding: 15px;">
+            <div class="col-xs-12">
+              <div class="dropdown" style="float: left">
+                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                  Filter by Category <span style="font-weight: bolder" [hidden]="!chosenCategory">({{chosenCategory}})</span>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="javascript:void(0)" (click)="getAssets('category','rice')">Rice</a></li>
+                  <li><a href="javascript:void(0)" (click)="getAssets('category','potato')">Potato</a></li>
+                  <li><a href="javascript:void(0)" (click)="getAssets('category','tomato')">Tomato</a></li>
 
-              </ul>
+                </ul>
+              </div>
+
+              <div class="dropdown" style="float: left">
+                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                  Filter by Status <span style="font-weight: bolder" [hidden]="!chosenStatus">({{chosenStatus}})</span>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="javascript:void(0)" (click)="getAssets('status','pending')">Pending</a></li>
+                  <li><a href="javascript:void(0)" (click)="getAssets('status','verified')">Verified</a></li>
+                  <li><a href="javascript:void(0)" (click)="getAssets('status','rejected')">Rejected</a></li>
+                  <li><a href="javascript:void(0)" (click)="getAssets('status','pooled')">Pooled</a></li>
+
+                </ul>
+              </div>
             </div>
+
+
+
           </div>
+
 
           <div class="card-content table-responsive">
 
@@ -29,8 +49,11 @@
               <thead  >
               <tr >
                 <th>Name</th>
+                <th>Description</th>
                 <th>Category</th>
                 <th>Quantity</th>
+                <th>Status</th>
+
               </tr>
               </thead>
               <tbody>
@@ -39,8 +62,12 @@
                   <input type="checkbox" checked="checked">
                 </span>
                   <span style="position:relative;top:-3px;">{{asset?.name}}</span></td>
+                <td>{{asset?.description}}</td>
+
                 <td>{{asset?.category}}</td>
                 <td>{{asset?.quantity}}</td>
+                <td style="text-transform: capitalize">{{asset?.status}}</td>
+
               </tr>
               </tbody>
             </table>
