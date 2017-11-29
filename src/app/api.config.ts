@@ -61,6 +61,11 @@ const OnboardingApi={
         url:()=>ServerUrl+'/api/blockchain/account',
         method:'GET',
         params:'address'
+    },
+    resgisterIssuer:{
+        url:()=>ServerUrl+'/api/blockchain/issuer',
+        method:'POST',
+        params:'address'
     }
 }
 

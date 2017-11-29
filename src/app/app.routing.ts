@@ -29,7 +29,7 @@ import {TermsComponent} from "./shared/terms/terms.component";
 const routes:Routes = [
     {
         path: '',
-        redirectTo: 'landing',
+        redirectTo: 'login',
         pathMatch: 'full'
     },
     {

@@ -5,6 +5,8 @@ import {ToastService} from "../../services/toast.service";
 import {ToastData, ToastOptions, ToastyService} from "ng2-toasty";
 import 'rxjs/add/observable/interval';
 import {Subscription} from "rxjs/Subscription";
+import {IserviceError} from "../../interface/serviceError.interface";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-issuer-registration',
   templateUrl: './issuer-registration.component.html',
@@ -17,10 +19,10 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
     toast={} as ToastData;
     timer:any=null;
     subscription:Subscription;
-    constructor(private userService:UserService,private toastyService:ToastyService) { }
+    constructor(private userService:UserService,private router:Router,private toastyService:ToastyService) { }
 
     ngOnInit() {
-        this.showToast('wait','Checking',false);
+        this.showToast('wait','Wallet Balance','wait',false,500000);
         this.getBlockchainAccount();
 
 
@@ -31,7 +33,7 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
     getBlockchainAccount(){
 
         console.log('polling server ')
-        this.subscription=this.userService.getBlockchainAccount().subscribe((account:any)=>{
+        this.subscription=this.userService.getBlockchainAccountDuringOnboarding().subscribe((account:any)=>{
             this.account=account;
             console.log(this.account);
 
@@ -42,14 +44,14 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
                 clearInterval(this.timer);
                 this.clearToast();
                 const msg=`${this.account.balance} ACC transferred`
-                this.showToast('success',msg,true);
+                this.showToast('success','Wallet Balance',msg,true,500000);
 
                 this.subscription.unsubscribe();
 
             }
             else{
                 this.clearToast();
-                this.showToast('wait','Hold on! We have initialsed the tranfer',true);
+                this.showToast('wait','Wallet Balance','Hold on! We have initialsed the tranfer',false,500000);
 
             }
 
@@ -61,12 +63,12 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
 
 
 
-    showToast(type:string,message:string,showClose:boolean=false){
+    showToast(type:string,title:string,message:string,showClose:boolean=false,timeout:number=5000){
         const toastOptions: ToastOptions = {
-            title: 'Wallet Balance',
+            title: title,
             msg:message,
             showClose:showClose,
-            timeout:500000,
+            timeout:timeout,
             onAdd: (toast: ToastData) => {
                 this.toast=toast;
                 console.log('Toast ' + toast.id + ' has been added!');
@@ -83,6 +85,9 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
                 break;
             case 'success':
                 this.toastyService.success(toastOptions);
+                break;
+            case 'error':
+                this.toastyService.error(toastOptions);
                 break;
             default:
                 this.toastyService.wait(toastOptions);
@@ -104,13 +109,34 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
 
     registerAsIssuer(){
         this.clearToast();
+
+        if(!this.account.balance)
+            return false;
         console.log('creating');
-    /*    this.userService.createAccountOnBlockchain().subscribe((user:Iuser)=>{
-            console.log('succcesss')
-        },(err)=>{
+
+        const reg = /^[A-Z]{1,16}$/;
+        if(!reg.test(this.issuer.name)){
+            const msg='Issuer name invalid.Name should be in all capital and 1-16 character long';
+            return this.showToast('error','Issuer',msg,true,5000);
+
+        }
+
+        if(!this.issuer.description){
+            const msg='Issuer description required';
+            return this.showToast('error','Issuer',msg,true,5000);
+        }
+
+
+        this.userService.resgisterAsIssuer(this.issuer).subscribe((user:Iuser)=>{
+            console.log('succcesss');
+            this.router.navigate(['/dashboard']);
+        },(err:IserviceError)=>{
             console.log(err);
+            return this.showToast('error','Issuer',err.message,true,5000);
+
         });
-*/
+
+
     }
 
     ngOnDestroy(){

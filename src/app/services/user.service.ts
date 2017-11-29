@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Iuser} from "../interface/user.interface";
-import {UserApi,OnboardingApi} from '../api.config';
+import {UserApi, OnboardingApi, BlockChainApi} from '../api.config';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/concatMap';
+
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/retry';
 
@@ -11,7 +12,6 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
 import {ErrorHandlerService} from "./error-handler.service";
-import {retry} from "rxjs/operator/retry";
 @Injectable()
 export class UserService {
 
@@ -65,25 +65,20 @@ export class UserService {
       console.log('from cache')
       return Observable.of(this.user);
     }
-      return this.http.get(`${UserApi.findById.url()}/${localStorage.getItem('userId')}`);
+      return this.http.get(`${UserApi.findById.url()}/${this.getUserId()}`);
   };
 
   setUserFromGuard(user:Iuser){
     this.user=user;
   }
-
-
-    changePassword(oldPassword:string,newPassword:string)
-    {
-        return this.http.post(`${UserApi.changePassword.url()}`,
-            {oldPassword:oldPassword,newPassword:newPassword}).do((data)=>{
+  changePassword(oldPassword:string,newPassword:string) {
+      return this.http.post(`${UserApi.changePassword.url()}`,
+          {oldPassword:oldPassword,newPassword:newPassword}).do((data)=>{
           this.user.isPasswordChanged=true;
-        })
-        .catch((res)=> {
-            return this.errorHandler.handle(res);
-        });
-
-    }
+      }).catch((res)=> {
+          return this.errorHandler.handle(res);
+      });
+  };
 
     logout(){
         return this.http.post(`${UserApi.logout.url()}`,
@@ -122,22 +117,29 @@ export class UserService {
             });
     }
 
-    getBlockchainAccount(){
+    getBlockchainAccountDuringOnboarding(){
         return Observable.interval(1000)
-            .switchMap((val)=>{
+            .concatMap((val)=>{
             console.log(val)
             return this.http.get(`${UserApi.findById.url()}/${localStorage.getItem('userId')}`)
         })
-            .switchMap((user:any)=>{
+            .concatMap((user:any)=>{
+            console.log(user)
                 return this.http.get(`${OnboardingApi.getAccount.url()}?address=${user.walletAddress}`);
             })
             .retry(3)
-            .do((final:any)=>{
-                console.log(final);
-            })
             .catch((res)=> {
                 return this.errorHandler.handle(res);
             });
+    }
+
+    resgisterAsIssuer(issuer:{name:string,description:string}){
+        return this.http.post(`${OnboardingApi.resgisterIssuer.url()}`,issuer).do((data)=>{
+            console.log(data)
+            this.user.isIssuerOnBlockchain=true;
+        }).catch((res)=> {
+            return this.errorHandler.handle(res);
+        });
     }
 
 
