@@ -99,11 +99,11 @@ export class UserService {
         return this.http.post(`${OnboardingApi.createAccount.url()}`,
             {userId:this.user.id})
             .do((data:any)=>{
-            console.log('account info')
-                console.log(data)
             this.user.isRegisteredOnBlockchain=true;
             this.user.walletAddress=data.walletAddress;
-        })
+            this.user.publicKey=data.publicKey;
+
+            })
             .catch((res)=> {
                 return this.errorHandler.handle(res);
             });
