@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SpinnerComponent implements OnInit {
 
-  @Input()type:string='default';
+  @Input()type:string='bounce';
   constructor() { }
 
   ngOnInit() {
