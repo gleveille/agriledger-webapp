@@ -22,7 +22,12 @@
               </div>
 
 
-              <button (click)="createBlockchainAccount()" type="submit" class="btn btn-danger pull-right">Create Account</button>
+              <button [disabled]="accountRequestStatus==='pending'"
+                      (click)="createBlockchainAccount()"
+                      type="submit"
+                      class="btn btn-primary pull-right">
+                Create Account
+              </button>
               <div class="clearfix"></div>
             </form>
           </div>

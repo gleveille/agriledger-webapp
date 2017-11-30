@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class PasswordChangeComponent implements OnInit {
 
   credential={oldPassword:null,newPassword:null,rePassword:null};
+  passwordChangeRequestStatus='resolved';
   constructor(private toastService:ToastService,private userService:UserService,private router:Router) { }
 
   ngOnInit() {
@@ -20,13 +21,19 @@ export class PasswordChangeComponent implements OnInit {
       this.toastService.error('Password','Password does not match');
       return;
     }
+
+    this.passwordChangeRequestStatus='pending';
     this.userService.changePassword(this.credential.oldPassword,this.credential.newPassword)
         .subscribe((data:any)=>{
+            this.passwordChangeRequestStatus='resolved';
+
             this.toastService.success('Password','Changed Sucessfully');
             this.router.navigate(['/dashboard']);
 
     },(err)=>{
-       this.toastService.error('Password',err.message);
+            this.passwordChangeRequestStatus='rejected';
+
+            this.toastService.error('Password',err.message);
     });
     }
 }

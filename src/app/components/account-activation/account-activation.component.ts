@@ -12,6 +12,7 @@ import {ToastService} from "../../services/toast.service";
 export class AccountActivationComponent implements OnInit {
 
   user={} as Iuser;
+  accountRequestStatus='resolved';
   constructor(private userService:UserService,private router:Router,private toastService:ToastService) { }
 
   ngOnInit() {
@@ -23,10 +24,18 @@ export class AccountActivationComponent implements OnInit {
   }
 
     createBlockchainAccount(){
+
+    if(this.accountRequestStatus==='pending')
+    {
+      return false;
+    }
+    this.accountRequestStatus='pending';
     this.userService.createAccountOnBlockchain().subscribe((user:Iuser)=>{
+      this.accountRequestStatus='resolved';
         this.toastService.success('Account','Your account have been created.we have transferred few ACC.it might take while');
         this.router.navigate(['/onboarding/issuer-registration']);
     },(err)=>{
+      this.accountRequestStatus='rejected';
       console.log(err);
         this.toastService.error('Account',err.message);
 

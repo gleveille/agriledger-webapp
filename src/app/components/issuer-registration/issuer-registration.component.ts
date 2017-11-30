@@ -19,6 +19,7 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
     toast={} as ToastData;
     timer:any=null;
     subscription:Subscription;
+    issuerRequestStatus='resolved';
     constructor(private userService:UserService,private router:Router,private toastyService:ToastyService) { }
 
     ngOnInit() {
@@ -127,11 +128,14 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
         }
 
 
+        this.issuerRequestStatus='pending';
         this.userService.resgisterAsIssuer(this.issuer).subscribe((user:Iuser)=>{
             console.log('succcesss');
+            this.issuerRequestStatus='resolved';
             this.router.navigate(['/dashboard']);
         },(err:IserviceError)=>{
             console.log(err);
+            this.issuerRequestStatus='rejected';
             return this.showToast('error','Issuer',err.message,true,5000);
 
         });

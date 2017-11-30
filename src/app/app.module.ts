@@ -42,6 +42,7 @@ import {AssetsService} from "./services/assets.service";
 import {AssetsPoolService} from "./services/assets-pool.service";
 import {WalletService} from "./services/wallet.service";
 import { AssetViewComponent } from './asset-view/asset-view.component';
+import { NgProgressModule, NgProgressInterceptor } from 'ngx-progressbar';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { AssetViewComponent } from './asset-view/asset-view.component';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    ToastyModule.forRoot()
+    ToastyModule.forRoot(),
+    NgProgressModule
 
   ],
   providers: [
@@ -82,6 +84,8 @@ import { AssetViewComponent } from './asset-view/asset-view.component';
           useClass: InterceptorService,
           multi: true
       },
+
+      { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true },
       ErrorHandlerService,
       UserService,
       ToastService,
