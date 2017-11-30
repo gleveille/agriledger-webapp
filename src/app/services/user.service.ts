@@ -50,6 +50,7 @@ export class UserService {
   }
 
 
+
   isAuthenticated(){
     if(this.getUserId() && this.getAccessToken()){
         return true;
@@ -96,8 +97,12 @@ export class UserService {
 
     createAccountOnBlockchain(){
         return this.http.post(`${OnboardingApi.createAccount.url()}`,
-            {userId:this.user.id}).do((data)=>{
+            {userId:this.user.id})
+            .do((data:any)=>{
+            console.log('account info')
+                console.log(data)
             this.user.isRegisteredOnBlockchain=true;
+            this.user.walletAddress=data.walletAddress;
         })
             .catch((res)=> {
                 return this.errorHandler.handle(res);
@@ -118,14 +123,13 @@ export class UserService {
     }
 
     getBlockchainAccountDuringOnboarding(){
+
+        console.log('user is')
+        console.log(this.user)
         return Observable.interval(1000)
-            .concatMap((val)=>{
+            .concatMap((val:any)=>{
             console.log(val)
-            return this.http.get(`${UserApi.findById.url()}/${localStorage.getItem('userId')}`)
-        })
-            .concatMap((user:any)=>{
-            console.log(user)
-                return this.http.get(`${OnboardingApi.getAccount.url()}?address=${user.walletAddress}`);
+                return this.http.get(`${OnboardingApi.getAccount.url()}?address=${this.user.walletAddress}`);
             })
             .retry(3)
             .catch((res)=> {
