@@ -32,7 +32,6 @@ export class AccountActivationComponent implements OnInit {
     this.accountRequestStatus='pending';
     this.userService.createAccountOnBlockchain().subscribe((user:Iuser)=>{
       this.accountRequestStatus='resolved';
-        this.toastService.success('Account','Your account have been created.we have transferred few ACC.it might take while');
         this.router.navigate(['/onboarding/issuer-registration']);
     },(err)=>{
       this.accountRequestStatus='rejected';

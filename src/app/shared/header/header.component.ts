@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
     logout() {
         this.userService.logout().subscribe((data)=> {
-            this.router.navigate(['/landing']);
+            this.router.navigate(['/login']);
         }, (err)=> {
             this.toastService.error('Logout', 'Could not be logged out.Try again');
         });

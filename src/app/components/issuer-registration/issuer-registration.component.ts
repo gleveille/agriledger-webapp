@@ -52,7 +52,7 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
             }
             else{
                 this.clearToast();
-                this.showToast('wait','Wallet Balance','Hold on! We have initialsed the tranfer',false,500000);
+                this.showToast('wait','Wallet Balance','Hold on! We are topping up your wallet',false,500000);
 
             }
 

@@ -5,6 +5,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 import {NavbarComponent} from '../../shared/navbar/navbar.component';
+import {WalletService} from "../../services/wallet.service";
 declare const $: any;
 
 @Component({
@@ -14,17 +15,19 @@ declare const $: any;
 })
 export class DashboardSponserComponent implements OnInit {
 
+    account={};
     private _router: Subscription;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
 
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
-    constructor( public location: Location, private router: Router) {
+    constructor( public location: Location, private router: Router,private walletService:WalletService) {
         console.log('dashboard ctr called')
     }
 
     ngOnInit() {
+        this.getAccount();
         $.material.init();
         const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
         const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
@@ -81,5 +84,19 @@ export class DashboardSponserComponent implements OnInit {
         }
         return bool;
     }
+    getAccount(){
 
+
+
+        this.walletService.getBlockchainAccount().subscribe((account:any)=>{
+
+            console.log('from dashboard............')
+            this.account=account;
+
+            console.log(account)
+        },(err)=>{
+
+            console.log( err)
+        })
+    }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, OnInit, ElementRef, Input} from '@angular/core';
 import {ROUTES} from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {ToastService} from "../../services/toast.service";
@@ -11,6 +11,8 @@ import {UserService} from "../../services/user.service";
     styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+    @Input()balance:any=null;
     private listTitles:any[]=[{path:'account',title:'Account'}];
     location:Location;
     private toggleButton:any;
@@ -74,7 +76,7 @@ export class NavbarComponent implements OnInit {
 
     logout() {
         this.userService.logout().subscribe((data)=> {
-            this.router.navigate(['/landing']);
+            this.router.navigate(['/login']);
         }, (err)=> {
             this.toastService.error('Logout', 'Could not be logged out.Try again');
         });

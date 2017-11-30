@@ -17,6 +17,7 @@ import {UserService} from "./user.service";
 export class AssetsService {
 
     assets:any[]=[];
+    selectedAssetsForPool=[];
     constructor(private http: HttpClient, private errorHandler: ErrorHandlerService, private userService: UserService) {
     }
 
@@ -58,5 +59,9 @@ export class AssetsService {
             .catch((res) => {
                 return this.errorHandler.handle(res);
             });
+    }
+
+    addAssetInPool(assets:any[]){
+        this.selectedAssetsForPool=assets;
     }
 }
