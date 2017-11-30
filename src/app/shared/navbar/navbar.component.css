@@ -3,3 +3,8 @@
     box-shadow: none;
     border-bottom: 0;
 }
+
+.navbar.navbar-primary {
+    background-color: #6ab187;
+    color: #ffffff;
+}

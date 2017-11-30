@@ -459,6 +459,7 @@ h2.title {
   overflow: auto;
   width: 260px;
   z-index: 4;
+  background-color: beige;
 }
 .sidebar .logo-img,
 .off-canvas-sidebar .logo-img {
@@ -635,7 +636,7 @@ h2.title {
 }
 .sidebar[data-color="green"] .nav li.active a,
 .off-canvas-sidebar[data-color="green"] .nav li.active a {
-  background-color: #4caf50;
+  background-color: #6ab187;
   box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
 }
 .sidebar[data-color="orange"] .nav li.active a,
@@ -3225,7 +3226,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   color: #fff;
 }
 .navbar.navbar-primary {
-  background-color: #9c27b0;
+  background-color: #6ab187;
   color: #ffffff;
 }
 .navbar.navbar-primary .navbar-form .form-group input.form-control::-moz-placeholder,
@@ -3808,7 +3809,7 @@ footer .btn {
   box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
 }
 .card [data-background-color="green"] {
-  background: linear-gradient(60deg, #66bb6a, #43a047);
+  background: linear-gradient(60deg, #66bb6a, #aebd38);
   box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
 }
 .card [data-background-color="orange"] {
