@@ -38,7 +38,22 @@ export class AssetsComponent implements OnInit {
         },(err)=>{
             this.assetsRequestStatus='rejected';
 
-            console.log( err)
+            console.log( err);
         })
+    }
+
+    getColor(status:string){
+        switch (status){
+            case 'pending':
+                return 'black';
+            case 'verified':
+                return 'green';
+            case 'rejected':
+                return '#ff8b4c';
+            case 'pooled':
+                return 'blue';
+            default:
+                return 'black';
+        }
     }
 }

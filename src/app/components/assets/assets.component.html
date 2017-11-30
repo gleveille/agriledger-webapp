@@ -36,6 +36,12 @@
 
                 </ul>
               </div>
+
+              <div style="float: right">
+                <button class="btn btn-danger">Create Pool</button>
+
+              </div>
+
             </div>
 
 
@@ -46,7 +52,7 @@
           <div class="card-content table-responsive">
 
             <h3 class="text-center text-gray" *ngIf="assetsRequestStatus==='resolved' && !assets.length ">
-              No Asset found
+              No Assets Available!
 
             </h3>
 
@@ -72,16 +78,19 @@
 
 
 
-              <tr *ngFor="let asset of assets" [routerLink]="['../assets',asset.id]" style="cursor: pointer">
+              <tr *ngFor="let asset of assets"  >
                 <td><span>
-                  <input type="checkbox" checked="checked">
+                  <input type="checkbox" [(ngModel)]="asset.isSelected">
                 </span>
                   <span style="position:relative;top:-3px;">{{asset?.name}}</span></td>
-                <td>{{asset?.description}}</td>
+                <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.description}}</td>
 
-                <td>{{asset?.category}}</td>
-                <td>{{asset?.quantity}}</td>
-                <td style="text-transform: capitalize">{{asset?.status}}</td>
+                <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.category}}</td>
+                <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.quantity}}</td>
+                <td [style.color]="getColor(asset.status)"
+                    style="text-transform: capitalize;font-weight: bold;
+                    cursor: pointer"
+                    [routerLink]="['../assets',asset.id]">{{asset?.status}}</td>
 
               </tr>
               </tbody>

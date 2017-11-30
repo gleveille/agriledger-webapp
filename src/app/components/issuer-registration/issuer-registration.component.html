@@ -37,7 +37,7 @@
                       [disabled]="!account?.balance || issuerRequestStatus==='pending'"
                       (click)="registerAsIssuer()"
                       type="submit"
-                      class="btn btn-primary pull-right">Register</button>
+                      class="btn btn-danger pull-right">Register</button>
               <div class="clearfix"></div>
 
               <div *ngIf="!account?.balance">
