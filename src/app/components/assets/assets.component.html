@@ -7,7 +7,7 @@
           <div class="card-header" data-background-color="green">
               <h4 class="title">Assets</h4>
               <p class="category">
-                <a class="btn btn-danger" (click)="goToCreateAssetPoolPage()" >Create Asset Pool</a>
+                <button class="btn btn-danger"  (click)="goToCreateAssetPoolPage()" >Create Asset Pool</button>
 
               </p>
 
@@ -19,8 +19,10 @@
             <div class="col-xs-12">
               <div class="dropdown" style="float: left">
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                  Filter by Category <span style="font-weight: bolder">
-                  ({{assetCategoriesLevelOne[selectedIndexOnLevelOne]?.name||'unselected'}})</span>
+                  Category 1
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelOne[selectedIndexOnLevelOne]?.name">
+                  ({{assetCategoriesLevelOne[selectedIndexOnLevelOne]?.name}})
+                </span>
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
@@ -35,11 +37,11 @@
               </div>
 
 
-              <div class="dropdown" style="float: left" *ngIf="assetCategoriesLevelTwo.length">
+              <div class="dropdown" style="float: left" >
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                  SubCategory
-                  <span style="font-weight: bolder">
-                  ({{assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.name||'unselected'}})
+                  Category 2
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelTwo[selectedIndexOnLevelTwo]">
+                  ({{assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.name}})
                 </span>
                   <b class="caret"></b>
                 </a>
@@ -55,10 +57,10 @@
                 </ul>
               </div>
 
-              <div class="dropdown" style="float: left" *ngIf="assetCategoriesLevelThree.length">
+              <div class="dropdown" style="float: left" >
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                  SubCategory
-                  <span style="font-weight: bolder">
+                  Category 3
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelThree[selectedIndexOnLevelThree]">
 
                   ({{assetCategoriesLevelThree[selectedIndexOnLevelThree]?.name||'unselected'}})
                   </span>
@@ -77,10 +79,10 @@
               </div>
 
 
-              <div class="dropdown" style="float: left" *ngIf="assetCategoriesLevelFour.length">
+              <div class="dropdown" style="float: left" >
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                  SubCategory
-                  <span style="font-weight: bolder">
+                  Category 4
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelFour[selectedIndexOnLevelFour]">
                     ({{assetCategoriesLevelFour[selectedIndexOnLevelFour]?.name||'unselected'}})
 
                   </span>
@@ -99,10 +101,10 @@
               </div>
 
 
-              <div class="dropdown" style="float: left" *ngIf="assetCategoriesLevelFive.length">
+              <div class="dropdown" style="float: left">
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                  SubCategory
-                  <span style="font-weight: bolder">
+                  Category 5
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelFive[selectedIndexOnLevelFive]">
                    ({{assetCategoriesLevelFive[selectedIndexOnLevelFive]?.name||'unselected'}})
                   </span>
                   <b class="caret"></b>
@@ -119,7 +121,7 @@
                 </ul>
               </div>
 
-              <a class="btn btn-info" *ngIf="showFilterButton" (click)="getAssets(selectedId)" >APPLY</a>
+              <button class="btn btn-info" [disabled]="!selectedId"  (click)="getAssets(selectedId)" >SEARCH by Category</button>
 
 
 <!--

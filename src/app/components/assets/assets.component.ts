@@ -25,7 +25,6 @@ export class AssetsComponent implements OnInit {
   selectedIndexOnLevelFive=null;
   isDeepestLevelSelected=false;
 
-  showFilterButton=false;
   selectedId=null;
 
     constructor(private assetsService:AssetsService,private toastService:ToastService,private router:Router) { }
@@ -41,7 +40,6 @@ export class AssetsComponent implements OnInit {
         this.selectedId=id;
 
         if(level===1){
-            this.showFilterButton=true;
             this.selectedIndexOnLevelOne=index;
             this.selectedIndexOnLevelTwo=null;
             this.selectedIndexOnLevelThree=null;
@@ -67,8 +65,6 @@ export class AssetsComponent implements OnInit {
         }
 
       if(level===2){
-          this.showFilterButton=true;
-
           this.selectedIndexOnLevelTwo=index;
           this.selectedIndexOnLevelThree=null;
           this.selectedIndexOnLevelFour=null;
@@ -93,8 +89,6 @@ export class AssetsComponent implements OnInit {
 
 
       if(level===3){
-          this.showFilterButton=true;
-
           this.selectedIndexOnLevelThree=index;
           this.selectedIndexOnLevelFour=null;
           this.selectedIndexOnLevelFive=null;
@@ -115,8 +109,6 @@ export class AssetsComponent implements OnInit {
 
 
       if(level===4){
-          this.showFilterButton=true;
-
           this.selectedIndexOnLevelFour=index;
           this.selectedIndexOnLevelFive=null;
           if(this.assetCategoriesLevelFour[index].hasChildren){
@@ -133,8 +125,6 @@ export class AssetsComponent implements OnInit {
 
 
       if(level===5){
-          this.showFilterButton=true;
-
           this.selectedIndexOnLevelFive=index;
           this.isDeepestLevelSelected=true;
       }
@@ -202,7 +192,6 @@ export class AssetsComponent implements OnInit {
         this.assetsRequestStatus='pending';
         this.assetsService.getAssets(categoryId).subscribe((assets:any[])=>{
             this.assetsRequestStatus='resolved';
-            this.showFilterButton=false;
 
             console.log(assets)
             this.assets=assets;
