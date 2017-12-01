@@ -24,7 +24,7 @@ export class AssetsComponent implements OnInit {
   selectedIndexOnLevelFour=null;
   selectedIndexOnLevelFive=null;
   isDeepestLevelSelected=false;
-
+  selectedLevel=null;
   selectedId=null;
 
     constructor(private assetsService:AssetsService,private toastService:ToastService,private router:Router) { }
@@ -38,7 +38,7 @@ export class AssetsComponent implements OnInit {
   selectCategory(index:number,level:number,id:string){
 
         this.selectedId=id;
-
+        this.selectedLevel=level;
         if(level===1){
             this.selectedIndexOnLevelOne=index;
             this.selectedIndexOnLevelTwo=null;
@@ -130,6 +130,8 @@ export class AssetsComponent implements OnInit {
       }
 
 
+      this.getAssets(id);
+
   }
 
 
@@ -141,7 +143,24 @@ export class AssetsComponent implements OnInit {
       }
 
       if(!this.isDeepestLevelSelected){
-          this.toastService.error('Asset','Please choose the subcategory');
+          const currentLevel=this.selectedLevel;
+          switch (currentLevel){
+              case 1:
+                  this.toastService.error('Asset','Please choose the second category');
+                  break;
+              case 2:
+                  this.toastService.error('Asset','Please choose the third category');
+                  break;
+
+              case 3:
+                  this.toastService.error('Asset','Please choose the four category');
+                  break;
+
+              case 4:
+                  this.toastService.error('Asset','Please choose the fifth category');
+                  break;
+
+          }
           return false;
       }
       const selectedAssets:any[]=this.assets.filter((asset)=>{
