@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/user.service.ts" afterPath="$PROJECT_DIR$/src/app/services/user.service.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/asset-view/asset-view.component.css" afterPath="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/asset-view/asset-view.component.html" afterPath="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/asset-view/asset-view.component.spec.ts" afterPath="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.spec.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/asset-view/asset-view.component.ts" afterPath="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.module.ts" afterPath="$PROJECT_DIR$/src/app/app.module.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.routing.ts" afterPath="$PROJECT_DIR$/src/app/app.routing.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/account/account.component.html" afterPath="$PROJECT_DIR$/src/app/components/account/account.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/assets/assets.component.css" afterPath="$PROJECT_DIR$/src/app/components/assets/assets.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/assets/assets.component.html" afterPath="$PROJECT_DIR$/src/app/components/assets/assets.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.html" afterPath="$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/wallet/wallet.component.css" afterPath="$PROJECT_DIR$/src/app/components/wallet/wallet.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/wallet/wallet.component.html" afterPath="$PROJECT_DIR$/src/app/components/wallet/wallet.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html" afterPath="$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -20,63 +33,8 @@
       <file leaf-file-name="dashboard.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.service.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/services/user.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!block;n#login#0;n#UserService#0" expanded="false" />
-                <element signature="n#!!block;n#saveAccessToken#0;n#UserService#0" expanded="false" />
-                <element signature="n#!!block;n#getAccessToken#0;n#UserService#0" expanded="false" />
-                <element signature="n#!!block;n#saveUserId#0;n#UserService#0" expanded="false" />
-                <element signature="n#!!block;n#getUserId#0;n#UserService#0" expanded="false" />
-                <element signature="n#!!block;n#isAuthenticated#0;n#UserService#0" expanded="false" />
-                <element signature="n#!!block;n#getUser#0;n#UserService#0" expanded="false" />
-                <element signature="n#!!block;n#setUserFromGuard#0;n#UserService#0" expanded="false" />
-                <element signature="n#!!block;n#logout#0;n#UserService#0" expanded="false" />
-                <element signature="n#!!block;n#resetState#0;n#UserService#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navbar.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#67#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navbar.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="16" column="72" lean-forward="true" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
-              <folding>
-                <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="assets.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+            <state relative-caret-position="85">
+              <caret line="5" column="57" lean-forward="false" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -85,28 +43,83 @@
       <file leaf-file-name="wallet.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/wallet/wallet.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="35" column="4" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+            <state relative-caret-position="121">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
-                <element signature="n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <marker date="1512042861150" expanded="false" signature="557:583" ph="..." />
+                <marker date="1512105886284" expanded="false" signature="557:583" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts">
+      <file leaf-file-name="navbar.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+            <state relative-caret-position="255">
+              <caret line="15" column="48" lean-forward="false" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/account/account.component.ts">
+      <file leaf-file-name="account.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/account/account.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="217" column="47" lean-forward="false" selection-start-line="217" selection-start-column="47" selection-end-line="217" selection-end-column="47" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#p#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#9934#9940#0" expanded="true" />
+                <marker date="1512106498261" expanded="true" signature="101:4010" ph="..." />
+                <marker date="1512106498261" expanded="false" signature="4902:8110" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="asset-view.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="471">
+              <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wallet.component.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/wallet/wallet.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="assets.component.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="488">
+              <caret line="66" column="1" lean-forward="false" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="txn-type.pipe.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/txn-type.pipe.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="truncate-balance.pipe.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/truncate-balance.pipe.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -115,24 +128,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wallet.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/wallet/wallet.component.ts">
+      <file leaf-file-name="assets.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+            <state relative-caret-position="386">
+              <caret line="75" column="19" lean-forward="true" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wallet.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/wallet.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -190,13 +191,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/components/account/account.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/interface/serviceError.interface.ts" />
-        <option value="$PROJECT_DIR$/src/app/services/error-handler.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/services/farmer.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/spinner/spinner.component.html" />
         <option value="$PROJECT_DIR$/src/app/spinner/spinner.component.css" />
-        <option value="$PROJECT_DIR$/src/styles.css" />
         <option value="$PROJECT_DIR$/src/app/error-show/error-show.component.html" />
         <option value="$PROJECT_DIR$/src/app/error-show/error-show.component.ts" />
         <option value="$PROJECT_DIR$/src/app/farmers/farmers.component.html" />
@@ -225,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/app/components/account-activation/account-activation.component.html" />
         <option value="$PROJECT_DIR$/src/app/asset-view/asset-view.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/assets/assets.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/assets/assets.component.html" />
         <option value="$PROJECT_DIR$/src/app/services/assets.service.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/header/header.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/login/login.component.html" />
@@ -234,13 +228,20 @@
         <option value="$PROJECT_DIR$/src/app/components/issuer-registration/issuer-registration.component.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/header/header.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/account-activation/account-activation.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/account/account.component.html" />
         <option value="$PROJECT_DIR$/src/app/shared/navbar/navbar.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/services/user.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/txn-type.pipe.ts" />
+        <option value="$PROJECT_DIR$/src/app/truncate-balance.pipe.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.html" />
+        <option value="$PROJECT_DIR$/src/styles.css" />
+        <option value="$PROJECT_DIR$/src/app/components/wallet/wallet.component.css" />
+        <option value="$PROJECT_DIR$/src/app/components/assets/assets.component.css" />
+        <option value="$PROJECT_DIR$/src/app/components/assets/assets.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/wallet/wallet.component.html" />
         <option value="$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html" />
-        <option value="$PROJECT_DIR$/src/app/services/user.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/account/account.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html" />
       </list>
     </option>
   </component>
@@ -256,8 +257,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
-    <option name="width" value="697" />
+    <option name="x" value="-7" />
+    <option name="width" value="657" />
     <option name="height" value="745" />
   </component>
   <component name="ProjectView">
@@ -315,7 +316,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="account-activation" type="462c0819:PsiDirectoryNode" />
+              <item name="asset-view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
@@ -324,38 +325,6 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="issuer-registration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="password-change" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
@@ -370,22 +339,7 @@
               <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
@@ -399,30 +353,7 @@
               <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="sass" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="sass" type="462c0819:PsiDirectoryNode" />
-              <item name="md" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -438,7 +369,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.tslint" value="C:\Users\admin\Desktop\office-projects\agriledgerWebapp\node_modules\tslint" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../marketleads-frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../agriledgerapp" />
     <property name="settings.editor.selected.configurable" value="preferences.mongoOptions" />
   </component>
   <component name="RecentsManager">
@@ -446,8 +377,8 @@
       <recent name="C:\Users\admin\Desktop\office-projects\agriledgerWebapp\src\assets\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\admin\Desktop\office-projects\agriledgerWebapp\src\app\services" />
       <recent name="C:\Users\admin\Desktop\office-projects\agriledgerWebapp\src\app\components" />
+      <recent name="C:\Users\admin\Desktop\office-projects\agriledgerWebapp\src\app\services" />
       <recent name="C:\Users\admin\Desktop\office-projects\agriledgerWebapp\src\app\shared" />
       <recent name="C:\Users\admin\Desktop\office-projects\agriledgerWebapp\src\app\guards\onboarding-guard" />
       <recent name="C:\Users\admin\Desktop\office-projects\agriledgerWebapp\src\app\guards" />
@@ -482,7 +413,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134857000" />
+    <option name="totallyTimeSpent" value="137293000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -540,40 +471,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/shared/error-show/error-show.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/error-show/error-show.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/interceptor.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/toast.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="23" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/ng2-toasty/src/toasty.service.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -643,14 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/farmers/farmers.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -675,7 +564,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/asset-view/asset-view.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
@@ -735,29 +624,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="87" column="83" lean-forward="false" selection-start-line="87" selection-start-column="83" selection-end-line="87" selection-end-column="83" />
-          <folding>
-            <element signature="e#0#58#0" expanded="false" />
-            <marker date="1512022829833" expanded="true" signature="3509:3524" ph="[...]" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/asset-view/asset-view.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -785,26 +655,6 @@
         <state relative-caret-position="170">
           <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="29" column="15" lean-forward="false" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -877,17 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/account/account.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="211" column="64" lean-forward="false" selection-start-line="211" selection-start-column="64" selection-end-line="211" selection-end-column="64" />
-          <folding>
-            <marker date="1512041538666" expanded="true" signature="101:4010" ph="..." />
-            <marker date="1512041538666" expanded="false" signature="4902:8110" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -896,45 +735,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="92" column="51" lean-forward="false" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-            <element signature="n#!!block;n#ngAfterViewInit#0;n#DashboardSponserComponent#0" expanded="false" />
-            <element signature="n#!!block;n#isMaps#0;n#DashboardSponserComponent#0" expanded="false" />
-            <element signature="n#!!block;n#runOnRouteChange#0;n#DashboardSponserComponent#0" expanded="false" />
-            <element signature="n#!!block;n#isMac#0;n#DashboardSponserComponent#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="19" />
           <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/wallet/wallet.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="35" column="4" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
-          <folding>
-            <element signature="n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <marker date="1512042861150" expanded="false" signature="557:583" ph="..." />
+            <element signature="e#0#67#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -942,25 +748,15 @@
     <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="72" lean-forward="true" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+          <caret line="22" column="37" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -976,7 +772,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/services/wallet.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
-          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <caret line="37" column="41" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -993,8 +789,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        <state relative-caret-position="-212">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#login#0;n#UserService#0" expanded="false" />
             <element signature="n#!!block;n#saveAccessToken#0;n#UserService#0" expanded="false" />
@@ -1007,6 +803,125 @@
             <element signature="n#!!block;n#logout#0;n#UserService#0" expanded="false" />
             <element signature="n#!!block;n#resetState#0;n#UserService#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="92" column="51" lean-forward="false" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
+          <folding>
+            <element signature="n#!!block;n#ngAfterViewInit#0;n#DashboardSponserComponent#0" expanded="false" />
+            <element signature="n#!!block;n#isMaps#0;n#DashboardSponserComponent#0" expanded="false" />
+            <element signature="n#!!block;n#runOnRouteChange#0;n#DashboardSponserComponent#0" expanded="false" />
+            <element signature="n#!!block;n#isMac#0;n#DashboardSponserComponent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/txn-type.pipe.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/truncate-balance.pipe.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="104" column="26" lean-forward="true" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
+          <folding>
+            <marker date="1512105703669" expanded="true" signature="3681:3687" ph="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="57" lean-forward="false" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/wallet/wallet.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="66" column="1" lean-forward="false" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="75" column="19" lean-forward="true" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/wallet/wallet.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <marker date="1512105886284" expanded="false" signature="557:583" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="48" lean-forward="false" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/account/account.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="217" column="47" lean-forward="false" selection-start-line="217" selection-start-column="47" selection-end-line="217" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#9934#9940#0" expanded="true" />
+            <marker date="1512106498261" expanded="true" signature="101:4010" ph="..." />
+            <marker date="1512106498261" expanded="false" signature="4902:8110" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

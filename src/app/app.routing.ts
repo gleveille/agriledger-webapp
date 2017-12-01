@@ -25,7 +25,7 @@ import {AboutUsComponent} from "./shared/about-us/about-us.component";
 import {ContactComponent} from "./shared/contact/contact.component";
 import {PrivacyComponent} from "./shared/privacy/privacy.component";
 import {TermsComponent} from "./shared/terms/terms.component";
-import {AssetViewComponent} from "./asset-view/asset-view.component";
+import {AssetViewComponent} from "./components/asset-view/asset-view.component";
 
 const routes:Routes = [
     {

@@ -30,8 +30,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a href="javascript:void(0)" (click)="getAssets('status','pending')">Pending</a></li>
-                  <li><a href="javascript:void(0)" (click)="getAssets('status','verified')">Verified</a></li>
-                  <li><a href="javascript:void(0)" (click)="getAssets('status','rejected')">Rejected</a></li>
+                  <li><a href="javascript:void(0)" (click)="getAssets('status','verified')">Available</a></li>
                   <li><a href="javascript:void(0)" (click)="getAssets('status','pooled')">Pooled</a></li>
 
                 </ul>
@@ -66,11 +65,13 @@
             <table class="table" *ngIf="assetsRequestStatus==='resolved' && assets.length ">
               <thead  >
               <tr >
-                <th>Name</th>
-                <th>Description</th>
-                <th>Category</th>
-                <th>Quantity</th>
-                <th>Status</th>
+                <th class="boldfont">Asset Name</th>
+                <th class="boldfont">Farmer Name</th>
+
+                <th class="boldfont">Description</th>
+                <th class="boldfont">Category</th>
+                <th class="boldfont">Quantity</th>
+                <th class="boldfont">Status</th>
 
               </tr>
               </thead>
@@ -83,6 +84,7 @@
                   <input type="checkbox" [(ngModel)]="asset.isSelected">
                 </span>
                   <span style="position:relative;top:-3px;">{{asset?.name}}</span></td>
+                <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.user?.name}}</td>
                 <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.description}}</td>
 
                 <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.category}}</td>

@@ -3,6 +3,6 @@
   <div class="sidebar-background" style="background-color: #00bfa5"></div>
 </div>
 <div class="main-panel">
-  <app-navbar [balance]="account?.balance" ></app-navbar>
+  <app-navbar [balance]="account?.balance|truncateBalance" ></app-navbar>
   <router-outlet></router-outlet>
 </div>

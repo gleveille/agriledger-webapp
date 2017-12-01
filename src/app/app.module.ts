@@ -41,8 +41,10 @@ import { ErrorShowComponent } from './shared/error-show/error-show.component';
 import {AssetsService} from "./services/assets.service";
 import {AssetsPoolService} from "./services/assets-pool.service";
 import {WalletService} from "./services/wallet.service";
-import { AssetViewComponent } from './asset-view/asset-view.component';
+import { AssetViewComponent } from './components/asset-view/asset-view.component';
 import { NgProgressModule, NgProgressInterceptor } from 'ngx-progressbar';
+import { TxnTypePipe } from './txn-type.pipe';
+import { TruncateBalancePipe } from './truncate-balance.pipe';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { NgProgressModule, NgProgressInterceptor } from 'ngx-progressbar';
     SpinnerComponent,
     ErrorShowComponent,
     AssetViewComponent,
+    TxnTypePipe,
+    TruncateBalancePipe,
 
   ],
   imports: [

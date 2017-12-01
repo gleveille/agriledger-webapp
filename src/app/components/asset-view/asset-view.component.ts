@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {WalletService} from "../services/wallet.service";
+import {WalletService} from "../../services/wallet.service";
 import 'rxjs/add/operator/concatMap';
-import {AssetsService} from "../services/assets.service";
-import {ToastService} from "../services/toast.service";
-import {IserviceError} from "../interface/serviceError.interface";
+import {AssetsService} from "../../services/assets.service";
+import {ToastService} from "../../services/toast.service";
+import {IserviceError} from "../../interface/serviceError.interface";
 
 @Component({
   selector: 'app-asset-view',

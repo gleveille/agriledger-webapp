@@ -196,7 +196,7 @@
                     </div>
                     <div class="card-content" style="margin-top: 30px;">
                         <div class=" card-profile">
-                            <div class="card-avatar">
+                            <div class="card-avatar" style="width: 60px;height: 60px;">
                                 <a href="javascipt:void(0)">
                                     <img class="img" src="../assets/img/default-avatar.png"/>
                                 </a>
@@ -209,11 +209,18 @@
                                     &nbsp;
                                     <span style="border:0.5px solid  #999999;"></span>
                                     &nbsp;
-                                    <span>{{user?.phone||'Mobile not available'}}</span>
+                                    <span>{{user?.phone||'Mobile unavailable'}}</span>&nbsp;
+
+
+
+                                </p>
+                                <p class="text-gray">
+                                    <b>Wallet Address: {{user?.walletAddress}}</b>
+
                                 </p>
 
                                 <div class=" card-content">
-                                    <div class="col-md-6 ">
+                              <!--      <div class="col-md-6 ">
                                         <div class="form-group label-floating has-success">
                                             <label class="control-label">Blockchain Account</label>
                                             <input [disabled]="true" type="text" value="Registered" class="form-control"/>
@@ -237,15 +244,16 @@
                                         </div>
 
 
-                                    </div>
+                                    </div>-->
 
 
                                 </div>
 
+                                <hr>
                                 <p>
                                     <i class="material-icons">info_outline</i>
                                     <span style="position: relative;bottom: 7px;" class="text-gray">To change any information please contact us at
-                                        <b>help@agriledger.co</b></span>
+                                        help@agriledger.co</span>
                                 </p>
 
                                 <!--
