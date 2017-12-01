@@ -16,23 +16,16 @@ import {UserService} from "./user.service";
 @Injectable()
 export class AssetsService {
 
+    categories:any[]=[];
     assets:any[]=[];
     selectedAssetsForPool=[];
     constructor(private http: HttpClient, private errorHandler: ErrorHandlerService, private userService: UserService) {
     }
 
-    getAssets(filterType,filterName) {
+    getAssets(categoryId:string) {
 
-      let url;
-      if(!filterName || !filterType)
-      {
-          url=`${AssetApi.getAssets.url()}?filter[include]=user`;
+      let url=`${AssetApi.getAssets.url()}?filter[where][category][like]=^${categoryId}&filter[include]=user`;
 
-      }
-      else{
-          url=`${AssetApi.getAssets.url()}?filter[where][${filterType}]=${filterName}&filter[include]=user`;
-
-      }
         return this.http.get(`${url}`)
             .retry(3)
             .catch((res) => {
@@ -63,5 +56,19 @@ export class AssetsService {
 
     addAssetInPool(assets:any[]){
         this.selectedAssetsForPool=assets;
+    }
+
+    getCategories(){
+        const url=`${AssetApi.getCategories.url()}`;
+
+        return this.http.get(`${url}`).do((categories:any[])=>{
+            console.log('///////')
+            console.log(categories)
+            this.categories=categories;
+        })
+            .retry(3)
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
     }
 }

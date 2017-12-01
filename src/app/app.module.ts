@@ -45,6 +45,9 @@ import { AssetViewComponent } from './components/asset-view/asset-view.component
 import { NgProgressModule, NgProgressInterceptor } from 'ngx-progressbar';
 import { TxnTypePipe } from './txn-type.pipe';
 import { TruncateBalancePipe } from './truncate-balance.pipe';
+import { AssetPoolViewComponent } from './asset-pool-view/asset-pool-view.component';
+import { AssetPoolListComponent } from './asset-pool-list/asset-pool-list.component';
+import { AssetPoolCreateComponent } from './asset-pool-create/asset-pool-create.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { TruncateBalancePipe } from './truncate-balance.pipe';
     AssetViewComponent,
     TxnTypePipe,
     TruncateBalancePipe,
+    AssetPoolViewComponent,
+    AssetPoolListComponent,
+    AssetPoolCreateComponent,
 
   ],
   imports: [

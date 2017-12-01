@@ -69,6 +69,11 @@ const AssetApi={
         url:()=>ServerUrl+'/api/assets',
         method:'GET',
         params:['filterType','filterName']
+    },
+    getCategories:{
+        url:()=>ServerUrl+'/api/blockchain/category',
+        method:'GET',
+        params:[]
     }
 
 };
