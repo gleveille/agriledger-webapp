@@ -1,29 +1,338 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header" data-background-color="green">
-            <h4 class="title">Asset Pool</h4>
-            <p class="category">List of Asset Pool</p>
-          </div>
-          <div class="card-content table-responsive">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats" >
-                <div class="card-header" data-background-color="green">
-                  <i class="material-icons">store</i>
-                </div>
-                <div class="card-content">
-                  <p class="category">Revenue</p>
-                  <h3 class="title">$34,245</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">date_range</i> Last 24 Hours
-                  </div>
-                </div>
+      <div class="col-md-12" >
+        <div class="stepper" style="margin-top: 50px">
+          <div class="stepper-steps stepper-steps-isOffset">
+            <div class="stepper-step"
+                 [ngClass]="{'stepper-step-isActive':selectedStepperNumber===1}"
+                 (click)="stepperSelected(1)">
+              <div class="stepper-stepContent">
+                <span class="stepper-stepMarker">1</span>Asset Category
               </div>
-            </div></div>
+            </div>
+
+            <div class="stepper-step "
+                 [ngClass]="{'stepper-step-isActive':selectedStepperNumber===2}"
+                 (click)="stepperSelected(2)">
+              <div class="stepper-stepContent">
+                <span class="stepper-stepMarker">1</span>Asset Details
+              </div>
+            </div>
+            <div  class="stepper-step"
+                  [ngClass]="{'stepper-step-isActive':selectedStepperNumber===3}"
+                  (click)="stepperSelected(3)">
+              <div class="stepper-stepContent">
+                <span class="stepper-stepMarker">2</span>Asset Info
+              </div>
+            </div>
+            <div class="stepper-step"
+                 [ngClass]="{'stepper-step-isActive':selectedStepperNumber===4}"
+                 (click)="stepperSelected(4)">
+              <div class="stepper-stepContent">
+                <span class="stepper-stepMarker">3</span>Put on Blockchain
+              </div>
+            </div>
+          </div>
+          <div class="stepper-content">
+
+            <section class="step-1" *ngIf="selectedStepperNumber===1">
+                <div class="card-content">
+                  <form>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group form-black  ">
+                            <label class="control-label">Category 1</label>
+                            <input type="text"  name="name" class="form-control">
+                          </div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="form-group form-black  ">
+                            <label class="control-label">Category 2</label>
+                            <input type="text"  name="name" class="form-control">
+                          </div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="form-group form-black  ">
+                            <label class="control-label">Category 3</label>
+                            <input type="text"  name="name" class="form-control">
+                          </div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="form-group form-black  ">
+                            <label class="control-label">Category 4</label>
+                            <input type="text"  name="name" class="form-control">
+                          </div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="form-group form-black  ">
+                            <label class="control-label">Category 5</label>
+                            <input type="text"  name="name" class="form-control">
+                          </div>
+                        </div>
+
+                      </div>
+
+                  </form>
+
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <button class=" btn btn-info pull-right">Continue</button>
+                    </div>
+                  </div>
+
+
+                </div>
+            </section>
+
+            <section class="step-2" *ngIf="selectedStepperNumber===2">
+              <div class="card-content">
+                <form>
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Name</label>
+                        <input type="text"  name="name" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Asset currency</label>
+                        <input style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Estimate price</label>
+                        <input type="text"  name="description" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Estimate unit</label>
+                        <input type="text"  name="quantity" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Unlock condition</label>
+                        <input type="text"  name="status" class="form-control" >
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Exercise standard</label>
+                        <input type="text"  name="status" class="form-control" >
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Chain or not</label>
+                        <input type="text"  name="status" class="form-control" >
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Describe</label>
+                        <input type="text"  name="status" class="form-control" >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <button class=" btn btn-info pull-right">Continue</button>
+
+                      <button class=" btn pull-right">Back</button>
+
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </section>
+
+
+            <section class="step-3" *ngIf="selectedStepperNumber===3">
+              <div class="card-content">
+                <form>
+                  <b>Product brand</b>
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Name</label>
+                        <input type="text"  name="name" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Remark</label>
+                        <input style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Link</label>
+                        <input type="text"  name="description" class="form-control" >
+                      </div>
+                    </div>
+
+                  </div>
+                  <b>Packing standard</b>
+
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Name</label>
+                        <input type="text"  name="name" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Remark</label>
+                        <input style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Link</label>
+                        <input type="text"  name="description" class="form-control" >
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <b>Product index</b>
+
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Name</label>
+                        <input type="text"  name="name" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Remark</label>
+                        <input style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Link</label>
+                        <input type="text"  name="description" class="form-control" >
+                      </div>
+                    </div>
+
+                  </div>
+
+
+
+                  <b>Production detail</b>
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Name</label>
+                        <input type="text"  name="name" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Remark</label>
+                        <input style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Link</label>
+                        <input type="text"  name="description" class="form-control" >
+                      </div>
+                    </div>
+
+                  </div>
+
+
+
+                  <b>Other information</b>
+
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Name</label>
+                        <input type="text"  name="name" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Remark</label>
+                        <input style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Link</label>
+                        <input type="text"  name="description" class="form-control" >
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <button class=" btn btn-info pull-right">Continue</button>
+
+                      <button class=" btn pull-right">Back</button>
+
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </section>
+
+
+            <section class="step-4" *ngIf="selectedStepperNumber===4">
+              <div class="card-content">
+                <form>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Published number</label>
+                        <input type="text"  name="name" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group form-black  ">
+                        <label class="control-label">Accuracy</label>
+                        <input type="text"  name="name" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <button class=" btn btn-success pull-right">SAVE</button>
+
+                      <button class=" btn pull-right">Back</button>
+
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </section>
+
+
+          </div>
         </div>
       </div>
     </div>

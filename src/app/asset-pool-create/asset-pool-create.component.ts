@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AssetsPoolService} from "../services/assets-pool.service";
 
 @Component({
   selector: 'app-asset-pool-create',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssetPoolCreateComponent implements OnInit {
 
-  constructor() { }
+  selectedStepperNumber=1;
+  constructor(private assetPoolService:AssetsPoolService) { }
 
   ngOnInit() {
   }
 
+    stepperSelected(index:number){
+    this.selectedStepperNumber=index;
+    }
 }

@@ -118,7 +118,7 @@ const routes:Routes = [
             {path: 'assets', component: AssetsComponent},
             {path: 'assets/:assetId', component: AssetViewComponent},
 
-            {path: 'assets-pool-list', component: AssetPoolListComponent},
+            {path: 'assets-pool-list', component: AssetPoolCreateComponent},
             {path: 'assets-pool-view', component: AssetPoolViewComponent},
             {path: 'assets-pool-create', component: AssetPoolCreateComponent},
             {path: 'account', component: AccountComponent},
