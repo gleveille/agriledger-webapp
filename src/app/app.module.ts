@@ -31,7 +31,6 @@ import {AlreadyChangedPasswordGuard} from "./guards/onboarding-guard/already-cha
 import {AlreadyRegisteredOnBlockchainGuard} from "./guards/onboarding-guard/already-registered-on-blockchain.guard";
 import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.guard";
 import { AssetsComponent } from './components/assets/assets.component';
-import { AssetPoolComponent } from './components/asset-pool/asset-pool.component';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { FarmersComponent } from './components/farmers/farmers.component';
 import {ErrorHandlerService} from "./services/error-handler.service";
@@ -43,11 +42,11 @@ import {AssetsPoolService} from "./services/assets-pool.service";
 import {WalletService} from "./services/wallet.service";
 import { AssetViewComponent } from './components/asset-view/asset-view.component';
 import { NgProgressModule, NgProgressInterceptor } from 'ngx-progressbar';
-import { TxnTypePipe } from './txn-type.pipe';
-import { TruncateBalancePipe } from './truncate-balance.pipe';
-import { AssetPoolViewComponent } from './asset-pool-view/asset-pool-view.component';
-import { AssetPoolListComponent } from './asset-pool-list/asset-pool-list.component';
-import { AssetPoolCreateComponent } from './asset-pool-create/asset-pool-create.component';
+import { TxnTypePipe } from './pipes/txn-type.pipe';
+import { TruncateBalancePipe } from './pipes/truncate-balance.pipe';
+import { AssetPoolViewComponent } from './components/asset-pool-view/asset-pool-view.component';
+import { AssetPoolListComponent } from './components/asset-pool-list/asset-pool-list.component';
+import { AssetPoolCreateComponent } from './components/asset-pool-create/asset-pool-create.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +63,6 @@ import { AssetPoolCreateComponent } from './asset-pool-create/asset-pool-create.
     Page403Component,
     IssuerRegistrationComponent,
     AssetsComponent,
-    AssetPoolComponent,
     WalletComponent,
     FarmersComponent,
     SpinnerComponent,

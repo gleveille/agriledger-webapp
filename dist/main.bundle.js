@@ -369,30 +369,28 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__guards_onboarding_guard_already_registered_on_blockchain_guard__ = __webpack_require__("../../../../../src/app/guards/onboarding-guard/already-registered-on-blockchain.guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__guards_onboarding_guard_already_an_issuer_guard__ = __webpack_require__("../../../../../src/app/guards/onboarding-guard/already-an-issuer.guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_assets_assets_component__ = __webpack_require__("../../../../../src/app/components/assets/assets.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_asset_pool_asset_pool_component__ = __webpack_require__("../../../../../src/app/components/asset-pool/asset-pool.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_wallet_wallet_component__ = __webpack_require__("../../../../../src/app/components/wallet/wallet.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_farmers_farmers_component__ = __webpack_require__("../../../../../src/app/components/farmers/farmers.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_error_handler_service__ = __webpack_require__("../../../../../src/app/services/error-handler.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__services_farmer_service__ = __webpack_require__("../../../../../src/app/services/farmer.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__shared_spinner_spinner_component__ = __webpack_require__("../../../../../src/app/shared/spinner/spinner.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__shared_error_show_error_show_component__ = __webpack_require__("../../../../../src/app/shared/error-show/error-show.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__services_assets_service__ = __webpack_require__("../../../../../src/app/services/assets.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__services_assets_pool_service__ = __webpack_require__("../../../../../src/app/services/assets-pool.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__services_wallet_service__ = __webpack_require__("../../../../../src/app/services/wallet.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_asset_view_asset_view_component__ = __webpack_require__("../../../../../src/app/components/asset-view/asset-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_ngx_progressbar__ = __webpack_require__("../../../../ngx-progressbar/modules/ngx-progressbar.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__txn_type_pipe__ = __webpack_require__("../../../../../src/app/txn-type.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__truncate_balance_pipe__ = __webpack_require__("../../../../../src/app/truncate-balance.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__asset_pool_view_asset_pool_view_component__ = __webpack_require__("../../../../../src/app/asset-pool-view/asset-pool-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__asset_pool_list_asset_pool_list_component__ = __webpack_require__("../../../../../src/app/asset-pool-list/asset-pool-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__asset_pool_create_asset_pool_create_component__ = __webpack_require__("../../../../../src/app/asset-pool-create/asset-pool-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_wallet_wallet_component__ = __webpack_require__("../../../../../src/app/components/wallet/wallet.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_farmers_farmers_component__ = __webpack_require__("../../../../../src/app/components/farmers/farmers.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_error_handler_service__ = __webpack_require__("../../../../../src/app/services/error-handler.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_farmer_service__ = __webpack_require__("../../../../../src/app/services/farmer.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__shared_spinner_spinner_component__ = __webpack_require__("../../../../../src/app/shared/spinner/spinner.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__shared_error_show_error_show_component__ = __webpack_require__("../../../../../src/app/shared/error-show/error-show.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__services_assets_service__ = __webpack_require__("../../../../../src/app/services/assets.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__services_assets_pool_service__ = __webpack_require__("../../../../../src/app/services/assets-pool.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__services_wallet_service__ = __webpack_require__("../../../../../src/app/services/wallet.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_asset_view_asset_view_component__ = __webpack_require__("../../../../../src/app/components/asset-view/asset-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_ngx_progressbar__ = __webpack_require__("../../../../ngx-progressbar/modules/ngx-progressbar.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pipes_txn_type_pipe__ = __webpack_require__("../../../../../src/app/pipes/txn-type.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pipes_truncate_balance_pipe__ = __webpack_require__("../../../../../src/app/pipes/truncate-balance.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_asset_pool_view_asset_pool_view_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-view/asset-pool-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_asset_pool_list_asset_pool_list_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-list/asset-pool-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_asset_pool_create_asset_pool_create_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-create/asset-pool-create.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -458,17 +456,16 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_24__shared_page403_page403_component__["a" /* Page403Component */],
                 __WEBPACK_IMPORTED_MODULE_25__components_issuer_registration_issuer_registration_component__["a" /* IssuerRegistrationComponent */],
                 __WEBPACK_IMPORTED_MODULE_29__components_assets_assets_component__["a" /* AssetsComponent */],
-                __WEBPACK_IMPORTED_MODULE_30__components_asset_pool_asset_pool_component__["a" /* AssetPoolComponent */],
-                __WEBPACK_IMPORTED_MODULE_31__components_wallet_wallet_component__["a" /* WalletComponent */],
-                __WEBPACK_IMPORTED_MODULE_32__components_farmers_farmers_component__["a" /* FarmersComponent */],
-                __WEBPACK_IMPORTED_MODULE_35__shared_spinner_spinner_component__["a" /* SpinnerComponent */],
-                __WEBPACK_IMPORTED_MODULE_36__shared_error_show_error_show_component__["a" /* ErrorShowComponent */],
-                __WEBPACK_IMPORTED_MODULE_40__components_asset_view_asset_view_component__["a" /* AssetViewComponent */],
-                __WEBPACK_IMPORTED_MODULE_42__txn_type_pipe__["a" /* TxnTypePipe */],
-                __WEBPACK_IMPORTED_MODULE_43__truncate_balance_pipe__["a" /* TruncateBalancePipe */],
-                __WEBPACK_IMPORTED_MODULE_44__asset_pool_view_asset_pool_view_component__["a" /* AssetPoolViewComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__asset_pool_list_asset_pool_list_component__["a" /* AssetPoolListComponent */],
-                __WEBPACK_IMPORTED_MODULE_46__asset_pool_create_asset_pool_create_component__["a" /* AssetPoolCreateComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__components_wallet_wallet_component__["a" /* WalletComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__components_farmers_farmers_component__["a" /* FarmersComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__shared_spinner_spinner_component__["a" /* SpinnerComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__shared_error_show_error_show_component__["a" /* ErrorShowComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_asset_view_asset_view_component__["a" /* AssetViewComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__pipes_txn_type_pipe__["a" /* TxnTypePipe */],
+                __WEBPACK_IMPORTED_MODULE_42__pipes_truncate_balance_pipe__["a" /* TruncateBalancePipe */],
+                __WEBPACK_IMPORTED_MODULE_43__components_asset_pool_view_asset_pool_view_component__["a" /* AssetPoolViewComponent */],
+                __WEBPACK_IMPORTED_MODULE_44__components_asset_pool_list_asset_pool_list_component__["a" /* AssetPoolListComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__components_asset_pool_create_asset_pool_create_component__["a" /* AssetPoolCreateComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -478,7 +475,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_router__["e" /* RouterModule */],
                 __WEBPACK_IMPORTED_MODULE_4__app_routing__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_15_ng2_toasty__["b" /* ToastyModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_41_ngx_progressbar__["b" /* NgProgressModule */]
+                __WEBPACK_IMPORTED_MODULE_40_ngx_progressbar__["b" /* NgProgressModule */]
             ],
             providers: [
                 {
@@ -486,14 +483,14 @@ var AppModule = (function () {
                     useClass: __WEBPACK_IMPORTED_MODULE_21__services_interceptor_service__["a" /* InterceptorService */],
                     multi: true
                 },
-                { provide: __WEBPACK_IMPORTED_MODULE_20__angular_common_http__["a" /* HTTP_INTERCEPTORS */], useClass: __WEBPACK_IMPORTED_MODULE_41_ngx_progressbar__["a" /* NgProgressInterceptor */], multi: true },
-                __WEBPACK_IMPORTED_MODULE_33__services_error_handler_service__["a" /* ErrorHandlerService */],
+                { provide: __WEBPACK_IMPORTED_MODULE_20__angular_common_http__["a" /* HTTP_INTERCEPTORS */], useClass: __WEBPACK_IMPORTED_MODULE_40_ngx_progressbar__["a" /* NgProgressInterceptor */], multi: true },
+                __WEBPACK_IMPORTED_MODULE_32__services_error_handler_service__["a" /* ErrorHandlerService */],
                 __WEBPACK_IMPORTED_MODULE_14__services_user_service__["a" /* UserService */],
                 __WEBPACK_IMPORTED_MODULE_16__services_toast_service__["a" /* ToastService */],
-                __WEBPACK_IMPORTED_MODULE_34__services_farmer_service__["a" /* FarmerService */],
-                __WEBPACK_IMPORTED_MODULE_37__services_assets_service__["a" /* AssetsService */],
-                __WEBPACK_IMPORTED_MODULE_38__services_assets_pool_service__["a" /* AssetsPoolService */],
-                __WEBPACK_IMPORTED_MODULE_39__services_wallet_service__["a" /* WalletService */],
+                __WEBPACK_IMPORTED_MODULE_33__services_farmer_service__["a" /* FarmerService */],
+                __WEBPACK_IMPORTED_MODULE_36__services_assets_service__["a" /* AssetsService */],
+                __WEBPACK_IMPORTED_MODULE_37__services_assets_pool_service__["a" /* AssetsPoolService */],
+                __WEBPACK_IMPORTED_MODULE_38__services_wallet_service__["a" /* WalletService */],
                 __WEBPACK_IMPORTED_MODULE_17__guards_authentication_guard__["a" /* AuthenticationGuard */],
                 __WEBPACK_IMPORTED_MODULE_18__guards_dashboardAuthorization_guard__["a" /* DashboardAuthorizationGuard */],
                 __WEBPACK_IMPORTED_MODULE_19__guards_already_authenticated_guard__["a" /* AlreadyAuthenticatedGuard */],
@@ -543,8 +540,8 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__shared_privacy_privacy_component__ = __webpack_require__("../../../../../src/app/shared/privacy/privacy.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__shared_terms_terms_component__ = __webpack_require__("../../../../../src/app/shared/terms/terms.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_asset_view_asset_view_component__ = __webpack_require__("../../../../../src/app/components/asset-view/asset-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__asset_pool_create_asset_pool_create_component__ = __webpack_require__("../../../../../src/app/asset-pool-create/asset-pool-create.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__asset_pool_view_asset_pool_view_component__ = __webpack_require__("../../../../../src/app/asset-pool-view/asset-pool-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_asset_pool_create_asset_pool_create_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-create/asset-pool-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_asset_pool_view_asset_pool_view_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-view/asset-pool-view.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -661,9 +658,9 @@ var routes = [
             { path: 'farmers', component: __WEBPACK_IMPORTED_MODULE_21__components_farmers_farmers_component__["a" /* FarmersComponent */] },
             { path: 'assets', component: __WEBPACK_IMPORTED_MODULE_19__components_assets_assets_component__["a" /* AssetsComponent */] },
             { path: 'assets/:assetId', component: __WEBPACK_IMPORTED_MODULE_26__components_asset_view_asset_view_component__["a" /* AssetViewComponent */] },
-            { path: 'assets-pool-list', component: __WEBPACK_IMPORTED_MODULE_27__asset_pool_create_asset_pool_create_component__["a" /* AssetPoolCreateComponent */] },
-            { path: 'assets-pool-view', component: __WEBPACK_IMPORTED_MODULE_28__asset_pool_view_asset_pool_view_component__["a" /* AssetPoolViewComponent */] },
-            { path: 'assets-pool-create', component: __WEBPACK_IMPORTED_MODULE_27__asset_pool_create_asset_pool_create_component__["a" /* AssetPoolCreateComponent */] },
+            { path: 'assets-pool-list', component: __WEBPACK_IMPORTED_MODULE_27__components_asset_pool_create_asset_pool_create_component__["a" /* AssetPoolCreateComponent */] },
+            { path: 'assets-pool-view', component: __WEBPACK_IMPORTED_MODULE_28__components_asset_pool_view_asset_pool_view_component__["a" /* AssetPoolViewComponent */] },
+            { path: 'assets-pool-create', component: __WEBPACK_IMPORTED_MODULE_27__components_asset_pool_create_asset_pool_create_component__["a" /* AssetPoolCreateComponent */] },
             { path: 'account', component: __WEBPACK_IMPORTED_MODULE_4__components_account_account_component__["a" /* AccountComponent */] },
             { path: 'wallet', component: __WEBPACK_IMPORTED_MODULE_20__components_wallet_wallet_component__["a" /* WalletComponent */] }
         ]
@@ -687,197 +684,6 @@ var AppRoutingModule = (function () {
 }());
 
 //# sourceMappingURL=app.routing.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/asset-pool-create/asset-pool-create.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".stepper {\r\n    background-color: #fff;\r\n    margin-bottom: 90px;\r\n    border-radius: 3px;\r\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.stepper-steps {\r\n    height: 72px;\r\n    background-color: #fff;\r\n    border-radius: 3px;\r\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.stepper-steps-isOffset {\r\n    position: relative;\r\n    top: -30px;\r\n    margin: 0 15px -30px 15px;\r\n}\r\n\r\n.stepper-content {\r\n    padding: 24px;\r\n}\r\n\r\n.stepper-step {\r\n    float: left;\r\n    width: 25%;\r\n    padding: 24px;\r\n    cursor: pointer;\r\n    color: rgba(0, 0, 0, 0.87);\r\n    position: relative;\r\n    text-align: center;\r\n}\r\n.stepper-step:not(.stepper-step-isDisabled):hover, .stepper-step:not(.stepper-step-isDisabled):hover .stepper-stepContent {\r\n    background-color: #F5F5F5;\r\n}\r\n.stepper-step:first-child {\r\n    text-align: left;\r\n}\r\n.stepper-step:last-child {\r\n    text-align: right;\r\n}\r\n\r\n.stepper-step::after {\r\n    content: '';\r\n    position: absolute;\r\n    bottom: 36px;\r\n    left: 0;\r\n    right: 0;\r\n    height: 1px;\r\n    background: #BDBDBD;\r\n}\r\n.stepper-step:first-child::after {\r\n    left: 24px;\r\n}\r\n.stepper-step:last-child::after {\r\n    right: 24px;\r\n}\r\n\r\n.stepper-step-isActive {\r\n    font-weight: 600;\r\n}\r\n\r\n.stepper-step-isValid {\r\n    font-weight: 600;\r\n}\r\n\r\n.stepper-step-isDisabled {\r\n    color: rgba(0, 0, 0, 0.38);\r\n    cursor: default;\r\n}\r\n\r\n.stepper-stepMarker {\r\n    display: inline-block;\r\n    width: 24px;\r\n    height: 24px;\r\n    margin-right: 8px;\r\n    text-align: center;\r\n    color: white;\r\n    line-height: 24px;\r\n    background-color: rgba(0, 0, 0, 0.38);\r\n    border-radius: 24px;\r\n    font-weight: 100;\r\n    font-size: 12px;\r\n}\r\n\r\n.stepper-step-isActive .stepper-stepMarker {\r\n    background-color: #2196F3;\r\n}\r\n\r\n.stepper-step-isValid .stepper-stepMarker {\r\n    text-indent: -10000px;\r\n    background: url('data:image/svg+xml;charset=utf8,<svg fill=\"#FFFFFF\" height=\"20\" viewBox=\"0 0 24 24\" width=\"19\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/> <path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>') no-repeat #2196F3;\r\n    background-position: 2px 1px;\r\n    background-color: #2196F3;\r\n}\r\n\r\n.stepper-stepContent {\r\n    display: inline-block;\r\n    position: relative;\r\n    z-index: 2;\r\n    padding: 0 8px;\r\n    background-color: #fff;\r\n}\r\n\r\n\r\n\r\nimg {\r\n    max-width: 100%;\r\n}\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/asset-pool-create/asset-pool-create.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-12\" >\n        <div class=\"stepper\" style=\"margin-top: 50px\">\n          <div class=\"stepper-steps stepper-steps-isOffset\">\n            <div class=\"stepper-step\"\n                 [ngClass]=\"{'stepper-step-isActive':selectedStepperNumber===1}\"\n                 (click)=\"stepperSelected(1)\">\n              <div class=\"stepper-stepContent\">\n                <span class=\"stepper-stepMarker\">1</span>Asset Category\n              </div>\n            </div>\n\n            <div class=\"stepper-step \"\n                 [ngClass]=\"{'stepper-step-isActive':selectedStepperNumber===2}\"\n                 (click)=\"stepperSelected(2)\">\n              <div class=\"stepper-stepContent\">\n                <span class=\"stepper-stepMarker\">1</span>Asset Details\n              </div>\n            </div>\n            <div  class=\"stepper-step\"\n                  [ngClass]=\"{'stepper-step-isActive':selectedStepperNumber===3}\"\n                  (click)=\"stepperSelected(3)\">\n              <div class=\"stepper-stepContent\">\n                <span class=\"stepper-stepMarker\">2</span>Asset Info\n              </div>\n            </div>\n            <div class=\"stepper-step\"\n                 [ngClass]=\"{'stepper-step-isActive':selectedStepperNumber===4}\"\n                 (click)=\"stepperSelected(4)\">\n              <div class=\"stepper-stepContent\">\n                <span class=\"stepper-stepMarker\">3</span>Put on Blockchain\n              </div>\n            </div>\n          </div>\n          <div class=\"stepper-content\">\n\n            <section class=\"step-1\" *ngIf=\"selectedStepperNumber===1\">\n                <div class=\"card-content\">\n                  <form>\n                      <div class=\"row\">\n                        <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Category 1</label>\n                            <input type=\"text\"  name=\"name\" class=\"form-control\">\n                          </div>\n                        </div>\n\n                        <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Category 2</label>\n                            <input type=\"text\"  name=\"name\" class=\"form-control\">\n                          </div>\n                        </div>\n\n                        <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Category 3</label>\n                            <input type=\"text\"  name=\"name\" class=\"form-control\">\n                          </div>\n                        </div>\n\n                        <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Category 4</label>\n                            <input type=\"text\"  name=\"name\" class=\"form-control\">\n                          </div>\n                        </div>\n\n                        <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Category 5</label>\n                            <input type=\"text\"  name=\"name\" class=\"form-control\">\n                          </div>\n                        </div>\n\n                      </div>\n\n                  </form>\n\n                  <div class=\"row\">\n                    <div class=\"col-xs-12\">\n                      <button class=\" btn btn-info pull-right\">Continue</button>\n                    </div>\n                  </div>\n\n\n                </div>\n            </section>\n\n            <section class=\"step-2\" *ngIf=\"selectedStepperNumber===2\">\n              <div class=\"card-content\">\n                <form>\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Asset currency</label>\n                        <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Estimate price</label>\n                        <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Estimate unit</label>\n                        <input type=\"text\"  name=\"quantity\" class=\"form-control\" >\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Unlock condition</label>\n                        <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Exercise standard</label>\n                        <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Chain or not</label>\n                        <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Describe</label>\n                        <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"row\">\n                    <div class=\"col-xs-12\">\n                      <button class=\" btn btn-info pull-right\">Continue</button>\n\n                      <button class=\" btn pull-right\">Back</button>\n\n                    </div>\n                  </div>\n                </form>\n              </div>\n            </section>\n\n\n            <section class=\"step-3\" *ngIf=\"selectedStepperNumber===3\">\n              <div class=\"card-content\">\n                <form>\n                  <b>Product brand</b>\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Remark</label>\n                        <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Link</label>\n                        <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                  </div>\n                  <b>Packing standard</b>\n\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Remark</label>\n                        <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Link</label>\n                        <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                  </div>\n\n\n                  <b>Product index</b>\n\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Remark</label>\n                        <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Link</label>\n                        <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                  </div>\n\n\n\n                  <b>Production detail</b>\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Remark</label>\n                        <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Link</label>\n                        <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                  </div>\n\n\n\n                  <b>Other information</b>\n\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Remark</label>\n                        <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Link</label>\n                        <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                  </div>\n\n                  <div class=\"row\">\n                    <div class=\"col-xs-12\">\n                      <button class=\" btn btn-info pull-right\">Continue</button>\n\n                      <button class=\" btn pull-right\">Back</button>\n\n                    </div>\n                  </div>\n                </form>\n              </div>\n            </section>\n\n\n            <section class=\"step-4\" *ngIf=\"selectedStepperNumber===4\">\n              <div class=\"card-content\">\n                <form>\n                  <div class=\"row\">\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Published number</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Accuracy</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"row\">\n                    <div class=\"col-xs-12\">\n                      <button class=\" btn btn-success pull-right\">SAVE</button>\n\n                      <button class=\" btn pull-right\">Back</button>\n\n                    </div>\n                  </div>\n                </form>\n              </div>\n            </section>\n\n\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/asset-pool-create/asset-pool-create.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetPoolCreateComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_assets_pool_service__ = __webpack_require__("../../../../../src/app/services/assets-pool.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AssetPoolCreateComponent = (function () {
-    function AssetPoolCreateComponent(assetPoolService) {
-        this.assetPoolService = assetPoolService;
-        this.selectedStepperNumber = 1;
-    }
-    AssetPoolCreateComponent.prototype.ngOnInit = function () {
-    };
-    AssetPoolCreateComponent.prototype.stepperSelected = function (index) {
-        this.selectedStepperNumber = index;
-    };
-    AssetPoolCreateComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-asset-pool-create',
-            template: __webpack_require__("../../../../../src/app/asset-pool-create/asset-pool-create.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/asset-pool-create/asset-pool-create.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_assets_pool_service__["a" /* AssetsPoolService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_assets_pool_service__["a" /* AssetsPoolService */]) === "function" && _a || Object])
-    ], AssetPoolCreateComponent);
-    return AssetPoolCreateComponent;
-    var _a;
-}());
-
-//# sourceMappingURL=asset-pool-create.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/asset-pool-list/asset-pool-list.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/asset-pool-list/asset-pool-list.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-12\" >\n          <div class=\"stepper\" style=\"margin-top: 50px\">\n            <div class=\"stepper-steps stepper-steps-isOffset\">\n              <div class=\"stepper-step stepper-step-isValid\">\n                <div class=\"stepper-stepContent\">\n                  <span class=\"stepper-stepMarker\">1</span>Asset Details\n                </div>\n              </div>\n              <div class=\"stepper-step stepper-step-isActive\">\n                <div class=\"stepper-stepContent\">\n                  <span class=\"stepper-stepMarker\">2</span>Asset Info\n                </div>\n              </div>\n              <div class=\"stepper-step stepper-step-isDisabled\">\n                <div class=\"stepper-stepContent\">\n                  <span class=\"stepper-stepMarker\">3</span>Put on Blockchain\n                </div>\n              </div>\n            </div>\n            <div class=\"stepper-content\">\n\n              <section class=\"step-1\">\n                <div class=\"card\">\n                  <div class=\"card-header\" data-background-color=\"green\">\n                    <h4 class=\"title\">Asset details</h4>\n                  </div>\n                  <div class=\"card-content\">\n                    <form>\n                      <fieldset >\n                        <div class=\"row\">\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Name</label>\n                              <input type=\"text\"  name=\"name\" class=\"form-control\">\n                            </div>\n                          </div>\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Asset currency</label>\n                              <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                            </div>\n                          </div>\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Estimate price</label>\n                              <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                            </div>\n                          </div>\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Estimate unit</label>\n                              <input type=\"text\"  name=\"quantity\" class=\"form-control\" >\n                            </div>\n                          </div>\n                          <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Unlock condition</label>\n                            <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                          </div>\n                        </div>\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Exercise standard</label>\n                              <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                            </div>\n                          </div>\n\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Chain or not</label>\n                              <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                            </div>\n                          </div>\n\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Describe</label>\n                              <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                            </div>\n                          </div>\n                        </div>\n                      </fieldset>\n\n                    </form>\n                  </div>\n                </div>\n              </section>\n\n\n\n              <div class=\"stepper-actions\">\n                <a href=\"#\" class=\"stepper-actionPrevious btn btn-default btn-simple btn-lg mbn\">Back</a>\n                <a href=\"#\" class=\"stepper-actionNext btn btn-info btn-lg btn-simple pull-right mbn\">Continue</a>\n              </div>\n            </div>\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/asset-pool-list/asset-pool-list.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetPoolListComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var AssetPoolListComponent = (function () {
-    function AssetPoolListComponent() {
-    }
-    AssetPoolListComponent.prototype.ngOnInit = function () {
-    };
-    AssetPoolListComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-asset-pool-list',
-            template: __webpack_require__("../../../../../src/app/asset-pool-list/asset-pool-list.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/asset-pool-list/asset-pool-list.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], AssetPoolListComponent);
-    return AssetPoolListComponent;
-}());
-
-//# sourceMappingURL=asset-pool-list.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/asset-pool-view/asset-pool-view.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/asset-pool-view/asset-pool-view.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  asset-pool-view works!\n</p>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/asset-pool-view/asset-pool-view.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetPoolViewComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var AssetPoolViewComponent = (function () {
-    function AssetPoolViewComponent() {
-    }
-    AssetPoolViewComponent.prototype.ngOnInit = function () {
-    };
-    AssetPoolViewComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-asset-pool-view',
-            template: __webpack_require__("../../../../../src/app/asset-pool-view/asset-pool-view.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/asset-pool-view/asset-pool-view.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], AssetPoolViewComponent);
-    return AssetPoolViewComponent;
-}());
-
-//# sourceMappingURL=asset-pool-view.component.js.map
 
 /***/ }),
 
@@ -1047,7 +853,7 @@ var AccountComponent = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/asset-pool/asset-pool.component.css":
+/***/ "../../../../../src/app/components/asset-pool-create/asset-pool-create.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -1055,7 +861,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".card [data-background-color=\"green\"] {\n    background: linear-gradient(60deg, #66bb6a, #aebd38);\n    box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);\n}\n\n.navbar.navbar-primary {\n    background-color: #6ab187;\n    color: #ffffff;\n}", ""]);
+exports.push([module.i, ".stepper {\r\n    background-color: #fff;\r\n    margin-bottom: 90px;\r\n    border-radius: 3px;\r\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.stepper-steps {\r\n    height: 72px;\r\n    background-color: #fff;\r\n    border-radius: 3px;\r\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.stepper-steps-isOffset {\r\n    position: relative;\r\n    top: -30px;\r\n    margin: 0 15px -30px 15px;\r\n}\r\n\r\n.stepper-content {\r\n    padding: 24px;\r\n}\r\n\r\n.stepper-step {\r\n    float: left;\r\n    width: 25%;\r\n    padding: 24px;\r\n    cursor: pointer;\r\n    color: rgba(0, 0, 0, 0.87);\r\n    position: relative;\r\n    text-align: center;\r\n}\r\n.stepper-step:not(.stepper-step-isDisabled):hover, .stepper-step:not(.stepper-step-isDisabled):hover .stepper-stepContent {\r\n    background-color: #F5F5F5;\r\n}\r\n.stepper-step:first-child {\r\n    text-align: left;\r\n}\r\n.stepper-step:last-child {\r\n    text-align: right;\r\n}\r\n\r\n.stepper-step::after {\r\n    content: '';\r\n    position: absolute;\r\n    bottom: 36px;\r\n    left: 0;\r\n    right: 0;\r\n    height: 1px;\r\n    background: #BDBDBD;\r\n}\r\n.stepper-step:first-child::after {\r\n    left: 24px;\r\n}\r\n.stepper-step:last-child::after {\r\n    right: 24px;\r\n}\r\n\r\n.stepper-step-isActive {\r\n    font-weight: 600;\r\n}\r\n\r\n.stepper-step-isValid {\r\n    font-weight: 600;\r\n}\r\n\r\n.stepper-step-isDisabled {\r\n    color: rgba(0, 0, 0, 0.38);\r\n    cursor: default;\r\n}\r\n\r\n.stepper-stepMarker {\r\n    display: inline-block;\r\n    width: 24px;\r\n    height: 24px;\r\n    margin-right: 8px;\r\n    text-align: center;\r\n    color: white;\r\n    line-height: 24px;\r\n    background-color: rgba(0, 0, 0, 0.38);\r\n    border-radius: 24px;\r\n    font-weight: 100;\r\n    font-size: 12px;\r\n}\r\n\r\n.stepper-step-isActive .stepper-stepMarker {\r\n    background-color: #2196F3;\r\n}\r\n\r\n.stepper-step-isValid .stepper-stepMarker {\r\n    text-indent: -10000px;\r\n    background: url('data:image/svg+xml;charset=utf8,<svg fill=\"#FFFFFF\" height=\"20\" viewBox=\"0 0 24 24\" width=\"19\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/> <path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>') no-repeat #2196F3;\r\n    background-position: 2px 1px;\r\n    background-color: #2196F3;\r\n}\r\n\r\n.stepper-stepContent {\r\n    display: inline-block;\r\n    position: relative;\r\n    z-index: 2;\r\n    padding: 0 8px;\r\n    background-color: #fff;\r\n}\r\n\r\n\r\n\r\nimg {\r\n    max-width: 100%;\r\n}\r\n", ""]);
 
 // exports
 
@@ -1065,18 +871,158 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/asset-pool/asset-pool.component.html":
+/***/ "../../../../../src/app/components/asset-pool-create/asset-pool-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Asset Pool</h4>\n            <p class=\"category\">List of Asset Pool</p>\n          </div>\n          <div class=\"card-content table-responsive\">\n            <div class=\"col-lg-3 col-md-6 col-sm-6\">\n            <div class=\"card card-stats\" >\n              <div class=\"card-header\" data-background-color=\"green\">\n                <i class=\"material-icons\">store</i>\n              </div>\n              <div class=\"card-content\">\n                <p class=\"category\">Revenue</p>\n                <h3 class=\"title\">$34,245</h3>\n              </div>\n              <div class=\"card-footer\">\n                <div class=\"stats\">\n                  <i class=\"material-icons\">date_range</i> Last 24 Hours\n                </div>\n              </div>\n            </div>\n          </div></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n\n\n    <div class=\"row\">\n<!--\n      <div class=\"col-md-12\">\n        <div class=\"row\">\n          <div class=\"col-lg-3 col-md-6 col-sm-6\">\n            <div class=\"card card-stats\" >\n              <div class=\"card-header\" data-background-color=\"green\">\n                <i class=\"material-icons\">store</i>\n              </div>\n              <div class=\"card-content\">\n                <p class=\"category\">Revenue</p>\n                <h3 class=\"title\">$34,245</h3>\n              </div>\n              <div class=\"card-footer\">\n                <div class=\"stats\">\n                  <i class=\"material-icons\">date_range</i> Last 24 Hours\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n\n      </div>-->\n\n\n\n      <div class=\"col-md-12\" >\n        <div class=\"stepper\" style=\"margin-top: 50px\">\n          <div class=\"stepper-steps stepper-steps-isOffset\">\n            <div class=\"stepper-step\"\n                 [ngClass]=\"{'stepper-step-isActive':selectedStepperNumber===1}\"\n                 (click)=\"stepperSelected(1)\">\n              <div class=\"stepper-stepContent\">\n                <span class=\"stepper-stepMarker\">1</span>Asset Category\n              </div>\n            </div>\n\n            <div class=\"stepper-step \"\n                 [ngClass]=\"{'stepper-step-isActive':selectedStepperNumber===2}\"\n                 (click)=\"stepperSelected(2)\">\n              <div class=\"stepper-stepContent\">\n                <span class=\"stepper-stepMarker\">1</span>Asset Name\n              </div>\n            </div>\n            <div  class=\"stepper-step\"\n                  [ngClass]=\"{'stepper-step-isActive':selectedStepperNumber===3}\"\n                  (click)=\"stepperSelected(3)\">\n              <div class=\"stepper-stepContent\">\n                <span class=\"stepper-stepMarker\">2</span>Asset Info\n              </div>\n            </div>\n            <div class=\"stepper-step\"\n                 [ngClass]=\"{'stepper-step-isActive':selectedStepperNumber===4}\"\n                 (click)=\"stepperSelected(4)\">\n              <div class=\"stepper-stepContent\">\n                <span class=\"stepper-stepMarker\">3</span>Put on Blockchain\n              </div>\n            </div>\n          </div>\n          <div class=\"stepper-content\">\n\n            <section class=\"step-1\" *ngIf=\"selectedStepperNumber===1\">\n                <div class=\"card-content\">\n                  <div class=\"col-md-12\">\n                    <div class=\"row\">\n                      <div class=\" col-md-6 col-md-offset-3\">\n                        <div class=\"card card-stats\" >\n                          <div class=\"card-header\" data-background-color=\"green\">\n                            <i class=\"material-icons\">store</i>\n                          </div>\n                          <div class=\"card-content\">\n                            <p class=\"category\">Total Assets in Pool</p>\n                            <h3 class=\"title\">{{selectedAssetsForPool.length}}</h3>\n                          </div>\n\n                        </div>\n                      </div>\n                    </div>\n\n                  </div>\n\n                  <form>\n                      <div class=\"row\">\n                        <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Category 1</label>\n                            <input [disabled]=\"true\" type=\"text\" [(ngModel)]=\"assetPool.category.one\"  name=\"category1\" class=\"form-control\">\n                          </div>\n                        </div>\n\n                        <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Category 2</label>\n                            <input [disabled]=\"true\" type=\"text\"  [(ngModel)]=\"assetPool.category.two\"  name=\"category2\" class=\"form-control\">\n                          </div>\n                        </div>\n\n                        <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Category 3</label>\n                            <input [disabled]=\"true\" type=\"text\" [(ngModel)]=\"assetPool.category.three\"   name=\"category3\" class=\"form-control\">\n                          </div>\n                        </div>\n\n                        <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Category 4</label>\n                            <input [disabled]=\"true\" type=\"text\" [(ngModel)]=\"assetPool.category.four\"   name=\"category4\" class=\"form-control\">\n                          </div>\n                        </div>\n\n                        <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Category 5</label>\n                            <input [disabled]=\"true\" type=\"text\"  [(ngModel)]=\"assetPool.category.five\"  name=\"category5\" class=\"form-control\">\n                          </div>\n                        </div>\n\n                      </div>\n\n                  </form>\n\n                  <div class=\"row\">\n                    <div class=\"col-xs-12\">\n                      <button (click)=\"gotoStepperSection(2)\" class=\" btn btn-info pull-right\">Continue</button>\n                    </div>\n                  </div>\n\n\n                </div>\n            </section>\n\n            <section class=\"step-2\" *ngIf=\"selectedStepperNumber===2\">\n              <div class=\"card-content\">\n\n\n\n                <form>\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  [(ngModel)]=\"asset.name\" name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Asset currency</label>\n                        <input  [(ngModel)]=\"asset.currency\" style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Estimate price</label>\n                        <input  [(ngModel)]=\"asset.estimatedPrice\" type=\"text\"  name=\"estimatedPrice\" class=\"form-control\" >\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Estimate unit</label>\n                        <input  [(ngModel)]=\"asset.estimatedUnit\" type=\"text\"  name=\"estimatedUnit\" class=\"form-control\" >\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Unlock condition</label>\n                        <input  [(ngModel)]=\"asset.unlockCondition\" type=\"text\"  name=\"unlockCondition\" class=\"form-control\" >\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Exercise standard</label>\n                        <input  [(ngModel)]=\"asset.excerciseStandard\" type=\"text\"  name=\"excerciseStandard\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Chain or not</label>\n                        <input  [(ngModel)]=\"asset.chainOrNot\" type=\"text\"  name=\"chainOrNot\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Describe</label>\n                        <input  [(ngModel)]=\"asset.description\" type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"row\">\n                    <div class=\"col-xs-12\">\n                      <button (click)=\"gotoStepperSection(3)\" class=\" btn btn-info pull-right\">Continue</button>\n\n                      <button (click)=\"gotoStepperSection(1)\" class=\" btn pull-right\">Back</button>\n\n                    </div>\n                  </div>\n                </form>\n              </div>\n            </section>\n\n\n            <section class=\"step-3\" *ngIf=\"selectedStepperNumber===3\">\n              <div class=\"card-content\">\n                <form>\n                  <b>Product brand</b>\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Remark</label>\n                        <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Link</label>\n                        <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                  </div>\n                  <b>Packing standard</b>\n\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Remark</label>\n                        <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Link</label>\n                        <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                  </div>\n\n\n                  <b>Product index</b>\n\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Remark</label>\n                        <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Link</label>\n                        <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                  </div>\n\n\n\n                  <b>Production detail</b>\n                  <div class=\"row\">\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Name</label>\n                        <input type=\"text\"  name=\"name\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Remark</label>\n                        <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Link</label>\n                        <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                      </div>\n                    </div>\n\n                  </div>\n\n\n                  <div class=\"row\">\n                    <div class=\"col-xs-12\">\n                      <button (click)=\"gotoStepperSection(4)\" class=\" btn btn-info pull-right\">Continue</button>\n\n                      <button (click)=\"gotoStepperSection(2)\" class=\" btn pull-right\">Back</button>\n\n                    </div>\n                  </div>\n                </form>\n              </div>\n            </section>\n\n\n            <section class=\"step-4\" *ngIf=\"selectedStepperNumber===4\">\n              <div class=\"card-content\">\n                <form>\n                  <div class=\"row\">\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Published number</label>\n                        <input type=\"text\"  [(ngModel)]=\"asset.publishedNumber.maximum\" name=\"maximum\" class=\"form-control\">\n                      </div>\n                    </div>\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group form-black  \">\n                        <label class=\"control-label\">Accuracy</label>\n                        <input type=\"text\" [(ngModel)]=\"asset.publishedNumber.precision\"  name=\"precision\" class=\"form-control\">\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"row\">\n                    <div class=\"col-xs-12\">\n                      <button  class=\" btn btn-success pull-right\">SAVE</button>\n\n                      <button (click)=\"gotoStepperSection(3)\" class=\" btn pull-right\">Back</button>\n\n                    </div>\n                  </div>\n                </form>\n              </div>\n            </section>\n\n\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/asset-pool/asset-pool.component.ts":
+/***/ "../../../../../src/app/components/asset-pool-create/asset-pool-create.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetPoolComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetPoolCreateComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_assets_pool_service__ = __webpack_require__("../../../../../src/app/services/assets-pool.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_assets_service__ = __webpack_require__("../../../../../src/app/services/assets.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AssetPoolCreateComponent = (function () {
+    function AssetPoolCreateComponent(assetPoolService, toastService, assetsService) {
+        this.assetPoolService = assetPoolService;
+        this.toastService = toastService;
+        this.assetsService = assetsService;
+        this.selectedStepperNumber = 1;
+        this.selectedAssetsForPool = [];
+        this.assetCategoriesLevelOne = [];
+        this.assetPool = {
+            category: { one: null, two: null, three: null, four: null, five: null,
+                name: null,
+                currency: null,
+                estimatedPrice: null,
+                estimatedUnit: null,
+                unlockCondition: null,
+                excerciseStandard: null,
+                chainOrNot: false,
+                description: null,
+                productBrand: {},
+                productStandard: {},
+                productInfo: {},
+                productIndex: {},
+                publishedNumber: {
+                    maximum: null, precision: null
+                }
+            }
+        };
+    }
+    AssetPoolCreateComponent.prototype.ngOnInit = function () {
+        this.selectedAssetsForPool = this.assetPoolService.getSelectedAssetsForPool();
+        console.log(this.selectedAssetsForPool);
+        this.getCategories();
+    };
+    AssetPoolCreateComponent.prototype.stepperSelected = function (index) {
+        this.selectedStepperNumber = index;
+    };
+    AssetPoolCreateComponent.prototype.getCategories = function () {
+        var _this = this;
+        this.assetsService.getCategories().subscribe(function (categories) {
+            _this.assetCategoriesLevelOne = categories;
+            if (_this.selectedAssetsForPool.length) {
+                var categoryId = _this.selectedAssetsForPool[0].category;
+                var arr = categoryId.split('-');
+                if (arr[0]) {
+                    _this.assetPool.category.one = _this.assetCategoriesLevelOne[arr[0]].name;
+                }
+                if (arr[1]) {
+                    _this.assetPool.category.two = _this.assetCategoriesLevelOne[arr[0]]
+                        .subCategories[arr[1]].name;
+                }
+                if (arr[2]) {
+                    _this.assetPool.category.three = _this.assetCategoriesLevelOne[arr[0]]
+                        .subCategories[arr[1]]
+                        .subCategories[arr[2]].name;
+                }
+                if (arr[3]) {
+                    _this.assetPool.category.four = _this.assetCategoriesLevelOne[arr[0]]
+                        .subCategories[arr[1]]
+                        .subCategories[arr[2]]
+                        .subCategories[arr[3]].name;
+                }
+                if (arr[4]) {
+                    _this.assetPool.category.five = _this.assetCategoriesLevelOne[arr[0]]
+                        .subCategories[arr[1]]
+                        .subCategories[arr[2]]
+                        .subCategories[arr[3]]
+                        .subCategories[arr[4]].name;
+                }
+            }
+        }, function (err) {
+            _this.toastService.error('Pool', err.message);
+            console.log(err);
+        });
+    };
+    AssetPoolCreateComponent.prototype.gotoStepperSection = function (index) {
+        this.selectedStepperNumber = index;
+    };
+    AssetPoolCreateComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-asset-pool-create',
+            template: __webpack_require__("../../../../../src/app/components/asset-pool-create/asset-pool-create.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/asset-pool-create/asset-pool-create.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_assets_pool_service__["a" /* AssetsPoolService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_assets_pool_service__["a" /* AssetsPoolService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_toast_service__["a" /* ToastService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_toast_service__["a" /* ToastService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_assets_service__["a" /* AssetsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_assets_service__["a" /* AssetsService */]) === "function" && _c || Object])
+    ], AssetPoolCreateComponent);
+    return AssetPoolCreateComponent;
+    var _a, _b, _c;
+}());
+
+//# sourceMappingURL=asset-pool-create.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/asset-pool-list/asset-pool-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/asset-pool-list/asset-pool-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-12\" >\n          <div class=\"stepper\" style=\"margin-top: 50px\">\n            <div class=\"stepper-steps stepper-steps-isOffset\">\n              <div class=\"stepper-step stepper-step-isValid\">\n                <div class=\"stepper-stepContent\">\n                  <span class=\"stepper-stepMarker\">1</span>Asset Details\n                </div>\n              </div>\n              <div class=\"stepper-step stepper-step-isActive\">\n                <div class=\"stepper-stepContent\">\n                  <span class=\"stepper-stepMarker\">2</span>Asset Info\n                </div>\n              </div>\n              <div class=\"stepper-step stepper-step-isDisabled\">\n                <div class=\"stepper-stepContent\">\n                  <span class=\"stepper-stepMarker\">3</span>Put on Blockchain\n                </div>\n              </div>\n            </div>\n            <div class=\"stepper-content\">\n\n              <section class=\"step-1\">\n                <div class=\"card\">\n                  <div class=\"card-header\" data-background-color=\"green\">\n                    <h4 class=\"title\">Asset details</h4>\n                  </div>\n                  <div class=\"card-content\">\n                    <form>\n                      <fieldset >\n                        <div class=\"row\">\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Name</label>\n                              <input type=\"text\"  name=\"name\" class=\"form-control\">\n                            </div>\n                          </div>\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Asset currency</label>\n                              <input style=\"text-transform: capitalize\" type=\"text\"  name=\"currency\" class=\"form-control\">\n                            </div>\n                          </div>\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Estimate price</label>\n                              <input type=\"text\"  name=\"description\" class=\"form-control\" >\n                            </div>\n                          </div>\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Estimate unit</label>\n                              <input type=\"text\"  name=\"quantity\" class=\"form-control\" >\n                            </div>\n                          </div>\n                          <div class=\"col-md-4\">\n                          <div class=\"form-group form-black  \">\n                            <label class=\"control-label\">Unlock condition</label>\n                            <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                          </div>\n                        </div>\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Exercise standard</label>\n                              <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                            </div>\n                          </div>\n\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Chain or not</label>\n                              <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                            </div>\n                          </div>\n\n                          <div class=\"col-md-4\">\n                            <div class=\"form-group form-black  \">\n                              <label class=\"control-label\">Describe</label>\n                              <input type=\"text\"  name=\"status\" class=\"form-control\" >\n                            </div>\n                          </div>\n                        </div>\n                      </fieldset>\n\n                    </form>\n                  </div>\n                </div>\n              </section>\n\n\n\n              <div class=\"stepper-actions\">\n                <a href=\"#\" class=\"stepper-actionPrevious btn btn-default btn-simple btn-lg mbn\">Back</a>\n                <a href=\"#\" class=\"stepper-actionNext btn btn-info btn-lg btn-simple pull-right mbn\">Continue</a>\n              </div>\n            </div>\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/asset-pool-list/asset-pool-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetPoolListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1088,23 +1034,84 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var AssetPoolComponent = (function () {
-    function AssetPoolComponent() {
+var AssetPoolListComponent = (function () {
+    function AssetPoolListComponent() {
     }
-    AssetPoolComponent.prototype.ngOnInit = function () {
+    AssetPoolListComponent.prototype.ngOnInit = function () {
     };
-    AssetPoolComponent = __decorate([
+    AssetPoolListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-asset-pool',
-            template: __webpack_require__("../../../../../src/app/components/asset-pool/asset-pool.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/asset-pool/asset-pool.component.css")]
+            selector: 'app-asset-pool-list',
+            template: __webpack_require__("../../../../../src/app/components/asset-pool-list/asset-pool-list.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/asset-pool-list/asset-pool-list.component.css")]
         }),
         __metadata("design:paramtypes", [])
-    ], AssetPoolComponent);
-    return AssetPoolComponent;
+    ], AssetPoolListComponent);
+    return AssetPoolListComponent;
 }());
 
-//# sourceMappingURL=asset-pool.component.js.map
+//# sourceMappingURL=asset-pool-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/asset-pool-view/asset-pool-view.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/asset-pool-view/asset-pool-view.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  asset-pool-view works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/asset-pool-view/asset-pool-view.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetPoolViewComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AssetPoolViewComponent = (function () {
+    function AssetPoolViewComponent() {
+    }
+    AssetPoolViewComponent.prototype.ngOnInit = function () {
+    };
+    AssetPoolViewComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-asset-pool-view',
+            template: __webpack_require__("../../../../../src/app/components/asset-pool-view/asset-pool-view.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/asset-pool-view/asset-pool-view.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AssetPoolViewComponent);
+    return AssetPoolViewComponent;
+}());
+
+//# sourceMappingURL=asset-pool-view.component.js.map
 
 /***/ }),
 
@@ -1240,6 +1247,7 @@ module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_assets_service__ = __webpack_require__("../../../../../src/app/services/assets.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_assets_pool_service__ = __webpack_require__("../../../../../src/app/services/assets-pool.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1253,9 +1261,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AssetsComponent = (function () {
-    function AssetsComponent(assetsService, toastService, router) {
+    function AssetsComponent(assetsService, assetPoolService, toastService, router) {
         this.assetsService = assetsService;
+        this.assetPoolService = assetPoolService;
         this.toastService = toastService;
         this.router = router;
         this.assetsRequestStatus = 'resolved';
@@ -1395,7 +1405,7 @@ var AssetsComponent = (function () {
             this.toastService.error('Asset', 'All the selected item needs to be the same category');
             return false;
         }
-        this.assetsService.addAssetInPool(selectedAssets);
+        this.assetPoolService.addAssetInPool(selectedAssets);
         this.router.navigate(['/dashboard/assets-pool-create']);
     };
     AssetsComponent.prototype.getCategories = function () {
@@ -1444,10 +1454,10 @@ var AssetsComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/assets/assets.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/assets/assets.component.css")]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_assets_service__["a" /* AssetsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_assets_service__["a" /* AssetsService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_assets_service__["a" /* AssetsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_assets_service__["a" /* AssetsService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_assets_pool_service__["a" /* AssetsPoolService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_assets_pool_service__["a" /* AssetsPoolService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* Router */]) === "function" && _d || Object])
     ], AssetsComponent);
     return AssetsComponent;
-    var _a, _b, _c;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=assets.component.js.map
@@ -2748,6 +2758,111 @@ var AlreadyRegisteredOnBlockchainGuard = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/pipes/truncate-balance.pipe.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TruncateBalancePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var TruncateBalancePipe = (function () {
+    function TruncateBalancePipe() {
+    }
+    TruncateBalancePipe.prototype.transform = function (fee) {
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        if (!fee) {
+            return 0;
+        }
+        fee = fee.toString();
+        while (fee.length < 7) {
+            fee = '0'.concat(fee);
+        }
+        fee = fee.slice(0, -6).concat('.', fee.slice(-6));
+        var clearView = false;
+        while (!clearView) {
+            if (fee[fee.length - 1] == '0') {
+                fee = fee.slice(0, fee.length - 1);
+            }
+            else {
+                clearView = true;
+            }
+        }
+        if (fee[fee.length - 1] == '.') {
+            fee = fee.slice(0, fee.length - 1);
+        }
+        return fee;
+    };
+    TruncateBalancePipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
+            name: 'truncateBalance',
+        })
+    ], TruncateBalancePipe);
+    return TruncateBalancePipe;
+}());
+
+//# sourceMappingURL=truncate-balance.pipe.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/pipes/txn-type.pipe.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TxnTypePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var TxnTypePipe = (function () {
+    function TxnTypePipe() {
+        this.transactionType = {
+            0: 'SEND',
+            1: 'SIGNATURE',
+            2: 'DELEGATE',
+            3: 'VOTE',
+            4: 'MULTI',
+            5: 'DAPP',
+            6: 'IN_TRANSFER',
+            7: 'OUT_TRANSFER',
+            8: 'APPROVAL',
+            9: 'UIA_ISSUER',
+            10: 'UIA_ASSET',
+            11: 'UIA_ISSUE',
+            12: 'UIA_EXERCISE'
+        };
+    }
+    TxnTypePipe.prototype.transform = function (value) {
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        return this.transactionType[value] || 'Unknown';
+    };
+    TxnTypePipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
+            name: 'txnType',
+        })
+    ], TxnTypePipe);
+    return TxnTypePipe;
+}());
+
+//# sourceMappingURL=txn-type.pipe.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/services/assets-pool.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2766,7 +2881,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AssetsPoolService = (function () {
     function AssetsPoolService() {
+        this.selectedAssetsForPool = [];
     }
+    AssetsPoolService.prototype.addAssetInPool = function (assets) {
+        this.selectedAssetsForPool = assets;
+    };
+    AssetsPoolService.prototype.getSelectedAssetsForPool = function () {
+        return this.selectedAssetsForPool;
+    };
     AssetsPoolService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
         __metadata("design:paramtypes", [])
@@ -2795,11 +2917,13 @@ var AssetsPoolService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_interval___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_interval__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_retry__ = __webpack_require__("../../../../rxjs/add/operator/retry.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_retry___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_retry__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_throw__ = __webpack_require__("../../../../rxjs/add/observable/throw.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_throw__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__error_handler_service__ = __webpack_require__("../../../../../src/app/services/error-handler.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_observable_throw__ = __webpack_require__("../../../../rxjs/add/observable/throw.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_observable_throw__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__error_handler_service__ = __webpack_require__("../../../../../src/app/services/error-handler.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2820,6 +2944,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AssetsService = (function () {
     function AssetsService(http, errorHandler, userService) {
         this.http = http;
@@ -2827,7 +2952,6 @@ var AssetsService = (function () {
         this.userService = userService;
         this.categories = [];
         this.assets = [];
-        this.selectedAssetsForPool = [];
     }
     AssetsService.prototype.getAssets = function (categoryId) {
         var _this = this;
@@ -2856,12 +2980,12 @@ var AssetsService = (function () {
             return _this.errorHandler.handle(res);
         });
     };
-    AssetsService.prototype.addAssetInPool = function (assets) {
-        this.selectedAssetsForPool = assets;
-    };
     AssetsService.prototype.getCategories = function () {
         var _this = this;
         var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getCategories.url();
+        if (this.categories && this.categories.length) {
+            return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["Observable"].of(this.categories);
+        }
         return this.http.get("" + url).do(function (categories) {
             console.log('///////');
             console.log(categories);
@@ -2874,7 +2998,7 @@ var AssetsService = (function () {
     };
     AssetsService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_9__error_handler_service__["a" /* ErrorHandlerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__error_handler_service__["a" /* ErrorHandlerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_10__user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__user_service__["a" /* UserService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_9__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_10__error_handler_service__["a" /* ErrorHandlerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__error_handler_service__["a" /* ErrorHandlerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_11__user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__user_service__["a" /* UserService */]) === "function" && _c || Object])
     ], AssetsService);
     return AssetsService;
     var _a, _b, _c;
@@ -4076,7 +4200,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shared/sidebar/sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\" style=\"background-color: ghostwhite\">\n    <a href=\"javascript:void(0)\" class=\"simple-text\">\n        <div class=\"logo-img\">\n            <img src=\"/assets/img/logo.png\"/>\n        </div>\n        Agriledger\n    </a>\n</div>\n<div class=\"sidebar-wrapper\" style=\"background-color: beige\">\n    <form class=\"navbar-form navbar-right\" role=\"search\" *ngIf=\"isMobileMenu()\">\n        <div class=\"form-group form-black is-empty\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n            <span class=\"material-input\"></span>\n        </div>\n        <button type=\"submit\" class=\"btn btn-white btn-round btn-just-icon\">\n            <i class=\"material-icons\">search</i><div class=\"ripple-container\"></div>\n        </button>\n    </form>\n\n    <ul class=\"nav nav-mobile-menu\" *ngIf=\"isMobileMenu()\">\n        <li>\n            <a href=\"#pablo\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                <i class=\"material-icons\">dashboard</i>\n                <p class=\"hidden-lg hidden-md\">Dashboard</p>\n            </a>\n        </li>\n        <li class=\"dropdown\">\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                <i class=\"material-icons\">notifications</i>\n                <span class=\"notification\">5</span>\n                <p class=\"hidden-lg hidden-md\">Notifications</p>\n            </a>\n            <ul class=\"dropdown-menu\">\n                <li><a href=\"#\">Mike John responded to your email</a></li>\n                <li><a href=\"#\">You have 5 new tasks</a></li>\n                <li><a href=\"#\">You're now friend with Andrew</a></li>\n                <li><a href=\"#\">Another Notification</a></li>\n                <li><a href=\"#\">Another One</a></li>\n            </ul>\n        </li>\n        <li>\n            <a href=\"#pablo\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n               <i class=\"material-icons\">person</i>\n               <p class=\"hidden-lg hidden-md\">Profile</p>\n            </a>\n        </li>\n    </ul>\n\n    <div class=\"nav-container\">\n        <ul class=\"nav\">\n            <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItems\" class=\"{{menuItem.class}}\">\n                <a  [routerLink]=\"[menuItem.path]\">\n                    <i class=\"material-icons\">{{menuItem.icon}}</i>\n                    <p>{{menuItem.title}}</p>\n                </a>\n            </li>\n        </ul>\n    </div>\n</div>\n"
+module.exports = "<div class=\"logo\" style=\"background-color: ghostwhite\">\n    <a href=\"javascript:void(0)\" class=\"simple-text\">\n        <div class=\"logo-img\">\n            <img src=\"/assets/img/logo.png\"/>\n        </div>\n        Agriledger\n    </a>\n</div>\n<div class=\"sidebar-wrapper\" style=\"background-color: beige\">\n\n\n\n    <div class=\"nav-container\">\n        <ul class=\"nav\">\n            <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItems\" class=\"{{menuItem.class}}\">\n                <a  [routerLink]=\"[menuItem.path]\">\n                    <i class=\"material-icons\">{{menuItem.icon}}</i>\n                    <p>{{menuItem.title}}</p>\n                </a>\n            </li>\n        </ul>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -4255,111 +4379,6 @@ var TermsComponent = (function () {
 }());
 
 //# sourceMappingURL=terms.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/truncate-balance.pipe.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TruncateBalancePipe; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var TruncateBalancePipe = (function () {
-    function TruncateBalancePipe() {
-    }
-    TruncateBalancePipe.prototype.transform = function (fee) {
-        var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
-        }
-        if (!fee) {
-            return 0;
-        }
-        fee = fee.toString();
-        while (fee.length < 7) {
-            fee = '0'.concat(fee);
-        }
-        fee = fee.slice(0, -6).concat('.', fee.slice(-6));
-        var clearView = false;
-        while (!clearView) {
-            if (fee[fee.length - 1] == '0') {
-                fee = fee.slice(0, fee.length - 1);
-            }
-            else {
-                clearView = true;
-            }
-        }
-        if (fee[fee.length - 1] == '.') {
-            fee = fee.slice(0, fee.length - 1);
-        }
-        return fee;
-    };
-    TruncateBalancePipe = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
-            name: 'truncateBalance',
-        })
-    ], TruncateBalancePipe);
-    return TruncateBalancePipe;
-}());
-
-//# sourceMappingURL=truncate-balance.pipe.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/txn-type.pipe.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TxnTypePipe; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var TxnTypePipe = (function () {
-    function TxnTypePipe() {
-        this.transactionType = {
-            0: 'SEND',
-            1: 'SIGNATURE',
-            2: 'DELEGATE',
-            3: 'VOTE',
-            4: 'MULTI',
-            5: 'DAPP',
-            6: 'IN_TRANSFER',
-            7: 'OUT_TRANSFER',
-            8: 'APPROVAL',
-            9: 'UIA_ISSUER',
-            10: 'UIA_ASSET',
-            11: 'UIA_ISSUE',
-            12: 'UIA_EXERCISE'
-        };
-    }
-    TxnTypePipe.prototype.transform = function (value) {
-        var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
-        }
-        return this.transactionType[value] || 'Unknown';
-    };
-    TxnTypePipe = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
-            name: 'txnType',
-        })
-    ], TxnTypePipe);
-    return TxnTypePipe;
-}());
-
-//# sourceMappingURL=txn-type.pipe.js.map
 
 /***/ }),
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AssetsService} from "../../services/assets.service";
 import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
+import {AssetsPoolService} from "../../services/assets-pool.service";
 
 @Component({
   selector: 'app-assets',
@@ -27,7 +28,8 @@ export class AssetsComponent implements OnInit {
   selectedLevel=null;
   selectedId=null;
 
-    constructor(private assetsService:AssetsService,private toastService:ToastService,private router:Router) { }
+    constructor(private assetsService:AssetsService,private assetPoolService:AssetsPoolService,
+                private toastService:ToastService,private router:Router) { }
 
   ngOnInit() {
 
@@ -186,7 +188,7 @@ export class AssetsComponent implements OnInit {
           return false;
       }
 
-      this.assetsService.addAssetInPool(selectedAssets);
+      this.assetPoolService.addAssetInPool(selectedAssets);
       this.router.navigate(['/dashboard/assets-pool-create']);
   }
 

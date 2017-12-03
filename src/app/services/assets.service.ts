@@ -18,7 +18,6 @@ export class AssetsService {
 
     categories:any[]=[];
     assets:any[]=[];
-    selectedAssetsForPool=[];
     constructor(private http: HttpClient, private errorHandler: ErrorHandlerService, private userService: UserService) {
     }
 
@@ -54,13 +53,14 @@ export class AssetsService {
             });
     }
 
-    addAssetInPool(assets:any[]){
-        this.selectedAssetsForPool=assets;
-    }
+
 
     getCategories(){
         const url=`${AssetApi.getCategories.url()}`;
 
+        if(this.categories && this.categories.length){
+            return Observable.of(this.categories);
+        }
         return this.http.get(`${url}`).do((categories:any[])=>{
             console.log('///////')
             console.log(categories)
