@@ -65,10 +65,10 @@
 
             <section class="step-1" *ngIf="selectedStepperNumber===1">
                 <div class="card-content">
-                  <div class="col-md-12">
+               <!--   <div class="col-md-12">
                     <div class="row">
                       <div class=" col-md-6 col-md-offset-3">
-                        <div class="card card-stats" >
+                        <div class="card card-stats" style="background-color: #00bfa5">
                           <div class="card-header" data-background-color="green">
                             <i class="material-icons">store</i>
                           </div>
@@ -81,42 +81,42 @@
                       </div>
                     </div>
 
-                  </div>
+                  </div>-->
 
                   <form>
                       <div class="row">
                         <div class="col-md-4">
                           <div class="form-group form-black  ">
                             <label class="control-label">Category 1</label>
-                            <input [disabled]="true" type="text" [(ngModel)]="assetPool.category.one"  name="category1" class="form-control">
+                            <input [disabled]="true" type="text" [(ngModel)]="category.one"  name="category1" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-4">
                           <div class="form-group form-black  ">
                             <label class="control-label">Category 2</label>
-                            <input [disabled]="true" type="text"  [(ngModel)]="assetPool.category.two"  name="category2" class="form-control">
+                            <input [disabled]="true" type="text"  [(ngModel)]="category.two"  name="category2" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-4">
                           <div class="form-group form-black  ">
                             <label class="control-label">Category 3</label>
-                            <input [disabled]="true" type="text" [(ngModel)]="assetPool.category.three"   name="category3" class="form-control">
+                            <input [disabled]="true" type="text" [(ngModel)]="category.three"   name="category3" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-4">
                           <div class="form-group form-black  ">
                             <label class="control-label">Category 4</label>
-                            <input [disabled]="true" type="text" [(ngModel)]="assetPool.category.four"   name="category4" class="form-control">
+                            <input [disabled]="true" type="text" [(ngModel)]="category.four"   name="category4" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-4">
                           <div class="form-group form-black  ">
                             <label class="control-label">Category 5</label>
-                            <input [disabled]="true" type="text"  [(ngModel)]="assetPool.category.five"  name="category5" class="form-control">
+                            <input [disabled]="true" type="text"  [(ngModel)]="category.five"  name="category5" class="form-control">
                           </div>
                         </div>
 
@@ -126,7 +126,7 @@
 
                   <div class="row">
                     <div class="col-xs-12">
-                      <button (click)="gotoStepperSection(2)" class=" btn btn-info pull-right">Continue</button>
+                      <button (click)="gotoStepperSection(2)" class=" btn btn-success pull-right">Continue</button>
                     </div>
                   </div>
 
@@ -145,57 +145,57 @@
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Name</label>
-                        <input type="text"  [(ngModel)]="asset.name" name="name" class="form-control">
+                        <input type="text"  [(ngModel)]="assetPool.name" name="name" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Asset currency</label>
-                        <input  [(ngModel)]="asset.currency" style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                        <input  [(ngModel)]="assetPool.currency" style="text-transform: capitalize" type="text"  name="currency" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Estimate price</label>
-                        <input  [(ngModel)]="asset.estimatedPrice" type="text"  name="estimatedPrice" class="form-control" >
+                        <input  [(ngModel)]="assetPool.estimatedPrice" type="text"  name="estimatedPrice" class="form-control" >
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Estimate unit</label>
-                        <input  [(ngModel)]="asset.estimatedUnit" type="text"  name="estimatedUnit" class="form-control" >
+                        <input  [(ngModel)]="assetPool.estimatedUnit" type="text"  name="estimatedUnit" class="form-control" >
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Unlock condition</label>
-                        <input  [(ngModel)]="asset.unlockCondition" type="text"  name="unlockCondition" class="form-control" >
+                        <input  [(ngModel)]="assetPool.unlockCondition" type="text"  name="unlockCondition" class="form-control" >
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Exercise standard</label>
-                        <input  [(ngModel)]="asset.excerciseStandard" type="text"  name="excerciseStandard" class="form-control" >
+                        <input  [(ngModel)]="assetPool.excerciseStandard" type="text"  name="excerciseStandard" class="form-control" >
                       </div>
                     </div>
 
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Chain or not</label>
-                        <input  [(ngModel)]="asset.chainOrNot" type="text"  name="chainOrNot" class="form-control" >
+                        <input  [(ngModel)]="assetPool.chainOrNot" type="text"  name="chainOrNot" class="form-control" >
                       </div>
                     </div>
 
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
-                        <label class="control-label">Describe</label>
-                        <input  [(ngModel)]="asset.description" type="text"  name="description" class="form-control" >
+                        <label class="control-label">Description</label>
+                        <input  [(ngModel)]="assetPool.desc" type="text"  name="description" class="form-control" >
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-xs-12">
-                      <button (click)="gotoStepperSection(3)" class=" btn btn-info pull-right">Continue</button>
+                      <button (click)="gotoStepperSection(3)" class=" btn btn-success pull-right">Continue</button>
 
                       <button (click)="gotoStepperSection(1)" class=" btn pull-right">Back</button>
 
@@ -215,19 +215,19 @@
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Name</label>
-                        <input type="text"  name="name" class="form-control">
+                        <input type="text" [(ngModel)]="assetPool.extra.productBrand.value"  name="productBrandValue" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Remark</label>
-                        <input style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                        <input [(ngModel)]="assetPool.extra.productBrand.remark" style="text-transform: capitalize" type="text"  name="productBrandRemark" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Link</label>
-                        <input type="text"  name="description" class="form-control" >
+                        <input [(ngModel)]="assetPool.extra.productBrand.link" type="text"  name="productBrandLink" class="form-control" >
                       </div>
                     </div>
 
@@ -239,19 +239,19 @@
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Name</label>
-                        <input type="text"  name="name" class="form-control">
+                        <input [(ngModel)]="assetPool.extra.productStandard.value" type="text"  name="productStandardValue" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Remark</label>
-                        <input style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                        <input [(ngModel)]="assetPool.extra.productStandard.remark" style="text-transform: capitalize" type="text"  name="productStandardRemark" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Link</label>
-                        <input type="text"  name="description" class="form-control" >
+                        <input [(ngModel)]="assetPool.extra.productStandard.link" type="text"  name="productStandardLink" class="form-control" >
                       </div>
                     </div>
 
@@ -265,19 +265,19 @@
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Name</label>
-                        <input type="text"  name="name" class="form-control">
+                        <input [(ngModel)]="assetPool.extra.productIndex.value" type="text"  name="productIndexValue" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Remark</label>
-                        <input style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                        <input [(ngModel)]="assetPool.extra.productIndex.remark" style="text-transform: capitalize" type="text"  name="productIndexRemark" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Link</label>
-                        <input type="text"  name="description" class="form-control" >
+                        <input [(ngModel)]="assetPool.extra.productIndex.link" type="text"  name="productIndexLink" class="form-control" >
                       </div>
                     </div>
 
@@ -291,19 +291,19 @@
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Name</label>
-                        <input type="text"  name="name" class="form-control">
+                        <input [(ngModel)]="assetPool.extra.productInfo.value" type="text"  name="productInfoValue" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Remark</label>
-                        <input style="text-transform: capitalize" type="text"  name="currency" class="form-control">
+                        <input [(ngModel)]="assetPool.extra.productInfo.remark" style="text-transform: capitalize" type="text"  name="productInfoRemark" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Link</label>
-                        <input type="text"  name="description" class="form-control" >
+                        <input [(ngModel)]="assetPool.extra.productInfo.link" type="text"  name="productInfoLink" class="form-control" >
                       </div>
                     </div>
 
@@ -312,7 +312,7 @@
 
                   <div class="row">
                     <div class="col-xs-12">
-                      <button (click)="gotoStepperSection(4)" class=" btn btn-info pull-right">Continue</button>
+                      <button (click)="gotoStepperSection(4)" class=" btn btn-success pull-right">Continue</button>
 
                       <button (click)="gotoStepperSection(2)" class=" btn pull-right">Back</button>
 
@@ -330,14 +330,14 @@
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Published number</label>
-                        <input type="text"  [(ngModel)]="asset.publishedNumber.maximum" name="maximum" class="form-control">
+                        <input type="text"  [(ngModel)]="assetPool.maximum" name="maximum" class="form-control">
                       </div>
                     </div>
 
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
                         <label class="control-label">Accuracy</label>
-                        <input type="text" [(ngModel)]="asset.publishedNumber.precision"  name="precision" class="form-control">
+                        <input type="text" [(ngModel)]="assetPool.precision"  name="precision" class="form-control">
                       </div>
                     </div>
                   </div>
