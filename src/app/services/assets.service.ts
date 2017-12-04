@@ -23,7 +23,7 @@ export class AssetsService {
 
     getAssets(categoryId:string) {
 
-      let url=`${AssetApi.getAssets.url()}?filter[where][categoryId]=${categoryId}&filter[include]=user`;
+      let url=`${AssetApi.getAssets.url()}?filter[where][categoryId]=${categoryId}&filter[where][isPutOnBlockchain]=${false}&filter[include]=user`;
 
         return this.http.get(`${url}`)
             .retry(3)

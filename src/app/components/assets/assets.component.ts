@@ -41,7 +41,7 @@ export class AssetsComponent implements OnInit {
     onAssetCategoryLevelChange(category:any, level:number,index:number) {
         console.log(category)
         console.log(level)
-
+        this.assets=[];
 
         if(level===0){
             this.selectedIndexOnLevelOne=index;
@@ -73,6 +73,7 @@ export class AssetsComponent implements OnInit {
         if (!category.hasChildren) {
             this.deepestCategorySelected = true;
             this.lastCategoryId = category.id;
+            this.getAssets(this.lastCategoryId);
             return;
         }
         this.deepestCategorySelected = false;

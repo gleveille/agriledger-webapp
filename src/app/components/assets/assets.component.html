@@ -119,7 +119,9 @@
                 </ul>
               </div>
 
+<!--
               <button class="btn btn-success" *ngIf="deepestCategorySelected"  (click)="getAssets(lastCategoryId)" >SEARCH</button>
+-->
 
 
 <!--
@@ -146,7 +148,13 @@
 
           <div class="card-content table-responsive">
 
-            <h3 class="text-center text-gray" *ngIf="assetsRequestStatus==='resolved' && !assets.length ">
+
+            <h3 class="text-center text-gray" *ngIf="!deepestCategorySelected ">
+              Choose Category
+
+            </h3>
+
+            <h3 class="text-center text-gray" *ngIf="assetsRequestStatus==='resolved' && !assets.length && deepestCategorySelected ">
               No Assets Available!
 
             </h3>

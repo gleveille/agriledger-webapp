@@ -34,7 +34,6 @@ export class AssetsPoolService {
       const url=`${AssetPoolApi.createAssetpool.url()}`;
 
       return this.http.post(`${url}`,assetPool)
-          .retry(3)
           .catch((res) => {
               return this.errorHandler.handle(res);
           });
@@ -42,4 +41,7 @@ export class AssetsPoolService {
 
   }
 
+  removeAllAssetFromPool(){
+    this.selectedAssetsForPool=[];
+  }
 }
