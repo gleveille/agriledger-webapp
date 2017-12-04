@@ -87,6 +87,63 @@ export class AssetPoolCreateComponent implements OnInit {
         if(!this.selectedAssetsForPool.length){
             return false;
         }
+
+
+        if (!this.assetPool.currency) {
+            return this.toastService.error('AssetPool','Asset currency required');
+        } else {
+            const reg = /^[A-Z0-9][A-Z0-9]{2,9}$/;
+            if (!reg.test(this.assetPool.currency)){
+                return this.toastService.error('AssetPool','Asset currency invalid. If it is chainLevel then BTC,ETH');
+            }
+        }
+        if (!this.assetPool.estimatePrice) {
+            return this.toastService.error('AssetPool','Estimate price is required');
+        } else {
+            const reg = /^(([1-9]|[1-9]\d{0,8})|(([1-9]|[1-9]\d{0,8})\.[0-9][0-9]{0,1})|(0\.(0[1-9]|[1-9][0-9]{0,1})))$/g;
+            if (!reg.test(this.assetPool.estimatePrice)) {
+                return this.toastService.error('AssetPool','Estimate price is invalid');
+            }
+        }
+
+
+
+
+        if (!this.assetPool.estimateUnit) {
+            return this.toastService.error('AssetPool','Estimate unit is required');
+        }
+
+        if (!this.assetPool.unlockCondition) {
+            return this.toastService.error('AssetPool','Unlock condition is required');
+        }
+        if (!this.assetPool.exerciseUnit) {
+            return this.toastService.error('AssetPool','Excercise unit is required');
+        }
+
+
+        if (!this.assetPool.desc) {
+            return this.toastService.error('AssetPool','Asset description is required');
+        } else {
+            const strLen = this.assetPool.desc.replace(/[^\x00-\xff]/g, "**").length;
+            if (strLen > 4096) {
+                return this.toastService.error('AssetPool','Asset description should not be more than 4096 in length');
+            }
+        }
+        if (!this.assetPool.maximum) {
+            return this.toastService.error('AssetPool','Publisher number is required');
+        }
+
+        if (!parseInt(this.assetPool.maximum)) {
+            return this.toastService.error('AssetPool','Invalid Publisher number');
+        }
+        if (!/^[0-6]$/.test(this.assetPool.precision)) {
+            return this.toastService.error('AssetPool','Accuracy should me maximum 6 in length');
+        }
+
+
+
+
+
         this.assetPoolService.createAssetPool(this.assetPool).subscribe((data)=>{
             this.toastService.success('AssetPool','Successfully created');
             this.resetState();
