@@ -47,6 +47,7 @@ import { TruncateBalancePipe } from './pipes/truncate-balance.pipe';
 import { AssetPoolViewComponent } from './components/asset-pool-view/asset-pool-view.component';
 import { AssetPoolListComponent } from './components/asset-pool-list/asset-pool-list.component';
 import { AssetPoolCreateComponent } from './components/asset-pool-create/asset-pool-create.component';
+import { XasPipe } from './pipes/xas.pipe';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { AssetPoolCreateComponent } from './components/asset-pool-create/asset-p
     AssetPoolViewComponent,
     AssetPoolListComponent,
     AssetPoolCreateComponent,
+    XasPipe,
 
   ],
   imports: [

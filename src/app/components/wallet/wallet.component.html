@@ -39,6 +39,8 @@
                                 <thead  >
                                 <tr>
                                     <th class="boldfont">Amount</th>
+                                    <th class="boldfont">Fee</th>
+
                                     <th class="boldfont">Sender Address</th>
 
                                     <th class="boldfont">Recipient Address</th>
@@ -54,11 +56,20 @@
                                 <tr *ngFor="let txn of transactions">
 
                                     <td>{{txn?.amountShow}}</td>
+                                    <td>{{txn?.fee|xas}}</td>
+
                                     <td data-toggle="tooltip" data-placement="left" title="{{txn?.senderId}}">
+
                                         {{txn?.senderId | slice:0:10}}{{txn?.senderId?'...':''}}
+                                        <span style="color: green;font-weight: 600">{{txn?.senderId===user?.walletAddress ? '(Me)':''}}</span>
+
                                     </td>
                                     <td data-toggle="tooltip" data-placement="left" title="{{txn?.recipientId}}">
+
                                         {{txn?.recipientId | slice:0:10}}{{txn?.recipientId?'...':''}}
+                                        <span style="color: green;font-weight: 600">{{txn?.recipientId===user?.walletAddress ? '(Me)':''}}</span>
+
+
                                     </td>
                                     <td data-toggle="tooltip" data-placement="left" title="{{txn?.blockId}}">
                                         {{txn?.type|txnType}}
