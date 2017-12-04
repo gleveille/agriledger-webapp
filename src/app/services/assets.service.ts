@@ -23,7 +23,7 @@ export class AssetsService {
 
     getAssets(categoryId:string) {
 
-      let url=`${AssetApi.getAssets.url()}?filter[where][category][like]=^${categoryId}&filter[include]=user`;
+      let url=`${AssetApi.getAssets.url()}?filter[where][categoryId]=${categoryId}&filter[include]=user`;
 
         return this.http.get(`${url}`)
             .retry(3)
@@ -55,12 +55,11 @@ export class AssetsService {
 
 
 
-    getCategories(){
-        const url=`${AssetApi.getCategories.url()}`;
+    getCategories(level:number){
+        const url=`${AssetApi.getCategories.url()}?level=${level}`;
+        console.log(url)
 
-        if(this.categories && this.categories.length){
-            return Observable.of(this.categories);
-        }
+
         return this.http.get(`${url}`).do((categories:any[])=>{
             console.log('///////')
             console.log(categories)

@@ -20,17 +20,19 @@
               <div class="dropdown" style="float: left">
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
                   Category 1
-                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelOne[selectedIndexOnLevelOne]?.name">
-                  ({{assetCategoriesLevelOne[selectedIndexOnLevelOne]?.name}})
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelOne[selectedIndexOnLevelOne]?.attrs[chosenLang]">
+                  ({{assetCategoriesLevelOne[selectedIndexOnLevelOne]?.attrs[chosenLang]}})
                 </span>
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li *ngFor="let category of assetCategoriesLevelOne;let i=index">
-                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="selectCategory(i,1,category.id)">
-                      {{category.name}}
+                  <li *ngFor="let c of assetCategoriesLevelOne;let i=index">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,0,i)">
+                      {{c.attrs[chosenLang]}}
                     </a>
                   </li>
+
+
 
 
                 </ul>
@@ -40,16 +42,15 @@
               <div class="dropdown" style="float: left" >
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
                   Category 2
-                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelTwo[selectedIndexOnLevelTwo]">
-                  ({{assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.name}})
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.attrs[chosenLang]">
+                  ({{assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.attrs[chosenLang]}})
                 </span>
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li *ngFor="let category of assetCategoriesLevelTwo;let i=index">
-                    <a style="text-transform: capitalize" (click)="selectCategory(i,2,category.id)" href="javascript:void(0)">
-                      {{category.name}}
-
+                  <li *ngFor="let c of assetCategoriesLevelTwo;let i=index">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,1,i)">
+                      {{c.attrs[chosenLang]}}
                     </a>
                   </li>
 
@@ -60,17 +61,16 @@
               <div class="dropdown" style="float: left" >
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
                   Category 3
-                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelThree[selectedIndexOnLevelThree]">
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelThree[selectedIndexOnLevelThree]?.attrs[chosenLang]">
 
-                  ({{assetCategoriesLevelThree[selectedIndexOnLevelThree]?.name||'unselected'}})
+                  ({{assetCategoriesLevelThree[selectedIndexOnLevelThree]?.attrs[chosenLang]}})
                   </span>
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li *ngFor="let category of assetCategoriesLevelThree;let i=index">
-                    <a style="text-transform: capitalize" (click)="selectCategory(i,3,category.id)" href="javascript:void(0)">
-                      {{category.name}}
-
+                  <li *ngFor="let c of assetCategoriesLevelThree;let i=index">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,2,i)">
+                      {{c.attrs[chosenLang]}}
                     </a>
                   </li>
 
@@ -82,17 +82,16 @@
               <div class="dropdown" style="float: left" >
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
                   Category 4
-                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelFour[selectedIndexOnLevelFour]">
-                    ({{assetCategoriesLevelFour[selectedIndexOnLevelFour]?.name||'unselected'}})
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelFour[selectedIndexOnLevelFour]?.attrs[chosenLang]">
+                    ({{assetCategoriesLevelFour[selectedIndexOnLevelFour]?.attrs[chosenLang]}})
 
                   </span>
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li *ngFor="let category of assetCategoriesLevelFour;let i=index">
-                    <a style="text-transform: capitalize" (click)="selectCategory(i,4,category.id)" href="javascript:void(0)">
-                      {{category.name}}
-
+                  <li *ngFor="let c of assetCategoriesLevelFour;let i=index">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,3,i)">
+                      {{c.attrs[chosenLang]}}
                     </a>
                   </li>
 
@@ -104,16 +103,15 @@
               <div class="dropdown" style="float: left">
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
                   Category 5
-                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelFive[selectedIndexOnLevelFive]">
-                   ({{assetCategoriesLevelFive[selectedIndexOnLevelFive]?.name||'unselected'}})
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelFive[selectedIndexOnLevelFive]?.attrs[chosenLang]">
+                   ({{assetCategoriesLevelFive[selectedIndexOnLevelFive]?.attrs[chosenLang]}})
                   </span>
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li *ngFor="let category of assetCategoriesLevelFive;let i=index">
-                    <a style="text-transform: capitalize" (click)="selectCategory(i,5,category.id)" href="javascript:void(0)">
-                      {{category.name}}
-
+                  <li *ngFor="let c of assetCategoriesLevelFive;let i=index">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,4,i)">
+                      {{c.attrs[chosenLang]}}
                     </a>
                   </li>
 
@@ -121,9 +119,7 @@
                 </ul>
               </div>
 
-<!--
-              <button class="btn btn-info" [disabled]="!selectedId"  (click)="getAssets(selectedId)" >SEARCH by Category</button>
--->
+              <button class="btn btn-success" *ngIf="deepestCategorySelected"  (click)="getAssets(lastCategoryId)" >SEARCH</button>
 
 
 <!--

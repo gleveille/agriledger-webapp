@@ -60,10 +60,12 @@ const AssetApi={
     getCategories:{
         url:()=>ServerUrl+'/api/blockchain/asset/category',
         method:'GET',
-        params:[]
+        params:['level']
     }
 
 };
+
+
 
 
 /*
@@ -106,4 +108,13 @@ const OnboardingApi={
 
 
 
-export {UserApi,OnboardingApi,WalletApi,AssetApi}
+const AssetPoolApi={
+    createAssetpool:{
+        url:()=>ServerUrl+'/api/blockchain/assetpool/create',
+        method:'POST'
+    }
+};
+
+
+
+export {UserApi,OnboardingApi,WalletApi,AssetApi,AssetPoolApi}

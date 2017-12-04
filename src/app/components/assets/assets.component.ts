@@ -13,20 +13,21 @@ export class AssetsComponent implements OnInit {
 
   assetsRequestStatus:string='resolved';
   assets:any[]=[];
-  assetCategoriesLevelOne = [];
+    chosenLang = 1;
+    selectedIndexOnLevelOne=null;
+    selectedIndexOnLevelTwo=null;
+    selectedIndexOnLevelThree=null;
+    selectedIndexOnLevelFour=null;
+    selectedIndexOnLevelFive=null;
+
+    assetCategoriesLevelOne = [];
   assetCategoriesLevelTwo = [];
   assetCategoriesLevelThree = [];
   assetCategoriesLevelFour = [];
   assetCategoriesLevelFive = [];
+  deepestCategorySelected = false;
+    lastCategoryId=null;
 
-  selectedIndexOnLevelOne=null;
-  selectedIndexOnLevelTwo=null;
-  selectedIndexOnLevelThree=null;
-  selectedIndexOnLevelFour=null;
-  selectedIndexOnLevelFive=null;
-  isDeepestLevelSelected=false;
-  selectedLevel=null;
-  selectedId=null;
 
     constructor(private assetsService:AssetsService,private assetPoolService:AssetsPoolService,
                 private toastService:ToastService,private router:Router) { }
@@ -34,181 +35,107 @@ export class AssetsComponent implements OnInit {
   ngOnInit() {
 
    // this.getAssets(null,null);
-    this.getCategories();
+    this.getCategories(0);
   }
 
-  selectCategory(index:number,level:number,id:string){
+    onAssetCategoryLevelChange(category:any, level:number,index:number) {
+        console.log(category)
+        console.log(level)
 
-        this.selectedId=id;
-        this.selectedLevel=level;
-        if(level===1){
+
+        if(level===0){
             this.selectedIndexOnLevelOne=index;
             this.selectedIndexOnLevelTwo=null;
             this.selectedIndexOnLevelThree=null;
             this.selectedIndexOnLevelFour=null;
             this.selectedIndexOnLevelFive=null;
-
-            if(this.assetCategoriesLevelOne[index].hasChildren){
-                this.assetCategoriesLevelTwo=this.assetCategoriesLevelOne[index].subCategories;
-                this.assetCategoriesLevelThree=[];
-                this.assetCategoriesLevelFour=[];
-                this.assetCategoriesLevelFive=[];
-                this.isDeepestLevelSelected=false;
-
-            }
-            else{
-                this.isDeepestLevelSelected=true;
-                this.assetCategoriesLevelTwo=[];
-                this.assetCategoriesLevelThree=[];
-                this.assetCategoriesLevelFour=[];
-                this.assetCategoriesLevelFive=[];
-            }
+        }
+        else if(level===1){
+            this.selectedIndexOnLevelTwo=index;
+            this.selectedIndexOnLevelThree=null;
+            this.selectedIndexOnLevelFour=null;
+            this.selectedIndexOnLevelFive=null;
+        }
+        else if(level===2){
+            this.selectedIndexOnLevelThree=index;
+            this.selectedIndexOnLevelFour=null;
+            this.selectedIndexOnLevelFive=null;
+        }
+        else if(level===3){
+            this.selectedIndexOnLevelFour=index;
+            this.selectedIndexOnLevelFive=null;
 
         }
+        else if(level===4){
+            this.selectedIndexOnLevelFive=index;
 
-      if(level===2){
-          this.selectedIndexOnLevelTwo=index;
-          this.selectedIndexOnLevelThree=null;
-          this.selectedIndexOnLevelFour=null;
-          this.selectedIndexOnLevelFive=null;
+        }
+        if (!category.hasChildren) {
+            this.deepestCategorySelected = true;
+            this.lastCategoryId = category.id;
+            return;
+        }
+        this.deepestCategorySelected = false;
 
-          if(this.assetCategoriesLevelTwo[index].hasChildren){
-              this.assetCategoriesLevelThree=this.assetCategoriesLevelTwo[index].subCategories;
-              this.assetCategoriesLevelFour=[];
-              this.assetCategoriesLevelFive=[];
-              this.isDeepestLevelSelected=false;
+        this.assetsService.getCategories(category.id)
+            .subscribe((assetCategory: Array<any>) => {
+                console.log(assetCategory)
+                if (level === 0) {
+                    this.assetCategoriesLevelTwo = assetCategory;
+                    this.assetCategoriesLevelThree=[];
+                    this.assetCategoriesLevelFour=[];
+                    this.assetCategoriesLevelFive=[];
 
-          }
-          else{
-              this.isDeepestLevelSelected=true;
+                }
+                if (level === 1) {
+                    this.assetCategoriesLevelThree = assetCategory;
+                    this.assetCategoriesLevelFour=[];
+                    this.assetCategoriesLevelFive=[];
 
-              this.assetCategoriesLevelThree=[];
-              this.assetCategoriesLevelFour=[];
-              this.assetCategoriesLevelFive=[];
-          }
+                }
+                if (level === 2) {
+                    this.assetCategoriesLevelFour = assetCategory;
+                    this.assetCategoriesLevelFive=[];
 
-      }
+                }
 
-
-      if(level===3){
-          this.selectedIndexOnLevelThree=index;
-          this.selectedIndexOnLevelFour=null;
-          this.selectedIndexOnLevelFive=null;
-          if(this.assetCategoriesLevelThree[index].hasChildren){
-              this.assetCategoriesLevelFour=this.assetCategoriesLevelThree[index].subCategories;
-              this.assetCategoriesLevelFive=[];
-              this.isDeepestLevelSelected=false;
-
-
-          }
-          else{
-              this.isDeepestLevelSelected=true;
-              this.assetCategoriesLevelFour=[];
-              this.assetCategoriesLevelFive=[];
-          }
-
-      }
+                if (level === 3) {
+                    this.assetCategoriesLevelFive = assetCategory;
+                }
 
 
-      if(level===4){
-          this.selectedIndexOnLevelFour=index;
-          this.selectedIndexOnLevelFive=null;
-          if(this.assetCategoriesLevelFour[index].hasChildren){
-              this.assetCategoriesLevelFive=this.assetCategoriesLevelFour[index].subCategories;
-              this.isDeepestLevelSelected=false;
-          }
-          else{
-              this.assetCategoriesLevelFive=[];
-              this.isDeepestLevelSelected=true;
-
-          }
-
-      }
+            }, (err) => {
+                this.toastService.error('Category', 'Something went wrong');
+            })
 
 
-      if(level===5){
-          this.selectedIndexOnLevelFive=index;
-          this.isDeepestLevelSelected=true;
-      }
 
 
-      this.getAssets(id);
+    }
 
-  }
 
 
   goToCreateAssetPoolPage(){
 
-      if(!this.selectedId){
-          this.toastService.error('Asset','Please choose the category');
-          return false;
-      }
 
-      if(!this.isDeepestLevelSelected){
-          const currentLevel=this.selectedLevel;
-          switch (currentLevel){
-              case 1:
-                  this.toastService.error('Asset','Please choose the second category');
-                  break;
-              case 2:
-                  this.toastService.error('Asset','Please choose the third category');
-                  break;
-
-              case 3:
-                  this.toastService.error('Asset','Please choose the four category');
-                  break;
-
-              case 4:
-                  this.toastService.error('Asset','Please choose the fifth category');
-                  break;
-
-          }
-          return false;
-      }
-      const selectedAssets:any[]=this.assets.filter((asset)=>{
-          return asset.isSelected;
-      });
-
-      console.log(selectedAssets);
-
-      if(!selectedAssets.length){
-          this.toastService.error('Asset','Select atleast one asset');
-          return;
-      }
-
-      let firstId=selectedAssets[0].category;
-      let isAllIdSame=true;
-      selectedAssets.forEach((asset)=>{
-          if(asset.category!==firstId){
-              isAllIdSame=false;
-          }
-      });
-      if(!isAllIdSame){
-          this.toastService.error('Asset','All the selected item needs to be the same category');
-          return false;
-      }
-
-      this.assetPoolService.addAssetInPool(selectedAssets);
+      this.assetPoolService.addAssetInPool(this.assets);
       this.router.navigate(['/dashboard/assets-pool-create']);
   }
 
-  getCategories(){
-      this.assetsService.getCategories().subscribe((categories:any[])=>{
+  getCategories(level:number){
+      return this.assetsService.getCategories(level)
+          .subscribe((assetCategory: Array<any>) => {
 
-          console.log(categories)
-          this.assetCategoriesLevelOne=categories;
-      },(err)=>{
+          this.assetCategoriesLevelOne=assetCategory;
 
-          console.log( err);
-      })
+
+          }, (err) => {
+              this.toastService.error('Category', 'Something went wrong');
+          })
   }
-    getAssets(categoryId:string){
-        console.log(categoryId);
-        if(!categoryId){
-            this.toastService.error('Asset','Please choose the category');
-            return false;
-        }
 
+  getAssets(categoryId:string){
+        console.log(categoryId);
 
         this.assetsRequestStatus='pending';
         this.assetsService.getAssets(categoryId).subscribe((assets:any[])=>{
