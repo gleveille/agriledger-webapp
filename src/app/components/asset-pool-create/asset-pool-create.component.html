@@ -57,7 +57,7 @@
                  [ngClass]="{'stepper-step-isActive':selectedStepperNumber===4}"
                  (click)="stepperSelected(4)">
               <div class="stepper-stepContent">
-                <span class="stepper-stepMarker">3</span>Put on Blockchain
+                <span class="stepper-stepMarker">3</span>Register
               </div>
             </div>
           </div>
@@ -352,7 +352,7 @@
                   </div>
                   <div class="row">
                     <div class="col-xs-12">
-                      <button *ngIf="selectedAssetsForPool.length" class=" btn btn-success pull-right" (click)="createAssetPool()">SAVE</button>
+                      <button *ngIf="selectedAssetsForPool.length" class=" btn btn-success pull-right" (click)="createAssetPool()">REGISTER</button>
 
                       <button (click)="gotoStepperSection(3)" class=" btn pull-right">Back</button>
 

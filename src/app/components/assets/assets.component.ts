@@ -26,6 +26,7 @@ export class AssetsComponent implements OnInit {
   assetCategoriesLevelFour = [];
   assetCategoriesLevelFive = [];
   deepestCategorySelected = false;
+  currentLevel=null;
     lastCategoryId=null;
 
 
@@ -41,8 +42,19 @@ export class AssetsComponent implements OnInit {
     onAssetCategoryLevelChange(category:any, level:number,index:number) {
         console.log(category)
         console.log(level)
+
+        if (!category.hasChildren) {
+            this.deepestCategorySelected = true;
+            this.lastCategoryId = category.id;
+            this.getAssets(this.lastCategoryId);
+            return;
+        }
+        this.deepestCategorySelected = false;
+
+
         this.assets=[];
 
+        this.currentLevel=level;
         if(level===0){
             this.selectedIndexOnLevelOne=index;
             this.selectedIndexOnLevelTwo=null;
@@ -70,13 +82,7 @@ export class AssetsComponent implements OnInit {
             this.selectedIndexOnLevelFive=index;
 
         }
-        if (!category.hasChildren) {
-            this.deepestCategorySelected = true;
-            this.lastCategoryId = category.id;
-            this.getAssets(this.lastCategoryId);
-            return;
-        }
-        this.deepestCategorySelected = false;
+
 
         this.assetsService.getCategories(category.id)
             .subscribe((assetCategory: Array<any>) => {
@@ -114,12 +120,51 @@ export class AssetsComponent implements OnInit {
 
     }
 
+    getLevelbyWord(){
+        let nextLevel;
+        switch (this.currentLevel){
+            case 0:
+                nextLevel='second';
+                break;
+            case 1:
+                nextLevel='third';
+                break;
+            case 2:
+                nextLevel='fourth';
+                break;
+            case 3:
+                nextLevel='fifth';
+                break;
+            default:
+                nextLevel='first';
+        }
+        return nextLevel;
+    }
+
 
 
   goToCreateAssetPoolPage(){
+        if(!this.deepestCategorySelected){
+            const nextLevel=this.getLevelbyWord();
+            this.toastService.error('Asset',`Please select ${nextLevel} category`);
 
+            return false;
+        }
 
-      this.assetPoolService.addAssetInPool(this.assets);
+        if(!this.assets.length){
+            this.toastService.error('Asset','No asset available under this category');
+            return false;
+        }
+        const selectedAsset=this.assets.filter((asset)=>{
+            return asset.isSelected;
+        });
+
+      console.log(selectedAsset)
+      if(!selectedAsset.length){
+            this.toastService.error('Asset','Please select atleast one asset');
+            return false;
+      }
+      this.assetPoolService.addAssetInPool(selectedAsset);
       this.router.navigate(['/dashboard/assets-pool-create']);
   }
 
@@ -151,7 +196,7 @@ export class AssetsComponent implements OnInit {
         })
     }
 
-    getColor(status:string){
+  getColor(status:string){
         switch (status){
             case 'pending':
                 return 'black';
