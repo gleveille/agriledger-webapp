@@ -11,15 +11,43 @@
               <fieldset disabled>
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="form-group form-black  ">
+                    <div class="form-group form-black">
                       <label class="control-label">Name</label>
                       <input type="text" [(ngModel)]="asset.name" name="name" class="form-control" disabled>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-4"  *ngIf="asset.category.level1">
                     <div class="form-group form-black  ">
-                      <label class="control-label">Ctegory</label>
-                      <input style="text-transform: capitalize" type="text" [(ngModel)]="asset.category" name="category" class="form-control" disabled>
+                      <label class="control-label">Category 1</label>
+                      <input style="text-transform: capitalize" type="text" [(ngModel)]="asset.category.level1" name="category1" class="form-control" disabled>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4" *ngIf="asset.category.level2">
+                    <div class="form-group form-black  ">
+                      <label class="control-label">Category 2</label>
+                      <input style="text-transform: capitalize" type="text" [(ngModel)]="asset.category.level2" name="category2" class="form-control" disabled>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4" *ngIf="asset.category.level3">
+                    <div class="form-group form-black  ">
+                      <label class="control-label">Category 3</label>
+                      <input style="text-transform: capitalize" type="text" [(ngModel)]="asset.category.level3" name="category3" class="form-control" disabled>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4" *ngIf="asset.category.level4">
+                    <div class="form-group form-black  ">
+                      <label class="control-label">Category 4</label>
+                      <input style="text-transform: capitalize" type="text" [(ngModel)]="asset.category.level4" name="category4" class="form-control" disabled>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4" *ngIf="asset.category.level5">
+                    <div class="form-group form-black  ">
+                      <label class="control-label">Category 5</label>
+                      <input style="text-transform: capitalize" type="text" [(ngModel)]="asset.category.level5" name="category5" class="form-control" disabled>
                     </div>
                   </div>
                   <div class="col-md-4">
