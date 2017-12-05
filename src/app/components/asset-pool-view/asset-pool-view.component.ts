@@ -7,7 +7,6 @@ import {ToastService} from "../../services/toast.service";
 import {IserviceError} from "../../interface/serviceError.interface";
 import {AssetsPoolService} from "../../services/assets-pool.service";
 import 'rxjs/add/operator/do';
-import {stat} from "fs";
 
 @Component({
   selector: 'app-asset-pool-view',
