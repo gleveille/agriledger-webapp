@@ -1,7 +1,75 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-asset detAIL PAGFE
+        <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let pool of pools">
+            <div class="card card-stats" >
+                <div class="card-header" data-background-color="green">
+                    <i class="material-icons">store</i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Currency Name</p>
+                    <h5 class="title">{{pool.issuerName}}.{{pool.currency}}</h5>
+
+                    <hr>
+
+                    <div class="row" style="text-align: left">
+
+                        <div class="col-xs-6 text-left">
+                            Maximum
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <b>{{pool.maximum}}</b>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="text-align: left">
+
+                        <div class="col-xs-6 text-left">
+                            EstimateUnit
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <b>{{pool.estimateUnit}}</b>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row" style="text-align: left">
+
+                        <div class="col-xs-6 text-left">
+                            EstimatePrice
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <b>{{pool.estimatePrice}}</b>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="text-align: left">
+
+                        <div class="col-xs-6 text-left">
+                            Status
+                        </div>
+                        <div class="col-xs-6 text-right" *ngIf="pool?.blockchain">
+                            <b>{{pool?.blockchain?.approved===0?'Pending':'Approved'}}</b>
+                        </div>
+                    </div>
+
+                    <div class="row" style="text-align: center">
+
+                        <div class="col-xs-12">
+                            <button [disabled]="!pool?.blockchainpool || pool?.blockchain?.approved===0 " class="btn btn-danger">ISSUE</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
     </div>
   </div>
 </div>

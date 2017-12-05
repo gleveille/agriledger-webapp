@@ -44,4 +44,23 @@ export class AssetsPoolService {
   removeAllAssetFromPool(){
     this.selectedAssetsForPool=[];
   }
+
+  getPools(){
+      const url=`${AssetPoolApi.getAssetpool.url()}`;
+
+      return this.http.get(`${url}`)
+          .catch((res) => {
+              return this.errorHandler.handle(res);
+          });
+
+  }
+
+  getAssetPoolInfoFromBlockchain(assetName:string){
+      const url=`${AssetPoolApi.getAssetpoolInfoFromBlockchain.url()}?assetName=${assetName}`;
+
+      return this.http.get(`${url}`)
+          .catch((res) => {
+              return this.errorHandler.handle(res);
+          });
+  }
 }

@@ -112,6 +112,15 @@ const AssetPoolApi={
     createAssetpool:{
         url:()=>ServerUrl+'/api/blockchain/assetpool/create',
         method:'POST'
+    },
+    getAssetpool:{
+        url:()=>ServerUrl+'/api/assetpools',
+        method:'POST'
+    },
+    getAssetpoolInfoFromBlockchain:{
+        url:()=>ServerUrl+'/api/blockchain/assetpool/getinfo',
+        method:'GET',
+        params:['assetName']
     }
 };
 
