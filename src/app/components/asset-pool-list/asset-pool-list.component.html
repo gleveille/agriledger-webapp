@@ -1,7 +1,7 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let pool of pools">
+        <div style="cursor: pointer" class="col-lg-4 col-md-6 col-sm-6" *ngFor="let pool of pools" [routerLink]="['../assets-pool-view',pool.id]">
             <div class="card card-stats" >
                 <div class="card-header" data-background-color="green">
                     <i class="material-icons">store</i>
@@ -52,7 +52,7 @@
                             Status
                         </div>
                         <div class="col-xs-6 text-right" *ngIf="pool?.blockchain">
-                            <b>{{pool?.blockchain?.approved===0?'Pending':'Approved'}}</b>
+                            <b [style.color]="getColor(pool?.blockchain?.approved)">{{pool?.blockchain?.approved===0?'Pending':'Approved'}}</b>
                         </div>
                     </div>
 

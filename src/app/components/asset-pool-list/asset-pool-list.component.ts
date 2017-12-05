@@ -57,4 +57,16 @@ export class AssetPoolListComponent implements OnInit {
         console.log(this.pools)
       });
   }
+
+    getColor(status:string){
+        status=String(status);
+        switch (status){
+            case '1':
+                return 'green';
+            case '0':
+                return '#ff8b4c';
+            default:
+                return 'black';
+        }
+    }
 }

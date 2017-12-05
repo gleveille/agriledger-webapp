@@ -45,6 +45,17 @@ export class AssetsPoolService {
     this.selectedAssetsForPool=[];
   }
 
+  getPoolById(poolId:string){
+
+      const url=`${AssetPoolApi.getAssetpool.url()}/${poolId}`;
+
+      return this.http.get(`${url}`)
+          .catch((res) => {
+              return this.errorHandler.handle(res);
+          });
+
+  }
+
   getPools(){
       const url=`${AssetPoolApi.getAssetpool.url()}`;
 
