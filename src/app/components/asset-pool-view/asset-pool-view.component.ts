@@ -7,6 +7,7 @@ import {ToastService} from "../../services/toast.service";
 import {IserviceError} from "../../interface/serviceError.interface";
 import {AssetsPoolService} from "../../services/assets-pool.service";
 import 'rxjs/add/operator/do';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-asset-pool-view',
@@ -16,9 +17,13 @@ import 'rxjs/add/operator/do';
 export class AssetPoolViewComponent implements OnInit {
 
   pool={blockchain:null};
-    constructor(private activatedRoute:ActivatedRoute,private assetPoolService:AssetsPoolService,private toastService:ToastService)
+    constructor(private location: Location,private activatedRoute:ActivatedRoute,private assetPoolService:AssetsPoolService,private toastService:ToastService)
     { }
 
+    goBack(){
+        this.location.back();
+
+    }
     ngOnInit() {
         this.activatedRoute.params.concatMap((param)=>{
             console.log(param)
