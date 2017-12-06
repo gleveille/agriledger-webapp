@@ -20,7 +20,15 @@ export class TokenService {
 
 
   getTokens(){
-      const url=`${TokenApi.getTokens.url()}`;
+      const url=`${TokenApi.getTokens.url()}?filter[include]=assetpool`;
+      return this.http.get(`${url}`)
+          .catch((res) => {
+          return this.errorHandler.handle(res);
+          });
+
+  }
+  getAllTokensFromBlockchain(){
+      const url=`${TokenApi.getAllTokensFromBlockchain.url()}`;
       return this.userService.getUser()
           .concatMap((user: Iuser) => {
               return this.http.get(`${url}?address=${user.walletAddress}`);
@@ -28,7 +36,6 @@ export class TokenService {
           .catch((res) => {
               return this.errorHandler.handle(res);
           });
-
 
   }
 }

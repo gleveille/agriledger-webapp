@@ -108,12 +108,20 @@ const OnboardingApi={
 
 const TokenApi={
     getTokens:{
-        url:()=>ServerUrl+'/api/blockchain/token/getTokens',
+        url:()=>ServerUrl+'/api/tokens',
         method:'GET',
-        query:['address']
 
     },
-
+    getAllTokensFromBlockchain:{
+        url:()=>ServerUrl+'/api/blockchain/token/getAllTokens',
+        method:'GET',
+        query:['address']
+    },
+    getTokensByAddressFromBlockchain:{
+        url:()=>ServerUrl+'/api/blockchain/token/getTokensByAddress',
+        method:'GET',
+        query:['address']
+    },
 };
 
 

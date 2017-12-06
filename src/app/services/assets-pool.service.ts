@@ -79,10 +79,10 @@ export class AssetsPoolService {
 
     }
 
-  issueToken(amount,exchangeRate,precision,currency){
+  issueToken(assetPoolId,amount,exchangeRate,precision,currency){
       const url=`${AssetPoolApi.issueToken.url()}`;
 
-      return this.http.post(`${url}`,{amount:amount,precision:precision,exchangeRate:exchangeRate,currency:currency})
+      return this.http.post(`${url}`,{assetPoolId:assetPoolId,amount:amount,precision:precision,exchangeRate:exchangeRate,currency:currency})
           .catch((res) => {
               return this.errorHandler.handle(res);
           });

@@ -26,7 +26,7 @@ export class AssetPoolListComponent implements OnInit {
 
     issueTokenHttpStatus='resolved';
   token={amount:null,exchangeRate:null};
-  selectedPool={maximum:null,precision:null,blockchain:{currency:null}};
+  selectedPool={maximum:null,precision:null,blockchain:{currency:null},id:null};
   constructor(private assetPoolService:AssetsPoolService,
               private router:Router,
               private modalService: BsModalService,
@@ -61,7 +61,7 @@ export class AssetPoolListComponent implements OnInit {
         }
 
         this.issueTokenHttpStatus='pending';
-        this.assetPoolService.issueToken(this.token.amount,this.token.exchangeRate,this.selectedPool.precision,this.selectedPool.blockchain.currency)
+        this.assetPoolService.issueToken(this.selectedPool.id,this.token.amount,this.token.exchangeRate,this.selectedPool.precision,this.selectedPool.blockchain.currency)
             .subscribe((data:any)=>{
             console.log(data)
             this.issueTokenHttpStatus='resolved';
