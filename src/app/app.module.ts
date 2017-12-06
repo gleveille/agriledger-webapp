@@ -48,6 +48,7 @@ import { AssetPoolViewComponent } from './components/asset-pool-view/asset-pool-
 import { AssetPoolListComponent } from './components/asset-pool-list/asset-pool-list.component';
 import { AssetPoolCreateComponent } from './components/asset-pool-create/asset-pool-create.component';
 import { XasPipe } from './pipes/xas.pipe';
+import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { XasPipe } from './pipes/xas.pipe';
     RouterModule,
     AppRoutingModule,
     ToastyModule.forRoot(),
-    NgProgressModule
+    NgProgressModule,
+      ModalModule.forRoot()
 
   ],
   providers: [

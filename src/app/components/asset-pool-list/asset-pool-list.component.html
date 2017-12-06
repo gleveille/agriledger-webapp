@@ -1,7 +1,27 @@
 <div class="main-content">
   <div class="container-fluid">
+
+      <div class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title">Modal title</h4>
+                  </div>
+                  <div class="modal-body">
+                      <p>One fine body&hellip;</p>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+
     <div class="row">
-        <div style="cursor: pointer" class="col-lg-4 col-md-6 col-sm-6" *ngFor="let pool of pools" [routerLink]="['../assets-pool-view',pool.id]">
+        <div style="cursor: pointer" class="col-lg-4 col-md-6 col-sm-6" *ngFor="let pool of pools">
             <div class="card card-stats" >
                 <div class="card-header" data-background-color="green">
                     <i class="material-icons">store</i>
@@ -59,8 +79,9 @@
                     <div class="row" style="text-align: center">
 
                         <div class="col-xs-12">
-                            <button [disabled]="!pool?.blockchainpool || pool?.blockchain?.approved===0 " class="btn btn-danger">ISSUE</button>
+                            <button class="btn btn-danger" (click)="issueToken(template,pool)">ISSUE</button>
                         </div>
+
 
                     </div>
                 </div>
@@ -71,5 +92,45 @@
             </div>
         </div>
     </div>
+
+      <ng-template #template>
+          <div class="modal-header">
+              <h4 class="modal-title pull-left">ISSUE TOKEN</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form name="loginForm">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <label class="control-label" style="font-size: 14px;">Maximum</label>
+                              <input [disabled]="true" type="text" [(ngModel)]="selectedPool.maximum" name="password" class="form-control" >
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <label class="control-label" style="font-size: 14px;">Quantity</label>
+                              <input type="text"  [(ngModel)]="quantity"  name="email" class="form-control" >
+                          </div>
+                      </div>
+                  </div>
+
+
+
+                  <button
+                          type="submit"
+
+                          (click)="login()"
+                          class="btn btn-danger pull-right">SUBMIT</button>
+                  <div class="clearfix"></div>
+              </form>
+
+          </div>
+      </ng-template>
   </div>
 </div>

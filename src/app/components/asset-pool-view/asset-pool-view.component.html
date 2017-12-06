@@ -14,39 +14,6 @@
 
             <div class="row">
               <div class="col-lg-4">
-                <div class="row" style="text-align: left">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    Maximum
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <b>{{pool?.maximum}}</b>
-                  </div>
-                </div>
-
-                <div class="row" style="text-align: left">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    EstimateUnit
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <b>{{pool?.estimateUnit}}</b>
-                  </div>
-                </div>
-
-
-                <div class="row" style="text-align: left">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    EstimatePrice
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <b>{{pool?.estimatePrice}}</b>
-                  </div>
-                </div>
 
 
                 <div class="row" style="text-align: left" *ngIf="pool?.category?.level1">
@@ -72,8 +39,6 @@
                     <b>{{pool?.category?.level2}}</b>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-4">
 
                 <div class="row" style="text-align: left"*ngIf="pool?.category?.level3">
                   <hr>
@@ -124,6 +89,45 @@
                     <b [style.color]="getColor(pool?.blockchain?.approved)">{{pool?.blockchain?.approved===0?'Pending':'Approved'}}</b>
                   </div>
                 </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="row" style="text-align: left">
+                  <hr>
+
+                  <div class="col-xs-6 text-left">
+                    Maximum
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <b>{{pool?.maximum}}</b>
+                  </div>
+                </div>
+
+                <div class="row" style="text-align: left">
+                  <hr>
+
+                  <div class="col-xs-6 text-left">
+                    EstimateUnit
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <b>{{pool?.estimateUnit}}</b>
+                  </div>
+                </div>
+
+
+                <div class="row" style="text-align: left">
+                  <hr>
+
+                  <div class="col-xs-6 text-left">
+                    EstimatePrice
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <b>{{pool?.estimatePrice}}</b>
+                  </div>
+                </div>
+
+
+
+
 
 
                 <div class="row" style="text-align: left">
@@ -142,7 +146,7 @@
                   <hr>
 
                   <div class="col-xs-6 text-left">
-                    Number of asset?
+                    Number of assets
                   </div>
                   <div class="col-xs-6 text-right" >
                     <b>{{pool.assetsId.length}}</b>
