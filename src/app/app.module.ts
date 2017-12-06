@@ -51,6 +51,7 @@ import { XasPipe } from './pipes/xas.pipe';
 import { ModalModule } from 'ngx-bootstrap';
 import { TokensComponent } from './components/tokens/tokens.component';
 import {TokenService} from "./services/token.service";
+import { AlertModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import {TokenService} from "./services/token.service";
     AppRoutingModule,
     ToastyModule.forRoot(),
     NgProgressModule,
-      ModalModule.forRoot()
+      ModalModule.forRoot(),
+      AlertModule.forRoot()
 
   ],
   providers: [

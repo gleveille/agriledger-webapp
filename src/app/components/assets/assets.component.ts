@@ -11,7 +11,8 @@ import {AssetsPoolService} from "../../services/assets-pool.service";
 })
 export class AssetsComponent implements OnInit {
 
-  assetsRequestStatus:string='resolved';
+  assetsRequestStatus='resolved';
+  categoryHttpReequestStatus='resolved';
   assets:any[]=[];
     chosenLang = 1;
     selectedIndexOnLevelOne=null;
@@ -169,15 +170,16 @@ export class AssetsComponent implements OnInit {
   }
 
   getCategories(level:number){
+      this.categoryHttpReequestStatus='pending';
       return this.assetsService.getCategories(level)
           .subscribe((assetCategory: Array<any>) => {
 
           this.assetCategoriesLevelOne=assetCategory;
-
-
+          this.categoryHttpReequestStatus='resolved';
           }, (err) => {
-              this.toastService.error('Category', 'Something went wrong');
-          })
+          this.categoryHttpReequestStatus='rejected';
+              this.toastService.error('Category', err.message);
+          });
   }
 
   getAssets(categoryId:string){

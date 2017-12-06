@@ -18,6 +18,7 @@ export class AssetPoolListComponent implements OnInit {
     modalRef: BsModalRef;
 
   pools=[];
+  assetPoolHttpSstatus='resolved';
   issueTokenHttpStatus='resolved';
   token={amount:null,exchangeRate:null};
   selectedPool={maximum:null,precision:null,blockchain:{currency:null}};
@@ -69,12 +70,15 @@ export class AssetPoolListComponent implements OnInit {
 
 
   getPools(){
+        this.assetPoolHttpSstatus='pending';
     this.assetPoolService.getPools().subscribe((pools:any[])=>{
         this.pools=pools;
         console.log(pools)
         this.getPoolInfoFromBlockchain();
     },(err)=>{
       console.log(err);
+        this.assetPoolHttpSstatus='rejected';
+
     })
   }
 
@@ -94,6 +98,11 @@ export class AssetPoolListComponent implements OnInit {
           this.pools[i].blockchain=results[i];
         }
         console.log(this.pools)
+          this.assetPoolHttpSstatus='resolved';
+
+      },(err)=>{
+          this.assetPoolHttpSstatus='rejected';
+
       });
   }
 

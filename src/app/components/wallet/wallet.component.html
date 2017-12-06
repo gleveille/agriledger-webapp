@@ -37,7 +37,9 @@
                         <div class="card-content table-responsive">
                             <app-spinner [type]="'bounce'" *ngIf="txnRequestStatus==='pending'"></app-spinner>
 
+                            <app-error-show *ngIf="txnRequestStatus==='rejected'" [error]="'Transactions could not be fetched.Try again!'">
 
+                            </app-error-show>
                             <table class="table" *ngIf="transactions.length">
                                 <thead  >
                                 <tr>

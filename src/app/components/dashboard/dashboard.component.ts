@@ -39,7 +39,10 @@ export class DashboardSponserComponent implements OnInit {
     getAccount(){
         this.walletService.getBlockchainAccount().subscribe((account:any)=>{
             this.account=account;
+            console.log('#########################')
+            console.log(account)
         },(err)=>{
+            console.log('#########################')
 
             console.log( err)
         })
