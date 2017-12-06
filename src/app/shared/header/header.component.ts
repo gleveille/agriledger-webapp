@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {Router} from "@angular/router";
 import {ToastService} from "../../services/toast.service";
@@ -10,6 +10,7 @@ import {ToastService} from "../../services/toast.service";
 })
 export class HeaderComponent implements OnInit {
 
+    @Input()balance:any=0;
     isAuthenticated:boolean = false;
 
     constructor(private userService:UserService, private router:Router, private toastService:ToastService) {
