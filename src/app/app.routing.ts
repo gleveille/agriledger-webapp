@@ -28,6 +28,7 @@ import {AssetViewComponent} from "./components/asset-view/asset-view.component";
 import {AssetPoolCreateComponent} from "./components/asset-pool-create/asset-pool-create.component";
 import {AssetPoolViewComponent} from "./components/asset-pool-view/asset-pool-view.component";
 import {AssetPoolListComponent} from "./components/asset-pool-list/asset-pool-list.component";
+import {TokensComponent} from "./components/tokens/tokens.component";
 
 const routes:Routes = [
     {
@@ -121,7 +122,9 @@ const routes:Routes = [
             {path: 'assets-pool-view/:assetPoolId', component: AssetPoolViewComponent},
             {path: 'assets-pool-create', component: AssetPoolCreateComponent},
             {path: 'account', component: AccountComponent},
-            {path: 'wallet', component: WalletComponent}
+            {path: 'wallet', component: WalletComponent},
+            {path: 'tokens', component: TokensComponent}
+
         ]
     },
     {path: '**', redirectTo: ''}

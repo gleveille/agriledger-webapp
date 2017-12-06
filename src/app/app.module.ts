@@ -49,6 +49,8 @@ import { AssetPoolListComponent } from './components/asset-pool-list/asset-pool-
 import { AssetPoolCreateComponent } from './components/asset-pool-create/asset-pool-create.component';
 import { XasPipe } from './pipes/xas.pipe';
 import { ModalModule } from 'ngx-bootstrap';
+import { TokensComponent } from './components/tokens/tokens.component';
+import {TokenService} from "./services/token.service";
 
 @NgModule({
   declarations: [
@@ -76,6 +78,7 @@ import { ModalModule } from 'ngx-bootstrap';
     AssetPoolListComponent,
     AssetPoolCreateComponent,
     XasPipe,
+    TokensComponent,
 
   ],
   imports: [
@@ -105,6 +108,7 @@ import { ModalModule } from 'ngx-bootstrap';
       AssetsService,
       AssetsPoolService,
       WalletService,
+      TokenService,
       AuthenticationGuard,
       DashboardAuthorizationGuard,
       AlreadyAuthenticatedGuard,

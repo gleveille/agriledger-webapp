@@ -106,6 +106,15 @@ const OnboardingApi={
     }
 }
 
+const TokenApi={
+    getTokens:{
+        url:()=>ServerUrl+'/api/blockchain/token/getTokens',
+        method:'GET',
+        query:['address']
+
+    },
+
+};
 
 
 const AssetPoolApi={
@@ -132,4 +141,4 @@ const AssetPoolApi={
 
 
 
-export {UserApi,OnboardingApi,WalletApi,AssetApi,AssetPoolApi}
+export {UserApi,OnboardingApi,WalletApi,AssetApi,AssetPoolApi,TokenApi}

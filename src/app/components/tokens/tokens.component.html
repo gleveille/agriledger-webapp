@@ -1,0 +1,54 @@
+<div class="main-content">
+  <div class="container-fluid">
+
+
+
+    <div class="row">
+
+      <h3 class="text-center text-gray" *ngIf="tokenHttpRequestStatus==='resolved' && !tokens.length ">
+        No Tokens found;
+
+      </h3>
+
+      <app-error-show *ngIf="tokenHttpRequestStatus==='rejected'" [error]="'Tokens could not be fetched.Try again!'">
+
+      </app-error-show>
+
+      <app-spinner *ngIf="tokenHttpRequestStatus==='pending'" [type]="'bounce'"></app-spinner>
+
+
+      <div style="cursor: pointer" class="col-lg-4 col-md-6 col-sm-6" *ngFor="let token of tokens">
+        <div class="card card-stats" >
+          <div class="card-header" data-background-color="green">
+            <i class="material-icons">store</i>
+          </div>
+          <div class="card-content">
+            <p class="category">Currency Name</p>
+            <h5 class="title">{{token.issuerName}}.{{token.currency}}</h5>
+
+            <hr>
+
+            <div class="row" style="text-align: left">
+
+              <div class="col-xs-6 text-left">
+                Balance
+              </div>
+              <div class="col-xs-6 text-right">
+                <b>{{token.balance|truncateBalance:token.precision}}</b>
+              </div>
+            </div>
+            <hr>
+
+
+
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

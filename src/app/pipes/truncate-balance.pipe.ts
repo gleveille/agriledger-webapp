@@ -7,35 +7,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TruncateBalancePipe implements PipeTransform {
 
-    transform(fee: string, ...args) {
-        if (!fee) {
-            return 0;
-        }
-
-        fee = fee.toString();
-
-        while (fee.length < 7) {
-            fee = '0'.concat(fee);
-        }
-
-        fee = fee.slice(0, -6).concat('.', fee.slice(-6));
-
-        var clearView = false;
-
-        while (!clearView) {
-            if (fee[fee.length - 1] == '0') {
-                fee = fee.slice(0, fee.length - 1);
+    transform(val: string, ...args) {
+        let amount:number;
+        console.log(val,args[0])
+        if(val){
+            try{
+                amount=parseInt(val,10);
+                amount=amount/Math.pow(10, args[0]);
+                return amount;
             }
-            else {
-                clearView = true;
+            catch (err){
+                return null;
             }
         }
-
-        if (fee[fee.length - 1] == '.') {
-            fee = fee.slice(0, fee.length - 1);
-        }
-
-        return fee;
+        else
+            return null;
 
     }
 }

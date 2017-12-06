@@ -57,12 +57,9 @@ export class AssetsService {
 
     getCategories(level:number){
         const url=`${AssetApi.getCategories.url()}?level=${level}`;
-        console.log(url)
 
 
         return this.http.get(`${url}`).do((categories:any[])=>{
-            console.log('///////')
-            console.log(categories)
             this.categories=categories;
         })
             .retry(3)

@@ -35,7 +35,10 @@
                     </div>
                     <div class="card-content">
                         <div class="card-content table-responsive">
-                            <table class="table">
+                            <app-spinner [type]="'bounce'" *ngIf="txnRequestStatus==='pending'"></app-spinner>
+
+
+                            <table class="table" *ngIf="transactions.length">
                                 <thead  >
                                 <tr>
                                     <th class="boldfont">Amount</th>
@@ -51,7 +54,6 @@
                                 </thead>
                                 <tbody>
 
-                                <app-spinner [type]="'bounce'" *ngIf="txnRequestStatus==='pending'"></app-spinner>
 
                                 <tr *ngFor="let txn of transactions">
 
