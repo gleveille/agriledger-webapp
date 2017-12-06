@@ -17,7 +17,7 @@ import {UserService} from "./user.service";
 export class AssetsPoolService {
 
   selectedAssetsForPool:any[]=[];
-  constructor(private http:HttpClient,private errorHandler:ErrorHandlerService) { }
+  constructor(private http:HttpClient,private userService:UserService,private errorHandler:ErrorHandlerService) { }
 
 
   addAssetInPool(assets:any[]){
@@ -66,6 +66,18 @@ export class AssetsPoolService {
 
   }
 
+
+    getPoolsByIssuerName(){
+
+       return this.userService.getUser().concatMap((user:Iuser)=>{
+            const url=`${AssetPoolApi.getAssetpool.url()}?filter[where][issuerName]=${user.issuerName}`;
+            return this.http.get(`${url}`);
+
+        }).catch((res) => {
+                return this.errorHandler.handle(res);
+            });
+
+    }
 
   issueToken(amount,exchangeRate,precision,currency){
       const url=`${AssetPoolApi.issueToken.url()}`;

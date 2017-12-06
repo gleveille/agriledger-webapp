@@ -6,6 +6,10 @@ import {UserService} from "../../services/user.service";
 import 'rxjs/add/operator/concatMap';
 import { Observable } from 'rxjs/Observable';
 import { forkJoin } from "rxjs/observable/forkJoin";
+import 'rxjs/add/operator/concatMap';
+
+
+
 import {Iuser} from "../../interface/user.interface";
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -19,7 +23,8 @@ export class AssetPoolListComponent implements OnInit {
 
   pools=[];
   assetPoolHttpSstatus='resolved';
-  issueTokenHttpStatus='resolved';
+
+    issueTokenHttpStatus='resolved';
   token={amount:null,exchangeRate:null};
   selectedPool={maximum:null,precision:null,blockchain:{currency:null}};
   constructor(private assetPoolService:AssetsPoolService,
@@ -32,7 +37,7 @@ export class AssetPoolListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getPools();
+    this.getMyPools();
 
   }
 
@@ -69,12 +74,13 @@ export class AssetPoolListComponent implements OnInit {
     }
 
 
-  getPools(){
+  getMyPools(){
         this.assetPoolHttpSstatus='pending';
-    this.assetPoolService.getPools().subscribe((pools:any[])=>{
+
+    this.assetPoolService.getPoolsByIssuerName().subscribe((pools:any[])=>{
         this.pools=pools;
         console.log(pools)
-        this.getPoolInfoFromBlockchain();
+        this.getPoolInfoFromBlockchain(pools);
     },(err)=>{
       console.log(err);
         this.assetPoolHttpSstatus='rejected';
@@ -82,26 +88,39 @@ export class AssetPoolListComponent implements OnInit {
     })
   }
 
+    getOtherPools(){
+        this.assetPoolHttpSstatus='pending';
 
-  getPoolInfoFromBlockchain(){
-      let arr=[];
-      this.pools.forEach((pool)=>{
+        this.assetPoolService.getPools().subscribe((pools:any[])=>{
+            this.pools=pools;
+            console.log(pools)
+            this.getPoolInfoFromBlockchain(pools);
+        },(err)=>{
+            console.log(err);
+            this.assetPoolHttpSstatus='rejected';
+
+        });
+    }
+
+
+  getPoolInfoFromBlockchain(pools:any[]){
+      const arr=[];
+      pools.forEach((pool)=>{
         const name=pool.issuerName+'.'+pool.currency;
         arr.push(this.assetPoolService.getAssetPoolInfoFromBlockchain(name));
-      })
+      });
 
       console.log(arr.length)
       forkJoin(arr).subscribe(results => {
 
-        const length=this.pools.length;
+        const length=pools.length;
         for(let i=0;i<length;i++){
-          this.pools[i].blockchain=results[i];
+            this.pools[i].blockchain=results[i];
         }
-        console.log(this.pools)
           this.assetPoolHttpSstatus='resolved';
 
       },(err)=>{
-          this.assetPoolHttpSstatus='rejected';
+              this.assetPoolHttpSstatus='rejected';
 
       });
   }
