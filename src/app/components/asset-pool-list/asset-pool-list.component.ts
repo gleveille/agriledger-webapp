@@ -80,6 +80,10 @@ export class AssetPoolListComponent implements OnInit {
     this.assetPoolService.getPoolsByIssuerName().subscribe((pools:any[])=>{
         this.pools=pools;
         console.log(pools)
+        if(!pools.length){
+            this.assetPoolHttpSstatus='resolved';
+            return;
+        }
         this.getPoolInfoFromBlockchain(pools);
     },(err)=>{
       console.log(err);
@@ -94,6 +98,10 @@ export class AssetPoolListComponent implements OnInit {
         this.assetPoolService.getPools().subscribe((pools:any[])=>{
             this.pools=pools;
             console.log(pools)
+            if(!pools.length){
+                this.assetPoolHttpSstatus='resolved';
+                return;
+            }
             this.getPoolInfoFromBlockchain(pools);
         },(err)=>{
             console.log(err);
@@ -104,6 +112,7 @@ export class AssetPoolListComponent implements OnInit {
 
 
   getPoolInfoFromBlockchain(pools:any[]){
+
       const arr=[];
       pools.forEach((pool)=>{
         const name=pool.issuerName+'.'+pool.currency;
