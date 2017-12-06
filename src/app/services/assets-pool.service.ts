@@ -66,6 +66,15 @@ export class AssetsPoolService {
 
   }
 
+
+  issueToken(amount,exchangeRate,precision,currency){
+      const url=`${AssetPoolApi.issueToken.url()}`;
+
+      return this.http.post(`${url}`,{amount:amount,precision:precision,exchangeRate:exchangeRate,currency:currency})
+          .catch((res) => {
+              return this.errorHandler.handle(res);
+          });
+  }
   getAssetPoolInfoFromBlockchain(assetName:string){
       const url=`${AssetPoolApi.getAssetpoolInfoFromBlockchain.url()}?assetName=${assetName}`;
 

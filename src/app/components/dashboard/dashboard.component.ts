@@ -32,7 +32,7 @@ export class DashboardSponserComponent implements OnInit {
         });
 
     }
-   
+
 
 
 

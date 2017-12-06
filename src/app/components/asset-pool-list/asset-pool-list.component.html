@@ -1,136 +1,152 @@
 <div class="main-content">
-  <div class="container-fluid">
+    <div class="container-fluid">
 
-      <div class="modal fade" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title">Modal title</h4>
-                  </div>
-                  <div class="modal-body">
-                      <p>One fine body&hellip;</p>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-              </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+        <div class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>One fine body&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
 
-    <div class="row">
-        <div style="cursor: pointer" class="col-lg-4 col-md-6 col-sm-6" *ngFor="let pool of pools">
-            <div class="card card-stats" >
-                <div class="card-header" data-background-color="green">
-                    <i class="material-icons">store</i>
+        <div class="row">
+            <div style="cursor: pointer" class="col-lg-4 col-md-6 col-sm-6" *ngFor="let pool of pools">
+                <div class="card card-stats" >
+                    <div class="card-header" data-background-color="green">
+                        <i class="material-icons">store</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Currency Name</p>
+                        <h5 class="title">{{pool.issuerName}}.{{pool.currency}}</h5>
+
+                        <hr>
+
+                        <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                                Maximum
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <b>{{pool.maximum}}</b>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                                EstimateUnit
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <b>{{pool.estimateUnit}}</b>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                                EstimatePrice
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <b>{{pool.estimatePrice}}</b>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                                Status
+                            </div>
+                            <div class="col-xs-6 text-right" *ngIf="pool?.blockchain">
+                                <b [style.color]="getColor(pool?.blockchain?.approved)">{{pool?.blockchain?.approved===0?'Pending':'Approved'}}</b>
+                            </div>
+                        </div>
+
+                        <div class="row" style="text-align: center">
+
+                            <div class="col-xs-12">
+                                <button [disabled]="!pool.blockchain || !pool.blockchain.approved" class="btn btn-danger" (click)="openModal(template,pool)">ISSUE</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+
                 </div>
-                <div class="card-content">
-                    <p class="category">Currency Name</p>
-                    <h5 class="title">{{pool.issuerName}}.{{pool.currency}}</h5>
-
-                    <hr>
-
-                    <div class="row" style="text-align: left">
-
-                        <div class="col-xs-6 text-left">
-                            Maximum
-                        </div>
-                        <div class="col-xs-6 text-right">
-                            <b>{{pool.maximum}}</b>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="row" style="text-align: left">
-
-                        <div class="col-xs-6 text-left">
-                            EstimateUnit
-                        </div>
-                        <div class="col-xs-6 text-right">
-                            <b>{{pool.estimateUnit}}</b>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row" style="text-align: left">
-
-                        <div class="col-xs-6 text-left">
-                            EstimatePrice
-                        </div>
-                        <div class="col-xs-6 text-right">
-                            <b>{{pool.estimatePrice}}</b>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="row" style="text-align: left">
-
-                        <div class="col-xs-6 text-left">
-                            Status
-                        </div>
-                        <div class="col-xs-6 text-right" *ngIf="pool?.blockchain">
-                            <b [style.color]="getColor(pool?.blockchain?.approved)">{{pool?.blockchain?.approved===0?'Pending':'Approved'}}</b>
-                        </div>
-                    </div>
-
-                    <div class="row" style="text-align: center">
-
-                        <div class="col-xs-12">
-                            <button class="btn btn-danger" (click)="issueToken(template,pool)">ISSUE</button>
-                        </div>
-
-
-                    </div>
-                </div>
-
-
-
-
             </div>
         </div>
+
+        <ng-template #template>
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">ISSUE TOKEN</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="loginForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" style="font-size: 14px;">Maximum</label>
+                                <input [disabled]="true" type="text" [(ngModel)]="selectedPool.maximum" name="maximum" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" style="font-size: 14px;">Currency</label>
+                                <input [disabled]="true" type="text" [(ngModel)]="selectedPool.blockchain.currency" name="currency" class="form-control" >
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" style="font-size: 14px;">Amount</label>
+                                <input type="text"  [(ngModel)]="token.amount"  name="amount" class="form-control" >
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" style="font-size: 14px;">Exchange rate</label>
+                                <input type="text"  [(ngModel)]="token.exchangeRate"  name="exchangeRate" class="form-control" >
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <button
+                            [disabled]="issueTokenHttpStatus==='pending'"
+                            type="submit"
+                            (click)="issueToken(selectedPool)"
+                            class="btn btn-danger pull-right">SUBMIT</button>
+                    <div class="clearfix"></div>
+                </form>
+
+            </div>
+        </ng-template>
     </div>
-
-      <ng-template #template>
-          <div class="modal-header">
-              <h4 class="modal-title pull-left">ISSUE TOKEN</h4>
-              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <form name="loginForm">
-                  <div class="row">
-                      <div class="col-md-12">
-                          <div class="form-group">
-                              <label class="control-label" style="font-size: 14px;">Maximum</label>
-                              <input [disabled]="true" type="text" [(ngModel)]="selectedPool.maximum" name="password" class="form-control" >
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="row">
-                      <div class="col-md-12">
-                          <div class="form-group">
-                              <label class="control-label" style="font-size: 14px;">Quantity</label>
-                              <input type="text"  [(ngModel)]="quantity"  name="email" class="form-control" >
-                          </div>
-                      </div>
-                  </div>
-
-
-
-                  <button
-                          type="submit"
-
-                          (click)="login()"
-                          class="btn btn-danger pull-right">SUBMIT</button>
-                  <div class="clearfix"></div>
-              </form>
-
-          </div>
-      </ng-template>
-  </div>
 </div>

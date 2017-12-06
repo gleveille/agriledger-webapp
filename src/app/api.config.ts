@@ -117,6 +117,12 @@ const AssetPoolApi={
         url:()=>ServerUrl+'/api/assetpools',
         method:'POST'
     },
+    issueToken:{
+        url:()=>ServerUrl+'/api/blockchain/assetpool/issueToken',
+        method:'POST',
+        body:['amount','exchangeRate','precision','currency']
+
+    },
     getAssetpoolInfoFromBlockchain:{
         url:()=>ServerUrl+'/api/blockchain/assetpool/getinfo',
         method:'GET',
