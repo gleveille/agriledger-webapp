@@ -269,12 +269,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_tokens_tokens_component__ = __webpack_require__("../../../../../src/app/components/tokens/tokens.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__services_token_service__ = __webpack_require__("../../../../../src/app/services/token.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_transfer_transfer_component__ = __webpack_require__("../../../../../src/app/components/transfer/transfer.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -357,6 +359,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_45__components_asset_pool_create_asset_pool_create_component__["a" /* AssetPoolCreateComponent */],
                 __WEBPACK_IMPORTED_MODULE_46__pipes_xas_pipe__["a" /* XasPipe */],
                 __WEBPACK_IMPORTED_MODULE_48__components_tokens_tokens_component__["a" /* TokensComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__components_transfer_transfer_component__["a" /* TransferComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -437,12 +440,14 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_asset_pool_view_asset_pool_view_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-view/asset-pool-view.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_asset_pool_list_asset_pool_list_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-list/asset-pool-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_tokens_tokens_component__ = __webpack_require__("../../../../../src/app/components/tokens/tokens.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_transfer_transfer_component__ = __webpack_require__("../../../../../src/app/components/transfer/transfer.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -554,6 +559,7 @@ var routes = [
             { path: 'assets-pool-create', component: __WEBPACK_IMPORTED_MODULE_26__components_asset_pool_create_asset_pool_create_component__["a" /* AssetPoolCreateComponent */] },
             { path: 'account', component: __WEBPACK_IMPORTED_MODULE_4__components_account_account_component__["a" /* AccountComponent */] },
             { path: 'wallet', component: __WEBPACK_IMPORTED_MODULE_19__components_wallet_wallet_component__["a" /* WalletComponent */] },
+            { path: 'transfer', component: __WEBPACK_IMPORTED_MODULE_30__components_transfer_transfer_component__["a" /* TransferComponent */] },
             { path: 'tokens', component: __WEBPACK_IMPORTED_MODULE_29__components_tokens_tokens_component__["a" /* TokensComponent */] }
         ]
     },
@@ -2428,6 +2434,67 @@ var TokensComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/transfer/transfer.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/transfer/transfer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"main-content\">\n\n\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-xs-12\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Transfer</h4>\n          </div>\n          <div class=\"card-content\">\n            <form name=\"loginForm\">\n              <div class=\"row\">\n                <div class=\"col-md-6\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 14px;\">Sender Address</label>\n                    <input type=\"text\" value=\"A6HpNshA4kCkdSqce7tUvW3Tt9LmdhaHPV\" disabled name=\"email\" class=\"form-control\" >\n                  </div>\n                </div>\n                <div class=\"col-md-6\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 14px;\">Recipient Address (Underwriter at the e-commerce marketplace)</label>\n                    <input type=\"text\" [(ngModel)]=\"user.email\" name=\"email\" class=\"form-control\" >\n                  </div>\n                </div>\n              </div>\n\n\n\n              <div class=\"row\">\n                <div class=\"col-md-6\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 14px;\">Token</label>\n                    <select class=\"form-control \"  name=\"status\">\n                      <option value=\"1\">AGT.RGLRICE</option>\n                      <option value=\"2\">AGT.HLNGRICE</option>\n                      <option value=\"3\">AGT.TPCRICE</option>\n\n                    </select>\n\n                  </div>\n                </div>\n                <div class=\"col-md-6\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 14px;\">Number</label>\n                    <input type=\"text\" [(ngModel)]=\"user.email\" name=\"email\" class=\"form-control\" >\n                  </div>\n                </div>\n              </div>\n\n\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 14px;\">Message</label>\n                    <input type=\"text\" [(ngModel)]=\"user.email\" name=\"email\" class=\"form-control\" >\n                  </div>\n                </div>\n              </div>\n\n\n\n              <button\n                      type=\"submit\"\n\n                      (click)=\"login()\"\n                      class=\"btn btn-danger pull-right\">Transfer</button>\n              <div class=\"clearfix\"></div>\n            </form>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/transfer/transfer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TransferComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TransferComponent = (function () {
+    function TransferComponent() {
+    }
+    TransferComponent.prototype.ngOnInit = function () {
+    };
+    TransferComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-transfer',
+            template: __webpack_require__("../../../../../src/app/components/transfer/transfer.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/transfer/transfer.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], TransferComponent);
+    return TransferComponent;
+}());
+
+//# sourceMappingURL=transfer.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/wallet/wallet.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2449,7 +2516,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/wallet/wallet.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div  class=\"main-content\">\n\n\n<!--    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-lg-6 col-lg-offset-3\">\n                <div class=\"card\">\n                    <div class=\"card-header\" data-background-color=\"green\">\n                    <h4 class=\"title\">Balance</h4>\n                </div>\n                    <div class=\"card-content text-center\" >\n                        <app-spinner [type]=\"'bounce'\" *ngIf=\"accountRequestStatus==='pending'\"></app-spinner>\n\n                        <h2 class=\"card-title \" style=\"text-transform: capitalize\">{{account?.balance}} ACC </h2>\n\n                        <a href=\"javascript:void(0)\" class=\"btn btn-danger\" >Transfer</a>\n\n\n\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>-->\n\n\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <div class=\"card\">\n                    <div class=\"card-header\" data-background-color=\"green\">\n                        <h4 class=\"title\">Transaction History</h4>\n<!--\n                        <a href=\"javascript:void(0)\" class=\"btn btn-danger\" >Transfer</a>\n-->\n\n                    </div>\n                    <div class=\"card-content\">\n                        <div class=\"card-content table-responsive\">\n                            <app-spinner [type]=\"'bounce'\" *ngIf=\"txnRequestStatus==='pending'\"></app-spinner>\n\n                            <app-error-show *ngIf=\"txnRequestStatus==='rejected'\" [error]=\"'Transactions could not be fetched.Try again!'\">\n\n                            </app-error-show>\n                            <table class=\"table\" *ngIf=\"transactions.length\">\n                                <thead  >\n                                <tr>\n                                    <th class=\"boldfont\">Amount</th>\n                                    <th class=\"boldfont\">Fee</th>\n\n                                    <th class=\"boldfont\">Sender Address</th>\n\n                                    <th class=\"boldfont\">Recipient Address</th>\n                                    <th class=\"boldfont\">Type</th>\n                                    <th class=\"boldfont\">Remark</th>\n\n                                </tr>\n                                </thead>\n                                <tbody>\n\n\n                                <tr *ngFor=\"let txn of transactions\">\n\n                                    <td>{{txn?.amountShow}}</td>\n                                    <td>{{txn?.fee|xas}}</td>\n\n                                    <td data-toggle=\"tooltip\" data-placement=\"left\" title=\"{{txn?.senderId}}\">\n\n                                        {{txn?.senderId | slice:0:10}}{{txn?.senderId?'...':''}}\n                                        <span style=\"color: green;font-weight: 600\">{{txn?.senderId===user?.walletAddress ? '(Me)':''}}</span>\n\n                                    </td>\n                                    <td data-toggle=\"tooltip\" data-placement=\"left\" title=\"{{txn?.recipientId}}\">\n\n                                        {{txn?.recipientId | slice:0:10}}{{txn?.recipientId?'...':''}}\n                                        <span style=\"color: green;font-weight: 600\">{{txn?.recipientId===user?.walletAddress ? '(Me)':''}}</span>\n\n\n                                    </td>\n                                    <td data-toggle=\"tooltip\" data-placement=\"left\" title=\"{{txn?.blockId}}\">\n                                        {{txn?.type|txnType}}\n                                    </td>\n\n                                    <td >{{txn?.message}}</td>\n\n                                </tr>\n                                </tbody>\n                            </table>\n\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n\n</div>"
+module.exports = "<div  class=\"main-content\">\n\n\n<!--    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-lg-6 col-lg-offset-3\">\n                <div class=\"card\">\n                    <div class=\"card-header\" data-background-color=\"green\">\n                    <h4 class=\"title\">Balance</h4>\n                </div>\n                    <div class=\"card-content text-center\" >\n                        <app-spinner [type]=\"'bounce'\" *ngIf=\"accountRequestStatus==='pending'\"></app-spinner>\n\n                        <h2 class=\"card-title \" style=\"text-transform: capitalize\">{{account?.balance}} ACC </h2>\n\n                        <a href=\"javascript:void(0)\" class=\"btn btn-danger\" >Transfer</a>\n\n\n\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>-->\n\n\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <div class=\"card\">\n                    <div class=\"card-header\" data-background-color=\"green\">\n                        <h4 class=\"title\">Transaction History</h4>\n                        <a href=\"javascript:void(0)\" class=\"btn btn-danger\" [routerLink]=\"['/dashboard/transfer']\">Transfer</a>\n\n                    </div>\n                    <div class=\"card-content\">\n                        <div class=\"card-content table-responsive\">\n                            <app-spinner [type]=\"'bounce'\" *ngIf=\"txnRequestStatus==='pending'\"></app-spinner>\n\n                            <app-error-show *ngIf=\"txnRequestStatus==='rejected'\" [error]=\"'Transactions could not be fetched.Try again!'\">\n\n                            </app-error-show>\n                            <table class=\"table\" *ngIf=\"transactions.length\">\n                                <thead  >\n                                <tr>\n                                    <th class=\"boldfont\">Amount</th>\n                                    <th class=\"boldfont\">Fee</th>\n\n                                    <th class=\"boldfont\">Sender Address</th>\n\n                                    <th class=\"boldfont\">Recipient Address</th>\n                                    <th class=\"boldfont\">Type</th>\n                                    <th class=\"boldfont\">Remark</th>\n\n                                </tr>\n                                </thead>\n                                <tbody>\n\n\n                                <tr *ngFor=\"let txn of transactions\">\n\n                                    <td>{{txn?.amountShow}}</td>\n                                    <td>{{txn?.fee|xas}}</td>\n\n                                    <td data-toggle=\"tooltip\" data-placement=\"left\" title=\"{{txn?.senderId}}\">\n\n                                        {{txn?.senderId | slice:0:10}}{{txn?.senderId?'...':''}}\n                                        <span style=\"color: green;font-weight: 600\">{{txn?.senderId===user?.walletAddress ? '(Me)':''}}</span>\n\n                                    </td>\n                                    <td data-toggle=\"tooltip\" data-placement=\"left\" title=\"{{txn?.recipientId}}\">\n\n                                        {{txn?.recipientId | slice:0:10}}{{txn?.recipientId?'...':''}}\n                                        <span style=\"color: green;font-weight: 600\">{{txn?.recipientId===user?.walletAddress ? '(Me)':''}}</span>\n\n\n                                    </td>\n                                    <td data-toggle=\"tooltip\" data-placement=\"left\" title=\"{{txn?.blockId}}\">\n                                        {{txn?.type|txnType}}\n                                    </td>\n\n                                    <td >{{txn?.message}}</td>\n\n                                </tr>\n                                </tbody>\n                            </table>\n\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n\n</div>"
 
 /***/ }),
 
