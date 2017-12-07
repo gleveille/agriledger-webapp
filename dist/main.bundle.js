@@ -22,7 +22,6 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 
 "use strict";
 /* unused harmony export ServerUrl */
-/* unused harmony export BlockChainServerUrl */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return UserApi; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return OnboardingApi; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return WalletApi; });
@@ -34,7 +33,6 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 // This file also documenting how to use the api
 
 var ServerUrl = __WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment */].apiURL + ':' + __WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment */].apiPORT;
-var BlockChainServerUrl = __WEBPACK_IMPORTED_MODULE_0__environments_environment__["a" /* environment */].blockchainURL;
 var ProfileApi = {
     getProfileByPasscode: function () { return ServerUrl + '/api/profiles/findOne?filter[where][passcode]'; },
     getProfileById: function () { return ServerUrl + '/api/profiles'; },
@@ -2342,7 +2340,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/tokens/tokens.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n\n\n\n    <div class=\"row\">\n\n      <h3 class=\"text-center text-gray\" *ngIf=\"tokenHttpRequestStatus==='resolved' && !tokens.length \">\n       No Token has been issued yet!\n\n      </h3>\n\n      <app-error-show *ngIf=\"tokenHttpRequestStatus==='rejected'\" [error]=\"'Tokens could not be fetched.Try again!'\">\n\n      </app-error-show>\n\n      <app-spinner *ngIf=\"tokenHttpRequestStatus==='pending'\" [type]=\"'bounce'\"></app-spinner>\n\n\n      <div style=\"cursor: pointer\" class=\"col-lg-4 col-md-6 col-sm-6\" *ngFor=\"let token of tokens\">\n        <div class=\"card card-stats\" style=\"border: 1px solid #c4c4c4\" >\n          <div class=\"card-header\" data-background-color=\"green\">\n            <i class=\"material-icons\">store</i>\n          </div>\n          <div class=\"card-content\">\n            <p class=\"category\">Currency Name</p>\n            <h5 class=\"title\">{{token.issuerName}}.{{token.assetpool.currency}}</h5>\n\n            <hr>\n\n            <div class=\"row\" style=\"text-align: left\">\n\n              <div class=\"col-xs-6 text-left\">\n                Balance\n              </div>\n              <div class=\"col-xs-6 text-right\">\n                <b>{{token.amount}}</b>\n              </div>\n            </div>\n            <hr>\n\n            <div class=\"row\" style=\"text-align: left\">\n\n              <div class=\"col-xs-6 text-left\">\n                Exchange Rate\n              </div>\n              <div class=\"col-xs-6 text-right\">\n                <b>{{token.exchangeRate}}</b>\n              </div>\n            </div>\n            <hr>\n\n\n            <div class=\"row\" style=\"text-align: left\">\n\n              <div class=\"col-xs-6 text-left\">\n                Status\n              </div>\n              <div class=\"col-xs-6 text-right\">\n                <b [style.color]=\"getColor(token?.status)\">\n                  {{token?.status!==undefined ? (token?.status===0?'Pending':'Approved') : 'Checking'}}</b>\n              </div>\n            </div>\n\n          </div>\n          <div class=\"card-footer\">\n            <div class=\"stats\">\n              <i class=\"material-icons text-danger\">update</i> <a href=\"javascript:void(0)\">{{token.created|date:'medium'}}</a>\n            </div>\n          </div>\n\n\n\n        </div>\n      </div>\n    </div>\n\n  </div>\n</div>\n"
+module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n\n    <div class=\"card\" style=\"margin-top: 50px;\">\n      <div class=\"card-header\" data-background-color=\"green\">\n        <h4 class=\"title\">Issued Tokens</h4>\n\n      </div>\n\n      <div class=\"card-content table-responsive\" >\n\n        <section *ngIf=\"tokenHttpRequestStatus==='pending' || tokenHttpRequestStatus==='rejected' \">\n          <app-error-show *ngIf=\"tokenHttpRequestStatus==='rejected'\" [error]=\"'Tokens could not be fetched.Try again!'\">\n\n          </app-error-show>\n\n          <app-spinner *ngIf=\"tokenHttpRequestStatus==='pending'\" [type]=\"'bounce'\"></app-spinner>\n        </section>\n\n\n\n        <section *ngIf=\"tokenHttpRequestStatus==='resolved'\">\n          <div class=\"row\" *ngIf=\"!tokens.length\">\n            <div class=\"col-xs-12 text-center\">\n              <h3 class=\"text-center text-gray\" *ngIf=\"tokenHttpRequestStatus==='resolved' && !tokens.length \">\n                No Token has been issued yet!\n\n              </h3>\n            </div>\n          </div>\n\n          <div class=\"row\">\n            <div style=\"cursor: pointer\" class=\"col-lg-4 col-md-6 col-sm-6\" *ngFor=\"let token of tokens\">\n              <div class=\"card card-stats\" style=\"border: 1px solid #c4c4c4\" >\n                <div class=\"card-header\" data-background-color=\"green\">\n                  <i class=\"material-icons\">store</i>\n                </div>\n                <div class=\"card-content\">\n                  <p class=\"category\">Currency Name</p>\n                  <h5 class=\"title\">{{token.issuerName}}.{{token.assetpool.currency}}</h5>\n\n                  <hr>\n\n                  <div class=\"row\" style=\"text-align: left\">\n\n                    <div class=\"col-xs-6 text-left\">\n                      Balance\n                    </div>\n                    <div class=\"col-xs-6 text-right\">\n                      <b>{{token.amount}}</b>\n                    </div>\n                  </div>\n                  <hr>\n\n                  <div class=\"row\" style=\"text-align: left\">\n\n                    <div class=\"col-xs-6 text-left\">\n                      Exchange Rate\n                    </div>\n                    <div class=\"col-xs-6 text-right\">\n                      <b>{{token.exchangeRate}}</b>\n                    </div>\n                  </div>\n                  <hr>\n\n\n                  <div class=\"row\" style=\"text-align: left\">\n\n                    <div class=\"col-xs-6 text-left\">\n                      Status\n                    </div>\n                    <div class=\"col-xs-6 text-right\">\n                      <b [style.color]=\"getColor(token?.status)\">\n                        {{token?.status!==undefined ? (token?.status===0?'Pending':'Approved') : 'Checking'}}</b>\n                    </div>\n                  </div>\n\n                </div>\n                <div class=\"card-footer\">\n                  <div class=\"stats\">\n                    <i class=\"material-icons text-danger\">update</i> <a href=\"javascript:void(0)\">{{token.created|date:'medium'}}</a>\n                  </div>\n                </div>\n\n\n\n              </div>\n            </div>\n          </div>\n\n\n        </section>\n\n\n      </div>\n\n    </div>\n\n\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -4641,7 +4639,7 @@ var ROUTES = [
     { path: 'assets', title: 'Assets', icon: 'description', class: '' },
     { path: 'assets-pool-list', title: 'Asset Pool', icon: 'donut_large', class: '' },
     { path: 'wallet', title: 'Wallet', icon: 'account_balance_wallet', class: '' },
-    { path: 'tokens', title: 'Issued tokens', icon: 'grade', class: '' }
+    { path: 'tokens', title: 'Issued Tokens', icon: 'grade', class: '' }
 ];
 var SidebarComponent = (function () {
     function SidebarComponent() {
@@ -4805,7 +4803,6 @@ var TermsComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
 var environment = {
     production: true,
-    blockchainURL: 'http://52.175.39.29:5000',
     apiURL: 'http://139.59.243.90',
     apiPORT: '8080'
 };

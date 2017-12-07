@@ -4,7 +4,6 @@
 
 import {environment} from '../environments/environment';
 export const ServerUrl=environment.apiURL+':'+environment.apiPORT;
-export const BlockChainServerUrl=environment.blockchainURL;
 
 
 
