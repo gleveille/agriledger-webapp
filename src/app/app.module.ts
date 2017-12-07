@@ -52,6 +52,7 @@ import { ModalModule } from 'ngx-bootstrap';
 import { TokensComponent } from './components/tokens/tokens.component';
 import {TokenService} from "./services/token.service";
 import { AlertModule } from 'ngx-bootstrap';
+import { TransferComponent } from './components/transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { AlertModule } from 'ngx-bootstrap';
     AssetPoolCreateComponent,
     XasPipe,
     TokensComponent,
+    TransferComponent,
 
   ],
   imports: [
