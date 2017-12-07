@@ -92,7 +92,8 @@ export class AssetsPoolService {
 
       return this.http.get(`${url}`)
           .catch((res) => {
-              return this.errorHandler.handle(res);
+          return  Observable.of({});
+              //return this.errorHandler.handle(res);
           });
   }
 }
