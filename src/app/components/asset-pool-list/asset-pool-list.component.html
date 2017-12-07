@@ -37,6 +37,24 @@
                                 <div class="card card-stats" style="border: 1px solid #c4c4c4" >
 
                                     <div class="card-content" style="text-align: left" >
+
+                                        <div *ngIf="blockchainHttpStatus==='pending'"
+                                                    style="position: absolute;
+                                                left: 0;right: 0;
+                                                top: 45%;
+                                                margin: 0 auto">
+                                        <app-spinner></app-spinner>
+
+                                    </div>
+
+                                        <div *ngIf="blockchainHttpStatus==='rejected'"
+                                             style="position: absolute;
+                                                top: 45%;
+                                                left:45%;
+                                                margin: 0 auto">
+                                            <i class="material-icons">error</i>
+                                        </div>
+
                                         <p class="category">Currency Name</p>
                                         <h5 class="title">{{pool.issuerName}}.{{pool.currency}}</h5>
 

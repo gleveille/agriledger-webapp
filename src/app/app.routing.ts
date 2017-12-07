@@ -37,11 +37,6 @@ const routes:Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'landing',
-        component: LandingComponent,
-        canActivate: [AlreadyAuthenticatedGuard],
-    },
-    {
         path: 'login',
         component: LoginComponent,
         canActivate: [AlreadyAuthenticatedGuard],
