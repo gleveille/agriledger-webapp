@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/api.config.ts" afterPath="$PROJECT_DIR$/src/app/api.config.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/transfer/transfer.component.ts" afterPath="$PROJECT_DIR$/src/app/components/transfer/transfer.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/token.service.ts" afterPath="$PROJECT_DIR$/src/app/services/token.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/shared/header/header.component.html" afterPath="$PROJECT_DIR$/src/app/shared/header/header.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts" afterPath="$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts" />
-    </list>
+    <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -495,12 +488,12 @@
       <workItem from="1512210456096" duration="644000" />
       <workItem from="1512220728839" duration="2416000" />
       <workItem from="1512293011974" duration="68295000" />
-      <workItem from="1512709261989" duration="12666000" />
+      <workItem from="1512709261989" duration="13063000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275427000" />
+    <option name="totallyTimeSpent" value="275824000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
