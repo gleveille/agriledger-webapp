@@ -119,8 +119,7 @@ const TokenApi={
     },
     getAllTokensFromBlockchain:{
         url:()=>ServerUrl+'/api/blockchain/token/getAllTokens',
-        method:'GET',
-        query:['address']
+        method:'GET'
     },
     getTokensByAddressFromBlockchain:{
         url:()=>ServerUrl+'/api/blockchain/token/getTokensByAddress',

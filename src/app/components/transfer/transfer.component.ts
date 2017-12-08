@@ -28,9 +28,10 @@ export class TransferComponent implements OnInit {
 
     this.userService.getUser().concatMap((user:Iuser)=>{
       this.user=user;
-      return this.tokenService.getAllTokensFromBlockchain();
+      return this.tokenService.getAllTokensByAddressFromBlockchain();
     }).subscribe((assets:any)=>{
         console.log(assets)
+
         this.tokenRange = assets;
           this.tokenRange.unshift({
               currency: "ACC",

@@ -27,12 +27,22 @@ export class TokenService {
           });
 
   }
+
+    getAllTokensByAddressFromBlockchain(){
+        const url=`${TokenApi.getTokensByAddressFromBlockchain.url()}`;
+        return this.userService.getUser()
+            .concatMap((user: Iuser) => {
+                return this.http.get(`${url}?address=${user.walletAddress}`);
+            })
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
+
+    }
+
   getAllTokensFromBlockchain(){
       const url=`${TokenApi.getAllTokensFromBlockchain.url()}`;
-      return this.userService.getUser()
-          .concatMap((user: Iuser) => {
-              return this.http.get(`${url}?address=${user.walletAddress}`);
-          })
+      return this.http.get(`${url}`)
           .catch((res) => {
               return this.errorHandler.handle(res);
           });
