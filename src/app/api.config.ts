@@ -83,6 +83,12 @@ const WalletApi={
         url:()=>ServerUrl+'/api/blockchain/wallet/transactions',
         method:'GET',
         params:['senderPublicKey','recipientId']
+    },
+
+    sendTransaction:{
+        url:()=>ServerUrl+'/api/blockchain/wallet/send',
+        method:'POST',
+        params:['senderPublicKey','recipientId']
     }
 }
 
@@ -122,6 +128,8 @@ const TokenApi={
         query:['address']
     },
 };
+
+
 
 
 const AssetPoolApi={

@@ -26,9 +26,11 @@ export class PasswordChangeComponent implements OnInit {
     this.userService.changePassword(this.credential.oldPassword,this.credential.newPassword)
         .subscribe((data:any)=>{
             this.passwordChangeRequestStatus='resolved';
+            this.credential.oldPassword=null;
+            this.credential.newPassword=null;
+            this.credential.rePassword=null;
 
             this.toastService.success('Password','Changed Sucessfully');
-            this.router.navigate(['/dashboard']);
 
     },(err)=>{
             this.passwordChangeRequestStatus='rejected';

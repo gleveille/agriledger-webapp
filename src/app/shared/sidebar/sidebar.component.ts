@@ -12,7 +12,8 @@ export const ROUTES: RouteInfo[] = [
     { path: 'assets', title: 'Assets',  icon:'description', class: '' },
     { path: 'assets-pool-list', title: 'Asset Pool',  icon:'donut_large', class: '' },
     { path: 'wallet', title: 'Wallet',  icon:'account_balance_wallet', class: '' },
-    { path: 'tokens', title: 'Issued Tokens',  icon:'grade', class: '' }
+    { path: 'tokens', title: 'Issued Tokens',  icon:'grade', class: '' },
+    { path: 'transfer', title: 'Transfer Tokens',  icon:'send', class: '' }
 
 ];
 

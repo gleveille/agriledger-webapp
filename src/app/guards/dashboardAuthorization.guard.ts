@@ -25,7 +25,7 @@ export class DashboardAuthorizationGuard implements CanActivate {
           if(user && expectedRole.includes(user.role)){
               this.userService.setUserFromGuard(user);
               if(user && !user.isPasswordChanged){
-                  this.router.navigate(['/onboarding/password-change']);
+                  this.router.navigate(['/onboarding/password-reset']);
                   return false;
               }
               if(user && !user.isRegisteredOnBlockchain){

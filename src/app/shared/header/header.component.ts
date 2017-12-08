@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {Router} from "@angular/router";
 import {ToastService} from "../../services/toast.service";
+import {TranslationService} from "../../services/translation.service";
 
 @Component({
     selector: 'app-header',
@@ -13,7 +14,9 @@ export class HeaderComponent implements OnInit {
     @Input()balance:any=0;
     isAuthenticated:boolean = false;
 
-    constructor(private userService:UserService, private router:Router, private toastService:ToastService) {
+    constructor(private userService:UserService, private router:Router,
+                private translationService:TranslationService,
+                private toastService:ToastService) {
     }
 
     ngOnInit() {
@@ -26,5 +29,9 @@ export class HeaderComponent implements OnInit {
         }, (err)=> {
             this.toastService.error('Logout', 'Could not be logged out.Try again');
         });
+    }
+
+    appLanguageChange(language:string){
+        this.translationService.changeLanguage(language);
     }
 }

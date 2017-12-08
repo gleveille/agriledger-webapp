@@ -15,72 +15,24 @@
             <h5 class="title">{{pool?.issuerName}}.{{pool?.currency}}</h5>
 
 
+            <div class="row">
+              <div class="col-xs-12" style="margin-top: 40px;">
+
+                <ol class="breadcrumb text-left">
+                  <li><a href="javascript:void (0)">{{pool?.category.level1}}</a></li>
+                  <li><a href="javascript:void (0)">{{pool?.category.level2}}</a></li>
+                  <li> <a href="javascript:void (0)">{{pool?.category.level3}}</a></li>
+                  <li> <a href="javascript:void (0)">{{pool?.category.level4}}</a></li>
+                  <li> <a href="javascript:void (0)">{{pool?.category.level5}}</a></li>
+
+                </ol>
+              </div>
+            </div>
+
+
 
             <div class="row">
               <div class="col-lg-4">
-
-
-                <div class="row" style="text-align: left" *ngIf="pool?.category?.level1">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    Category 1
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <b>{{pool?.category.level1}}</b>
-                  </div>
-                </div>
-
-
-
-                <div class="row" style="text-align: left" *ngIf="pool?.category?.level2">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    Category 2
-                  </div>
-                  <div class="col-xs-6 text-right" >
-                    <b>{{pool?.category?.level2}}</b>
-                  </div>
-                </div>
-
-                <div class="row" style="text-align: left"*ngIf="pool?.category?.level3">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    Category 3
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <b>{{pool?.category?.level3}}</b>
-                  </div>
-                </div>
-
-
-
-
-                <div class="row" style="text-align: left" *ngIf="pool?.category?.level4">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    Category 4
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <b>{{pool?.category?.level4}}</b>
-                  </div>
-                </div>
-
-
-
-                <div class="row" style="text-align: left" *ngIf="pool?.category?.level5">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    Category 5
-                  </div>
-                  <div class="col-xs-6 text-right" >
-                    <b>{{pool?.category?.level5}}</b>
-                  </div>
-                </div>
 
 
                 <div class="row" style="text-align: left">
@@ -93,8 +45,6 @@
                     <b [style.color]="getColor(pool?.blockchain?.approved)">{{pool?.blockchain?.approved===0?'Pending':'Approved'}}</b>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-4">
                 <div class="row" style="text-align: left">
                   <hr>
 
@@ -116,6 +66,22 @@
                     <b>{{pool?.estimateUnit}}</b>
                   </div>
                 </div>
+
+
+                <div class="row" style="text-align: left">
+                  <hr>
+
+                  <div class="col-xs-6 text-left">
+                    Unlock condition
+                  </div>
+                  <div class="col-xs-6 text-right" >
+                    <b>{{pool?.blockchain?.unlockCondition}}</b>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-lg-4" >
+
 
 
                 <div class="row" style="text-align: left">
@@ -158,16 +124,6 @@
                 </div>
 
 
-                <div class="row" style="text-align: left">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    Unlock condition
-                  </div>
-                  <div class="col-xs-6 text-right" >
-                    <b>{{pool?.blockchain?.unlockCondition}}</b>
-                  </div>
-                </div>
 
 
 

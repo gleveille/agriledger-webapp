@@ -14,7 +14,7 @@ import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
 import {OnboardingComponent} from "./components/onboarding/onboarding.component";
 import {Page403Component} from "./shared/page403/page403.component";
 import {IssuerRegistrationComponent} from "./components/issuer-registration/issuer-registration.component";
-import {AlreadyChangedPasswordGuard} from "./guards/onboarding-guard/already-changed-password.guard";
+import {AlreadyResetPasswordGuard} from "./guards/onboarding-guard/already-reset-password.guard";
 import {AlreadyRegisteredOnBlockchainGuard} from "./guards/onboarding-guard/already-registered-on-blockchain.guard";
 import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.guard";
 import {AssetsComponent} from "./components/assets/assets.component";
@@ -30,6 +30,7 @@ import {AssetPoolViewComponent} from "./components/asset-pool-view/asset-pool-vi
 import {AssetPoolListComponent} from "./components/asset-pool-list/asset-pool-list.component";
 import {TokensComponent} from "./components/tokens/tokens.component";
 import {TransferComponent} from "./components/transfer/transfer.component";
+import {PasswordResetComponent} from "./components/password-reset/password-reset.component";
 
 const routes:Routes = [
     {
@@ -67,11 +68,11 @@ const routes:Routes = [
         path: 'onboarding',
         component: OnboardingComponent,
         children: [
-            {path: '', redirectTo: 'password-change', pathMatch: 'full'},
+            {path: '', redirectTo: 'password-reset', pathMatch: 'full'},
             {
-                path: 'password-change',
-                component: PasswordChangeComponent,
-                canActivate: [AuthenticationGuard, AlreadyChangedPasswordGuard],
+                path: 'password-reset',
+                component: PasswordResetComponent,
+                canActivate: [AuthenticationGuard, AlreadyResetPasswordGuard],
 
                 data: {
                     expectedRole: ['sponsor']
@@ -120,7 +121,9 @@ const routes:Routes = [
             {path: 'account', component: AccountComponent},
             {path: 'wallet', component: WalletComponent},
             {path: 'transfer', component: TransferComponent},
-            {path: 'tokens', component: TokensComponent}
+            {path: 'tokens', component: TokensComponent},
+            {path: 'password-change', component: PasswordChangeComponent}
+
 
         ]
     },

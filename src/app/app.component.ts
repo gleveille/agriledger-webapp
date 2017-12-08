@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {UserService} from "./services/user.service";
+import {TranslationService} from "./services/translation.service";
 
 
 
@@ -9,7 +10,7 @@ import {UserService} from "./services/user.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-   constructor(private userService:UserService){
+   constructor(private userService:UserService,private translationService:TranslationService){
 
    }
 }

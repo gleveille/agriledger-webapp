@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 
 
 @Injectable()
-export class AlreadyChangedPasswordGuard implements CanActivate {
+export class AlreadyResetPasswordGuard implements CanActivate {
     constructor(private userService:UserService,private router:Router){
 
     }

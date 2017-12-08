@@ -21,13 +21,13 @@ import {ToastService} from "./services/toast.service";
 import {AuthenticationGuard} from "./guards/authentication.guard";
 import {DashboardAuthorizationGuard} from "./guards/dashboardAuthorization.guard";
 import {AlreadyAuthenticatedGuard} from "./guards/already-authenticated.guard";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {InterceptorService} from "./services/interceptor.service";
 import { HeaderComponent } from './shared/header/header.component';
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
 import { Page403Component } from './shared/page403/page403.component';
 import { IssuerRegistrationComponent } from './components/issuer-registration/issuer-registration.component';
-import {AlreadyChangedPasswordGuard} from "./guards/onboarding-guard/already-changed-password.guard";
+import {AlreadyResetPasswordGuard} from "./guards/onboarding-guard/already-reset-password.guard";
 import {AlreadyRegisteredOnBlockchainGuard} from "./guards/onboarding-guard/already-registered-on-blockchain.guard";
 import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.guard";
 import { AssetsComponent } from './components/assets/assets.component';
@@ -53,7 +53,13 @@ import { TokensComponent } from './components/tokens/tokens.component';
 import {TokenService} from "./services/token.service";
 import { AlertModule } from 'ngx-bootstrap';
 import { TransferComponent } from './components/transfer/transfer.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslationService} from "./services/translation.service";
 
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/translations/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,7 +100,14 @@ import { TransferComponent } from './components/transfer/transfer.component';
     ToastyModule.forRoot(),
     NgProgressModule,
       ModalModule.forRoot(),
-      AlertModule.forRoot()
+      AlertModule.forRoot(),
+      TranslateModule.forRoot({
+          loader: {
+              provide: TranslateLoader,
+              useFactory: HttpLoaderFactory,
+              deps: [HttpClient]
+          }
+      })
 
   ],
   providers: [
@@ -113,10 +126,11 @@ import { TransferComponent } from './components/transfer/transfer.component';
       AssetsPoolService,
       WalletService,
       TokenService,
+      TranslationService,
       AuthenticationGuard,
       DashboardAuthorizationGuard,
       AlreadyAuthenticatedGuard,
-      AlreadyChangedPasswordGuard,
+      AlreadyResetPasswordGuard,
       AlreadyRegisteredOnBlockchainGuard,
       AlreadyAnIssuerGuard
 

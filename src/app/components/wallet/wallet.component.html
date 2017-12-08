@@ -30,7 +30,9 @@
                 <div class="card">
                     <div class="card-header" data-background-color="green">
                         <h4 class="title">Transaction History</h4>
+<!--
                         <a href="javascript:void(0)" class="btn btn-danger" [routerLink]="['/dashboard/transfer']">Transfer</a>
+-->
 
                     </div>
                     <div class="card-content">
@@ -50,6 +52,8 @@
 
                                     <th class="boldfont">Recipient Address</th>
                                     <th class="boldfont">Type</th>
+                                    <th class="boldfont">Date</th>
+
                                     <th class="boldfont">Remark</th>
 
                                 </tr>
@@ -64,13 +68,13 @@
 
                                     <td data-toggle="tooltip" data-placement="left" title="{{txn?.senderId}}">
 
-                                        {{txn?.senderId | slice:0:10}}{{txn?.senderId?'...':''}}
+                                        {{txn?.senderId}}
                                         <span style="color: green;font-weight: 600">{{txn?.senderId===user?.walletAddress ? '(Me)':''}}</span>
 
                                     </td>
                                     <td data-toggle="tooltip" data-placement="left" title="{{txn?.recipientId}}">
 
-                                        {{txn?.recipientId | slice:0:10}}{{txn?.recipientId?'...':''}}
+                                        {{txn?.recipientId}}
                                         <span style="color: green;font-weight: 600">{{txn?.recipientId===user?.walletAddress ? '(Me)':''}}</span>
 
 
@@ -78,6 +82,7 @@
                                     <td data-toggle="tooltip" data-placement="left" title="{{txn?.blockId}}">
                                         {{txn?.type|txnType}}
                                     </td>
+                                    <td >{{txn?.timestamp}}</td>
 
                                     <td >{{txn?.message}}</td>
 

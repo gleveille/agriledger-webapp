@@ -72,7 +72,7 @@ export class UserService {
   setUserFromGuard(user:Iuser){
     this.user=user;
   }
-  changePassword(oldPassword:string,newPassword:string) {
+  resetPassword(oldPassword:string,newPassword:string) {
       return this.http.post(`${UserApi.changePassword.url()}`,
           {oldPassword:oldPassword,newPassword:newPassword}).do((data)=>{
           this.user.isPasswordChanged=true;
@@ -80,6 +80,15 @@ export class UserService {
           return this.errorHandler.handle(res);
       });
   };
+
+    changePassword(oldPassword:string,newPassword:string) {
+        return this.http.post(`${UserApi.changePassword.url()}`,
+            {oldPassword:oldPassword,newPassword:newPassword}).do((data)=>{
+        }).catch((res)=> {
+            return this.errorHandler.handle(res);
+        });
+    };
+
 
     logout(){
         return this.http.post(`${UserApi.logout.url()}`,

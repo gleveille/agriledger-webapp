@@ -24,7 +24,6 @@ export class WalletService {
     getBlockchainAccount() {
         return this.userService.getUser()
             .concatMap((user: Iuser) => {
-                console.log(user)
                 return this.http.get(`${WalletApi.getAccount.url()}?address=${user.walletAddress}`);
             })
             .retry(3)
@@ -37,13 +36,21 @@ export class WalletService {
     getTransactions() {
         return this.userService.getUser()
             .concatMap((user: Iuser) => {
-                console.log(user)
-
                 return this.http.get(`${WalletApi.getTransaction.url()}?senderPublicKey=${user.publicKey}&recipientId=${user.walletAddress}`);
             }).retry(3)
             .catch((res) => {
                 return this.errorHandler.handle(res);
             });
     }
+
+
+    sendTransactions(txn:any) {
+        return this.http.post(`${WalletApi.sendTransaction.url()}`,txn)
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
+    }
+
+
 
 }
