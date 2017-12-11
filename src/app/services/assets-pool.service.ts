@@ -96,4 +96,14 @@ export class AssetsPoolService {
               //return this.errorHandler.handle(res);
           });
   }
+
+    getTokensByAssetPoolId(assetPoolId:string){
+        const url=`${AssetPoolApi.getAssetpool.url()}/${assetPoolId}/tokens`;
+        return this.http.get(`${url}`)
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
+
+    }
+
 }

@@ -14,7 +14,8 @@ import {IserviceError} from "../../interface/serviceError.interface";
 export class AssetViewComponent implements OnInit {
 
   asset={user:{},status:null};
-  constructor(private activatedRoute:ActivatedRoute,private assetService:AssetsService,private toastService:ToastService) { }
+  constructor(private activatedRoute:ActivatedRoute,
+              private assetService:AssetsService,private toastService:ToastService) { }
 
 
   ngOnInit() {

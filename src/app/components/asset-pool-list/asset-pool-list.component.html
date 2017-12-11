@@ -55,60 +55,68 @@
                                             <i class="material-icons">error</i>
                                         </div>
 
-                                        <p class="category">Currency Name</p>
-                                        <h5 class="title">{{pool.issuerName}}.{{pool.currency}}</h5>
 
-                                        <hr>
+                                        <div [routerLink]="['../assets-pool-view',pool.id]">
+                                            <p class="category">Currency Name</p>
+                                            <h5 class="title">{{pool.issuerName}}.{{pool.currency}}</h5>
 
-                                        <div class="row" style="text-align: left" [routerLink]="['../assets-pool-view',pool.id]">
+                                            <hr>
 
-                                            <div class="col-xs-6 text-left">
-                                                Maximum
+                                            <div class="row" style="text-align: left">
+
+                                                <div class="col-xs-6 text-left">
+                                                    Maximum
+                                                </div>
+                                                <div class="col-xs-6 text-right">
+                                                    <b>{{pool.maximum}}</b>
+                                                </div>
                                             </div>
-                                            <div class="col-xs-6 text-right">
-                                                <b>{{pool.maximum}}</b>
+                                            <hr>
+
+                                            <div class="row" style="text-align: left">
+
+                                                <div class="col-xs-6 text-left">
+                                                    Issued Quantity
+                                                </div>
+                                                <div class="col-xs-6 text-right">
+                                                    <b>{{pool?.blockchain?.quantity|truncateBalance:pool?.blockchain?.precision}}</b>
+                                                </div>
                                             </div>
+
+                                            <hr>
+
+                                            <div class="row" style="text-align: left" >
+
+                                                <div class="col-xs-6 text-left">
+                                                    Left quantity
+                                                </div>
+                                                <div class="col-xs-6 text-right">
+                                                    <b>{{(pool?.blockchain?.maximum-pool?.blockchain?.quantity)|truncateBalance:pool?.blockchain?.precision}}</b>
+                                                </div>
+                                            </div>
+                                            <hr>
+
+                                            <div class="row" style="text-align: left" >
+
+                                                <div class="col-xs-6 text-left">
+                                                    Status
+                                                </div>
+                                                <div class="col-xs-6 text-right" *ngIf="pool.blockchain.approved!==undefined">
+                                                    <b [style.color]="getColor(pool.blockchain.approved)">
+                                                        {{pool.blockchain.approved===0?'Pending':'Approved'}}</b>
+                                                </div>
+                                            </div>
+                                            <hr>
+
                                         </div>
-                                        <hr>
 
-                                        <div class="row" style="text-align: left" [routerLink]="['../assets-pool-view',pool.id]">
-
-                                            <div class="col-xs-6 text-left">
-                                                Issued Quantity
-                                            </div>
-                                            <div class="col-xs-6 text-right">
-                                                <b>{{pool?.blockchain?.quantity|truncateBalance:pool?.blockchain?.precision}}</b>
-                                            </div>
-                                        </div>
-
-                                        <hr>
-
-                                        <div class="row" style="text-align: left" [routerLink]="['../assets-pool-view',pool.id]">
-
-                                            <div class="col-xs-6 text-left">
-                                                Left quantity
-                                            </div>
-                                            <div class="col-xs-6 text-right">
-                                                <b>{{(pool?.blockchain?.maximum-pool?.blockchain?.quantity)|truncateBalance:pool?.blockchain?.precision}}</b>
-                                            </div>
-                                        </div>
-                                        <hr>
-
-                                        <div class="row" style="text-align: left" >
-
-                                            <div class="col-xs-6 text-left">
-                                                Status
-                                            </div>
-                                            <div class="col-xs-6 text-right" *ngIf="pool.blockchain.approved!==undefined">
-                                                <b [style.color]="getColor(pool.blockchain.approved)">
-                                                    {{pool.blockchain.approved===0?'Pending':'Approved'}}</b>
-                                            </div>
-                                        </div>
 
                                         <div class="row" style="text-align: center">
 
                                             <div class="col-xs-12">
-                                                <button [disabled]="!pool?.blockchain || !pool?.blockchain?.approved" class="btn btn-danger" (click)="openModal(template,pool)">ISSUE</button>
+                                                <button  [disabled]="!pool?.blockchain || !pool?.blockchain?.approved" class="btn " (click)="openModal(template,pool)">ISSUE</button>
+                                                <button  [disabled]="!pool?.blockchain || !pool?.blockchain?.approved" class="btn btn-success " [routerLink]="['/dashboard','tokens',pool?.id]">ISSUED</button>
+
                                             </div>
 
 

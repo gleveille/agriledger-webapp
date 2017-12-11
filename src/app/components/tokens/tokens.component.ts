@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {TokenService} from "../../services/token.service";
 import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
+import {ActivatedRoute, Params} from "@angular/router";
+import 'rxjs/add/operator/concatMap';
+import {AssetsPoolService} from "../../services/assets-pool.service";
 
 @Component({
   selector: 'app-tokens',
@@ -13,14 +16,43 @@ export class TokensComponent implements OnInit {
   tokens:any[]=[];
   tokensFromBlockchain:any[]=[];
   tokenHttpRequestStatus='resolved';
-  constructor(private tokenService:TokenService,private userService:UserService,private toastService:ToastService) { }
+  constructor(private tokenService:TokenService,
+              private activatedRoute:ActivatedRoute,
+              private assetPoolService:AssetsPoolService,
+              private userService:UserService,private toastService:ToastService) { }
+    ngOnInit() {
+        this.activatedRoute.params.subscribe((param:any)=>{
+            console.log(param)
 
-  ngOnInit() {
-    this.getTokens();
+            if(param && param.assetPoolId){
+                this.getTokensByAssetPoolId(param.assetPoolId);
+            }
+            else
+            {
+                this.getTokens();
+            }
+        },(err)=>{
+            console.log(err);
+        })
+    }
 
+
+
+    getTokensByAssetPoolId(assetPoolId:string){
+      this.tokenHttpRequestStatus='pending';
+      this.assetPoolService.getTokensByAssetPoolId(assetPoolId).subscribe((tokens:any[])=>{
+          console.log(tokens)
+          this.tokens=tokens;
+          this.tokenHttpRequestStatus='resolved';
+          console.log(this.tokens)
+          this.getAllTokensFromBlockchain();
+
+      },(err)=>{
+          this.tokenHttpRequestStatus='rejected';
+          console.log(err)
+          this.toastService.error('Tokens',err.message);
+      });
   }
-
-
   getTokens(){
     this.tokenHttpRequestStatus='pending';
     this.tokenService.getTokens().subscribe((tokens:any[])=>{

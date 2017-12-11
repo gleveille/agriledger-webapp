@@ -37,7 +37,7 @@
                 </div>
                 <div class="card-content">
                   <p class="category">Currency Name</p>
-                  <h5 class="title">{{token.issuerName}}.{{token.assetpool.currency}}</h5>
+                  <h5 class="title">{{token?.issuerName}}.{{token?.assetpool?.currency}}</h5>
 
                   <hr>
 
@@ -47,7 +47,7 @@
                       Balance
                     </div>
                     <div class="col-xs-6 text-right">
-                      <b>{{token.amount}}</b>
+                      <b>{{token?.amount}}</b>
                     </div>
                   </div>
                   <hr>
@@ -58,7 +58,7 @@
                       Exchange Rate
                     </div>
                     <div class="col-xs-6 text-right">
-                      <b>{{token.exchangeRate}}</b>
+                      <b>{{token?.exchangeRate}}</b>
                     </div>
                   </div>
                   <hr>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons text-danger">update</i> <a href="javascript:void(0)">{{token.created|date:'medium'}}</a>
+                    <i class="material-icons text-danger">update</i> <a href="javascript:void(0)">{{token?.created|date:'medium'}}</a>
                   </div>
                 </div>
 

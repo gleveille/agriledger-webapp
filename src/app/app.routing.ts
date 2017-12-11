@@ -117,11 +117,13 @@ const routes:Routes = [
 
             {path: 'assets-pool-list', component: AssetPoolListComponent},
             {path: 'assets-pool-view/:assetPoolId', component: AssetPoolViewComponent},
+
             {path: 'assets-pool-create', component: AssetPoolCreateComponent},
             {path: 'account', component: AccountComponent},
             {path: 'wallet', component: WalletComponent},
             {path: 'transfer', component: TransferComponent},
             {path: 'tokens', component: TokensComponent},
+            {path: 'tokens/:assetPoolId', component: TokensComponent},
             {path: 'password-change', component: PasswordChangeComponent}
 
 
