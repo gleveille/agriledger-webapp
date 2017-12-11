@@ -98,7 +98,7 @@ export class AssetsPoolService {
   }
 
     getTokensByAssetPoolId(assetPoolId:string){
-        const url=`${AssetPoolApi.getAssetpool.url()}/${assetPoolId}/tokens`;
+        const url=`${AssetPoolApi.getAssetpool.url()}/${assetPoolId}/tokens?filter[include]=assetpool`;
         return this.http.get(`${url}`)
             .catch((res) => {
                 return this.errorHandler.handle(res);
