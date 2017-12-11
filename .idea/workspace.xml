@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/assets-pool.service.ts" afterPath="$PROJECT_DIR$/src/app/services/assets-pool.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/asset-pool-view/asset-pool-view.component.html" afterPath="$PROJECT_DIR$/src/app/components/asset-pool-view/asset-pool-view.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html" afterPath="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/assets/assets.component.html" afterPath="$PROJECT_DIR$/src/app/components/assets/assets.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/shared/footer/footer.component.html" afterPath="$PROJECT_DIR$/src/app/shared/footer/footer.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/shared/header/header.component.html" afterPath="$PROJECT_DIR$/src/app/shared/header/header.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html" afterPath="$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -51,50 +55,80 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="assets-pool.service.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="assets-pool.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/services/assets-pool.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="100" column="101" lean-forward="false" selection-start-line="100" selection-start-column="101" selection-end-line="100" selection-end-column="101" />
+            <state relative-caret-position="468">
+              <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="asset-pool-list.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-list/asset-pool-list.component.html">
+      <file leaf-file-name="assets.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="123" column="42" lean-forward="true" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="42" />
+            <state relative-caret-position="122">
+              <caret line="145" column="35" lean-forward="false" selection-start-line="145" selection-start-column="35" selection-end-line="145" selection-end-column="35" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#section#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#section#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1512980952493" expanded="false" signature="7565:7907" ph="..." />
-                <marker date="1512980952493" expanded="false" signature="8055:8329" ph="..." />
-                <marker date="1512980952493" expanded="false" signature="8372:12091" ph="..." />
-                <marker date="1512980952493" expanded="false" signature="8497:12060" ph="..." />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.routing.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
+      <file leaf-file-name="footer.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/footer/footer.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="124" column="26" lean-forward="false" selection-start-line="124" selection-start-column="26" selection-end-line="124" selection-end-column="26" />
+            <state relative-caret-position="122">
+              <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/header/header.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbar.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="asset-pool-view.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-view/asset-pool-view.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="140" column="101" lean-forward="true" selection-start-line="140" selection-start-column="101" selection-end-line="140" selection-end-column="101" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="asset-pool-view.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-view/asset-pool-view.component.ts">
+      <file leaf-file-name="asset-view.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+            <state relative-caret-position="129">
+              <caret line="79" column="43" lean-forward="false" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -111,7 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>category</find>
       <find>CHAIN</find>
       <find>chain or</find>
       <find>exercise</find>
@@ -141,6 +174,7 @@
       <find>params</find>
       <find>length</find>
       <find>currency</find>
+      <find>href=&quot;#&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -155,6 +189,7 @@
       <replace>btn-success</replace>
       <replace>AlreadyResetPasswordGuard</replace>
       <replace>tokenRange</replace>
+      <replace>href=&quot;javascript:void(0)&quot;</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\admin\Desktop\office-projects\agriledgerWebapp\src\app\components\asset-pool-create</dir>
@@ -168,12 +203,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/angular-cli.json" />
-        <option value="$PROJECT_DIR$/src/app/services/assets.service.ts" />
         <option value="$PROJECT_DIR$/src/app/pipes/truncate-balance.pipe.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/error-show/error-show.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/assets/assets.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/assets/assets.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.html" />
         <option value="$PROJECT_DIR$/src/app/interface/user.interface.ts" />
@@ -204,21 +236,24 @@
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/guards/onboarding-guard/already-changed-password.guard.ts" />
         <option value="$PROJECT_DIR$/src/app/guards/dashboardAuthorization.guard.ts" />
-        <option value="$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/password-change/password-change.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/password-change/password-change.component.ts" />
         <option value="$PROJECT_DIR$/src/app/api.config.ts" />
         <option value="$PROJECT_DIR$/src/app/components/transfer/transfer.component.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/shared/header/header.component.html" />
         <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
         <option value="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.ts" />
         <option value="$PROJECT_DIR$/src/app/services/token.service.ts" />
         <option value="$PROJECT_DIR$/src/app/components/tokens/tokens.component.html" />
-        <option value="$PROJECT_DIR$/src/app/components/asset-pool-view/asset-pool-view.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/asset-pool-list/asset-pool-list.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/tokens/tokens.component.ts" />
         <option value="$PROJECT_DIR$/src/app/services/assets-pool.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/assets/assets.component.html" />
+        <option value="$PROJECT_DIR$/src/app/shared/footer/footer.component.html" />
+        <option value="$PROJECT_DIR$/src/app/shared/header/header.component.html" />
+        <option value="$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/asset-pool-view/asset-pool-view.component.html" />
       </list>
     </option>
   </component>
@@ -301,6 +336,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="tokens" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -370,12 +413,12 @@
       <workItem from="1512210456096" duration="644000" />
       <workItem from="1512220728839" duration="2416000" />
       <workItem from="1512293011974" duration="68295000" />
-      <workItem from="1512709261989" duration="19157000" />
+      <workItem from="1512709261989" duration="20089000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281918000" />
+    <option name="totallyTimeSpent" value="282850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -415,22 +458,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/components/issuer-registration/issuer-registration.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/issuer-registration/issuer-registration.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/account-activation/account-activation.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -451,13 +478,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="39" column="36" lean-forward="false" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -724,26 +744,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="49" lean-forward="false" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="43" column="32" lean-forward="true" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/header/header.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -792,21 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-view/asset-pool-view.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="140" column="160" lean-forward="false" selection-start-line="140" selection-start-column="114" selection-end-line="140" selection-end-column="160" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-list/asset-pool-list.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="502">
@@ -851,9 +840,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/assets-pool.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="100" column="101" lean-forward="false" selection-start-line="100" selection-start-column="101" selection-end-line="100" selection-end-column="101" />
+        <state relative-caret-position="468">
+          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="79" column="43" lean-forward="false" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="145" column="35" lean-forward="false" selection-start-line="145" selection-start-column="35" selection-end-line="145" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/footer/footer.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-view/asset-pool-view.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="140" column="101" lean-forward="true" selection-start-line="140" selection-start-column="101" selection-end-line="140" selection-end-column="101" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

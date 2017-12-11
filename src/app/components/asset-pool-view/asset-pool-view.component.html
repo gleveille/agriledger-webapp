@@ -138,9 +138,9 @@
             <div class="row" style="text-align: center">
 
               <div class="col-xs-12">
-                <button [disabled]="!pool?.blockchain || pool?.blockchain?.approved===0 "  class="btn btn-danger" [routerLink]="['/dashboard','tokens',pool?.id]">ISSUED Tokens</button>
+                <button [disabled]="!pool?.blockchain || pool?.blockchain?.approved===0 "  class="btn" [routerLink]="['/dashboard','tokens',pool?.id]">ISSUED TOKENS</button>
 
-                <button [disabled]="!pool?.blockchain || pool?.blockchain?.approved===0 " class="btn btn-danger">ISSUE</button>
+                <button [disabled]="!pool?.blockchain || pool?.blockchain?.approved===0 " class="btn btn-success">ISSUE TOKENS</button>
               </div>
 
             </div>
