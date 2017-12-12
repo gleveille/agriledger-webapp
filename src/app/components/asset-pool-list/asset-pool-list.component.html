@@ -114,7 +114,7 @@
                                         <div class="row" style="text-align: center">
 
                                             <div class="col-xs-12">
-                                                <button  [disabled]="!pool?.blockchain || !pool?.blockchain?.approved" class="btn " (click)="openModal(template,pool)">ISSUE</button>
+                                                <button  [disabled]="!pool?.blockchain || !pool?.blockchain?.approved" class="btn btn-info " (click)="openModal(template,pool)">ISSUE</button>
                                                 <button  [disabled]="!pool?.blockchain || !pool?.blockchain?.approved" class="btn btn-success " [routerLink]="['/dashboard','tokens',pool?.id]">ISSUED</button>
 
                                             </div>

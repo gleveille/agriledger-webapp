@@ -66,6 +66,8 @@ export class AssetPoolListComponent implements OnInit {
             .subscribe((data:any)=>{
             console.log(data)
             this.issueTokenHttpStatus='resolved';
+            this.token.amount=null;
+            this.token.exchangeRate=null;
             this.toastService.success('Issue','Issued successfully');
         },(err)=>{
             this.issueTokenHttpStatus='rejected';
