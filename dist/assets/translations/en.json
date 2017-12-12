@@ -1,0 +1,10 @@
+{
+  "SIGNIN": "SIGN IN",
+  "SIGNIN_DESCRIPTION":"using the credentials provided by AgriLedger team",
+  "Email":"Email",
+  "Password":"Password",
+  "ACCOUNT_CREATE":"Create an Account",
+  "REGISTER_ON_BLOCKCHAIN":"Register yourself on Blockchain",
+  "SPONSOR_NAME":"Sponsor Name",
+  "Create":"Create"
+}
