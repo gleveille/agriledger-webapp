@@ -4497,7 +4497,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shared/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <nav class=\"navbar  navbar-primary\">\n        <div class=\"container\">\n            <!-- Brand and toggle get grouped for better mobile display -->\n            <div class=\"navbar-header\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\"\n                        data-target=\"#navigation-example\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand\" [routerLink]=\"['/landing']\" href=\"javascript:void (0)\"><b style=\"letter-spacing: 5px\">AgriLedger</b></a>\n            </div>\n\n            <div class=\"collapse navbar-collapse\" id=\"navigation-example\">\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li *ngIf=\"isAuthenticated\">\n\n                        <a href=\"javascript:void(0)\">\n                            <b >Balance ({{balance}} ACC)</b>\n                        </a>\n                    </li>\n\n\n                    <li class=\"dropdown\" >\n                        <a  href=\"javascript:void(0)\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                            <i class=\"material-icons\">translate</i>\n                            <span>Langauge</span>\n                        </a>\n                        <ul class=\"dropdown-menu\">\n                            <li><a (click)=\"appLanguageChange('en')\" href=\"javascript:void (0)\">English (default)</a></li>\n                            <li><a (click)=\"appLanguageChange('ch')\" href=\"javascript:void (0)\">中文</a></li>\n\n                        </ul>\n                    </li>\n\n\n                    <li class=\"dropdown\" *ngIf=\"isAuthenticated\">\n                        <a  href=\"javascript:void(0)\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                            <i class=\"material-icons\">person</i>\n                            <p class=\"hidden-lg hidden-md\">Profile</p>\n                        </a>\n                        <ul class=\"dropdown-menu\">\n                            <li><a (click)=\"logout()\" href=\"javascript:void (0)\">Logout</a></li>\n                        </ul>\n                    </li>\n\n                    <!--<li>\n                      <a [routerLink]=\"['/login-ops']\" class=\"btn btn-danger\" href=\"../components-documentation.html\">\n                        Ops Login\n                      </a>\n                    </li>\n                    <li>\n                      <a  [routerLink]=\"['/login-sponsor']\" class=\"btn btn-danger\" href=\"../components-documentation.html\">\n                        Sponser Login\n                      </a>\n                    </li>-->\n                    <!--  <li>\n                        <a href=\"https://twitter.com/CreativeTim\" target=\"_blank\" class=\"btn btn-simple btn-white btn-just-icon\">\n                          <i class=\"fa fa-twitter\"></i>\n                        </a>\n                      </li>\n                      <li>\n                        <a href=\"https://www.facebook.com/CreativeTim\" target=\"_blank\" class=\"btn btn-simple btn-white btn-just-icon\">\n                          <i class=\"fa fa-facebook-square\"></i>\n                        </a>\n                      </li>-->\n\n                </ul>\n            </div>\n        </div>\n    </nav>\n\n</div>"
+module.exports = "<div>\n    <nav class=\"navbar  navbar-primary\">\n        <div class=\"container\">\n            <!-- Brand and toggle get grouped for better mobile display -->\n            <div class=\"navbar-header\">\n\n                <a class=\"navbar-brand\" [routerLink]=\"['/landing']\" href=\"javascript:void (0)\"><b style=\"letter-spacing: 5px\">AgriLedger</b></a>\n            </div>\n\n            <div class=\"collapse navbar-collapse\" id=\"navigation-example\">\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li *ngIf=\"isAuthenticated\">\n\n                        <a href=\"javascript:void(0)\">\n                            <b >Balance ({{balance}} ACC)</b>\n                        </a>\n                    </li>\n\n\n                    <li class=\"dropdown\" >\n                        <a  href=\"javascript:void(0)\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                            <i class=\"material-icons\">translate</i>\n                            <span>Langauge</span>\n                        </a>\n                        <ul class=\"dropdown-menu\">\n                            <li><a (click)=\"appLanguageChange('en')\" href=\"javascript:void (0)\">English (default)</a></li>\n                            <li><a (click)=\"appLanguageChange('ch')\" href=\"javascript:void (0)\">中文</a></li>\n\n                        </ul>\n                    </li>\n\n\n                    <li class=\"dropdown\" *ngIf=\"isAuthenticated\">\n                        <a  href=\"javascript:void(0)\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                            <i class=\"material-icons\">person</i>\n                            <p class=\"hidden-lg hidden-md\">Profile</p>\n                        </a>\n                        <ul class=\"dropdown-menu\">\n                            <li><a (click)=\"logout()\" href=\"javascript:void (0)\">Logout</a></li>\n                        </ul>\n                    </li>\n\n                    <!--<li>\n                      <a [routerLink]=\"['/login-ops']\" class=\"btn btn-danger\" href=\"../components-documentation.html\">\n                        Ops Login\n                      </a>\n                    </li>\n                    <li>\n                      <a  [routerLink]=\"['/login-sponsor']\" class=\"btn btn-danger\" href=\"../components-documentation.html\">\n                        Sponser Login\n                      </a>\n                    </li>-->\n                    <!--  <li>\n                        <a href=\"https://twitter.com/CreativeTim\" target=\"_blank\" class=\"btn btn-simple btn-white btn-just-icon\">\n                          <i class=\"fa fa-twitter\"></i>\n                        </a>\n                      </li>\n                      <li>\n                        <a href=\"https://www.facebook.com/CreativeTim\" target=\"_blank\" class=\"btn btn-simple btn-white btn-just-icon\">\n                          <i class=\"fa fa-facebook-square\"></i>\n                        </a>\n                      </li>-->\n\n                </ul>\n            </div>\n        </div>\n    </nav>\n\n</div>"
 
 /***/ }),
 
@@ -4849,7 +4849,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shared/sidebar/sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\" style=\"background-color: ghostwhite\">\n    <a href=\"javascript:void(0)\" class=\"simple-text\">\n        <div class=\"logo-img\">\n            <img src=\"/assets/img/logo.png\"/>\n        </div>\n        Agriledger\n    </a>\n</div>\n<div class=\"sidebar-wrapper\" style=\"background-color: beige\">\n\n\n\n    <div class=\"nav-container\">\n        <ul class=\"nav\">\n            <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItems\" class=\"{{menuItem.class}}\">\n                <a  [routerLink]=\"[menuItem.path]\">\n                    <i class=\"material-icons\">{{menuItem.icon}}</i>\n                    <p>{{menuItem.title}}</p>\n                </a>\n            </li>\n        </ul>\n    </div>\n</div>\n"
+module.exports = "<div class=\"logo\" style=\"background-color: ghostwhite\">\n    <a href=\"javascript:void(0)\" class=\"simple-text\">\n        <div class=\"logo-img\">\n            <img src=\"/assets/img/logo.png\"/>\n        </div>\n        Agriledger\n    </a>\n</div>\n<div class=\"sidebar-wrapper\" style=\"background-color: beige\">\n\n\n\n    <div class=\"nav-container\">\n        <ul class=\"nav\">\n            <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItems\" class=\"{{menuItem.class}}\">\n                <a  [routerLink]=\"[menuItem.path]\">\n                    <i class=\"material-icons\">{{menuItem.icon}}</i>\n                    <p>{{menuItem.title}}</p>\n                </a>\n            </li>\n\n\n            <li  class=\"hidden-lg hidden-md\"><a (click)=\"logout()\" href=\"javascript:void (0)\">\n                <i class=\"material-icons\">clear_all</i>\n                <p class=\"hidden-lg hidden-md\">Logout</p>\n            </a>\n            </li>\n\n        </ul>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -4860,6 +4860,9 @@ module.exports = "<div class=\"logo\" style=\"background-color: ghostwhite\">\n 
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ROUTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4870,34 +4873,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var ROUTES = [
     { path: 'account', title: 'Account', icon: 'account_circle', class: '' },
     { path: 'assets', title: 'Assets', icon: 'account_balance_wallet', class: '' },
     { path: 'assets-pool-list', title: 'Asset Pool', icon: 'donut_large', class: '' },
     { path: 'tokens', title: 'Issued Tokens', icon: 'grade', class: '' },
     { path: 'transfer', title: 'Transfer Tokens', icon: 'send', class: '' },
-    { path: 'wallet', title: 'Transactions', icon: 'description', class: '' }
+    { path: 'wallet', title: 'Transactions', icon: 'description', class: '' },
+    { path: '/dashboard/password-change', title: 'Change Password', icon: 'lock', class: 'hidden-lg hidden-md' }
 ];
 var SidebarComponent = (function () {
-    function SidebarComponent() {
+    function SidebarComponent(userService, toastService, router) {
+        this.userService = userService;
+        this.toastService = toastService;
+        this.router = router;
     }
     SidebarComponent.prototype.ngOnInit = function () {
         this.menuItems = ROUTES.filter(function (menuItem) { return menuItem; });
     };
-    SidebarComponent.prototype.isMobileMenu = function () {
-        if ($(window).width() > 991) {
-            return false;
-        }
-        return true;
+    SidebarComponent.prototype.logout = function () {
+        var _this = this;
+        this.userService.logout().subscribe(function (data) {
+            _this.router.navigate(['/login']);
+        }, function (err) {
+            _this.toastService.error('Logout', 'Could not be logged out.Try again');
+        });
     };
-    ;
     SidebarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-sidebar',
             template: __webpack_require__("../../../../../src/app/shared/sidebar/sidebar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/shared/sidebar/sidebar.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], SidebarComponent);
     return SidebarComponent;
 }());

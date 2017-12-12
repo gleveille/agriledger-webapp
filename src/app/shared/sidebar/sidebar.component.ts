@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../services/user.service";
+import {ToastService} from "../../services/toast.service";
+import {Router} from "@angular/router";
 
 declare const $: any;
 declare interface RouteInfo {
@@ -13,7 +16,8 @@ export const ROUTES: RouteInfo[] = [
     { path: 'assets-pool-list', title: 'Asset Pool',  icon:'donut_large', class: '' },
     { path: 'tokens', title: 'Issued Tokens',  icon:'grade', class: '' },
     { path: 'transfer', title: 'Transfer Tokens',  icon:'send', class: '' },
-    { path: 'wallet', title: 'Transactions',  icon:'description', class: '' }
+    { path: 'wallet', title: 'Transactions',  icon:'description', class: '' },
+    { path: '/dashboard/password-change', title: 'Change Password',  icon:'lock', class: 'hidden-lg hidden-md' }
 
 ];
 
@@ -25,15 +29,16 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
+  constructor(private userService:UserService,private toastService:ToastService,private router:Router) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
-  isMobileMenu() {
-      if ($(window).width() > 991) {
-          return false;
-      }
-      return true;
-  };
+    logout() {
+        this.userService.logout().subscribe((data)=> {
+            this.router.navigate(['/login']);
+        }, (err)=> {
+            this.toastService.error('Logout', 'Could not be logged out.Try again');
+        });
+    }
 }
