@@ -101,9 +101,9 @@
                                                 <div class="col-xs-6 text-left">
                                                     Status
                                                 </div>
-                                                <div class="col-xs-6 text-right" *ngIf="pool.blockchain.approved!==undefined">
-                                                    <b [style.color]="getColor(pool.blockchain.approved)">
-                                                        {{pool.blockchain.approved===0?'Pending':'Approved'}}</b>
+                                                <div class="col-xs-6 text-right" *ngIf="pool.blockchain?.approved>=0">
+                                                    <b [style.color]="getColor(pool.blockchain?.approved)">
+                                                        {{pool.blockchain?.approved===0?'Pending':'Approved'}}</b>
                                                 </div>
                                             </div>
                                             <hr>
@@ -114,8 +114,8 @@
                                         <div class="row" style="text-align: center">
 
                                             <div class="col-xs-12">
-                                                <button  [disabled]="!pool?.blockchain || !pool?.blockchain?.approved" class="btn btn-info " (click)="openModal(template,pool)">ISSUE</button>
-                                                <button  [disabled]="!pool?.blockchain || !pool?.blockchain?.approved" class="btn btn-success " [routerLink]="['/dashboard','tokens',pool?.id]">ISSUED</button>
+                                                <button  [disabled]="!pool.blockchain || pool.blockchain?.approved===0" class="btn btn-info " (click)="openModal(template,pool)">ISSUE</button>
+                                                <button  [disabled]="!pool.blockchain || pool.blockchain?.approved===0" class="btn btn-success " [routerLink]="['/dashboard','tokens',pool?.id]">ISSUED</button>
 
                                             </div>
 

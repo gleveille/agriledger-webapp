@@ -9,7 +9,6 @@ export class TruncateBalancePipe implements PipeTransform {
 
     transform(val: string, ...args) {
         let amount:number;
-        console.log(val,args[0])
         if(val){
             try{
                 amount=parseInt(val,10);
