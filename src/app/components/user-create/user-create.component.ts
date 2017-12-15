@@ -11,8 +11,8 @@ import {Router} from "@angular/router";
 })
 export class UserCreateComponent implements OnInit {
 
-  user={} as Iuser;
-  passwordRetyped:string=null;
+  user={password:'agriledger',role:'farmer'} as Iuser;
+  passwordRetyped:string='agriledger';
   roles=['ops','sponsor','farmer'];
     createRequestStatus='resolved';
 
@@ -45,9 +45,6 @@ export class UserCreateComponent implements OnInit {
             this.toastService.success('User','created successfully');
             this.user.name=null;
             this.user.email=null;
-            this.user.password=null;
-            this.user.role=null;
-            this.passwordRetyped=null;
 
         },(err)=>{
             this.createRequestStatus='rejected';

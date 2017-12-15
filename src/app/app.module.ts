@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './shared/components.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 
@@ -42,12 +42,9 @@ import {AssetsPoolService} from "./services/assets-pool.service";
 import {WalletService} from "./services/wallet.service";
 import { AssetViewComponent } from './components/asset-view/asset-view.component';
 import { NgProgressModule, NgProgressInterceptor } from 'ngx-progressbar';
-import { TxnTypePipe } from './pipes/txn-type.pipe';
-import { TruncateBalancePipe } from './pipes/truncate-balance.pipe';
 import { AssetPoolViewComponent } from './components/asset-pool-view/asset-pool-view.component';
 import { AssetPoolListComponent } from './components/asset-pool-list/asset-pool-list.component';
 import { AssetPoolCreateComponent } from './components/asset-pool-create/asset-pool-create.component';
-import { XasPipe } from './pipes/xas.pipe';
 import { ModalModule } from 'ngx-bootstrap';
 import { TokensComponent } from './components/tokens/tokens.component';
 import {TokenService} from "./services/token.service";
@@ -83,12 +80,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     SpinnerComponent,
     ErrorShowComponent,
     AssetViewComponent,
-    TxnTypePipe,
-    TruncateBalancePipe,
     AssetPoolViewComponent,
     AssetPoolListComponent,
     AssetPoolCreateComponent,
-    XasPipe,
     TokensComponent,
     TransferComponent,
     UserCreateComponent,
@@ -100,7 +94,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ComponentsModule,
+    SharedModule,
     RouterModule,
     AppRoutingModule,
     ToastyModule.forRoot(),

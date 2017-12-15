@@ -159,6 +159,7 @@ export class UserService {
         return this.http.post(`${OnboardingApi.resgisterIssuer.url()}`,issuer).do((data)=>{
             console.log(data)
             this.user.isIssuerOnBlockchain=true;
+            this.user.issuerName=name;
         }).catch((res)=> {
             return this.errorHandler.handle(res);
         });

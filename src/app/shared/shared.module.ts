@@ -9,6 +9,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
 import { ContactComponent } from './contact/contact.component';
+import {XasPipe} from "../pipes/xas.pipe";
+import {TxnTypePipe} from "../pipes/txn-type.pipe";
+import {TruncateBalancePipe} from "../pipes/truncate-balance.pipe";
 
 @NgModule({
   imports: [
@@ -22,12 +25,18 @@ import { ContactComponent } from './contact/contact.component';
     AboutUsComponent,
     PrivacyComponent,
     TermsComponent,
-    ContactComponent
+    ContactComponent,
+    XasPipe,
+    TxnTypePipe,
+    TruncateBalancePipe
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    XasPipe,
+    TxnTypePipe,
+    TruncateBalancePipe
   ]
 })
-export class ComponentsModule { }
+export class SharedModule { }

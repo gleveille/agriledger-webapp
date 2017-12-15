@@ -15,7 +15,6 @@ declare const $: any;
 })
 export class DashboardSponserComponent implements OnInit {
 
-    account={};
     private lastPoppedUrl: string;
 
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
@@ -24,7 +23,6 @@ export class DashboardSponserComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getAccount();
         $.material.init();
 
         this.location.subscribe((ev:PopStateEvent) => {
@@ -36,15 +34,4 @@ export class DashboardSponserComponent implements OnInit {
 
 
 
-    getAccount(){
-        this.walletService.getBlockchainAccount().subscribe((account:any)=>{
-            this.account=account;
-            console.log('#########################')
-            console.log(account)
-        },(err)=>{
-            console.log('#########################')
-
-            console.log( err)
-        })
-    }
 }

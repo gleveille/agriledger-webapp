@@ -1,9 +1,13 @@
 import {Component, OnInit, ElementRef, Input} from '@angular/core';
-import {ROUTES} from '../sidebar/sidebar.component';
+import {MenuItemsForOps} from '../sidebar/sidebar.component';
+import {MenuItemsForSponsor} from '../sidebar/sidebar.component';
+
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
+import {Iuser} from "../../interface/user.interface";
+import {WalletService} from "../../services/wallet.service";
 
 @Component({
     selector: 'app-navbar',
@@ -12,19 +16,36 @@ import {UserService} from "../../services/user.service";
 })
 export class NavbarComponent implements OnInit {
 
-    @Input()balance:any=null;
+    user={} as Iuser;
+    account={};
     private listTitles:any[]=[{path:'account',title:'Account'}];
     location:Location;
     private toggleButton:any;
     private sidebarVisible:boolean;
 
-    constructor(location:Location, private element:ElementRef, private userService:UserService, private router:Router, private toastService:ToastService) {
+    constructor(location:Location, private element:ElementRef,
+                private walletService:WalletService,
+                private userService:UserService,
+                private router:Router, private toastService:ToastService) {
         this.location = location;
         this.sidebarVisible = false;
     }
 
     ngOnInit() {
-        this.listTitles = ROUTES.filter(listTitle => listTitle);
+        this.getAccount();
+        this.userService.getUser().subscribe((user:Iuser)=>{
+            this.user=user;
+            if(user.role==='sponsor'){
+                this.listTitles = MenuItemsForSponsor.filter(listTitle => listTitle);
+
+            }
+            if(user.role==='ops'){
+                this.listTitles = MenuItemsForOps.filter(listTitle => listTitle);
+
+            }
+        },(err)=>{
+            console.log(err)
+        });
         const navbar:HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
     }
@@ -82,8 +103,15 @@ export class NavbarComponent implements OnInit {
         });
     }
 
-    account() {
-        
+
+    getAccount(){
+        this.walletService.getBlockchainAccount().subscribe((account:any)=>{
+            this.account=account;
+            console.log(account)
+        },(err)=>{
+
+            console.log( err)
+        })
     }
 
 }
