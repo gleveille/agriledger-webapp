@@ -7,11 +7,12 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import {Router} from "@angular/router";
+import {ToastService} from "./toast.service";
 
 @Injectable()
 export class InterceptorService implements HttpInterceptor {
 
-    constructor(private router:Router) {}
+    constructor(private router:Router,private toastService:ToastService) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -30,13 +31,15 @@ export class InterceptorService implements HttpInterceptor {
         }, (err: any) => {
             if (err instanceof HttpErrorResponse) {
                 if (err.status === 401) {
-                  console.log('interceptor 401')
-                    // redirect to the login route
-                    // or show a modal
                     localStorage.removeItem('accessToken')
                     localStorage.removeItem('userId')
 
                     this.router.navigate(['/login']);
+
+                }
+
+                if(err.status === 403){
+                    this.toastService.error('Unauthorised','You are not authorised to perform this action')
 
                 }
             }

@@ -32,7 +32,8 @@ export class AccountActivationComponent implements OnInit {
     this.accountRequestStatus='pending';
     this.userService.createAccountOnBlockchain().subscribe((user:Iuser)=>{
       this.accountRequestStatus='resolved';
-        this.router.navigate(['/onboarding/issuer-registration']);
+      this.router.navigate(['/dashboard']);
+
     },(err)=>{
       this.accountRequestStatus='rejected';
       console.log(err);

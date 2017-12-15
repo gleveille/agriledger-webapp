@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
+import {Iuser} from "../../interface/user.interface";
 
 declare const $: any;
 declare interface RouteInfo {
@@ -10,16 +11,7 @@ declare interface RouteInfo {
     icon: string;
     class: string;
 }
-export const ROUTES: RouteInfo[] = [
-    { path: 'account', title: 'Account',  icon:'account_circle', class: '' },
-    { path: 'assets', title: 'Assets',  icon:'account_balance_wallet', class: '' },
-    { path: 'assets-pool-list', title: 'Asset Pool',  icon:'donut_large', class: '' },
-    { path: 'tokens', title: 'Issued Tokens',  icon:'grade', class: '' },
-    { path: 'transfer', title: 'Transfer Tokens',  icon:'send', class: '' },
-    { path: 'wallet', title: 'Transactions',  icon:'description', class: '' },
-    { path: '/dashboard/password-change', title: 'Change Password',  icon:'lock', class: 'hidden-lg hidden-md' }
 
-];
 
 @Component({
   selector: 'app-sidebar',
@@ -27,12 +19,48 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  menuItems: any[];
+    menuItemsForSponsor:  RouteInfo[] = [
+      { path: 'account', title: 'Account',  icon:'account_circle', class: '' },
+      { path: 'assets', title: 'Assets',  icon:'account_balance_wallet', class: '' },
+      { path: 'assets-pool-list', title: 'Asset Pool',  icon:'donut_large', class: '' },
+      { path: 'tokens', title: 'Issued Tokens',  icon:'grade', class: '' },
+      { path: 'transfer', title: 'Transfer Tokens',  icon:'send', class: '' },
+      { path: 'wallet', title: 'Transactions',  icon:'description', class: '' },
+      { path: '/dashboard/password-change', title: 'Change Password',  icon:'lock', class: 'hidden-lg hidden-md' }
 
-  constructor(private userService:UserService,private toastService:ToastService,private router:Router) { }
+  ];
+
+    menuItemsForOps:  RouteInfo[] = [
+        { path: 'account', title: 'Account',  icon:'account_circle', class: '' },
+        { path: 'assets-pool-list', title: 'Asset Pool',  icon:'donut_large', class: '' },
+        { path: 'tokens', title: 'Issued Tokens',  icon:'grade', class: '' },
+        { path: 'transfer', title: 'Transfer Tokens',  icon:'send', class: '' },
+        { path: 'wallet', title: 'Transactions',  icon:'description', class: '' },
+        { path: 'user-create', title: 'Create Users',  icon:'description', class: '' },
+
+        { path: 'user-list', title: 'List Users',  icon:'description', class: '' },
+
+        { path: '/dashboard/password-change', title: 'Change Password',  icon:'lock', class: 'hidden-lg hidden-md' }
+
+    ];
+
+
+  user={} as Iuser;
+
+  constructor(private userService:UserService,private toastService:ToastService,private router:Router) {
+
+
+  }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.userService.getUser().subscribe((user:Iuser)=>{
+        console.log('from sidebar')
+        console.log(user)
+        this.user=user;
+    },(err)=>{
+        this.router.navigate(['/login']);
+
+    })
   }
     logout() {
         this.userService.logout().subscribe((data)=> {

@@ -33,7 +33,7 @@ export class DashboardAuthorizationGuard implements CanActivate {
                   return false;
               }
 
-              if(user && !user.isIssuerOnBlockchain){
+              if(user && user.role==='sponsor' && !user.isIssuerOnBlockchain){
                   this.router.navigate(['/onboarding/issuer-registration']);
                   return false;
               }

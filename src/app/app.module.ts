@@ -56,6 +56,9 @@ import { TransferComponent } from './components/transfer/transfer.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslationService} from "./services/translation.service";
+import { UserCreateComponent } from './components/user-create/user-create.component';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/translations/', '.json');
@@ -88,6 +91,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     XasPipe,
     TokensComponent,
     TransferComponent,
+    UserCreateComponent,
+    UserUpdateComponent,
+    UserListComponent,
 
   ],
   imports: [

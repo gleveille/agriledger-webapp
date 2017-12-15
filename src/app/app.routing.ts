@@ -31,6 +31,9 @@ import {AssetPoolListComponent} from "./components/asset-pool-list/asset-pool-li
 import {TokensComponent} from "./components/tokens/tokens.component";
 import {TransferComponent} from "./components/transfer/transfer.component";
 import {PasswordResetComponent} from "./components/password-reset/password-reset.component";
+import {UserCreateComponent} from "./components/user-create/user-create.component";
+import {UserListComponent} from "./components/user-list/user-list.component";
+import {UserUpdateComponent} from "./components/user-update/user-update.component";
 
 const routes:Routes = [
     {
@@ -75,7 +78,7 @@ const routes:Routes = [
                 canActivate: [AuthenticationGuard, AlreadyResetPasswordGuard],
 
                 data: {
-                    expectedRole: ['sponsor']
+                    expectedRole: ['sponsor','ops']
                 },
             },
             {
@@ -84,7 +87,7 @@ const routes:Routes = [
                 canActivate: [AuthenticationGuard, AlreadyRegisteredOnBlockchainGuard],
 
                 data: {
-                    expectedRole: ['sponsor']
+                    expectedRole: ['sponsor','ops']
                 }
             },
             {
@@ -124,7 +127,10 @@ const routes:Routes = [
             {path: 'transfer', component: TransferComponent},
             {path: 'tokens', component: TokensComponent},
             {path: 'tokens/:assetPoolId', component: TokensComponent},
-            {path: 'password-change', component: PasswordChangeComponent}
+            {path: 'password-change', component: PasswordChangeComponent},
+            {path: 'user-create', component: UserCreateComponent},
+            {path: 'user-list', component: UserListComponent},
+            {path: 'user-update', component: UserUpdateComponent},
 
 
         ]

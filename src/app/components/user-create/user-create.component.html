@@ -1,0 +1,85 @@
+<div class="main-content">
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card">
+          <div class="card-header" data-background-color="green">
+            <h4 class="title">Create User</h4>
+          </div>
+          <div class="card-content">
+            <form name="loginForm">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Name</label>
+                    <input type="text" [(ngModel)]="user.name"  name="walletAddress" class="form-control" >
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Email</label>
+                    <input type="email" [(ngModel)]="user.email" name="toAddress" class="form-control" >
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label" style="font-size: 14px;">Phone</label>
+                    <input type="text" [(ngModel)]="user.phone"  name="walletAddress" class="form-control" >
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Password</label>
+                    <input type="password" [(ngModel)]="user.password" name="toAddress" class="form-control" >
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Retype Password</label>
+                    <input type="password" [(ngModel)]="passwordRetyped" name="toAddress" class="form-control" >
+                  </div>
+                </div>
+
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Role</label>
+                    <select class="form-control "  name="currency" [(ngModel)]="user.role">
+
+                      <option *ngFor="let role of roles" [value]="role">
+                        {{role}}
+                      </option>
+
+
+                    </select>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+              <button
+                      type="submit"
+                      [disabled]="createRequestStatus==='pending'"
+                      (click)="register()"
+                      class="btn btn-danger pull-right">CREATE</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

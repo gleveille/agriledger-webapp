@@ -11,8 +11,25 @@
 
 
     <div class="nav-container">
-        <ul class="nav">
-            <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+        <ul class="nav" *ngIf="user.role==='sponsor'">
+            <li routerLinkActive="active" *ngFor="let menuItem of menuItemsForSponsor" class="{{menuItem.class}}">
+                <a  [routerLink]="[menuItem.path]">
+                    <i class="material-icons">{{menuItem.icon}}</i>
+                    <p>{{menuItem.title}}</p>
+                </a>
+            </li>
+
+
+            <li  class="hidden-lg hidden-md"><a (click)="logout()" href="javascript:void (0)">
+                <i class="material-icons">clear_all</i>
+                <p class="hidden-lg hidden-md">Logout</p>
+            </a>
+            </li>
+
+        </ul>
+
+        <ul class="nav" *ngIf="user.role==='ops'">
+            <li routerLinkActive="active" *ngFor="let menuItem of menuItemsForOps" class="{{menuItem.class}}">
                 <a  [routerLink]="[menuItem.path]">
                     <i class="material-icons">{{menuItem.icon}}</i>
                     <p>{{menuItem.title}}</p>

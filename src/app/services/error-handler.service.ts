@@ -40,7 +40,12 @@ export class ErrorHandlerService {
       msg= msg ? msg :'Something went wrong';
 
       console.log(msg);
-      return Observable.throw({message:msg,status:res.status});
+      let showError=true;
+      if(res.status===401 || res.status===403){
+          // because for these two cases we are showing the error in http service;
+       showError=false;
+      }
+      return Observable.throw({message:msg,status:res.status,showError:showError});
 
   }
 }

@@ -24,21 +24,30 @@ export class WalletComponent implements OnInit {
 
   ngOnInit() {
         this.getUser()
-    this.getAccount();
-    this.getTransactions();
   }
 
 
   getUser(){
-        this.userService.getUser().subscribe((user)=>{
+        this.userService.getUser().subscribe((user:Iuser)=>{
             this.user=user;
+            if(user && user.publicKey && user.walletAddress){
+                this.getAccount();
+                this.getTransactions(user.publicKey,user.walletAddress)
+            }
+            else{
+                this.toastService.info('info','You are not registered on blockchain yet')
+            }
         },(err)=>{
 
         })
   }
-  getTransactions(){
+  getTransactions(senderPublicKey:string,recipientId:string){
+      if(!senderPublicKey || !recipientId){
+          return;
+      }
       this.txnRequestStatus='pending';
-      this.walletService.getTransactions().subscribe((txn:any[])=>{
+
+      this.walletService.getTransactions(senderPublicKey,recipientId).subscribe((txn:any[])=>{
           this.txnRequestStatus='resolved';
 
           console.log(txn)

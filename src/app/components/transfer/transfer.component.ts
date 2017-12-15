@@ -60,16 +60,22 @@ export class TransferComponent implements OnInit {
       precision = this.transaction.currency === 'ACC' ? 6 : this.getPrecision(this.transaction.currency);
 
       console.log(precision)
+      if (!this.user.walletAddress) {
+          this.toastService.error('Transfer','You dont have wallet address.Please register yourself on the blockchain first');
+          return false;
+      }
+      if (!this.transaction.toAddress) {
+          this.toastService.error('Transfer','Please enter recipient address');
+          return false;
+      }
+
       if(this.transaction.currency === undefined){
           this.toastService.error('Transfer','Invalid Amount');
       }else{
           currency = this.transaction.currency === 'ACC' ? null : this.transaction.currency;
 
       }
-      if (!this.transaction.toAddress) {
-          this.toastService.error('Transfer','Please enter recipient address');
-          return false;
-      }
+
 
       if (this.transaction.toAddress === this.user.walletAddress) {
           this.toastService.error('Transfer','Please choose different address other than yours');

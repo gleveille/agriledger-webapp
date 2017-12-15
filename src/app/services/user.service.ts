@@ -28,7 +28,16 @@ export class UserService {
       this.user=res.user;
       console.log('inside do');
       console.log(res);
-    });
+    }).catch((res)=> {
+            return this.errorHandler.handle(res);
+        });
+  }
+
+  register(user:Iuser){
+        return this.http.post(`${UserApi.register.url()}`,user)
+            .catch((res)=> {
+                return this.errorHandler.handle(res);
+            });
   }
 
   saveAccessToken(accessToken:string){

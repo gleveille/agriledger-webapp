@@ -33,11 +33,9 @@ export class WalletService {
     }
 
 
-    getTransactions() {
-        return this.userService.getUser()
-            .concatMap((user: Iuser) => {
-                return this.http.get(`${WalletApi.getTransaction.url()}?senderPublicKey=${user.publicKey}&recipientId=${user.walletAddress}`);
-            }).retry(3)
+    getTransactions(senderPublicKey:string,recipientId:string) {
+        return this.http.get(`${WalletApi.getTransaction.url()}?senderPublicKey=${senderPublicKey}&recipientId=${recipientId}`)
+            .retry(3)
             .catch((res) => {
                 return this.errorHandler.handle(res);
             });

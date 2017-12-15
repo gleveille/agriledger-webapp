@@ -28,6 +28,11 @@ const UserApi={
         method:'POST'
 
     },
+    register:{
+        url:()=>ServerUrl+'/api/users',
+        method:'POST'
+
+    },
     logout:{
         url:()=>ServerUrl+'/api/users/logout',
         method:'POST'
