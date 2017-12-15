@@ -78,7 +78,18 @@ export class UserService {
       return this.http.get(`${UserApi.findById.url()}/${this.getUserId()}`);
   };
 
-  setUserFromGuard(user:Iuser){
+
+
+    getUsers(){
+
+        return this.http.get(`${UserApi.list.url()}`)
+            .catch((res)=> {
+                return this.errorHandler.handle(res);
+            })
+    };
+
+
+    setUserFromGuard(user:Iuser){
     this.user=user;
   }
   resetPassword(oldPassword:string,newPassword:string) {
