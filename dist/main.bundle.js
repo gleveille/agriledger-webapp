@@ -49,6 +49,10 @@ var UserApi = {
         url: function () { return ServerUrl + '/api/users/login'; },
         method: 'POST'
     },
+    register: {
+        url: function () { return ServerUrl + '/api/users'; },
+        method: 'POST'
+    },
     logout: {
         url: function () { return ServerUrl + '/api/users/logout'; },
         method: 'POST'
@@ -231,7 +235,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_components_module__ = __webpack_require__("../../../../../src/app/shared/components.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_account_account_component__ = __webpack_require__("../../../../../src/app/components/account/account.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_landing_landing_component__ = __webpack_require__("../../../../../src/app/components/landing/landing.component.ts");
@@ -267,19 +271,19 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__services_wallet_service__ = __webpack_require__("../../../../../src/app/services/wallet.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_asset_view_asset_view_component__ = __webpack_require__("../../../../../src/app/components/asset-view/asset-view.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_ngx_progressbar__ = __webpack_require__("../../../../ngx-progressbar/modules/ngx-progressbar.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pipes_txn_type_pipe__ = __webpack_require__("../../../../../src/app/pipes/txn-type.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pipes_truncate_balance_pipe__ = __webpack_require__("../../../../../src/app/pipes/truncate-balance.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_asset_pool_view_asset_pool_view_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-view/asset-pool-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_asset_pool_list_asset_pool_list_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-list/asset-pool-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_asset_pool_create_asset_pool_create_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-create/asset-pool-create.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pipes_xas_pipe__ = __webpack_require__("../../../../../src/app/pipes/xas.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_tokens_tokens_component__ = __webpack_require__("../../../../../src/app/components/tokens/tokens.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__services_token_service__ = __webpack_require__("../../../../../src/app/services/token.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_transfer_transfer_component__ = __webpack_require__("../../../../../src/app/components/transfer/transfer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/@ngx-translate/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__ngx_translate_http_loader__ = __webpack_require__("../../../../@ngx-translate/http-loader/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__services_translation_service__ = __webpack_require__("../../../../../src/app/services/translation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_asset_pool_view_asset_pool_view_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-view/asset-pool-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_asset_pool_list_asset_pool_list_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-list/asset-pool-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_asset_pool_create_asset_pool_create_component__ = __webpack_require__("../../../../../src/app/components/asset-pool-create/asset-pool-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_tokens_tokens_component__ = __webpack_require__("../../../../../src/app/components/tokens/tokens.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__services_token_service__ = __webpack_require__("../../../../../src/app/services/token.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_transfer_transfer_component__ = __webpack_require__("../../../../../src/app/components/transfer/transfer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/@ngx-translate/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__ngx_translate_http_loader__ = __webpack_require__("../../../../@ngx-translate/http-loader/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__services_translation_service__ = __webpack_require__("../../../../../src/app/services/translation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_user_create_user_create_component__ = __webpack_require__("../../../../../src/app/components/user-create/user-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_user_update_user_update_component__ = __webpack_require__("../../../../../src/app/components/user-update/user-update.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_user_list_user_list_component__ = __webpack_require__("../../../../../src/app/components/user-list/user-list.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -342,7 +346,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 function HttpLoaderFactory(http) {
-    return new __WEBPACK_IMPORTED_MODULE_52__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/translations/', '.json');
+    return new __WEBPACK_IMPORTED_MODULE_49__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/translations/', '.json');
 }
 var AppModule = (function () {
     function AppModule() {
@@ -368,29 +372,29 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_34__shared_spinner_spinner_component__["a" /* SpinnerComponent */],
                 __WEBPACK_IMPORTED_MODULE_35__shared_error_show_error_show_component__["a" /* ErrorShowComponent */],
                 __WEBPACK_IMPORTED_MODULE_39__components_asset_view_asset_view_component__["a" /* AssetViewComponent */],
-                __WEBPACK_IMPORTED_MODULE_41__pipes_txn_type_pipe__["a" /* TxnTypePipe */],
-                __WEBPACK_IMPORTED_MODULE_42__pipes_truncate_balance_pipe__["a" /* TruncateBalancePipe */],
-                __WEBPACK_IMPORTED_MODULE_43__components_asset_pool_view_asset_pool_view_component__["a" /* AssetPoolViewComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__components_asset_pool_list_asset_pool_list_component__["a" /* AssetPoolListComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__components_asset_pool_create_asset_pool_create_component__["a" /* AssetPoolCreateComponent */],
-                __WEBPACK_IMPORTED_MODULE_46__pipes_xas_pipe__["a" /* XasPipe */],
-                __WEBPACK_IMPORTED_MODULE_48__components_tokens_tokens_component__["a" /* TokensComponent */],
-                __WEBPACK_IMPORTED_MODULE_50__components_transfer_transfer_component__["a" /* TransferComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__components_asset_pool_view_asset_pool_view_component__["a" /* AssetPoolViewComponent */],
+                __WEBPACK_IMPORTED_MODULE_42__components_asset_pool_list_asset_pool_list_component__["a" /* AssetPoolListComponent */],
+                __WEBPACK_IMPORTED_MODULE_43__components_asset_pool_create_asset_pool_create_component__["a" /* AssetPoolCreateComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__components_tokens_tokens_component__["a" /* TokensComponent */],
+                __WEBPACK_IMPORTED_MODULE_47__components_transfer_transfer_component__["a" /* TransferComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__components_user_create_user_create_component__["a" /* UserCreateComponent */],
+                __WEBPACK_IMPORTED_MODULE_52__components_user_update_user_update_component__["a" /* UserUpdateComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__components_user_list_user_list_component__["a" /* UserListComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_20__angular_common_http__["c" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_5__shared_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__["a" /* SharedModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* RouterModule */],
                 __WEBPACK_IMPORTED_MODULE_4__app_routing__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_15_ng2_toasty__["b" /* ToastyModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_40_ngx_progressbar__["b" /* NgProgressModule */],
-                __WEBPACK_IMPORTED_MODULE_47_ngx_bootstrap__["b" /* ModalModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_47_ngx_bootstrap__["a" /* AlertModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_51__ngx_translate_core__["b" /* TranslateModule */].forRoot({
+                __WEBPACK_IMPORTED_MODULE_44_ngx_bootstrap__["b" /* ModalModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_44_ngx_bootstrap__["a" /* AlertModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_48__ngx_translate_core__["b" /* TranslateModule */].forRoot({
                     loader: {
-                        provide: __WEBPACK_IMPORTED_MODULE_51__ngx_translate_core__["a" /* TranslateLoader */],
+                        provide: __WEBPACK_IMPORTED_MODULE_48__ngx_translate_core__["a" /* TranslateLoader */],
                         useFactory: HttpLoaderFactory,
                         deps: [__WEBPACK_IMPORTED_MODULE_20__angular_common_http__["b" /* HttpClient */]]
                     }
@@ -410,8 +414,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_36__services_assets_service__["a" /* AssetsService */],
                 __WEBPACK_IMPORTED_MODULE_37__services_assets_pool_service__["a" /* AssetsPoolService */],
                 __WEBPACK_IMPORTED_MODULE_38__services_wallet_service__["a" /* WalletService */],
-                __WEBPACK_IMPORTED_MODULE_49__services_token_service__["a" /* TokenService */],
-                __WEBPACK_IMPORTED_MODULE_53__services_translation_service__["a" /* TranslationService */],
+                __WEBPACK_IMPORTED_MODULE_46__services_token_service__["a" /* TokenService */],
+                __WEBPACK_IMPORTED_MODULE_50__services_translation_service__["a" /* TranslationService */],
                 __WEBPACK_IMPORTED_MODULE_17__guards_authentication_guard__["a" /* AuthenticationGuard */],
                 __WEBPACK_IMPORTED_MODULE_18__guards_dashboardAuthorization_guard__["a" /* DashboardAuthorizationGuard */],
                 __WEBPACK_IMPORTED_MODULE_19__guards_already_authenticated_guard__["a" /* AlreadyAuthenticatedGuard */],
@@ -466,12 +470,18 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_tokens_tokens_component__ = __webpack_require__("../../../../../src/app/components/tokens/tokens.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_transfer_transfer_component__ = __webpack_require__("../../../../../src/app/components/transfer/transfer.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_password_reset_password_reset_component__ = __webpack_require__("../../../../../src/app/components/password-reset/password-reset.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_user_create_user_create_component__ = __webpack_require__("../../../../../src/app/components/user-create/user-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_user_list_user_list_component__ = __webpack_require__("../../../../../src/app/components/user-list/user-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_user_update_user_update_component__ = __webpack_require__("../../../../../src/app/components/user-update/user-update.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -546,7 +556,7 @@ var routes = [
                 component: __WEBPACK_IMPORTED_MODULE_31__components_password_reset_password_reset_component__["a" /* PasswordResetComponent */],
                 canActivate: [__WEBPACK_IMPORTED_MODULE_9__guards_authentication_guard__["a" /* AuthenticationGuard */], __WEBPACK_IMPORTED_MODULE_15__guards_onboarding_guard_already_reset_password_guard__["a" /* AlreadyResetPasswordGuard */]],
                 data: {
-                    expectedRole: ['sponsor']
+                    expectedRole: ['sponsor', 'ops']
                 },
             },
             {
@@ -554,7 +564,7 @@ var routes = [
                 component: __WEBPACK_IMPORTED_MODULE_6__components_account_activation_account_activation_component__["a" /* AccountActivationComponent */],
                 canActivate: [__WEBPACK_IMPORTED_MODULE_9__guards_authentication_guard__["a" /* AuthenticationGuard */], __WEBPACK_IMPORTED_MODULE_16__guards_onboarding_guard_already_registered_on_blockchain_guard__["a" /* AlreadyRegisteredOnBlockchainGuard */]],
                 data: {
-                    expectedRole: ['sponsor']
+                    expectedRole: ['sponsor', 'ops']
                 }
             },
             {
@@ -588,7 +598,10 @@ var routes = [
             { path: 'transfer', component: __WEBPACK_IMPORTED_MODULE_30__components_transfer_transfer_component__["a" /* TransferComponent */] },
             { path: 'tokens', component: __WEBPACK_IMPORTED_MODULE_29__components_tokens_tokens_component__["a" /* TokensComponent */] },
             { path: 'tokens/:assetPoolId', component: __WEBPACK_IMPORTED_MODULE_29__components_tokens_tokens_component__["a" /* TokensComponent */] },
-            { path: 'password-change', component: __WEBPACK_IMPORTED_MODULE_5__components_password_change_password_change_component__["a" /* PasswordChangeComponent */] }
+            { path: 'password-change', component: __WEBPACK_IMPORTED_MODULE_5__components_password_change_password_change_component__["a" /* PasswordChangeComponent */] },
+            { path: 'user-create', component: __WEBPACK_IMPORTED_MODULE_32__components_user_create_user_create_component__["a" /* UserCreateComponent */] },
+            { path: 'user-list', component: __WEBPACK_IMPORTED_MODULE_33__components_user_list_user_list_component__["a" /* UserListComponent */] },
+            { path: 'user-update', component: __WEBPACK_IMPORTED_MODULE_34__components_user_update_user_update_component__["a" /* UserUpdateComponent */] },
         ]
     },
     { path: '**', redirectTo: '' }
@@ -684,7 +697,7 @@ var AccountActivationComponent = (function () {
         this.accountRequestStatus = 'pending';
         this.userService.createAccountOnBlockchain().subscribe(function (user) {
             _this.accountRequestStatus = 'resolved';
-            _this.router.navigate(['/onboarding/issuer-registration']);
+            _this.router.navigate(['/dashboard']);
         }, function (err) {
             _this.accountRequestStatus = 'rejected';
             console.log(err);
@@ -1636,7 +1649,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"sidebar\" data-color='green' data-image=\"\">\n  <app-sidebar></app-sidebar>\n  <div class=\"sidebar-background\" style=\"background-color: #00bfa5\"></div>\n</div>\n<div class=\"main-panel\">\n  <app-navbar [balance]=\"account?.balance|xas\" ></app-navbar>\n  <router-outlet></router-outlet>\n</div>"
+module.exports = "<div class=\"sidebar\" data-color='green' data-image=\"\">\n  <app-sidebar></app-sidebar>\n  <div class=\"sidebar-background\" style=\"background-color: #00bfa5\"></div>\n</div>\n<div class=\"main-panel\">\n  <app-navbar ></app-navbar>\n  <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -1671,25 +1684,12 @@ var DashboardSponserComponent = (function () {
         this.location = location;
         this.router = router;
         this.walletService = walletService;
-        this.account = {};
     }
     DashboardSponserComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.getAccount();
         $.material.init();
         this.location.subscribe(function (ev) {
             _this.lastPoppedUrl = ev.url;
-        });
-    };
-    DashboardSponserComponent.prototype.getAccount = function () {
-        var _this = this;
-        this.walletService.getBlockchainAccount().subscribe(function (account) {
-            _this.account = account;
-            console.log('#########################');
-            console.log(account);
-        }, function (err) {
-            console.log('#########################');
-            console.log(err);
         });
     };
     __decorate([
@@ -2054,7 +2054,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-wrapper\">\n  <app-header></app-header>\n    <div class=\"content\">\n        <div class=\"container-fluid\">\n            <div class=\"row\">\n                <div class=\"col-md-4 col-md-offset-4\">\n                    <div class=\"card\">\n                        <div class=\"card-header\" data-background-color=\"green\">\n                            <h4 class=\"title\">{{'SIGNIN'|translate}}</h4>\n                            <p class=\"category\">{{'SIGNIN_DESCRIPTION'|translate}}</p>\n                        </div>\n                        <div class=\"card-content\">\n                            <form name=\"loginForm\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-12\">\n                                        <div class=\"form-group\">\n                                            <label class=\"control-label\" style=\"font-size: 14px;\">{{'Email'|translate}}</label>\n                                            <input style=\"text-transform: lowercase\" type=\"text\" [(ngModel)]=\"user.email\" name=\"email\" class=\"form-control\" >\n                                        </div>\n                                    </div>\n                                </div>\n\n                                <div class=\"row\">\n                                    <div class=\"col-md-12\">\n                                        <div class=\"form-group\">\n                                            <label class=\"control-label\" style=\"font-size: 14px;\">{{'Password'|translate}}</label>\n                                            <input style=\"text-transform: lowercase\" type=\"text\" [(ngModel)]=\"user.password\" name=\"password\" class=\"form-control\" >\n                                        </div>\n                                    </div>\n                                </div>\n\n                                <button\n                                        type=\"submit\"\n                                        [disabled]=\"!user.email || !user.password || loginRequestStatus==='pending'\"\n                                        (click)=\"login()\"\n                                        class=\"btn btn-danger pull-right\">\n                                    {{'SIGNIN'|translate}}\n                                </button>\n                                <div class=\"clearfix\"></div>\n                            </form>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>\n\n"
+module.exports = "<div class=\"login-wrapper\">\n  <app-header></app-header>\n    <div class=\"content\">\n        <div class=\"container-fluid\">\n            <div class=\"row\">\n                <div class=\"col-md-4 col-md-offset-4\">\n                    <div class=\"card\">\n                        <div class=\"card-header\" data-background-color=\"green\">\n                            <h4 class=\"title\">{{'SIGNIN'|translate}}</h4>\n                            <p class=\"category\">{{'SIGNIN_DESCRIPTION'|translate}}</p>\n                        </div>\n                        <div class=\"card-content\">\n                            <form name=\"loginForm\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-12\">\n                                        <div class=\"form-group\">\n                                            <label class=\"control-label\" style=\"font-size: 14px;\">{{'Email'|translate}}</label>\n                                            <input style=\"text-transform: lowercase\" type=\"email\" [(ngModel)]=\"user.email\" name=\"email\" class=\"form-control\" >\n                                        </div>\n                                    </div>\n                                </div>\n\n                                <div class=\"row\">\n                                    <div class=\"col-md-12\">\n                                        <div class=\"form-group\">\n                                            <label class=\"control-label\" style=\"font-size: 14px;\">{{'Password'|translate}}</label>\n                                            <input style=\"text-transform: lowercase\" type=\"password\" [(ngModel)]=\"user.password\" name=\"password\" class=\"form-control\" >\n                                        </div>\n                                    </div>\n                                </div>\n\n                                <button\n                                        type=\"submit\"\n                                        [disabled]=\"!user.email || !user.password || loginRequestStatus==='pending'\"\n                                        (click)=\"login()\"\n                                        class=\"btn btn-danger pull-right\">\n                                    {{'SIGNIN'|translate}}\n                                </button>\n                                <div class=\"clearfix\"></div>\n                            </form>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -2299,7 +2299,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/password-reset/password-reset.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n\n<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-4 col-md-offset-4\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Change Password</h4>\n            <p class=\"category\">for security purpose please change your initial password</p>\n          </div>\n          <div class=\"card-content\">\n            <form>\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\">Old Password</label>\n                    <input type=\"text\" [(ngModel)]=\"credential.oldPassword\" name=\"oldPassword\" class=\"form-control\" >\n                  </div>\n                </div>\n              </div>\n\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\">New Password</label>\n                    <input type=\"text\" [(ngModel)]=\"credential.newPassword\" name=\"newPassword\" class=\"form-control\" >\n                  </div>\n                </div>\n              </div>\n\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\">Re-Type Password</label>\n                    <input type=\"text\" [(ngModel)]=\"credential.rePassword\" name=\"rePassword\" class=\"form-control\" >\n                  </div>\n                </div>\n              </div>\n\n              <button\n                      [disabled]=\"passwordChangeRequestStatus==='pending'\"\n                      type=\"submit\"\n                      (click)=\"changePassword()\"\n                      class=\"btn btn-danger pull-right\">Save</button>\n              <div class=\"clearfix\"></div>\n            </form>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>"
+module.exports = "<app-header></app-header>\n\n<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-4 col-md-offset-4\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Change Password</h4>\n            <p class=\"category\">for security purpose please change your initial password</p>\n          </div>\n          <div class=\"card-content\">\n            <form>\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\">Old Password</label>\n                    <input type=\"password\" [(ngModel)]=\"credential.oldPassword\" name=\"oldPassword\" class=\"form-control\" >\n                  </div>\n                </div>\n              </div>\n\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\">New Password</label>\n                    <input type=\"password\" [(ngModel)]=\"credential.newPassword\" name=\"newPassword\" class=\"form-control\" >\n                  </div>\n                </div>\n              </div>\n\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\">Re-Type Password</label>\n                    <input type=\"password\" [(ngModel)]=\"credential.rePassword\" name=\"rePassword\" class=\"form-control\" >\n                  </div>\n                </div>\n              </div>\n\n              <button\n                      [disabled]=\"passwordChangeRequestStatus==='pending'\"\n                      type=\"submit\"\n                      (click)=\"changePassword()\"\n                      class=\"btn btn-danger pull-right\">Save</button>\n              <div class=\"clearfix\"></div>\n            </form>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2615,15 +2615,19 @@ var TransferComponent = (function () {
         var precision = 6;
         precision = this.transaction.currency === 'ACC' ? 6 : this.getPrecision(this.transaction.currency);
         console.log(precision);
+        if (!this.user.walletAddress) {
+            this.toastService.error('Transfer', 'You dont have wallet address.Please register yourself on the blockchain first');
+            return false;
+        }
+        if (!this.transaction.toAddress) {
+            this.toastService.error('Transfer', 'Please enter recipient address');
+            return false;
+        }
         if (this.transaction.currency === undefined) {
             this.toastService.error('Transfer', 'Invalid Amount');
         }
         else {
             currency = this.transaction.currency === 'ACC' ? null : this.transaction.currency;
-        }
-        if (!this.transaction.toAddress) {
-            this.toastService.error('Transfer', 'Please enter recipient address');
-            return false;
         }
         if (this.transaction.toAddress === this.user.walletAddress) {
             this.toastService.error('Transfer', 'Please choose different address other than yours');
@@ -2661,6 +2665,269 @@ var TransferComponent = (function () {
             __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */]])
     ], TransferComponent);
     return TransferComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-create/user-create.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"main-content\">\n\n\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-xs-12\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Create User</h4>\n          </div>\n          <div class=\"card-content\">\n            <form name=\"loginForm\">\n              <div class=\"row\">\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Name</label>\n                    <input type=\"text\" [(ngModel)]=\"user.name\"  name=\"name\" class=\"form-control\" >\n                  </div>\n                </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Email</label>\n                    <input type=\"email\" [(ngModel)]=\"user.email\" name=\"email\" class=\"form-control\" >\n                  </div>\n                </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 14px;\">Phone</label>\n                    <input type=\"text\" [(ngModel)]=\"user.phone\"  name=\"phone\" class=\"form-control\" >\n                  </div>\n                </div>\n\n              </div>\n\n              <div class=\"row\">\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Password</label>\n                    <input type=\"text\" [(ngModel)]=\"user.password\" name=\"passsword\" class=\"form-control\" >\n                  </div>\n                </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Retype Password</label>\n                    <input type=\"text\" [(ngModel)]=\"passwordRetyped\" name=\"passwordRetyped\" class=\"form-control\" >\n                  </div>\n                </div>\n\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Role</label>\n                    <select class=\"form-control \"  name=\"roke\" [(ngModel)]=\"user.role\">\n\n                      <option *ngFor=\"let role of roles\" [value]=\"role\">\n                        {{role}}\n                      </option>\n\n\n                    </select>\n\n                  </div>\n                </div>\n              </div>\n\n\n\n\n\n\n              <button\n                      type=\"submit\"\n                      [disabled]=\"createRequestStatus==='pending'\"\n                      (click)=\"register()\"\n                      class=\"btn btn-danger pull-right\">CREATE</button>\n              <div class=\"clearfix\"></div>\n            </form>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-create/user-create.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".required:after {\n  content: \"*\";\n  color: red; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-create/user-create.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserCreateComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var UserCreateComponent = (function () {
+    function UserCreateComponent(userService, toastService, router) {
+        this.userService = userService;
+        this.toastService = toastService;
+        this.router = router;
+        this.user = { password: 'agriledger', role: 'farmer' };
+        this.passwordRetyped = 'agriledger';
+        this.roles = ['ops', 'sponsor', 'farmer'];
+        this.createRequestStatus = 'resolved';
+    }
+    UserCreateComponent.prototype.ngOnInit = function () {
+    };
+    UserCreateComponent.prototype.register = function () {
+        var _this = this;
+        if (!this.user.name) {
+            return this.toastService.error('User', 'Name is required');
+        }
+        if (!this.user.email) {
+            return this.toastService.error('User', 'Email is required');
+        }
+        if (!this.user.password) {
+            return this.toastService.error('User', 'Password is required');
+        }
+        if (!this.passwordRetyped) {
+            return this.toastService.error('User', 'Please enter the password again');
+        }
+        if (this.user.password !== this.passwordRetyped) {
+            return this.toastService.error('User', 'Password does not match');
+        }
+        this.createRequestStatus = 'pending';
+        this.userService.register(this.user).subscribe(function (data) {
+            _this.createRequestStatus = 'resolved';
+            _this.toastService.success('User', 'created successfully');
+            _this.user.name = null;
+            _this.user.email = null;
+        }, function (err) {
+            _this.createRequestStatus = 'rejected';
+            if (err.showError) {
+                _this.toastService.error('User', err.message);
+            }
+        });
+    };
+    UserCreateComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-user-create',
+            template: __webpack_require__("../../../../../src/app/components/user-create/user-create.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/user-create/user-create.component.scss")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
+    ], UserCreateComponent);
+    return UserCreateComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-list/user-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n\n    <div class=\"dropdown\" style=\"float: left\">\n      <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n        Filter by role\n        <b class=\"caret\"></b>\n      </a>\n      <ul class=\"dropdown-menu\">\n        <li *ngFor=\"let filter of roleFilters\">\n          <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"getByFilter(filter.type,filter.value)\">\n            {{filter.name}}\n          </a>\n        </li>\n\n      </ul>\n    </div>\n\n    <div class=\"dropdown\" style=\"float: left\">\n      <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n        Filter by Date\n        <b class=\"caret\"></b>\n      </a>\n      <ul class=\"dropdown-menu\">\n        <li *ngFor=\"let filter of dateFilters\">\n          <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"getByFilter(filter.type,filter.value,filter.sortOrder)\">\n            {{filter.name}}\n          </a>\n        </li>\n\n      </ul>\n    </div>\n\n\n    <div class=\"card\" style=\"margin-top: 50px;\">\n      <div class=\"card-header\" data-background-color=\"green\">\n        <h4 class=\"title\">Users list</h4>\n\n      </div>\n\n      <div class=\"card-content\">\n        <div class=\"card-content table-responsive\">\n          <app-spinner [type]=\"'bounce'\" *ngIf=\"usersHttpSstatus==='pending'\"></app-spinner>\n\n          <app-error-show *ngIf=\"usersHttpSstatus==='rejected'\" [error]=\"'Users list could not be fetched.Try again!'\">\n\n          </app-error-show>\n          <table class=\"table\" *ngIf=\"users.length\">\n            <thead  >\n            <tr>\n              <th class=\"boldfont\">Name</th>\n              <th class=\"boldfont\">Email</th>\n\n              <th class=\"boldfont\">Phone</th>\n\n              <th class=\"boldfont\">Wallet Address</th>\n              <th class=\"boldfont\">Role</th>\n              <th class=\"boldfont\">Joined on</th>\n\n\n            </tr>\n            </thead>\n            <tbody>\n\n\n            <tr *ngFor=\"let user of users\">\n\n              <td>{{user?.name}}</td>\n\n              <td >\n\n                {{user?.email}}\n\n              </td>\n              <td >\n\n                {{user?.phone}}\n\n\n              </td>\n\n              <td data-toggle=\"tooltip\" data-placement=\"left\" title=\"{{user?.walletAddress}}\">\n\n                {{user?.walletAddress}}\n\n\n              </td>\n              <td>\n                {{user?.role}}\n              </td>\n              <td *ngIf=\"user.createdAt\" >{{user?.createdAt|date:'medium'}}</td>\n\n\n            </tr>\n            </tbody>\n          </table>\n\n        </div>\n      </div>\n\n\n    </div>\n\n\n\n\n\n    <!-- <section >\n         <div class=\"card\">\n             <div class=\"card-header\" data-background-color=\"green\">\n                 <h4 class=\"title\">Others's asset pool</h4>\n\n             </div>\n\n\n\n             <div class=\"card-content table-responsive\" >\n\n                 <section *ngIf=\"otherAssetPoolHttpSstatus==='pending' || otherAssetPoolHttpSstatus==='rejected'\">\n                     <app-spinner [type]=\"'bounce'\" *ngIf=\"otherAssetPoolHttpSstatus==='pending'\"></app-spinner>\n\n                     <app-error-show *ngIf=\"otherAssetPoolHttpSstatus==='rejected'\" [error]=\"'Others Assets pool could not be fetched.Try again!'\">\n\n                     </app-error-show>\n                 </section>\n\n                 <section *ngIf=\"otherAssetPoolHttpSstatus==='resolved'\">\n\n                     <div class=\"row\" *ngIf=\"!otherPools.length\">\n                         <div class=\"col-xs-12 text-center\">\n                             <h3 class=\"text-gray\">\n                                 No Asset found\n                             </h3>\n                         </div>\n                     </div>\n\n                     <div class=\"row\">\n                         <div style=\"cursor: pointer\" class=\"col-lg-4 col-md-6 col-sm-6\" *ngFor=\"let pool of otherPools\">\n                             <div class=\"card card-stats\"  >\n\n                                 <div class=\"card-content\" style=\"text-align: left\" >\n                                     <p class=\"category\">Currency Name</p>\n                                     <h5 class=\"title\">{{pool.issuerName}}.{{pool.currency}}</h5>\n\n                                     <hr>\n\n                                     <div class=\"row\" style=\"text-align: left\" [routerLink]=\"['../assets-pool-view',pool.id]\">\n\n                                         <div class=\"col-xs-6 text-left\">\n                                             Maximum\n                                         </div>\n                                         <div class=\"col-xs-6 text-right\">\n                                             <b>{{pool.maximum}}</b>\n                                         </div>\n                                     </div>\n                                     <hr>\n\n                                     <div class=\"row\" style=\"text-align: left\" [routerLink]=\"['../assets-pool-view',pool.id]\">\n\n                                         <div class=\"col-xs-6 text-left\">\n                                             Issued Quantity\n                                         </div>\n                                         <div class=\"col-xs-6 text-right\">\n                                             <b>{{pool?.blockchain?.quantity|truncateBalance:pool?.blockchain?.precision}}</b>\n                                         </div>\n                                     </div>\n\n                                     <hr>\n\n                                     <div class=\"row\" style=\"text-align: left\" [routerLink]=\"['../assets-pool-view',pool.id]\">\n\n                                         <div class=\"col-xs-6 text-left\">\n                                             Left quantity\n                                         </div>\n                                         <div class=\"col-xs-6 text-right\">\n                                             <b>{{(pool?.blockchain?.maximum-pool?.blockchain?.quantity)|truncateBalance:pool?.blockchain?.precision}}</b>\n                                         </div>\n                                     </div>\n                                     <hr>\n\n                                     <div class=\"row\" style=\"text-align: left\" >\n\n                                         <div class=\"col-xs-6 text-left\">\n                                             Status\n                                         </div>\n                                         <div class=\"col-xs-6 text-right\" *ngIf=\"pool?.blockchain\">\n                                             <b [style.color]=\"getColor(pool?.blockchain?.approved)\">{{pool?.blockchain?.approved===0?'Pending':'Approved'}}</b>\n                                         </div>\n                                     </div>\n\n                                     <div class=\"row\" style=\"text-align: center\">\n\n                                         <div class=\"col-xs-12\">\n                                             <button [disabled]=\"!pool.blockchain || !pool.blockchain.approved\" class=\"btn btn-danger\" (click)=\"openModal(template,pool)\">ISSUE</button>\n                                         </div>\n\n\n                                     </div>\n                                 </div>\n\n\n\n\n                             </div>\n                         </div>\n                     </div>\n\n\n                 </section>\n\n\n             </div>\n\n         </div>\n\n\n\n     </section>-->\n    <ng-template #template>\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title pull-left\">ISSUE TOKEN</h4>\n        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <form name=\"loginForm\">\n          <div class=\"row\">\n            <div class=\"col-md-6\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Maximum</label>\n                <input [disabled]=\"true\" type=\"text\" [(ngModel)]=\"selectedPool.maximum\" name=\"maximum\" class=\"form-control\" >\n              </div>\n            </div>\n            <div class=\"col-md-6\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Currency</label>\n                <input [disabled]=\"true\" type=\"text\" [(ngModel)]=\"selectedPool.blockchain.currency\" name=\"currency\" class=\"form-control\" >\n              </div>\n            </div>\n\n          </div>\n\n\n\n          <div class=\"row\">\n            <div class=\"col-md-6\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Issue Number</label>\n                <input type=\"text\"  [(ngModel)]=\"token.amount\"  name=\"amount\" class=\"form-control\" >\n              </div>\n            </div>\n\n            <div class=\"col-md-6\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Exchange rate</label>\n                <input type=\"text\"  [(ngModel)]=\"token.exchangeRate\"  name=\"exchangeRate\" class=\"form-control\" >\n              </div>\n            </div>\n\n          </div>\n\n\n          <button\n                  [disabled]=\"issueTokenHttpStatus==='pending'\"\n                  type=\"submit\"\n                  (click)=\"issueToken(selectedPool)\"\n                  class=\"btn btn-danger pull-right\">SUBMIT</button>\n          <div class=\"clearfix\"></div>\n        </form>\n\n      </div>\n    </ng-template>\n\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-list/user-list.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-list/user-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var UserListComponent = (function () {
+    function UserListComponent(userService, toastService) {
+        this.userService = userService;
+        this.toastService = toastService;
+        this.users = [];
+        this.roleFilters = [
+            { name: 'Farmer', value: 'farmer', type: 'role' },
+            { name: 'Sponsor', value: 'sponsor', type: 'role' },
+            { name: 'All', value: 'all', type: 'role' }
+        ];
+        this.dateFilters = [
+            { name: 'Recent to last', value: 'createdAt', type: 'date', sortOrder: 'DESC' },
+            { name: 'Last to recent', value: 'createdAt', type: 'date', sortOrder: 'ASC' }
+        ];
+        this.onboardingFilters = [
+            { name: 'Unchanged Password', value: 'createdAt', type: 'date', sortOrder: 'DESC' },
+            { name: '', value: 'createdAt', type: 'date', sortOrder: 'ASC' }
+        ];
+        this.usersHttpSstatus = 'resolved';
+    }
+    UserListComponent.prototype.ngOnInit = function () {
+        this.getUsers();
+    };
+    UserListComponent.prototype.getUsers = function () {
+        var _this = this;
+        this.usersHttpSstatus = 'pending';
+        this.userService.getUsers().subscribe(function (users) {
+            _this.users = users;
+            console.log(_this.users);
+            _this.usersHttpSstatus = 'resolved';
+        }, function (err) {
+            _this.usersHttpSstatus = 'rejected';
+            if (err.showError)
+                _this.toastService.error('Users', err.message);
+        });
+    };
+    UserListComponent.prototype.getByFilter = function (type, value, sortOrder) {
+    };
+    UserListComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-user-list',
+            template: __webpack_require__("../../../../../src/app/components/user-list/user-list.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/user-list/user-list.component.scss")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */]])
+    ], UserListComponent);
+    return UserListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-update/user-update.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  user-update works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-update/user-update.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-update/user-update.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserUpdateComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var UserUpdateComponent = (function () {
+    function UserUpdateComponent() {
+    }
+    UserUpdateComponent.prototype.ngOnInit = function () {
+    };
+    UserUpdateComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-user-update',
+            template: __webpack_require__("../../../../../src/app/components/user-update/user-update.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/user-update/user-update.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], UserUpdateComponent);
+    return UserUpdateComponent;
 }());
 
 
@@ -2730,20 +2997,28 @@ var WalletComponent = (function () {
     }
     WalletComponent.prototype.ngOnInit = function () {
         this.getUser();
-        this.getAccount();
-        this.getTransactions();
     };
     WalletComponent.prototype.getUser = function () {
         var _this = this;
         this.userService.getUser().subscribe(function (user) {
             _this.user = user;
+            if (user && user.publicKey && user.walletAddress) {
+                _this.getAccount();
+                _this.getTransactions(user.publicKey, user.walletAddress);
+            }
+            else {
+                _this.toastService.info('info', 'You are not registered on blockchain yet');
+            }
         }, function (err) {
         });
     };
-    WalletComponent.prototype.getTransactions = function () {
+    WalletComponent.prototype.getTransactions = function (senderPublicKey, recipientId) {
         var _this = this;
+        if (!senderPublicKey || !recipientId) {
+            return;
+        }
         this.txnRequestStatus = 'pending';
-        this.walletService.getTransactions().subscribe(function (txn) {
+        this.walletService.getTransactions(senderPublicKey, recipientId).subscribe(function (txn) {
             _this.txnRequestStatus = 'resolved';
             console.log(txn);
             _this.transactions = txn;
@@ -2927,7 +3202,7 @@ var DashboardAuthorizationGuard = (function () {
                     _this.router.navigate(['/onboarding/account-activation']);
                     return false;
                 }
-                if (user && !user.isIssuerOnBlockchain) {
+                if (user && user.role === 'sponsor' && !user.isIssuerOnBlockchain) {
                     _this.router.navigate(['/onboarding/issuer-registration']);
                     return false;
                 }
@@ -3590,7 +3865,12 @@ var ErrorHandlerService = (function () {
         }
         msg = msg ? msg : 'Something went wrong';
         console.log(msg);
-        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw({ message: msg, status: res.status });
+        var showError = true;
+        if (res.status === 401 || res.status === 403) {
+            // because for these two cases we are showing the error in http service;
+            showError = false;
+        }
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw({ message: msg, status: res.status, showError: showError });
     };
     ErrorHandlerService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -3655,6 +3935,7 @@ var FarmerService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3667,9 +3948,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var InterceptorService = (function () {
-    function InterceptorService(router) {
+    function InterceptorService(router, toastService) {
         this.router = router;
+        this.toastService = toastService;
     }
     InterceptorService.prototype.intercept = function (request, next) {
         var _this = this;
@@ -3686,19 +3969,19 @@ var InterceptorService = (function () {
         }, function (err) {
             if (err instanceof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["d" /* HttpErrorResponse */]) {
                 if (err.status === 401) {
-                    console.log('interceptor 401');
-                    // redirect to the login route
-                    // or show a modal
                     localStorage.removeItem('accessToken');
                     localStorage.removeItem('userId');
                     _this.router.navigate(['/login']);
+                }
+                if (err.status === 403) {
+                    _this.toastService.error('Unauthorised', 'You are not authorised to perform this action');
                 }
             }
         });
     };
     InterceptorService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__toast_service__["a" /* ToastService */]])
     ], InterceptorService);
     return InterceptorService;
 }());
@@ -3962,6 +4245,15 @@ var UserService = (function () {
             _this.user = res.user;
             console.log('inside do');
             console.log(res);
+        }).catch(function (res) {
+            return _this.errorHandler.handle(res);
+        });
+    };
+    UserService.prototype.register = function (user) {
+        var _this = this;
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* UserApi */].register.url(), user)
+            .catch(function (res) {
+            return _this.errorHandler.handle(res);
         });
     };
     UserService.prototype.saveAccessToken = function (accessToken) {
@@ -3990,6 +4282,14 @@ var UserService = (function () {
             return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["a" /* Observable */].of(this.user);
         }
         return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* UserApi */].findById.url() + "/" + this.getUserId());
+    };
+    ;
+    UserService.prototype.getUsers = function () {
+        var _this = this;
+        return this.http.get("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* UserApi */].list.url())
+            .catch(function (res) {
+            return _this.errorHandler.handle(res);
+        });
     };
     ;
     UserService.prototype.setUserFromGuard = function (user) {
@@ -4067,6 +4367,7 @@ var UserService = (function () {
         return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["c" /* OnboardingApi */].resgisterIssuer.url(), issuer).do(function (data) {
             console.log(data);
             _this.user.isIssuerOnBlockchain = true;
+            _this.user.issuerName = name;
         }).catch(function (res) {
             return _this.errorHandler.handle(res);
         });
@@ -4135,12 +4436,10 @@ var WalletService = (function () {
             return _this.errorHandler.handle(res);
         });
     };
-    WalletService.prototype.getTransactions = function () {
+    WalletService.prototype.getTransactions = function (senderPublicKey, recipientId) {
         var _this = this;
-        return this.userService.getUser()
-            .concatMap(function (user) {
-            return _this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["f" /* WalletApi */].getTransaction.url() + "?senderPublicKey=" + user.publicKey + "&recipientId=" + user.walletAddress);
-        }).retry(3)
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["f" /* WalletApi */].getTransaction.url() + "?senderPublicKey=" + senderPublicKey + "&recipientId=" + recipientId)
+            .retry(3)
             .catch(function (res) {
             return _this.errorHandler.handle(res);
         });
@@ -4218,69 +4517,6 @@ var AboutUsComponent = (function () {
         __metadata("design:paramtypes", [])
     ], AboutUsComponent);
     return AboutUsComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/shared/components.module.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__footer_footer_component__ = __webpack_require__("../../../../../src/app/shared/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/shared/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/shared/sidebar/sidebar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_us_about_us_component__ = __webpack_require__("../../../../../src/app/shared/about-us/about-us.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__privacy_privacy_component__ = __webpack_require__("../../../../../src/app/shared/privacy/privacy.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__terms_terms_component__ = __webpack_require__("../../../../../src/app/shared/terms/terms.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__ = __webpack_require__("../../../../../src/app/shared/contact/contact.component.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-var ComponentsModule = (function () {
-    function ComponentsModule() {
-    }
-    ComponentsModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */],
-            ],
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__sidebar_sidebar_component__["b" /* SidebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__about_us_about_us_component__["a" /* AboutUsComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__privacy_privacy_component__["a" /* PrivacyComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__terms_terms_component__["a" /* TermsComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__["a" /* ContactComponent */]
-            ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_3__footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__sidebar_sidebar_component__["b" /* SidebarComponent */]
-            ]
-        })
-    ], ComponentsModule);
-    return ComponentsModule;
 }());
 
 
@@ -4590,7 +4826,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shared/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar  navbar-absolute\" style=\"background: linear-gradient(90deg, #ffffff, #b7b8b6) !important;\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-header \">\n            <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" (click)=\"sidebarToggle()\">\n                <span class=\"sr-only\">Toggle navigation</span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n            </button>\n            <a class=\"navbar-brand\" href=\"javascript:void(0)\" style=\"text-transform: capitalize\"><b style=\"letter-spacing: 3px\">{{getTitle()}}</b></a>\n        </div>\n        <div class=\"collapse navbar-collapse\">\n            <ul class=\"nav navbar-nav navbar-right\">\n                <li>\n\n                    <a href=\"javascript:void(0)\">\n                        <b >Balance ({{balance}} ACC)</b>\n                    </a>\n                </li>\n                <!--<li>\n                    <a href=\"#pablo\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                        <i class=\"material-icons\">dashboard</i>\n                        <p class=\"hidden-lg hidden-md\">Dashboard</p>\n                    </a>\n                </li>-->\n         <!--       <li class=\"dropdown\">\n                    <a  href=\"javascript:void(0)\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                        <i class=\"material-icons\">notifications</i>\n                        <span class=\"notification\">3</span>\n                        <p class=\"hidden-lg hidden-md\">Notifications</p>\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a  href=\"javascript:void(0)\">You have 5 new tasks</a></li>\n                        <li><a  href=\"javascript:void(0)\">Another Notification</a></li>\n                        <li><a  href=\"javascript:void(0)\">Another One</a></li>\n                    </ul>\n                </li>-->\n\n                <li class=\"dropdown\">\n                    <a  href=\"javascript:void(0)\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                        <i class=\"material-icons\">person</i>\n                        <p class=\"hidden-lg hidden-md\">Profile</p>\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <!--<li><a  href=\"javascript:void(0)\">Wallet</a></li>\n                        <li><a  href=\"javascript:void(0)\">Setting</a></li>-->\n                        <li><a  [routerLink]=\"['/dashboard/password-change']\" href=\"javascript:void (0)\">Change Paasword</a></li>\n\n                        <li><a (click)=\"logout()\" href=\"javascript:void (0)\">Logout</a></li>\n                    </ul>\n                </li>\n\n            </ul>\n\n           <!-- <form class=\"navbar-form navbar-right\" role=\"search\">\n                <div class=\"form-group form-black is-empty\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n                    <span class=\"material-input\"></span>\n                </div>\n                <button type=\"submit\" class=\"btn btn-white btn-round btn-just-icon\">\n                    <i class=\"material-icons\">search</i><div class=\"ripple-container\"></div>\n                </button>\n            </form>-->\n        </div>\n    </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar  navbar-absolute\" style=\"background: linear-gradient(90deg, #ffffff, #b7b8b6) !important;\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-header \">\n            <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" (click)=\"sidebarToggle()\">\n                <span class=\"sr-only\">Toggle navigation</span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n            </button>\n            <a class=\"navbar-brand\" href=\"javascript:void(0)\" style=\"text-transform: capitalize\"><b style=\"letter-spacing: 3px\">{{getTitle()}}</b></a>\n        </div>\n        <div class=\"collapse navbar-collapse\">\n            <ul class=\"nav navbar-nav navbar-right\">\n                <li>\n\n                    <a href=\"javascript:void(0)\">\n                        <b >Balance ({{account?.balance|xas}} ACC)</b>\n                    </a>\n                </li>\n                <!--<li>\n                    <a href=\"#pablo\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                        <i class=\"material-icons\">dashboard</i>\n                        <p class=\"hidden-lg hidden-md\">Dashboard</p>\n                    </a>\n                </li>-->\n         <!--       <li class=\"dropdown\">\n                    <a  href=\"javascript:void(0)\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                        <i class=\"material-icons\">notifications</i>\n                        <span class=\"notification\">3</span>\n                        <p class=\"hidden-lg hidden-md\">Notifications</p>\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a  href=\"javascript:void(0)\">You have 5 new tasks</a></li>\n                        <li><a  href=\"javascript:void(0)\">Another Notification</a></li>\n                        <li><a  href=\"javascript:void(0)\">Another One</a></li>\n                    </ul>\n                </li>-->\n\n                <li class=\"dropdown\">\n                    <a  href=\"javascript:void(0)\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                        <i class=\"material-icons\">person</i>\n                        <p class=\"hidden-lg hidden-md\">Profile</p>\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <!--<li><a  href=\"javascript:void(0)\">Wallet</a></li>\n                        <li><a  href=\"javascript:void(0)\">Setting</a></li>-->\n                        <li><a  [routerLink]=\"['/dashboard/password-change']\" href=\"javascript:void (0)\">Change Paasword</a></li>\n\n                        <li><a (click)=\"logout()\" href=\"javascript:void (0)\">Logout</a></li>\n                    </ul>\n                </li>\n\n            </ul>\n\n           <!-- <form class=\"navbar-form navbar-right\" role=\"search\">\n                <div class=\"form-group form-black is-empty\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n                    <span class=\"material-input\"></span>\n                </div>\n                <button type=\"submit\" class=\"btn btn-white btn-round btn-just-icon\">\n                    <i class=\"material-icons\">search</i><div class=\"ripple-container\"></div>\n                </button>\n            </form>-->\n        </div>\n    </div>\n</nav>\n"
 
 /***/ }),
 
@@ -4605,6 +4841,7 @@ module.exports = "<nav class=\"navbar  navbar-absolute\" style=\"background: lin
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_wallet_service__ = __webpack_require__("../../../../../src/app/services/wallet.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4620,19 +4857,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var NavbarComponent = (function () {
-    function NavbarComponent(location, element, userService, router, toastService) {
+    function NavbarComponent(location, element, walletService, userService, router, toastService) {
         this.element = element;
+        this.walletService = walletService;
         this.userService = userService;
         this.router = router;
         this.toastService = toastService;
-        this.balance = null;
+        this.user = {};
+        this.account = {};
         this.listTitles = [{ path: 'account', title: 'Account' }];
         this.location = location;
         this.sidebarVisible = false;
     }
     NavbarComponent.prototype.ngOnInit = function () {
-        this.listTitles = __WEBPACK_IMPORTED_MODULE_1__sidebar_sidebar_component__["a" /* ROUTES */].filter(function (listTitle) { return listTitle; });
+        var _this = this;
+        this.getAccount();
+        this.userService.getUser().subscribe(function (user) {
+            _this.user = user;
+            if (user.role === 'sponsor') {
+                _this.listTitles = __WEBPACK_IMPORTED_MODULE_1__sidebar_sidebar_component__["b" /* MenuItemsForSponsor */].filter(function (listTitle) { return listTitle; });
+            }
+            if (user.role === 'ops') {
+                _this.listTitles = __WEBPACK_IMPORTED_MODULE_1__sidebar_sidebar_component__["a" /* MenuItemsForOps */].filter(function (listTitle) { return listTitle; });
+            }
+        }, function (err) {
+            console.log(err);
+        });
         var navbar = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
     };
@@ -4685,19 +4938,25 @@ var NavbarComponent = (function () {
             _this.toastService.error('Logout', 'Could not be logged out.Try again');
         });
     };
-    NavbarComponent.prototype.account = function () {
+    NavbarComponent.prototype.getAccount = function () {
+        var _this = this;
+        this.walletService.getBlockchainAccount().subscribe(function (account) {
+            _this.account = account;
+            console.log(account);
+        }, function (err) {
+            console.log(err);
+        });
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", Object)
-    ], NavbarComponent.prototype, "balance", void 0);
     NavbarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-navbar',
             template: __webpack_require__("../../../../../src/app/shared/navbar/navbar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/shared/navbar/navbar.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_5__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__services_toast_service__["a" /* ToastService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */],
+            __WEBPACK_IMPORTED_MODULE_6__services_wallet_service__["a" /* WalletService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__services_toast_service__["a" /* ToastService */]])
     ], NavbarComponent);
     return NavbarComponent;
 }());
@@ -4828,6 +5087,81 @@ var PrivacyComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/shared/shared.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SharedModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__footer_footer_component__ = __webpack_require__("../../../../../src/app/shared/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/shared/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/shared/sidebar/sidebar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__about_us_about_us_component__ = __webpack_require__("../../../../../src/app/shared/about-us/about-us.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__privacy_privacy_component__ = __webpack_require__("../../../../../src/app/shared/privacy/privacy.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__terms_terms_component__ = __webpack_require__("../../../../../src/app/shared/terms/terms.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__ = __webpack_require__("../../../../../src/app/shared/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pipes_xas_pipe__ = __webpack_require__("../../../../../src/app/pipes/xas.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pipes_txn_type_pipe__ = __webpack_require__("../../../../../src/app/pipes/txn-type.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pipes_truncate_balance_pipe__ = __webpack_require__("../../../../../src/app/pipes/truncate-balance.pipe.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+var SharedModule = (function () {
+    function SharedModule() {
+    }
+    SharedModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */],
+            ],
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_3__footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__sidebar_sidebar_component__["c" /* SidebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__about_us_about_us_component__["a" /* AboutUsComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__privacy_privacy_component__["a" /* PrivacyComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__terms_terms_component__["a" /* TermsComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__["a" /* ContactComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__pipes_xas_pipe__["a" /* XasPipe */],
+                __WEBPACK_IMPORTED_MODULE_11__pipes_txn_type_pipe__["a" /* TxnTypePipe */],
+                __WEBPACK_IMPORTED_MODULE_12__pipes_truncate_balance_pipe__["a" /* TruncateBalancePipe */]
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_3__footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__sidebar_sidebar_component__["c" /* SidebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__pipes_xas_pipe__["a" /* XasPipe */],
+                __WEBPACK_IMPORTED_MODULE_11__pipes_txn_type_pipe__["a" /* TxnTypePipe */],
+                __WEBPACK_IMPORTED_MODULE_12__pipes_truncate_balance_pipe__["a" /* TruncateBalancePipe */]
+            ]
+        })
+    ], SharedModule);
+    return SharedModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/shared/sidebar/sidebar.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4849,7 +5183,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shared/sidebar/sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\" style=\"background-color: ghostwhite\">\n    <a href=\"javascript:void(0)\" class=\"simple-text\">\n        <div class=\"logo-img\">\n            <img src=\"/assets/img/logo.png\"/>\n        </div>\n        Agriledger\n    </a>\n</div>\n<div class=\"sidebar-wrapper\" style=\"background-color: beige\">\n\n\n\n    <div class=\"nav-container\">\n        <ul class=\"nav\">\n            <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItems\" class=\"{{menuItem.class}}\">\n                <a  [routerLink]=\"[menuItem.path]\">\n                    <i class=\"material-icons\">{{menuItem.icon}}</i>\n                    <p>{{menuItem.title}}</p>\n                </a>\n            </li>\n\n\n            <li  class=\"hidden-lg hidden-md\"><a (click)=\"logout()\" href=\"javascript:void (0)\">\n                <i class=\"material-icons\">clear_all</i>\n                <p class=\"hidden-lg hidden-md\">Logout</p>\n            </a>\n            </li>\n\n        </ul>\n    </div>\n</div>\n"
+module.exports = "<div class=\"logo\" style=\"background-color: ghostwhite\">\n    <a href=\"javascript:void(0)\" class=\"simple-text\">\n        <div class=\"logo-img\">\n            <img src=\"/assets/img/logo.png\"/>\n        </div>\n        Agriledger\n    </a>\n</div>\n<div class=\"sidebar-wrapper\" style=\"background-color: beige\">\n\n\n\n    <div class=\"nav-container\">\n        <ul class=\"nav\" *ngIf=\"user.role==='sponsor'\">\n            <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItemsForSponsor\" class=\"{{menuItem.class}}\">\n                <a  [routerLink]=\"[menuItem.path]\">\n                    <i class=\"material-icons\">{{menuItem.icon}}</i>\n                    <p>{{menuItem.title}}</p>\n                </a>\n            </li>\n\n\n            <li  class=\"hidden-lg hidden-md\"><a (click)=\"logout()\" href=\"javascript:void (0)\">\n                <i class=\"material-icons\">clear_all</i>\n                <p class=\"hidden-lg hidden-md\">Logout</p>\n            </a>\n            </li>\n\n        </ul>\n\n        <ul class=\"nav\" *ngIf=\"user.role==='ops'\">\n            <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItemsForOps\" class=\"{{menuItem.class}}\">\n                <a  [routerLink]=\"[menuItem.path]\">\n                    <i class=\"material-icons\">{{menuItem.icon}}</i>\n                    <p>{{menuItem.title}}</p>\n                </a>\n            </li>\n\n\n            <li  class=\"hidden-lg hidden-md\"><a (click)=\"logout()\" href=\"javascript:void (0)\">\n                <i class=\"material-icons\">clear_all</i>\n                <p class=\"hidden-lg hidden-md\">Logout</p>\n            </a>\n            </li>\n\n        </ul>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -4857,8 +5191,9 @@ module.exports = "<div class=\"logo\" style=\"background-color: ghostwhite\">\n 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ROUTES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SidebarComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MenuItemsForSponsor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuItemsForOps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return SidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
@@ -4876,7 +5211,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ROUTES = [
+var MenuItemsForSponsor = [
     { path: 'account', title: 'Account', icon: 'account_circle', class: '' },
     { path: 'assets', title: 'Assets', icon: 'account_balance_wallet', class: '' },
     { path: 'assets-pool-list', title: 'Asset Pool', icon: 'donut_large', class: '' },
@@ -4885,14 +5220,34 @@ var ROUTES = [
     { path: 'wallet', title: 'Transactions', icon: 'description', class: '' },
     { path: '/dashboard/password-change', title: 'Change Password', icon: 'lock', class: 'hidden-lg hidden-md' }
 ];
+var MenuItemsForOps = [
+    { path: 'account', title: 'Account', icon: 'account_circle', class: '' },
+    { path: 'assets-pool-list', title: 'Asset Pool', icon: 'donut_large', class: '' },
+    { path: 'tokens', title: 'Issued Tokens', icon: 'grade', class: '' },
+    { path: 'transfer', title: 'Transfer Tokens', icon: 'send', class: '' },
+    { path: 'wallet', title: 'Transactions', icon: 'description', class: '' },
+    { path: 'user-create', title: 'Create Users', icon: 'description', class: '' },
+    { path: 'user-list', title: 'List Users', icon: 'description', class: '' },
+    { path: '/dashboard/password-change', title: 'Change Password', icon: 'lock', class: 'hidden-lg hidden-md' }
+];
 var SidebarComponent = (function () {
     function SidebarComponent(userService, toastService, router) {
         this.userService = userService;
         this.toastService = toastService;
         this.router = router;
+        this.menuItemsForSponsor = MenuItemsForSponsor;
+        this.menuItemsForOps = MenuItemsForOps;
+        this.user = {};
     }
     SidebarComponent.prototype.ngOnInit = function () {
-        this.menuItems = ROUTES.filter(function (menuItem) { return menuItem; });
+        var _this = this;
+        this.userService.getUser().subscribe(function (user) {
+            console.log('from sidebar');
+            console.log(user);
+            _this.user = user;
+        }, function (err) {
+            _this.router.navigate(['/login']);
+        });
     };
     SidebarComponent.prototype.logout = function () {
         var _this = this;
