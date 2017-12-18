@@ -9,7 +9,10 @@
             <h4 class="title">Transfer</h4>
           </div>
           <div class="card-content">
-            <form name="loginForm">
+            <app-error-show *ngIf="!user.walletAddress" [error]="'You are not registered on Blockchain!'">
+            </app-error-show>
+
+            <form name="loginForm" *ngIf="user.walletAddress">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">

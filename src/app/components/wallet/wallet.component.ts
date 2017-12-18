@@ -34,9 +34,7 @@ export class WalletComponent implements OnInit {
                 this.getAccount();
                 this.getTransactions(user.publicKey,user.walletAddress)
             }
-            else{
-                this.toastService.info('info','You are not registered on blockchain yet')
-            }
+
         },(err)=>{
 
         })
