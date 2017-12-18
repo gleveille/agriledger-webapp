@@ -17,6 +17,21 @@ export class PasswordChangeComponent implements OnInit {
   ngOnInit() {
   }
     changePassword(){
+      if(!this.credential.oldPassword){
+          this.toastService.error('Password','Old password is required');
+          return;
+
+      }
+      else if(!this.credential.newPassword){
+          this.toastService.error('Password','New password is required');
+          return;
+
+      }
+      else if(!this.credential.rePassword){
+          this.toastService.error('Password','Please type your new password again');
+          return;
+
+      }
     if(this.credential.newPassword!==this.credential.rePassword){
       this.toastService.error('Password','Password does not match');
       return;

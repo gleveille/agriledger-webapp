@@ -28,6 +28,9 @@ export class TransferComponent implements OnInit {
 
     this.userService.getUser().concatMap((user:Iuser)=>{
       this.user=user;
+      if(!this.user.walletAddress){
+          return Observable.throw({meessage:'User does not have wallet address'})
+      }
       return this.tokenService.getAllTokensByAddressFromBlockchain();
     }).subscribe((assets:any)=>{
         console.log(assets)
