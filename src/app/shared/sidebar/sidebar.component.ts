@@ -25,13 +25,13 @@ export const MenuItemsForSponsor:  RouteInfo[] = [
 
 export const MenuItemsForOps:  RouteInfo[] = [
     { path: 'account', title: 'Account',  icon:'account_circle', class: '' },
-    { path: 'assets-pool-list', title: 'Asset Pool',  icon:'donut_large', class: '' },
-    { path: 'tokens', title: 'Issued Tokens',  icon:'grade', class: '' },
+    { path: 'assets-pool-list', title: 'Asset Pool',  icon:'store', class: '' },
+    { path: 'tokens', title: 'Issued Tokens',  icon:'stars', class: '' },
     { path: 'transfer', title: 'Transfer Tokens',  icon:'send', class: '' },
-    { path: 'wallet', title: 'Transactions',  icon:'description', class: '' },
-    { path: 'user-create', title: 'Create Users',  icon:'description', class: '' },
+    { path: 'wallet', title: 'Transactions',  icon:'history', class: '' },
+    { path: 'user-create', title: 'Create Users',  icon:'person_add', class: '' },
 
-    { path: 'user-list', title: 'List Users',  icon:'description', class: '' },
+    { path: 'user-list', title: 'List Users',  icon:'people', class: '' },
 
     { path: '/dashboard/password-change', title: 'Change Password',  icon:'lock', class: 'hidden-lg hidden-md' }
 

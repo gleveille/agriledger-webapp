@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/password-change/password-change.component.ts" afterPath="$PROJECT_DIR$/src/app/components/password-change/password-change.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/transfer/transfer.component.ts" afterPath="$PROJECT_DIR$/src/app/components/transfer/transfer.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts" afterPath="$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -65,11 +63,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="password-change.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="password-change.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/password-change/password-change.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="527">
+              <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="28" column="58" lean-forward="false" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -180,7 +190,6 @@
         <option value="$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/user-create/user-create.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/password-reset/password-reset.component.html" />
-        <option value="$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.html" />
         <option value="$PROJECT_DIR$/src/app/shared/components.module.ts" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
@@ -199,6 +208,7 @@
         <option value="$PROJECT_DIR$/src/app/components/transfer/transfer.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/transfer/transfer.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/password-change/password-change.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts" />
       </list>
     </option>
   </component>
@@ -291,6 +301,21 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="wallet" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -357,12 +382,12 @@
       <workItem from="1512709261989" duration="20380000" />
       <workItem from="1513061823475" duration="26818000" />
       <workItem from="1513592698507" duration="694000" />
-      <workItem from="1513598575556" duration="2756000" />
+      <workItem from="1513598575556" duration="3397000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313409000" />
+    <option name="totallyTimeSpent" value="314050000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -524,13 +549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="46" column="59" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -784,8 +802,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/password-change/password-change.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="527">
+          <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="28" column="58" lean-forward="false" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
