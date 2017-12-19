@@ -21,6 +21,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class AssetPoolViewComponent implements OnInit {
     modalRef: BsModalRef;
+    assetEvidenceHttpStatus='resolved';
 
   pool={blockchain:null,assetsId:[],assets:[]};
     constructor(private location: Location,
@@ -61,6 +62,7 @@ export class AssetPoolViewComponent implements OnInit {
 
     getAssetsById(){
 
+        this.assetEvidenceHttpStatus='pending';
         const arr=[];
         this.pool.assetsId.forEach((id)=>{
             arr.push(this.assetService.getAssetByid(id));
@@ -81,8 +83,10 @@ export class AssetPoolViewComponent implements OnInit {
             console.log('pool after getiinbg theor assets')
             console.log(this.pool)
 
+            this.assetEvidenceHttpStatus='resolved';
 
         },(err)=>{
+            this.assetEvidenceHttpStatus='rejected';
 
         });
     }

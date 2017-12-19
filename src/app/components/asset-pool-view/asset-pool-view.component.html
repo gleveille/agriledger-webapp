@@ -186,10 +186,19 @@
                 <h3>Assets Evidences</h3>
                 <hr>
 
-                  <div class="row">
+                <section *ngIf="assetEvidenceHttpStatus==='pending' || assetPoolHttpSstatus==='rejected' ">
+                  <app-spinner [type]="'bounce'" *ngIf="assetEvidenceHttpStatus==='pending'"></app-spinner>
+
+                  <app-error-show *ngIf="assetEvidenceHttpStatus==='rejected'" [error]="'Assets evidences could not be fetched.Try again!'">
+
+                  </app-error-show>
+                </section>
+
+                  <div class="row" *ngIf="assetEvidenceHttpStatus==='resolved'">
                     <div class="col-xs-12 col-md-6" *ngFor="let asset of pool.assets;let i=index" >
                       <h4 class="text-gray text-center">Asset {{i+1}}</h4>
-                      <carousel>
+                      <h4 class="text-center" *ngIf="asset.evidences && !asset.evidences.length">No evidences found</h4>
+                      <carousel *ngIf="asset.evidences && asset.evidences.length">
                         <slide *ngFor="let evidence of asset.evidences" style="height:350px;">
                           <img [src]="evidence.url" alt="First slide" style="display: block; width: 100%;">
                           <div class="carousel-caption d-none d-md-block">
