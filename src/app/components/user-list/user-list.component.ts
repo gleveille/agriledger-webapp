@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Iuser} from "../../interface/user.interface";
 import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
-import {stat} from "fs";
 
 @Component({
   selector: 'app-user-list',
