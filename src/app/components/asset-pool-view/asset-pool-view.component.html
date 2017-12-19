@@ -32,14 +32,14 @@
 
 
             <div class="row">
-              <div class="col-lg-4">
+              <div class="col-lg-6">
 
 
                 <div class="row" style="text-align: left">
                   <hr>
 
                   <div class="col-xs-6 text-left">
-                    Status
+                    <b>Status</b>
                   </div>
                   <div class="col-xs-6 text-right" *ngIf="pool?.blockchain">
                     <b [style.color]="getColor(pool?.blockchain?.approved)">{{pool?.blockchain?.approved===0?'Pending':'Approved'}}</b>
@@ -49,10 +49,12 @@
                   <hr>
 
                   <div class="col-xs-6 text-left">
-                    Maximum
+                    <b>Maximum</b>
+
+
                   </div>
                   <div class="col-xs-6 text-right">
-                    <b>{{pool?.maximum}}</b>
+                    <span class="text-gray">{{pool?.maximum}}</span>
                   </div>
                 </div>
 
@@ -60,10 +62,12 @@
                   <hr>
 
                   <div class="col-xs-6 text-left">
-                    EstimateUnit
+                    <b>EstimateUnit</b>
+
+
                   </div>
                   <div class="col-xs-6 text-right">
-                    <b>{{pool?.estimateUnit}}</b>
+                    <span class="text-gray">{{pool?.estimateUnit}}</span>
                   </div>
                 </div>
 
@@ -72,15 +76,17 @@
                   <hr>
 
                   <div class="col-xs-6 text-left">
-                    Unlock condition
+                    <b>Unlock condition</b>
+
+
                   </div>
                   <div class="col-xs-6 text-right" >
-                    <b>{{pool?.blockchain?.unlockCondition}}</b>
+                    <span class="text-gray">{{pool?.blockchain?.unlockCondition}}</span>
                   </div>
                 </div>
 
               </div>
-              <div class="col-lg-4" >
+              <div class="col-lg-6" >
 
 
 
@@ -88,10 +94,12 @@
                   <hr>
 
                   <div class="col-xs-6 text-left">
-                    EstimatePrice
+                    <b>EstimatePrice</b>
+
+
                   </div>
                   <div class="col-xs-6 text-right">
-                    <b>{{pool?.estimatePrice}}</b>
+                    <span class="text-gray">{{pool?.estimatePrice}}</span>
                   </div>
                 </div>
 
@@ -104,10 +112,12 @@
                 <hr>
 
                 <div class="col-xs-6 text-left">
-                  Chain Asset?
+                  <b>Chain Asset?</b>
+
+
                 </div>
                 <div class="col-xs-6 text-right" >
-                  <b>{{pool?.chainOrNot===true?'Yes':'No'}}</b>
+                  <span class="text-gray">{{pool?.chainOrNot===true?'Yes':'No'}}</span>
                 </div>
               </div>
 
@@ -116,24 +126,47 @@
                   <hr>
 
                   <div class="col-xs-6 text-left">
-                    Number of assets
+                    <b>Number of assets</b>
+
+
                   </div>
                   <div class="col-xs-6 text-right" >
-                    <b>{{pool?.assetsId?.length}}</b>
+                    <span class="text-gray">{{pool?.assetsId?.length}}</span>
                   </div>
+
                 </div>
 
 
+                <div class="row" style="text-align: left">
+                  <hr>
 
+                  <div class="col-xs-6 text-left">
+                    <b>Estimate Price</b>
+
+
+                  </div>
+                  <div class="col-xs-6 text-right" >
+                    <span class="text-gray">{{pool?.estimatePrice}}</span>
+                  </div>
+
+                </div>
 
 
               </div>
 
             </div>
 
+            <div class="row" style="text-align: left">
+              <hr>
+
+              <div class="col-xs-12 text-center">
+                <h5><b>Description</b></h5>
+                <p class="text-gray">{{pool?.desc}}</p>
+
+              </div>
 
 
-
+            </div>
 
             <div class="row" style="text-align: center">
 
@@ -145,6 +178,46 @@
               </div>
 
             </div>
+
+            <div class="row" style="text-align: center">
+
+              <div class="col-xs-12">
+
+                <h3>Assets Evidences</h3>
+                <hr>
+
+                  <div class="row">
+                    <div class="col-xs-12 col-md-6" *ngFor="let asset of pool.assets;let i=index" >
+                      <h4 class="text-gray text-center">Asset {{i+1}}</h4>
+                      <carousel>
+                        <slide *ngFor="let evidence of asset.evidences" style="height:350px;">
+                          <img [src]="evidence.url" alt="First slide" style="display: block; width: 100%;">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h3>{{asset?.name}}</h3>
+                            <p>{{asset?.user?.name}}</p>
+
+                            <button class="btn btn-primary" *ngIf="evidence && evidence.status==='rejected'">Rejected</button>
+
+                            <button class="btn btn-primary" *ngIf="evidence && evidence.status==='approved'">Approved</button>
+
+                            <button class="btn btn-primary" *ngIf="evidence && evidence.status==='pending'">Pending</button>
+                          </div>
+                        </slide>
+
+                      </carousel>
+                    </div>
+                  </div>
+
+
+
+
+              </div>
+
+
+            </div>
+
+
+
           </div>
 
 
@@ -154,4 +227,62 @@
       </div>
     </div>
   </div>
+
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">ISSUE TOKEN</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form name="loginForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label" style="font-size: 14px;">Maximum</label>
+              <input [disabled]="true" type="text" [(ngModel)]="selectedPool.maximum" name="maximum" class="form-control" >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label" style="font-size: 14px;">Currency</label>
+              <input [disabled]="true" type="text" [(ngModel)]="selectedPool.blockchain.currency" name="currency" class="form-control" >
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label" style="font-size: 14px;">Issue Number</label>
+              <input type="text"  [(ngModel)]="token.amount"  name="amount" class="form-control" >
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label" style="font-size: 14px;">Exchange rate</label>
+              <input type="text"  [(ngModel)]="token.exchangeRate"  name="exchangeRate" class="form-control" >
+            </div>
+          </div>
+
+        </div>
+
+
+        <button
+                [disabled]="issueTokenHttpStatus==='pending'"
+                type="submit"
+                (click)="issueToken(selectedPool)"
+                class="btn btn-danger pull-right">SUBMIT</button>
+        <div class="clearfix"></div>
+      </form>
+
+    </div>
+  </ng-template>
+
 </div>

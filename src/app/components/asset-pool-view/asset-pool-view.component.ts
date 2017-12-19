@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {WalletService} from "../../services/wallet.service";
 import 'rxjs/add/operator/concatMap';
@@ -8,18 +8,33 @@ import {IserviceError} from "../../interface/serviceError.interface";
 import {AssetsPoolService} from "../../services/assets-pool.service";
 import 'rxjs/add/operator/do';
 import {Location} from '@angular/common';
-
+import { Observable } from 'rxjs/Observable';
+import { forkJoin } from "rxjs/observable/forkJoin";
+import 'rxjs/add/operator/concatMap';
+import {environment} from '../../../environments/environment'
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 @Component({
   selector: 'app-asset-pool-view',
   templateUrl: './asset-pool-view.component.html',
   styleUrls: ['./asset-pool-view.component.css']
 })
 export class AssetPoolViewComponent implements OnInit {
+    modalRef: BsModalRef;
 
-  pool={blockchain:null};
-    constructor(private location: Location,private activatedRoute:ActivatedRoute,private assetPoolService:AssetsPoolService,private toastService:ToastService)
+  pool={blockchain:null,assetsId:[],assets:[]};
+    constructor(private location: Location,
+                private modalService: BsModalService,
+                private activatedRoute:ActivatedRoute,
+                private assetService:AssetsService,
+                private assetPoolService:AssetsPoolService,
+                private toastService:ToastService)
     { }
 
+    openModal(template: TemplateRef<any>,selectedPool) {
+        this.modalRef = this.modalService.show(template);
+
+    }
     goBack(){
         this.location.back();
 
@@ -30,6 +45,8 @@ export class AssetPoolViewComponent implements OnInit {
             return this.assetPoolService.getPoolById(param.assetPoolId);
         }).do((pool:any)=>{
           this.pool=pool;
+          this.pool.assets=[];
+          this.getAssetsById();
           console.log(pool)
         }).concatMap((pool)=>{
           const name=pool.issuerName+'.'+pool.currency;
@@ -40,6 +57,34 @@ export class AssetPoolViewComponent implements OnInit {
         },(err)=>{
           console.log(err);
         })
+    }
+
+    getAssetsById(){
+
+        const arr=[];
+        this.pool.assetsId.forEach((id)=>{
+            arr.push(this.assetService.getAssetByid(id));
+        });
+
+
+        forkJoin(arr).subscribe((results:any[]) => {
+
+            for(let i=0;i<results.length;i++){
+                if(results[i].evidences)
+                results[i].evidences.forEach((evidence)=>{
+                    evidence.url=environment.apiURL+':'+environment.apiPORT+evidence.url;
+                });
+                this.pool.assets.push(results[i])
+            }
+
+
+            console.log('pool after getiinbg theor assets')
+            console.log(this.pool)
+
+
+        },(err)=>{
+
+        });
     }
     getColor(status:string){
         status=String(status);

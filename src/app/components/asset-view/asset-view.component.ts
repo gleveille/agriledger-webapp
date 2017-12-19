@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {WalletService} from "../../services/wallet.service";
 import 'rxjs/add/operator/concatMap';

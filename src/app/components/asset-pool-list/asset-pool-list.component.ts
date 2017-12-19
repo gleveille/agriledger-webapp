@@ -126,6 +126,7 @@ export class AssetPoolListComponent implements OnInit {
 
         const length=pools.length;
         for(let i=0;i<length;i++){
+            if(results[i].constructor === Object && Object.keys(results[i]).length > 0 )
             this.pools[i].blockchain=results[i];
         }
 

@@ -56,6 +56,9 @@ import {TranslationService} from "./services/translation.service";
 import { UserCreateComponent } from './components/user-create/user-create.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { ImagePopupComponent } from './image-popup/image-popup.component';
+import { AccordionModule } from 'ngx-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/translations/', '.json');
@@ -87,7 +90,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TransferComponent,
     UserCreateComponent,
     UserUpdateComponent,
-    UserListComponent
+    UserListComponent,
+    ImagePopupComponent
 
   ],
   imports: [
@@ -99,7 +103,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     ToastyModule.forRoot(),
     NgProgressModule,
+      AccordionModule.forRoot(),
       ModalModule.forRoot(),
+      CarouselModule.forRoot(),
       AlertModule.forRoot(),
       TranslateModule.forRoot({
           loader: {

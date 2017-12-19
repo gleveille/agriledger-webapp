@@ -114,8 +114,8 @@
                                         <div class="row" style="text-align: center">
 
                                             <div class="col-xs-12">
-                                                <button  [disabled]="!pool.blockchain || pool.blockchain?.approved===0" class="btn btn-info " (click)="openModal(template,pool)">ISSUE</button>
-                                                <button  [disabled]="!pool.blockchain || pool.blockchain?.approved===0" class="btn btn-success " [routerLink]="['/dashboard','tokens',pool?.id]">ISSUED</button>
+                                                <button  [disabled]="!pool.blockchain || pool.blockchain.approved===0" class="btn btn-info " (click)="openModal(template,pool)">ISSUE</button>
+                                                <button  [disabled]="!pool.blockchain || pool.blockchain.approved===0" class="btn btn-success " [routerLink]="['/dashboard','tokens',pool?.id]">ISSUED</button>
 
                                             </div>
 
@@ -126,7 +126,7 @@
                                     <div class="card-footer">
                                         <div class="stats">
                                             <i class="material-icons text-danger">update</i>
-                                            <a href="javascript:void(0)">{{pool.created|date:'medium'}}</a>
+                                            <a href="javascript:void(0)">{{pool.created|moment}}</a>
                                         </div>
                                     </div>
 
