@@ -87,7 +87,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TransferComponent,
     UserCreateComponent,
     UserUpdateComponent,
-    UserListComponent,
+    UserListComponent
 
   ],
   imports: [

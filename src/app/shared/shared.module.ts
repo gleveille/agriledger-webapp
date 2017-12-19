@@ -12,6 +12,8 @@ import { ContactComponent } from './contact/contact.component';
 import {XasPipe} from "../pipes/xas.pipe";
 import {TxnTypePipe} from "../pipes/txn-type.pipe";
 import {TruncateBalancePipe} from "../pipes/truncate-balance.pipe";
+import {MomentPipe} from "../pipes/moment.pipe";
+import {OnboardingStatusPipe} from "../pipes/onboarding-status.pipe";
 
 @NgModule({
   imports: [
@@ -28,6 +30,8 @@ import {TruncateBalancePipe} from "../pipes/truncate-balance.pipe";
     ContactComponent,
     XasPipe,
     TxnTypePipe,
+    MomentPipe,
+    OnboardingStatusPipe,
     TruncateBalancePipe
   ],
   exports: [
@@ -36,6 +40,8 @@ import {TruncateBalancePipe} from "../pipes/truncate-balance.pipe";
     SidebarComponent,
     XasPipe,
     TxnTypePipe,
+    MomentPipe,
+    OnboardingStatusPipe,
     TruncateBalancePipe
   ]
 })

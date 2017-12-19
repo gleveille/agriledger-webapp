@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Iuser} from "../../interface/user.interface";
 import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
+import {stat} from "fs";
 
 @Component({
   selector: 'app-user-list',
@@ -14,6 +15,7 @@ export class UserListComponent implements OnInit {
   roleFilters=[
       {name:'Farmer',value:'farmer',type:'role'},
       {name:'Sponsor',value:'sponsor',type:'role'},
+      {name:'Sponsor',value:'ops',type:'role'},
       {name:'All',value:'all',type:'role'}
       ];
     dateFilters=[
@@ -21,18 +23,22 @@ export class UserListComponent implements OnInit {
         {name:'Last to recent',value:'createdAt',type:'date',sortOrder:'ASC'}
     ];
     onboardingFilters=[
-        {name:'Unchanged Password',value:'createdAt',type:'date',sortOrder:'DESC'},
-        {name:'',value:'createdAt',type:'date',sortOrder:'ASC'}
+        {name:'password changed',value:'isPasswordChanged',type:'onboarding',sortOrder:'ASC'},
+        {name:'Account created',value:'isRegisteredOnBlockchain',type:'onboarding',sortOrder:'ASC'},
+        {name:'Onboarding completed',value:'isIssuerOnBlockchain',type:'onboarding',sortOrder:'DESC'},
+        {name:'ALL',value:'all',type:'onboarding',sortOrder:'DESC'},
+
+
     ];
   usersHttpSstatus:string='resolved';
   constructor(private userService:UserService,private toastService:ToastService) { }
 
   ngOnInit() {
-    this.getUsers();
+    this.getAllUsers();
   }
 
 
-  getUsers(){
+    getAllUsers(){
     this.usersHttpSstatus='pending'
     this.userService.getUsers().subscribe((users:Iuser[])=>{
         this.users=users;
@@ -45,7 +51,51 @@ export class UserListComponent implements OnInit {
     })
   }
 
-    getByFilter(type:string,value:string,sortOrder:string){
+    getUsersByRole(role:string){
+        this.usersHttpSstatus='pending'
+        this.userService.getUsersByRole(role).subscribe((users:Iuser[])=>{
+            this.users=users;
+            console.log(this.users)
+            this.usersHttpSstatus='resolved'
+        },(err)=>{
+            this.usersHttpSstatus='rejected'
+            if(err.showError)
+                this.toastService.error('Users',err.message);
+        })
+    }
 
+
+    getUsersByOnboardingStatus(status:string){
+        this.usersHttpSstatus='pending'
+        this.userService.getUsersByOnboardingStatus(status).subscribe((users:Iuser[])=>{
+            this.users=users;
+            console.log(this.users)
+            this.usersHttpSstatus='resolved'
+        },(err)=>{
+            this.usersHttpSstatus='rejected'
+            if(err.showError)
+                this.toastService.error('Users',err.message);
+        })
+    }
+
+
+    getByFilter(type:string,value:string,sortOrder:string){
+        console.log(type,value,sortOrder)
+      if(type==='role'){
+            if(value==='all')
+                this.getAllUsers();
+            else
+                this.getUsersByRole(value);
+        }
+        else if(type==='date'){
+           // this.getUsersByOnboardingStatus(value);
+        }
+
+        else if(type==='onboarding'){
+          if(value==='all')
+              this.getAllUsers();
+          else
+            this.getUsersByOnboardingStatus(value);
+        }
     }
 }

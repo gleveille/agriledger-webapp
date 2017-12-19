@@ -151,6 +151,34 @@ export class UserService {
             });
     }
 
+
+    getUsersByOnboardingStatus(status:string){
+        if(!status){
+            return Observable.throw('status is not found');
+        }
+
+        let url;
+
+        if(status==='isPasswordChanged'){
+            url=`${UserApi.list.url()}?filter[where][isPasswordChanged]=true&filter[where][isRegisteredOnBlockchain]=false`;
+        }
+
+        if(status==='isRegisteredOnBlockchain'){
+            url=`${UserApi.list.url()}?filter[where][isRegisteredOnBlockchain]=true&filter[where][isIssuerOnBlockchain]=false`;
+        }
+        if(status==='isIssuerOnBlockchain'){
+            url=`${UserApi.list.url()}?filter[where][isIssuerOnBlockchain]=true`;
+        }
+        return this.http.get(`${url}`)
+            .do((farmers:any)=>{
+                console.log(farmers);
+            })
+            .catch((res)=> {
+                return this.errorHandler.handle(res);
+            });
+    }
+
+
     getBlockchainAccountDuringOnboarding(){
 
         console.log('user is')
