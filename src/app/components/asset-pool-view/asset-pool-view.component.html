@@ -195,6 +195,8 @@
                           <div class="carousel-caption d-none d-md-block">
                             <h3>{{asset?.name}}</h3>
                             <p>{{asset?.user?.name}}</p>
+                            <p>{{evidence?.date|moment}}</p>
+                            <p>{{evidence?.hash}}</p>
 
                             <button class="btn btn-primary" *ngIf="evidence && evidence.status==='rejected'">Rejected</button>
 
