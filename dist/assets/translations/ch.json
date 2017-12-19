@@ -1,0 +1,10 @@
+{
+  "SIGNIN": "签到",
+  "SIGNIN_DESCRIPTION":"使用AgriLedger团队提供的凭据",
+  "Email":"电子邮件",
+  "Password":"密码",
+  "ACCOUNT_CREATE":"创建一个帐户",
+  "REGISTER_ON_BLOCKCHAIN":"注册自己的区块链",
+  "SPONSOR_NAME":"赞助商名称",
+  "Create":"创建"
+}
