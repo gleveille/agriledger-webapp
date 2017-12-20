@@ -5,6 +5,7 @@ import 'rxjs/add/operator/concatMap';
 import {AssetsService} from "../../services/assets.service";
 import {ToastService} from "../../services/toast.service";
 import {IserviceError} from "../../interface/serviceError.interface";
+import {environment} from '../../../environments/environment'
 
 @Component({
   selector: 'app-asset-view',
@@ -13,7 +14,7 @@ import {IserviceError} from "../../interface/serviceError.interface";
 })
 export class AssetViewComponent implements OnInit {
 
-  asset={user:{},status:null};
+  asset={user:{},status:null,evidences:[]};
   constructor(private activatedRoute:ActivatedRoute,
               private assetService:AssetsService,private toastService:ToastService) { }
 
@@ -25,6 +26,9 @@ export class AssetViewComponent implements OnInit {
       }).subscribe((asset)=>{
         this.asset=asset;
         console.log(asset)
+          this.asset.evidences.forEach((evidence)=>{
+              evidence.url=environment.apiURL+':'+environment.apiPORT+evidence.url;
+          });
       },(err)=>{
         console.log(err);
       })

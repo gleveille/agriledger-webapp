@@ -197,9 +197,13 @@
                   <td>
                     <span style="position:relative;top:-3px;">{{asset?.name}}</span></td>
                   <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.expectedHarvestAmount}}</td>
+
+
                   <td style="cursor: pointer" [routerLink]="['../assets',asset.id]" ata-toggle="tooltip" data-placement="left"
                       title="{{asset?.createdAt|date:'medium'}}">
-                    {{asset?.createdAt|moment}}</td>
+                    {{asset?.createdAt|moment}}
+                  </td>
+
                   <td style="cursor: pointer" [routerLink]="['../assets',asset.id]" ata-toggle="tooltip" data-placement="left"
                       title="{{asset?.expectedHarvestDate|date:'medium'}}">
                     {{asset?.expectedHarvestDate|moment}}</td>
