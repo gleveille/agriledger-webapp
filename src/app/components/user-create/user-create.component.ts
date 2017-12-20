@@ -30,7 +30,7 @@ export class UserCreateComponent implements OnInit {
 
       const all = specials + lowercase + uppercase + numbers;
 
-      String.prototype.pick = function(min, max) {
+      function pick(str,min, max) {
           let n, chars = '';
 
           if (typeof max === 'undefined') {
@@ -40,16 +40,15 @@ export class UserCreateComponent implements OnInit {
           }
 
           for (let i = 0; i < n; i++) {
-              chars += this.charAt(Math.floor(Math.random() * this.length));
+              chars += str.charAt(Math.floor(Math.random() * str.length));
           }
 
           return chars;
       };
 
 
-// Credit to @Christoph: http://stackoverflow.com/a/962890/464744
-      String.prototype.shuffle = function() {
-          let array = this.split('');
+      function shuffle(str) {
+          let array = str.split('');
           let tmp, current, top = array.length;
 
           if (top) while (--top) {
@@ -62,7 +61,11 @@ export class UserCreateComponent implements OnInit {
           return array.join('');
       };
 
-      let password = (specials.pick(2) + lowercase.pick(4) + uppercase.pick(2)).shuffle();
+     let  password=this.passwordRetyped+pick(lowercase,6,undefined)
+      password=password+this.passwordRetyped+pick(uppercase,1,undefined)
+      password=password+this.passwordRetyped+pick(specials,1,undefined)
+      password=shuffle(password);
+
       this.user.password=password;
       this.passwordRetyped=password;
 
