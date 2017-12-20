@@ -25,6 +25,8 @@
 
                     <label class="control-label required" style="font-size: 14px;">Description</label>
                     <input [(ngModel)]="issuer.description"  name="description" type="text" class="form-control" >
+                    <label class="control-label required" style="font-size: 14px;">Fee</label>
+                    <input [disabled]="true" [(ngModel)]="fee"  name="fee" type="text" class="form-control" >
                   </div>
 
                 </div>

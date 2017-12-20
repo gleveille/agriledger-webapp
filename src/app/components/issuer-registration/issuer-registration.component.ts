@@ -18,6 +18,7 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
     issuer={name:null,description:null};
     toast={} as ToastData;
     timer:any=null;
+    fee:string='100 ACC';
     subscription:Subscription;
     issuerRequestStatus='resolved';
     constructor(private userService:UserService,private router:Router,private toastyService:ToastyService) { }
