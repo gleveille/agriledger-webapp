@@ -43,7 +43,14 @@ export class AssetPoolListComponent implements OnInit {
 
       this.userService.getUser().subscribe((user:Iuser)=>{
           this.user=user;
-          this.getMyPools();
+          if(user.role==='sponsor'){
+              this.getMyPools();
+
+          }
+          else{
+              this.getOtherPools();
+
+          }
 
       },(err)=>{
           console.log(err);

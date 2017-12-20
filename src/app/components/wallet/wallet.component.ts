@@ -30,6 +30,7 @@ export class WalletComponent implements OnInit {
   getUser(){
         this.userService.getUser().subscribe((user:Iuser)=>{
             this.user=user;
+            console.log(this.user)
             if(user && user.publicKey && user.walletAddress){
                 this.getAccount();
                 this.getTransactions(user.publicKey,user.walletAddress)
