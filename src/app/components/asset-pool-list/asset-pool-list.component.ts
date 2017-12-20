@@ -13,6 +13,7 @@ import 'rxjs/add/operator/concatMap';
 import {Iuser} from "../../interface/user.interface";
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import {userInfo} from "os";
 @Component({
   selector: 'app-asset-pool-list',
   templateUrl: './asset-pool-list.component.html',
@@ -20,6 +21,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class AssetPoolListComponent implements OnInit {
     modalRef: BsModalRef;
+
+    user={} as Iuser;
 
   pools=[];
     assetPoolHttpSstatus='resolved';
@@ -38,7 +41,13 @@ export class AssetPoolListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getMyPools();
+      this.userService.getUser().subscribe((user:Iuser)=>{
+          this.user=user;
+          this.getMyPools();
+
+      },(err)=>{
+          console.log(err);
+      })
 
   }
 

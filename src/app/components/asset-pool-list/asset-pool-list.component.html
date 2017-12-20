@@ -2,8 +2,8 @@
     <div class="container-fluid">
 
         <ul class="nav nav-pills nav-pills-info">
-            <li  class="active"><a href="javascript:void(0)" (click)="getMyPools()"  data-toggle="tab">Mine</a></li>
-            <li><a (click)="getOtherPools();" href="javascript:void(0)" data-toggle="tab">ALL</a></li>
+            <li *ngIf="user.role==='sponsor'"  class="active"><a href="javascript:void(0)" (click)="getMyPools()"  data-toggle="tab">Mine</a></li>
+            <li [ngClass]="{'active':user.role==='ops'}"><a (click)="getOtherPools();" href="javascript:void(0)" data-toggle="tab">ALL</a></li>
         </ul>
             <div class="card" style="margin-top: 50px;">
                 <div class="card-header" data-background-color="green">
