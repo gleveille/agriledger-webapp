@@ -261,7 +261,7 @@ export class AssetsComponent implements OnInit {
     getColorForPoolStatus(status:boolean){
         switch (status){
             case true:
-                return 'green';
+                return 'blue';
             case false:
                 return 'black';
             default:
