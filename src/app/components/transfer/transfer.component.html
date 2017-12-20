@@ -22,7 +22,9 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="control-label" style="font-size: 14px;">Recipient Address (Underwriter at the e-commerce marketplace)</label>
+                    <label class="control-label" style="font-size: 14px;">Recipient Address
+                      <span *ngIf="user.role==='sponsor'">(Underwriter at the e-commerce marketplace)</span>
+                    </label>
                     <input type="text" [(ngModel)]="transaction.toAddress" name="toAddress" class="form-control" >
                   </div>
                 </div>
