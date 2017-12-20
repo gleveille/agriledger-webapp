@@ -13,7 +13,6 @@ import 'rxjs/add/operator/concatMap';
 import {Iuser} from "../../interface/user.interface";
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import {userInfo} from "os";
 @Component({
   selector: 'app-asset-pool-list',
   templateUrl: './asset-pool-list.component.html',
