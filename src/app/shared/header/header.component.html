@@ -12,7 +12,7 @@
                     <li *ngIf="isAuthenticated">
 
                         <a href="javascript:void(0)">
-                            <b >Balance ({{balance}} ACC)</b>
+                            <b *ngIf="balance">Balance ({{balance}}.00 ACC)</b>
                         </a>
                     </li>
 

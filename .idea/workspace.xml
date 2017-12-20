@@ -2,62 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/img/default-avatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/img/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/img/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/material-dashboard.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_alerts.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_buttons.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_cards.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_chartist.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_checkboxes.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_colors.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_dialogs.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_dropdown.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_footers.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_forms.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_inputs-size.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_inputs.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_misc.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_mixins.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_navbars.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_pills.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_popups.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_radios.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_responsive.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_ripples.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_shadows.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_sidebar-and-main-panel.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_tables.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_tabs.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_togglebutton.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_typography.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_variables.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/mixins/_chartist.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/mixins/_transparency.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/mixins/_vendor-prefixes.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/plugins/_animate.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/plugins/_plugin-nouislider.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/translations/ch.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/translations/en.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.448c34a56d699c29117a.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.89889688147bd7575d63.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.fa2772327f55d8198301.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/inline.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/inline.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/main.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/main.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/polyfills.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/polyfills.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/vendor.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/vendor.bundle.js.map" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts" afterPath="$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/user.service.ts" afterPath="$PROJECT_DIR$/src/app/services/user.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/shared/header/header.component.html" afterPath="$PROJECT_DIR$/src/app/shared/header/header.component.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -75,8 +21,8 @@
       <file leaf-file-name="asset-pool-list.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-list/asset-pool-list.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="-450">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
                 <element signature="e#0#79#0" expanded="true" />
                 <element signature="n#!!block;n#issueToken#0;n#AssetPoolListComponent#0" expanded="false" />
@@ -89,13 +35,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-create.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts">
+      <file leaf-file-name="account.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/account/account.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="65" column="24" lean-forward="false" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-create.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="71" column="3" lean-forward="true" selection-start-line="71" selection-start-column="3" selection-end-line="71" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/header/header.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="45" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.service.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/services/user.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="199" column="38" lean-forward="true" selection-start-line="199" selection-start-column="38" selection-end-line="199" selection-end-column="38" />
+              <folding>
+                <element signature="n#!!block;n#getUser#0;n#UserService#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -228,7 +208,6 @@
         <option value="$PROJECT_DIR$/src/app/pipes/truncate-balance.pipe.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/src/app/shared/header/header.component.html" />
         <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/account-activation/account-activation.component.ts" />
@@ -258,7 +237,6 @@
         <option value="$PROJECT_DIR$/src/app/moment.pipe.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/shared.module.ts" />
         <option value="$PROJECT_DIR$/src/app/pipes/onboarding-status.pipe.ts" />
-        <option value="$PROJECT_DIR$/src/app/services/user.service.ts" />
         <option value="$PROJECT_DIR$/src/app/components/user-list/user-list.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/user-list/user-list.component.ts" />
         <option value="$PROJECT_DIR$/src/app/image-popup/image-popup.component.ts" />
@@ -276,6 +254,8 @@
         <option value="$PROJECT_DIR$/src/app/components/wallet/wallet.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/asset-pool-list/asset-pool-list.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/header/header.component.html" />
+        <option value="$PROJECT_DIR$/src/app/services/user.service.ts" />
       </list>
     </option>
   </component>
@@ -355,6 +335,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="asset-pool-list" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -386,7 +374,22 @@
               <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -454,12 +457,12 @@
       <workItem from="1512709261989" duration="20380000" />
       <workItem from="1513061823475" duration="26818000" />
       <workItem from="1513592698507" duration="694000" />
-      <workItem from="1513598575556" duration="27241000" />
+      <workItem from="1513598575556" duration="29124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="337894000" />
+    <option name="totallyTimeSpent" value="339777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -499,20 +502,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/services/wallet.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="927">
@@ -781,16 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/user.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="104" column="48" lean-forward="false" selection-start-line="104" selection-start-column="48" selection-end-line="104" selection-end-column="48" />
-          <folding>
-            <element signature="n#!!block;n#getUser#0;n#UserService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-list/asset-pool-list.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -939,10 +918,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="71" column="3" lean-forward="true" selection-start-line="71" selection-start-column="3" selection-end-line="71" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="45" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-list/asset-pool-list.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="-450">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="e#0#79#0" expanded="true" />
             <element signature="n#!!block;n#issueToken#0;n#AssetPoolListComponent#0" expanded="false" />
@@ -954,12 +951,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/components/account/account.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="65" column="24" lean-forward="false" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/user.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="199" column="38" lean-forward="true" selection-start-line="199" selection-start-column="38" selection-end-line="199" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!block;n#getUser#0;n#UserService#0" expanded="false" />
           </folding>
         </state>
       </provider>
