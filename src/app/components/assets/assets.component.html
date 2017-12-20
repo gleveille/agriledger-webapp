@@ -6,190 +6,181 @@
         <div class="card">
           <div class="card-header" data-background-color="green">
               <h4 class="title">Assets</h4>
-              <p class="category">
-                <button class="btn btn-danger"  (click)="goToCreateAssetPoolPage()" >Create Asset Pool</button>
+          </div>
+          <div class="row" style="padding: 15px;">
+            <div class="col-xs-12" >
+              <div class="dropdown" style="float: left">
+                <a  href="javascript:void(0)" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Filter
+                  <span style="font-weight: bolder" *ngIf="selectedFilter">
+                    ({{selectedFilter}})
+                </span>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let filter of filters">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="filterChange(filter.value)">
+                      {{filter.name}}
+                    </a>
+                  </li>
 
-              </p>
 
+
+
+                </ul>
+              </div>
+
+            </div>
 
 
           </div>
+          <div class="row"  style="padding: 15px;" *ngIf="selectedFilter==='category'">
+            <div class="col-xs-12" >
+              <div class="dropdown" style="float: left">
+                <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
+                  Category 1
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelOne[selectedIndexOnLevelOne]?.attrs[chosenLang]">
+                  ({{assetCategoriesLevelOne[selectedIndexOnLevelOne]?.attrs[chosenLang]}})
+                </span>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let c of assetCategoriesLevelOne;let i=index">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,0,i)">
+                      {{c.attrs[chosenLang]}}
+                    </a>
+                  </li>
 
-          <section *ngIf="categoryHttpReequestStatus==='rejected' || categoryHttpReequestStatus==='pending'">
+
+
+
+                </ul>
+              </div>
+
+
+              <div class="dropdown" style="float: left" >
+                <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
+                  Category 2
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.attrs[chosenLang]">
+                  ({{assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.attrs[chosenLang]}})
+                </span>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let c of assetCategoriesLevelTwo;let i=index">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,1,i)">
+                      {{c.attrs[chosenLang]}}
+                    </a>
+                  </li>
+
+
+                </ul>
+              </div>
+
+              <div class="dropdown" style="float: left" >
+                <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
+                  Category 3
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelThree[selectedIndexOnLevelThree]?.attrs[chosenLang]">
+
+                  ({{assetCategoriesLevelThree[selectedIndexOnLevelThree]?.attrs[chosenLang]}})
+                  </span>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let c of assetCategoriesLevelThree;let i=index">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,2,i)">
+                      {{c.attrs[chosenLang]}}
+                    </a>
+                  </li>
+
+
+                </ul>
+              </div>
+
+
+
+
+              <div class="dropdown" style="float: left" >
+                <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
+                  Category 4
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelFour[selectedIndexOnLevelFour]?.attrs[chosenLang]">
+                    ({{assetCategoriesLevelFour[selectedIndexOnLevelFour]?.attrs[chosenLang]}})
+
+                  </span>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let c of assetCategoriesLevelFour;let i=index">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,3,i)">
+                      {{c.attrs[chosenLang]}}
+                    </a>
+                  </li>
+
+
+                </ul>
+              </div>
+
+
+              <div class="dropdown" style="float: left">
+                <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
+                  Category 5
+                  <span style="font-weight: bolder" *ngIf="assetCategoriesLevelFive[selectedIndexOnLevelFive]?.attrs[chosenLang]">
+                   ({{assetCategoriesLevelFive[selectedIndexOnLevelFive]?.attrs[chosenLang]}})
+                  </span>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let c of assetCategoriesLevelFive;let i=index">
+                    <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,4,i)">
+                      {{c.attrs[chosenLang]}}
+                    </a>
+                  </li>
+
+
+                </ul>
+              </div>
+
+
+
+
+            </div>
+
+          </div>
+          <section *ngIf="assetsRequestStatus==='rejected' || assetsRequestStatus==='pending'">
 
             <div class="row">
               <div class="col-xs-12">
                 <div class="card-content table-responsive">
-                  <app-error-show *ngIf="categoryHttpReequestStatus==='rejected'" [error]="'Category could not be fetched.Try again!'">
+                  <app-error-show *ngIf="assetsRequestStatus==='rejected'" [error]="'Assets could not be fetched.Try again!'">
 
                   </app-error-show>
 
-                  <app-spinner *ngIf="categoryHttpReequestStatus==='pending'" [type]="'bounce'"></app-spinner>
+                  <app-spinner *ngIf="assetsRequestStatus==='pending'" [type]="'bounce'"></app-spinner>
                 </div>
               </div>
             </div>
 
           </section>
 
-          <section *ngIf="categoryHttpReequestStatus==='resolved'">
-            <div class="row" style="padding: 15px;">
-              <div class="col-xs-12">
-                <div class="dropdown" style="float: left">
-                  <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
-                    Category 1
-                    <span style="font-weight: bolder" *ngIf="assetCategoriesLevelOne[selectedIndexOnLevelOne]?.attrs[chosenLang]">
-                  ({{assetCategoriesLevelOne[selectedIndexOnLevelOne]?.attrs[chosenLang]}})
-                </span>
-                    <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li *ngFor="let c of assetCategoriesLevelOne;let i=index">
-                      <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,0,i)">
-                        {{c.attrs[chosenLang]}}
-                      </a>
-                    </li>
 
 
 
+            <div class="card-content table-responsive" *ngIf="assetsRequestStatus==='resolved' && assets.length ">
 
-                  </ul>
-                </div>
-
-
-                <div class="dropdown" style="float: left" >
-                  <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
-                    Category 2
-                    <span style="font-weight: bolder" *ngIf="assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.attrs[chosenLang]">
-                  ({{assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.attrs[chosenLang]}})
-                </span>
-                    <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li *ngFor="let c of assetCategoriesLevelTwo;let i=index">
-                      <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,1,i)">
-                        {{c.attrs[chosenLang]}}
-                      </a>
-                    </li>
-
-
-                  </ul>
-                </div>
-
-                <div class="dropdown" style="float: left" >
-                  <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
-                    Category 3
-                    <span style="font-weight: bolder" *ngIf="assetCategoriesLevelThree[selectedIndexOnLevelThree]?.attrs[chosenLang]">
-
-                  ({{assetCategoriesLevelThree[selectedIndexOnLevelThree]?.attrs[chosenLang]}})
-                  </span>
-                    <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li *ngFor="let c of assetCategoriesLevelThree;let i=index">
-                      <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,2,i)">
-                        {{c.attrs[chosenLang]}}
-                      </a>
-                    </li>
-
-
-                  </ul>
-                </div>
-
-
-                <div class="dropdown" style="float: left" >
-                  <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
-                    Category 4
-                    <span style="font-weight: bolder" *ngIf="assetCategoriesLevelFour[selectedIndexOnLevelFour]?.attrs[chosenLang]">
-                    ({{assetCategoriesLevelFour[selectedIndexOnLevelFour]?.attrs[chosenLang]}})
-
-                  </span>
-                    <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li *ngFor="let c of assetCategoriesLevelFour;let i=index">
-                      <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,3,i)">
-                        {{c.attrs[chosenLang]}}
-                      </a>
-                    </li>
-
-
-                  </ul>
-                </div>
-
-
-                <div class="dropdown" style="float: left">
-                  <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
-                    Category 5
-                    <span style="font-weight: bolder" *ngIf="assetCategoriesLevelFive[selectedIndexOnLevelFive]?.attrs[chosenLang]">
-                   ({{assetCategoriesLevelFive[selectedIndexOnLevelFive]?.attrs[chosenLang]}})
-                  </span>
-                    <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li *ngFor="let c of assetCategoriesLevelFive;let i=index">
-                      <a style="text-transform: capitalize" href="javascript:void(0)" (click)="onAssetCategoryLevelChange(c,4,i)">
-                        {{c.attrs[chosenLang]}}
-                      </a>
-                    </li>
-
-
-                  </ul>
-                </div>
-
-                <!--
-                              <button class="btn btn-success" *ngIf="deepestCategorySelected"  (click)="getAssets(lastCategoryId)" >SEARCH</button>
-                -->
-
-
-                <!--
-                              <div class="dropdown" style="float: left">
-                                <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
-                                  Filter by Status <span style="font-weight: bolder" [hidden]="!chosenStatus">({{chosenStatus}})</span>
-                                  <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="javascript:void(0)" (click)="getAssets('status','pending')">Pending</a></li>
-                                  <li><a href="javascript:void(0)" (click)="getAssets('status','verified')">Available</a></li>
-                                  <li><a href="javascript:void(0)" (click)="getAssets('status','pooled')">Pooled</a></li>
-
-                                </ul>
-                              </div>-->
-
-
-              </div>
-
-            </div>
-
-
-            <div class="card-content table-responsive">
-
-
-              <h3 class="text-center text-gray" *ngIf="!deepestCategorySelected ">
-                Select {{getLevelbyWord()}} category
-
-              </h3>
-
-              <h3 class="text-center text-gray" *ngIf="assetsRequestStatus==='resolved' && !assets.length && deepestCategorySelected ">
-                No Assets Available with the selected category!
-
-              </h3>
-
-              <app-error-show *ngIf="assetsRequestStatus==='rejected'" [error]="'Assets could not be fetched.Try again!'">
-
-              </app-error-show>
-
-              <app-spinner *ngIf="assetsRequestStatus==='pending'" [type]="'bounce'"></app-spinner>
-
-
-              <table class="table" *ngIf="assetsRequestStatus==='resolved' && assets.length ">
+              <table class="table" >
                 <thead  >
                 <tr >
-                  <th class="boldfont">Asset Name</th>
                   <th class="boldfont">Farmer Name</th>
 
-                  <th class="boldfont">Description</th>
-                  <th class="boldfont">Quantity</th>
-                  <th class="boldfont">Status</th>
+                  <th class="boldfont">Asset Category</th>
+
+                  <th class="boldfont">Asset Name</th>
+
+                  <th class="boldfont">Harvest amount</th>
+                  <th class="boldfont">Created on</th>
+
+                  <th class="boldfont">Harvest date</th>
+                  <th class="boldfont">Pooled</th>
 
                 </tr>
                 </thead>
@@ -198,25 +189,31 @@
 
 
                 <tr *ngFor="let asset of assets"  >
-                  <td><span>
-                  <input type="checkbox" [(ngModel)]="asset.isSelected">
-                </span>
-                    <span style="position:relative;top:-3px;">{{asset?.name}}</span></td>
                   <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.user?.name}}</td>
-                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.description}}</td>
 
-                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.quantity}}</td>
-                  <td [style.color]="getColor(asset.status)"
+                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.category?.level1}}</td>
+
+
+                  <td>
+                    <span style="position:relative;top:-3px;">{{asset?.name}}</span></td>
+                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.expectedHarvestAmount}}</td>
+                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]" ata-toggle="tooltip" data-placement="left"
+                      title="{{asset?.createdAt|date:'medium'}}">
+                    {{asset?.createdAt|moment}}</td>
+                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]" ata-toggle="tooltip" data-placement="left"
+                      title="{{asset?.expectedHarvestDate|date:'medium'}}">
+                    {{asset?.expectedHarvestDate|moment}}</td>
+                  <td [style.color]="getColorForPoolStatus(asset.isPutOnBlockchain)"
                       style="text-transform: capitalize;font-weight: bold;
                     cursor: pointer"
-                      [routerLink]="['../assets',asset.id]">{{asset?.status}}</td>
+                      [routerLink]="['../assets',asset.id]">
+                    {{asset.isPutOnBlockchain?'Yes' :'No'}}</td>
 
                 </tr>
                 </tbody>
               </table>
 
             </div>
-          </section>
 
         </div>
       </div>

@@ -75,7 +75,7 @@
             </form>
           </div>
 
-          <div class="padding" style="padding: 15px;">
+          <div class="padding" style="padding: 15px;" *ngIf="asset && !asset.isPutOnBlockchain">
             <div class="dropdown">
               <a  href="javascript:void(0)" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                 Change status <span style="font-weight: bolder" [hidden]="!asset.status">({{asset.status}})</span>

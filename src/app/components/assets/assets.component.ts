@@ -13,6 +13,10 @@ export class AssetsComponent implements OnInit {
 
   assetsRequestStatus='resolved';
   categoryHttpReequestStatus='resolved';
+  filters=[{name:'By Category',value:'category'},
+      {name:'By Status',value:'status'},
+      {name:'Reset Filter',value:'reset'}];
+  selectedFilter:string=null;
   assets:any[]=[];
     chosenLang = 1;
     selectedIndexOnLevelOne=null;
@@ -36,24 +40,26 @@ export class AssetsComponent implements OnInit {
 
   ngOnInit() {
 
-   // this.getAssets(null,null);
+    this.getAssets();
     this.getCategories(0);
   }
 
-    onAssetCategoryLevelChange(category:any, level:number,index:number) {
-        console.log(category)
-        console.log(level)
 
-        if (!category.hasChildren) {
-            this.deepestCategorySelected = true;
-            this.lastCategoryId = category.id;
-            this.getAssets(this.lastCategoryId);
+    filterChange(value:string){
+        if(value==='reset'){
+            this.reset();
             return;
         }
+        this.selectedFilter=value;
+
+    }
+    onAssetCategoryLevelChange(category:any, level:number,index:number) {
+        console.log(category)
+
+
         this.deepestCategorySelected = false;
 
 
-        this.assets=[];
 
         this.currentLevel=level;
         if(level===0){
@@ -85,36 +91,47 @@ export class AssetsComponent implements OnInit {
         }
 
 
-        this.assetsService.getCategories(category.id)
-            .subscribe((assetCategory: Array<any>) => {
-                console.log(assetCategory)
-                if (level === 0) {
-                    this.assetCategoriesLevelTwo = assetCategory;
-                    this.assetCategoriesLevelThree=[];
-                    this.assetCategoriesLevelFour=[];
-                    this.assetCategoriesLevelFive=[];
+        if (!category.hasChildren) {
+            this.deepestCategorySelected = true;
+            this.lastCategoryId = category.id;
+            this.getAssetsByCategoryId(this.lastCategoryId);
+            return;
+        }
+        else{
+            this.assetsService.getCategories(category.id)
+                .subscribe((assetCategory: Array<any>) => {
+                    console.log(assetCategory)
+                    if (level === 0) {
+                        this.assetCategoriesLevelTwo = assetCategory;
+                        this.assetCategoriesLevelThree=[];
+                        this.assetCategoriesLevelFour=[];
+                        this.assetCategoriesLevelFive=[];
 
-                }
-                if (level === 1) {
-                    this.assetCategoriesLevelThree = assetCategory;
-                    this.assetCategoriesLevelFour=[];
-                    this.assetCategoriesLevelFive=[];
+                    }
+                    if (level === 1) {
+                        this.assetCategoriesLevelThree = assetCategory;
+                        this.assetCategoriesLevelFour=[];
+                        this.assetCategoriesLevelFive=[];
 
-                }
-                if (level === 2) {
-                    this.assetCategoriesLevelFour = assetCategory;
-                    this.assetCategoriesLevelFive=[];
+                    }
+                    if (level === 2) {
+                        this.assetCategoriesLevelFour = assetCategory;
+                        this.assetCategoriesLevelFive=[];
 
-                }
+                    }
 
-                if (level === 3) {
-                    this.assetCategoriesLevelFive = assetCategory;
-                }
+                    if (level === 3) {
+                        this.assetCategoriesLevelFive = assetCategory;
+                    }
+                    console.log(level,index,this.selectedIndexOnLevelThree)
 
 
-            }, (err) => {
-                this.toastService.error('Category', 'Something went wrong');
-            })
+                }, (err) => {
+                    this.toastService.error('Category', 'Something went wrong');
+                })
+        }
+
+
 
 
 
@@ -142,6 +159,23 @@ export class AssetsComponent implements OnInit {
         return nextLevel;
     }
 
+    reset(){
+        this.deepestCategorySelected=false;
+        this.selectedIndexOnLevelOne=null;
+        this.selectedIndexOnLevelTwo=null;
+        this.selectedIndexOnLevelThree=null;
+        this.selectedIndexOnLevelFour=null;
+        this.selectedIndexOnLevelFive=null;
+        this.assetCategoriesLevelTwo = [];
+        this.assetCategoriesLevelThree = [];
+        this.assetCategoriesLevelFour = [];
+        this.assetCategoriesLevelFive = [];
+        this.currentLevel=null;
+        this.lastCategoryId=null;
+        this.selectedFilter=null;
+
+        this.getAssets();
+    }
 
 
   goToCreateAssetPoolPage(){
@@ -182,11 +216,11 @@ export class AssetsComponent implements OnInit {
           });
   }
 
-  getAssets(categoryId:string){
+    getAssetsByCategoryId(categoryId:string){
         console.log(categoryId);
 
         this.assetsRequestStatus='pending';
-        this.assetsService.getAssets(categoryId).subscribe((assets:any[])=>{
+        this.assetsService.getAssetsByCategoryId(categoryId).subscribe((assets:any[])=>{
             this.assetsRequestStatus='resolved';
 
             console.log(assets)
@@ -197,8 +231,20 @@ export class AssetsComponent implements OnInit {
             console.log( err);
         })
     }
+    getAssets(){
+        this.assetsRequestStatus='pending';
+        this.assetsService.getAssets().subscribe((assets:any[])=>{
+            this.assetsRequestStatus='resolved';
+            console.log(assets)
+            this.assets=assets;
+        },(err)=>{
+            this.assetsRequestStatus='rejected';
 
-  getColor(status:string){
+            console.log( err);
+        })
+    }
+
+  getColorForStatus(status:string){
         switch (status){
             case 'pending':
                 return 'black';
@@ -208,6 +254,16 @@ export class AssetsComponent implements OnInit {
                 return '#ff8b4c';
             case 'pooled':
                 return 'blue';
+            default:
+                return 'black';
+        }
+    }
+    getColorForPoolStatus(status:boolean){
+        switch (status){
+            case true:
+                return 'green';
+            case false:
+                return 'black';
             default:
                 return 'black';
         }

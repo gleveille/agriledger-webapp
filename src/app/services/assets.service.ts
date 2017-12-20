@@ -21,9 +21,19 @@ export class AssetsService {
     constructor(private http: HttpClient, private errorHandler: ErrorHandlerService, private userService: UserService) {
     }
 
-    getAssets(categoryId:string) {
+    getAssets() {
 
-      let url=`${AssetApi.getAssets.url()}?filter[where][categoryId]=${categoryId}&filter[where][isPutOnBlockchain]=${false}&filter[include]=user`;
+        let url=`${AssetApi.getAssets.url()}?filter[include]=user`;
+
+        return this.http.get(`${url}`)
+            .retry(3)
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
+    }
+    getAssetsByCategoryId(categoryId:string) {
+
+      let url=`${AssetApi.getAssets.url()}?filter[where][categoryId]=${categoryId}&filter[include]=user`;
 
         return this.http.get(`${url}`)
             .retry(3)
