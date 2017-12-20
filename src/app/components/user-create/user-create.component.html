@@ -13,6 +13,21 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Role</label>
+                    <select class="form-control "  name="role" [(ngModel)]="user.role">
+
+                      <option *ngFor="let role of roles" [value]="role">
+                        {{role}}
+                      </option>
+
+
+                    </select>
+
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Name</label>
                     <input type="text" [(ngModel)]="user.name"  name="name" class="form-control" >
                   </div>
@@ -23,43 +38,23 @@
                     <input type="email" [(ngModel)]="user.email" name="email" class="form-control" >
                   </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="control-label" style="font-size: 14px;">Phone</label>
-                    <input type="text" [(ngModel)]="user.phone"  name="phone" class="form-control" >
-                  </div>
-                </div>
+
 
               </div>
 
               <div class="row">
 
+
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Password</label>
-                    <input type="text" [(ngModel)]="user.password" name="passsword" class="form-control" >
+                    <input [disabled]="true" type="text" [(ngModel)]="user.password" name="passsword" class="form-control" >
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label class="control-label required" style="font-size: 14px;">Retype Password</label>
-                    <input type="text" [(ngModel)]="passwordRetyped" name="passwordRetyped" class="form-control" >
-                  </div>
-                </div>
-
-
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="control-label required" style="font-size: 14px;">Role</label>
-                    <select class="form-control "  name="roke" [(ngModel)]="user.role">
-
-                      <option *ngFor="let role of roles" [value]="role">
-                        {{role}}
-                      </option>
-
-
-                    </select>
-
+                    <label class="control-label" style="font-size: 14px;">Phone</label>
+                    <input type="text" [(ngModel)]="user.phone"  name="phone" class="form-control" >
                   </div>
                 </div>
               </div>

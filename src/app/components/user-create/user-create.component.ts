@@ -61,8 +61,8 @@ export class UserCreateComponent implements OnInit {
           return array.join('');
       };
 
-     let  password=this.passwordRetyped+pick(lowercase,6,undefined)
-      password=password+this.passwordRetyped+pick(uppercase,1,undefined)
+     let  password=this.passwordRetyped+pick(lowercase,5,undefined)
+      password=password+this.passwordRetyped+pick(numbers,2,undefined)
       password=password+this.passwordRetyped+pick(specials,1,undefined)
       password=shuffle(password);
 

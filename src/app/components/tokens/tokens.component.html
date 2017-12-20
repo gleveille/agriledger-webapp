@@ -69,14 +69,14 @@
                     </div>
                     <div class="col-xs-6 text-right">
                       <b [style.color]="getColor(token?.status)">
-                        {{token?.status!==undefined ? (token?.status===0?'Pending':'Approved') : 'Checking'}}</b>
+                        {{token?.status}}{{token?.status!==undefined ? (token?.status===0?'Pending':'Approved') : 'Checking'}}</b>
                     </div>
                   </div>
 
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons text-danger">update</i> <a href="javascript:void(0)">{{token?.created|date:'medium'}}</a>
+                    <i class="material-icons text-danger">update</i> <a href="javascript:void(0)">{{token?.created|moment}}</a>
                   </div>
                 </div>
 

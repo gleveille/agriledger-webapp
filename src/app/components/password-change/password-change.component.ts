@@ -12,11 +12,14 @@ export class PasswordChangeComponent implements OnInit {
 
   credential={oldPassword:null,newPassword:null,rePassword:null};
   passwordChangeRequestStatus='resolved';
+  passwordFormatText='Minimum eight characters, must include atleast one number and one special character';
   constructor(private toastService:ToastService,private userService:UserService,private router:Router) { }
 
   ngOnInit() {
   }
     changePassword(){
+        const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+
       if(!this.credential.oldPassword){
           this.toastService.error('Password','Old password is required');
           return;
@@ -31,6 +34,10 @@ export class PasswordChangeComponent implements OnInit {
           this.toastService.error('Password','Please type your new password again');
           return;
 
+      }
+      else if(!pattern.test(this.credential.newPassword)){
+          this.toastService.error('Password',this.passwordFormatText);
+          return;
       }
     if(this.credential.newPassword!==this.credential.rePassword){
       this.toastService.error('Password','Password does not match');
