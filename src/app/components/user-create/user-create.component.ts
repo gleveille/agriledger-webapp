@@ -61,9 +61,9 @@ export class UserCreateComponent implements OnInit {
           return array.join('');
       };
 
-     let  password=this.passwordRetyped+pick(lowercase,5,undefined)
-      password=password+this.passwordRetyped+pick(numbers,2,undefined)
-      password=password+this.passwordRetyped+pick(specials,1,undefined)
+     let  password=this.user.password+pick(lowercase,5,undefined)
+      password=password+this.user.password+pick(numbers,2,undefined)
+      password=password+this.user.password+pick(specials,1,undefined)
       password=shuffle(password);
 
       this.user.password=password;
@@ -95,6 +95,7 @@ export class UserCreateComponent implements OnInit {
             this.toastService.success('User','created successfully');
             this.user.name=null;
             this.user.email=null;
+            this.user.password='';
             this.createPassword();
 
         },(err)=>{

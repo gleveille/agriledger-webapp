@@ -14,7 +14,7 @@ export class UserListComponent implements OnInit {
   roleFilters=[
       {name:'Farmer',value:'farmer',type:'role'},
       {name:'Sponsor',value:'sponsor',type:'role'},
-      {name:'Sponsor',value:'ops',type:'role'},
+      {name:'Ops',value:'ops',type:'role'},
       {name:'All',value:'all',type:'role'}
       ];
     dateFilters=[

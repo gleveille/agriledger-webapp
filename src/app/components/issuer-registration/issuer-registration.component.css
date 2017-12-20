@@ -7,3 +7,8 @@
     background-color: #6ab187;
     color: #ffffff;
 }
+
+.required:after{
+    content:"*" ;
+    color:red
+}

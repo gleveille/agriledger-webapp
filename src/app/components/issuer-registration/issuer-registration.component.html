@@ -17,33 +17,24 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label class="control-label">Issuer Name</label>
+                    <label class="control-label required" style="font-size: 14px;">Issuer Name</label>
+                    <p class="text-gray" style="font-size: 11px;">
+                      (Name should be in all capital and 1-16 character long)
+                    </p>
                     <input  [(ngModel)]="issuer.name"  name="issuerName" type="text" class="form-control" >
-                  </div>
-                </div>
 
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="control-label">Description</label>
+                    <label class="control-label required" style="font-size: 14px;">Description</label>
                     <input [(ngModel)]="issuer.description"  name="description" type="text" class="form-control" >
                   </div>
+
                 </div>
 
+                <button
+                        [disabled]="!account?.balance || issuerRequestStatus==='pending'"
+                        (click)="registerAsIssuer()"
+                        type="submit"
+                        class="btn btn-danger pull-right">Activate</button>
 
-              </div>
-
-
-              <button
-                      [disabled]="!account?.balance || issuerRequestStatus==='pending'"
-                      (click)="registerAsIssuer()"
-                      type="submit"
-                      class="btn btn-danger pull-right">Activate</button>
-              <div class="clearfix"></div>
-
-              <div *ngIf="!account?.balance">
-                <label>
-                  <b>Hold on:</b> We have initialised the transfer of ACC.once transfered you can click on the button
-                </label>
               </div>
             </form>
           </div>
