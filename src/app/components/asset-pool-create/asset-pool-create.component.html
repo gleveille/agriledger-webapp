@@ -35,7 +35,7 @@
                  [ngClass]="{'stepper-step-isActive':selectedStepperNumber===1}"
                  (click)="stepperSelected(1)">
               <div class="stepper-stepContent">
-                <span class="stepper-stepMarker">1</span>Asset Category
+                <span class="stepper-stepMarker">1</span>Select Assets
               </div>
             </div>
 
@@ -63,27 +63,32 @@
           </div>
           <div class="stepper-content">
 
-            <section class="step-1" *ngIf="selectedStepperNumber===1">
+            <section class="step-1" [hidden]="selectedStepperNumber!==1">
                 <div class="card-content">
-               <!--   <div class="col-md-12">
-                    <div class="row">
-                      <div class=" col-md-6 col-md-offset-3">
-                        <div class="card card-stats" style="background-color: #00bfa5">
-                          <div class="card-header" data-background-color="green">
-                            <i class="material-icons">store</i>
-                          </div>
-                          <div class="card-content">
-                            <p class="category">Total Assets in Pool</p>
-                            <h3 class="title">{{selectedAssetsForPool.length}}</h3>
-                          </div>
+                  <div style="margin-top:-100px">
+                    <app-assets [showFilter]="false" [selectedFilter]="'category'" [showNonPooledAssetOnly]="true" [canSelected]="true"></app-assets>
 
-                        </div>
-                      </div>
-                    </div>
+                  </div>
 
-                  </div>-->
+                  <!--   <div class="col-md-12">
+                       <div class="row">
+                         <div class=" col-md-6 col-md-offset-3">
+                           <div class="card card-stats" style="background-color: #00bfa5">
+                             <div class="card-header" data-background-color="green">
+                               <i class="material-icons">store</i>
+                             </div>
+                             <div class="card-content">
+                               <p class="category">Total Assets in Pool</p>
+                               <h3 class="title">{{selectedAssetsForPool.length}}</h3>
+                             </div>
 
-                  <form>
+                           </div>
+                         </div>
+                       </div>
+
+                     </div>-->
+
+                 <!-- <form>
                       <div class="row">
                         <div class="col-md-4">
                           <div class="form-group form-black  ">
@@ -122,7 +127,7 @@
 
                       </div>
 
-                  </form>
+                  </form>-->
 
                   <div class="row">
                     <div class="col-xs-12">

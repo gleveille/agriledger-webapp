@@ -38,6 +38,7 @@ export class AssetPoolListComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
 
       this.userService.getUser().subscribe((user:Iuser)=>{

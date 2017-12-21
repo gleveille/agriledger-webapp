@@ -63,10 +63,10 @@ export class AssetPoolCreateComponent implements OnInit {
 
       }
 
-      if(!this.selectedAssetsForPool.length){
+     /* if(!this.selectedAssetsForPool.length){
           this.router.navigate(['/dashboard/assets']);
 
-      }
+      }*/
     console.log(this.selectedAssetsForPool);
 
 

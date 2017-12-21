@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AssetsService} from "../../services/assets.service";
 import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
@@ -11,12 +11,15 @@ import {AssetsPoolService} from "../../services/assets-pool.service";
 })
 export class AssetsComponent implements OnInit {
 
-  assetsRequestStatus='resolved';
+    @Input() showFilter:boolean=true;
+    @Input() selectedFilter:string=null;
+    @Input() canSelected:boolean=false;
+    @Input() showNonPooledAssetOnly:boolean=false;
+    assetsRequestStatus='resolved';
   categoryHttpReequestStatus='resolved';
   filters=[{name:'By Category',value:'category'},
       {name:'By Status',value:'status'},
       {name:'Reset Filter',value:'reset'}];
-  selectedFilter:string=null;
   assets:any[]=[];
     chosenLang = 1;
     selectedIndexOnLevelOne=null;
@@ -40,7 +43,13 @@ export class AssetsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getAssets();
+        if(this.showNonPooledAssetOnly){
+            this.getNonPooledAssets()
+        }
+        else{
+            this.getAllAssets();
+
+        }
     this.getCategories(0);
   }
 
@@ -94,7 +103,11 @@ export class AssetsComponent implements OnInit {
         if (!category.hasChildren) {
             this.deepestCategorySelected = true;
             this.lastCategoryId = category.id;
-            this.getAssetsByCategoryId(this.lastCategoryId);
+            if(this.showNonPooledAssetOnly)
+            this.getAssetsByCategoryId(this.lastCategoryId,false);
+            else
+                this.getAssetsByCategoryId(this.lastCategoryId,true);
+
             return;
         }
         else{
@@ -174,11 +187,11 @@ export class AssetsComponent implements OnInit {
         this.lastCategoryId=null;
         this.selectedFilter=null;
 
-        this.getAssets();
+        this.getAllAssets();
     }
 
 
-  goToCreateAssetPoolPage(){
+  createPool(){
         if(!this.deepestCategorySelected){
             const nextLevel=this.getLevelbyWord();
             this.toastService.error('Asset',`Please select ${nextLevel} category`);
@@ -216,11 +229,11 @@ export class AssetsComponent implements OnInit {
           });
   }
 
-    getAssetsByCategoryId(categoryId:string){
+    getAssetsByCategoryId(categoryId:string,isPutOnBlockchain:boolean){
         console.log(categoryId);
 
         this.assetsRequestStatus='pending';
-        this.assetsService.getAssetsByCategoryId(categoryId).subscribe((assets:any[])=>{
+        this.assetsService.getAssetsByCategoryId(categoryId,isPutOnBlockchain).subscribe((assets:any[])=>{
             this.assetsRequestStatus='resolved';
 
             console.log(assets)
@@ -231,9 +244,22 @@ export class AssetsComponent implements OnInit {
             console.log( err);
         })
     }
-    getAssets(){
+    getAllAssets(){
         this.assetsRequestStatus='pending';
-        this.assetsService.getAssets().subscribe((assets:any[])=>{
+        this.assetsService.getAllAssets().subscribe((assets:any[])=>{
+            this.assetsRequestStatus='resolved';
+            console.log(assets)
+            this.assets=assets;
+        },(err)=>{
+            this.assetsRequestStatus='rejected';
+
+            console.log( err);
+        })
+    }
+
+    getNonPooledAssets(){
+        this.assetsRequestStatus='pending';
+        this.assetsService.getNonPooledAssets().subscribe((assets:any[])=>{
             this.assetsRequestStatus='resolved';
             console.log(assets)
             this.assets=assets;

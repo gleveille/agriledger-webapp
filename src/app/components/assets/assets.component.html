@@ -7,7 +7,7 @@
           <div class="card-header" data-background-color="green">
               <h4 class="title">Assets</h4>
           </div>
-          <div class="row" style="padding: 15px;">
+          <div class="row" style="padding: 15px;" *ngIf="showFilter">
             <div class="col-xs-12" >
               <div class="dropdown" style="float: left">
                 <a  href="javascript:void(0)" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -191,7 +191,12 @@
 
 
                 <tr *ngFor="let asset of assets"  >
-                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.user?.name}}</td>
+                  <td><span *ngIf="canSelected">
+                    <input type="checkbox" [(ngModel)]="asset.isSelected">
+                  </span>
+                    <span style="position:relative;top:-3px;">{{asset?.user?.name}}</span>
+                  </td>
+
 
                   <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.category?.level1}}</td>
 
