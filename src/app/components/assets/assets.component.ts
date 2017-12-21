@@ -73,10 +73,10 @@ export class AssetsComponent implements OnInit {
             return;
         }
 
-        if(!this.deepestCategorySelected){
+     /*   if(!this.deepestCategorySelected){
             this.toastService.error('Pool','Please choose the category');
             return;
-        }
+        }*/
 
 
 
@@ -228,7 +228,13 @@ export class AssetsComponent implements OnInit {
         this.lastCategoryId=null;
         this.selectedFilter=null;
 
-        this.getAllAssets();
+        if(this.showNonPooledAssetOnly){
+            this.getNonPooledAssets()
+        }
+        else{
+            this.getAllAssets();
+
+        }
     }
 
 
