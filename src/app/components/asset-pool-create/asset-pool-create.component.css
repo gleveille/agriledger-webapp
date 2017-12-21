@@ -108,3 +108,7 @@
 img {
     max-width: 100%;
 }
+.required:after{
+    content:"*" ;
+    color:red
+}

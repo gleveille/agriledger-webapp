@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/assets/assets.component.html" afterPath="$PROJECT_DIR$/src/app/components/assets/assets.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.css" afterPath="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.html" afterPath="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.ts" afterPath="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -17,11 +19,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="asset-pool-create.component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="asset-pool-create.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="153" column="38" lean-forward="false" selection-start-line="153" selection-start-column="13" selection-end-line="153" selection-end-column="38" />
+            <state relative-caret-position="238">
+              <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wallet.component.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/wallet/wallet.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transfer.component.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/transfer/transfer.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -67,40 +89,18 @@
       <file leaf-file-name="asset-pool-create.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="68" column="32" lean-forward="false" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+            <state relative-caret-position="196">
+              <caret line="350" column="60" lean-forward="false" selection-start-line="350" selection-start-column="60" selection-end-line="350" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sidebar.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="40" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="assets.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="assets.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="180" column="50" lean-forward="false" selection-start-line="180" selection-start-column="50" selection-end-line="180" selection-end-column="50" />
+            <state relative-caret-position="77">
+              <caret line="154" column="24" lean-forward="true" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -114,6 +114,38 @@
                 <element signature="n#style#0;n#span#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transfer.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/transfer/transfer.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+              <folding>
+                <element signature="n#!!block;n#getPrecision#0;n#TransferComponent#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-create.component.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="asset-pool-create.component.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="454">
+              <caret line="110" column="9" lean-forward="false" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -189,7 +221,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/api.config.ts" />
         <option value="$PROJECT_DIR$/src/app/services/interceptor.service.ts" />
         <option value="$PROJECT_DIR$/src/app/services/error-handler.service.ts" />
         <option value="$PROJECT_DIR$/src/app/components/dashboard/dashboard.component.html" />
@@ -234,12 +265,13 @@
         <option value="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html" />
         <option value="$PROJECT_DIR$/src/app/services/assets.service.ts" />
         <option value="$PROJECT_DIR$/src/app/components/asset-pool-list/asset-pool-list.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/asset-pool-list/asset-pool-list.component.html" />
-        <option value="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/assets/assets.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/assets/assets.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.css" />
+        <option value="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.ts" />
       </list>
     </option>
   </component>
@@ -350,6 +382,30 @@
               <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="transfer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="user-create" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="wallet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -433,12 +489,12 @@
       <workItem from="1513061823475" duration="26818000" />
       <workItem from="1513592698507" duration="694000" />
       <workItem from="1513598575556" duration="48241000" />
-      <workItem from="1513851414333" duration="9149000" />
+      <workItem from="1513851414333" duration="9530000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368043000" />
+    <option name="totallyTimeSpent" value="368424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -478,29 +534,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/components/user-list/user-list.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/image-popup/image-popup.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="265" column="1" lean-forward="false" selection-start-line="265" selection-start-column="1" selection-end-line="265" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/image-popup/image-popup.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/documentation/tutorial-components.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -669,14 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/issuer-registration/issuer-registration.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -689,6 +714,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="69" column="108" lean-forward="false" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="108" />
+          <folding>
+            <element signature="n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -707,13 +735,6 @@
         <state relative-caret-position="153">
           <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/transfer/transfer.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -749,6 +770,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
           <caret line="25" column="108" lean-forward="false" selection-start-line="25" selection-start-column="108" selection-end-line="25" selection-end-column="108" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -822,14 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="153" column="38" lean-forward="false" selection-start-line="153" selection-start-column="13" selection-end-line="153" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -864,14 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="68" column="32" lean-forward="false" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-view/asset-pool-view.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -901,8 +909,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="180" column="50" lean-forward="false" selection-start-line="180" selection-start-column="50" selection-end-line="180" selection-end-column="50" />
+        <state relative-caret-position="77">
+          <caret line="154" column="24" lean-forward="true" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -916,6 +924,64 @@
             <element signature="n#style#0;n#span#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/wallet/wallet.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/transfer/transfer.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/transfer/transfer.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!block;n#getPrecision#0;n#TransferComponent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="110" column="9" lean-forward="false" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="350" column="60" lean-forward="false" selection-start-line="350" selection-start-column="60" selection-end-line="350" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

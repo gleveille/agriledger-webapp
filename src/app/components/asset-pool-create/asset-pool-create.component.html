@@ -147,19 +147,19 @@
 
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
-                        <label class="control-label">Asset currency</label>
+                        <label class="control-label required">Asset currency</label>
                         <input  [(ngModel)]="assetPool.currency" style="text-transform: capitalize" type="text"  name="currency" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
-                        <label class="control-label">Estimate price</label>
+                        <label class="control-label required">Estimate price</label>
                         <input  [(ngModel)]="assetPool.estimatePrice" type="number"  name="estimatePrice" class="form-control" >
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
-                        <label class="control-label">Estimate unit</label>
+                        <label class="control-label required">Estimate unit</label>
                         <select class="form-control " [(ngModel)]="assetPool.estimateUnit" name="estimateUnit">
                           <option value="USD">USD</option>
                           <option value="RMB">RMB</option>
@@ -170,7 +170,7 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
-                        <label class="control-label">Unlock condition</label>
+                        <label class="control-label required">Unlock condition</label>
                         <select class="form-control " [(ngModel)]="assetPool.unlockCondition" name="status">
                           <option value="0">Community vote unlock</option>
                           <option value="1">ICO contract unlock</option>
@@ -181,14 +181,14 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
-                        <label class="control-label">Exercise unit</label>
+                        <label class="control-label required">Exercise unit</label>
                         <input  [(ngModel)]="assetPool.exerciseUnit" type="number"  name="excerciseStandard" class="form-control" >
                       </div>
                     </div>
 
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
-                        <label class="control-label">Chain or not</label>
+                        <label class="control-label required">Chain or not</label>
                         <select class="form-control " [(ngModel)]="assetPool.chainOrNot" name="status">
                           <option value="true">Yes</option>
                           <option value="false">No</option>
@@ -200,7 +200,7 @@
 
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
-                        <label class="control-label">Description</label>
+                        <label class="control-label required">Description</label>
                         <input  [(ngModel)]="assetPool.desc" type="text"  name="description" class="form-control" >
                       </div>
                     </div>
@@ -341,14 +341,14 @@
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
-                        <label class="control-label">Published number</label>
+                        <label class="control-label required">Published number</label>
                         <input type="number"  [(ngModel)]="assetPool.maximum" name="maximum" class="form-control">
                       </div>
                     </div>
 
                     <div class="col-md-4">
                       <div class="form-group form-black  ">
-                        <label class="control-label">Accuracy</label>
+                        <label class="control-label required">Accuracy</label>
                         <input type="number" [(ngModel)]="assetPool.precision"  name="precision" class="form-control">
                       </div>
                     </div>

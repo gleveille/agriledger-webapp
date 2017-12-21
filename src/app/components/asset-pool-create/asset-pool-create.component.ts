@@ -98,7 +98,10 @@ export class AssetPoolCreateComponent implements OnInit {
 
 
         if (!this.assetPool.currency) {
+            this.selectedStepperNumber=2;
+
             return this.toastService.error('AssetPool','Asset currency required');
+
         } else {
             const reg = /^[A-Z0-9][A-Z0-9]{2,9}$/;
             if (!reg.test(this.assetPool.currency)){
@@ -106,6 +109,8 @@ export class AssetPoolCreateComponent implements OnInit {
             }
         }
         if (!this.assetPool.estimatePrice) {
+            this.selectedStepperNumber=2;
+
             return this.toastService.error('AssetPool','Estimate price is required');
         } else {
             const reg = /^(([1-9]|[1-9]\d{0,8})|(([1-9]|[1-9]\d{0,8})\.[0-9][0-9]{0,1})|(0\.(0[1-9]|[1-9][0-9]{0,1})))$/g;
@@ -118,18 +123,26 @@ export class AssetPoolCreateComponent implements OnInit {
 
 
         if (!this.assetPool.estimateUnit) {
+            this.selectedStepperNumber=2;
+
             return this.toastService.error('AssetPool','Estimate unit is required');
         }
 
         if (!this.assetPool.unlockCondition) {
+            this.selectedStepperNumber=2;
+
             return this.toastService.error('AssetPool','Unlock condition is required');
         }
         if (!this.assetPool.exerciseUnit) {
+            this.selectedStepperNumber=2;
+
             return this.toastService.error('AssetPool','Excercise unit is required');
         }
 
 
         if (!this.assetPool.desc) {
+            this.selectedStepperNumber=2;
+
             return this.toastService.error('AssetPool','Asset description is required');
         } else {
             const strLen = this.assetPool.desc.replace(/[^\x00-\xff]/g, "**").length;
@@ -138,13 +151,16 @@ export class AssetPoolCreateComponent implements OnInit {
             }
         }
         if (!this.assetPool.maximum) {
+
             return this.toastService.error('AssetPool','Publisher number is required');
         }
 
         if (!parseInt(this.assetPool.maximum)) {
+
             return this.toastService.error('AssetPool','Invalid Publisher number');
         }
         if (!/^[0-6]$/.test(this.assetPool.precision)) {
+
             return this.toastService.error('AssetPool','Accuracy should me maximum 6 in length');
         }
 
