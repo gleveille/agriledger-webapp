@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 export class AssetPoolCreateComponent implements OnInit {
 
   selectedStepperNumber=1;
+  createAssetPoolHttpStatus='resolved';
   category={one:null,two:null,three:null,four:null,five:null};
   selectedAssetsForPool:any[]=[];
   assetPool={
@@ -47,27 +48,34 @@ export class AssetPoolCreateComponent implements OnInit {
               private router:Router,
               private assetsService:AssetsService) { }
 
+
+    onPoolSelect(asset){
+      console.log('from event')
+        console.log(asset)
+        this.selectedStepperNumber=2;
+        this.selectedAssetsForPool=asset;
+        if(this.selectedAssetsForPool.length) {
+            this.selectedAssetsForPool.forEach((asset)=>{
+                this.assetPool.assetsId.push(asset.id);
+            })
+            this.assetPool.categoryId = this.selectedAssetsForPool[0].categoryId;
+            this.assetPool.category.level1=this.selectedAssetsForPool[0].category.level1;
+            this.assetPool.category.level2=this.selectedAssetsForPool[0].category.level2;
+            this.assetPool.category.level3=this.selectedAssetsForPool[0].category.level3;
+            this.assetPool.category.level4=this.selectedAssetsForPool[0].category.level4;
+            this.assetPool.category.level5=this.selectedAssetsForPool[0].category.level5;
+
+        }
+
+        /* if(!this.selectedAssetsForPool.length){
+             this.router.navigate(['/dashboard/assets']);
+
+         }*/
+        console.log(this.selectedAssetsForPool);
+    }
   ngOnInit() {
 
-    this.selectedAssetsForPool=this.assetPoolService.getSelectedAssetsForPool();
-      if(this.selectedAssetsForPool.length) {
-          this.selectedAssetsForPool.forEach((asset)=>{
-              this.assetPool.assetsId.push(asset.id);
-          })
-          this.assetPool.categoryId = this.selectedAssetsForPool[0].categoryId;
-          this.assetPool.category.level1=this.selectedAssetsForPool[0].category.level1;
-          this.assetPool.category.level2=this.selectedAssetsForPool[0].category.level2;
-          this.assetPool.category.level3=this.selectedAssetsForPool[0].category.level3;
-          this.assetPool.category.level4=this.selectedAssetsForPool[0].category.level4;
-          this.assetPool.category.level5=this.selectedAssetsForPool[0].category.level5;
 
-      }
-
-     /* if(!this.selectedAssetsForPool.length){
-          this.router.navigate(['/dashboard/assets']);
-
-      }*/
-    console.log(this.selectedAssetsForPool);
 
 
   }
@@ -143,14 +151,17 @@ export class AssetPoolCreateComponent implements OnInit {
 
 
 
+        this.createAssetPoolHttpStatus='pending';
 
         this.assetPoolService.createAssetPool(this.assetPool).subscribe((data)=>{
             this.toastService.success('AssetPool','Successfully created');
             this.resetState();
 
+            this.createAssetPoolHttpStatus='resolved';
             this.router.navigate(['/dashboard/assets-pool-list']);
         },(err)=>{
             this.toastService.error('AssetPool',err.message);
+            this.createAssetPoolHttpStatus='rejected';
         })
     }
 

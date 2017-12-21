@@ -20,9 +20,12 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class AssetPoolListComponent implements OnInit {
     modalRef: BsModalRef;
+    selectedFilter:string='My pools';
 
     user={} as Iuser;
-
+    filters=[{name:'My pools',value:'my',role:['sponsor']},
+        {name:'All pools',value:'all',role:['sponsor','ops']}
+        ];
   pools=[];
     assetPoolHttpSstatus='resolved';
     blockchainHttpStatus='resolved';
@@ -39,17 +42,28 @@ export class AssetPoolListComponent implements OnInit {
   }
 
 
+    filterChange(name:string,value:string){
+        if(value==='my'){
+            this.getMyPools();
+        }
+        else
+            this.getOtherPools();
+        this.selectedFilter=name;
+
+    }
+
+
   ngOnInit() {
 
       this.userService.getUser().subscribe((user:Iuser)=>{
           this.user=user;
           if(user.role==='sponsor'){
+              this.selectedFilter='My pools';
               this.getMyPools();
-
           }
           else{
+              this.selectedFilter='All pools';
               this.getOtherPools();
-
           }
 
       },(err)=>{

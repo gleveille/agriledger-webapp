@@ -66,7 +66,10 @@
             <section class="step-1" [hidden]="selectedStepperNumber!==1">
                 <div class="card-content">
                   <div style="margin-top:-100px">
-                    <app-assets [showFilter]="false" [selectedFilter]="'category'" [showNonPooledAssetOnly]="true" [canSelected]="true"></app-assets>
+                    <app-assets  [selectedFilter]="'category'"
+                                 [showPoolButton]="true"
+                                 (onPoolSelect)="onPoolSelect($event)"
+                                [showNonPooledAssetOnly]="true" [canSelected]="true"></app-assets>
 
                   </div>
 
@@ -129,11 +132,7 @@
 
                   </form>-->
 
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <button (click)="gotoStepperSection(2)" class=" btn btn-success pull-right">Continue</button>
-                    </div>
-                  </div>
+
 
 
                 </div>
@@ -357,7 +356,7 @@
                   </div>
                   <div class="row">
                     <div class="col-xs-12">
-                      <button *ngIf="selectedAssetsForPool.length" class=" btn btn-success pull-right" (click)="createAssetPool()">REGISTER</button>
+                      <button *ngIf="selectedAssetsForPool.length" [disabled]="createAssetPoolHttpStatus==='pending'" class="btn btn-success pull-right" (click)="createAssetPool()">REGISTER</button>
 
                       <button (click)="gotoStepperSection(3)" class=" btn pull-right">Back</button>
 

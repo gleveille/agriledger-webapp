@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AssetsService} from "../../services/assets.service";
 import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
@@ -11,14 +11,15 @@ import {AssetsPoolService} from "../../services/assets-pool.service";
 })
 export class AssetsComponent implements OnInit {
 
-    @Input() showFilter:boolean=true;
     @Input() selectedFilter:string=null;
     @Input() canSelected:boolean=false;
+    @Input() showPoolButton:boolean=false;
     @Input() showNonPooledAssetOnly:boolean=false;
+    @Output() onPoolSelect:EventEmitter<any> = new EventEmitter();
+
     assetsRequestStatus='resolved';
   categoryHttpReequestStatus='resolved';
   filters=[{name:'By Category',value:'category'},
-      {name:'By Status',value:'status'},
       {name:'Reset Filter',value:'reset'}];
   assets:any[]=[];
     chosenLang = 1;
@@ -39,8 +40,48 @@ export class AssetsComponent implements OnInit {
 
 
     constructor(private assetsService:AssetsService,private assetPoolService:AssetsPoolService,
-                private toastService:ToastService,private router:Router) { }
+                private toastService:ToastService,private router:Router) {
 
+    }
+
+
+
+    putInPool(){
+
+        let filterdAssets=this.assets.filter((asset)=>{
+            return asset.isSelected;
+        });
+
+        if(!filterdAssets.length){
+            return this.toastService.error('pool','please select at least one asset of same category');
+        }
+        let isAllAssetSame:boolean=true;
+        console.log(filterdAssets)
+
+        if(filterdAssets.length>1){
+            for(let i=1;i<filterdAssets.length;i++){
+                if(filterdAssets[i].categoryId!==filterdAssets[i-1].categoryId){
+                    isAllAssetSame=false;
+                    break;
+                }
+            }
+        }
+
+
+        if(!isAllAssetSame){
+            this.toastService.error('Pool','Please select the asset of same category');
+            return;
+        }
+
+        if(!this.deepestCategorySelected){
+            this.toastService.error('Pool','Please choose the category');
+            return;
+        }
+
+
+
+        this.onPoolSelect.emit(filterdAssets);
+    }
   ngOnInit() {
 
         if(this.showNonPooledAssetOnly){

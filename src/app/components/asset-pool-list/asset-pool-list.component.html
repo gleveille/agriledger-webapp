@@ -1,14 +1,43 @@
 <div class="main-content">
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="dropdown">
+                    <a  href="javascript:void(0)" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                        Filter
+                        <span style="font-weight: bolder" *ngIf="selectedFilter">
+                    ({{selectedFilter}})
+                </span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let filter of filters">
+                            <a *ngIf="filter.role.includes(user.role)" style="text-transform: capitalize" href="javascript:void(0)" (click)="filterChange(filter.name,filter.value)">
+                                {{filter.name}}
+                            </a>
+                        </li>
 
-        <ul class="nav nav-pills nav-pills-info">
-            <li *ngIf="user.role==='sponsor'"  class="active"><a href="javascript:void(0)" (click)="getMyPools()"  data-toggle="tab">Mine</a></li>
-            <li [ngClass]="{'active':user.role==='ops'}"><a (click)="getOtherPools();" href="javascript:void(0)" data-toggle="tab">ALL</a></li>
-        </ul>
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
             <div class="card" style="margin-top: 50px;">
                 <div class="card-header" data-background-color="green">
-                    <h4 class="title">Assets pool</h4>
-                    <a href="javascript:void(0)" [routerLink]="['../assets-pool-create']" class="btn btn-primary">CREATE POOL</a>
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <h4 class="title">Assets pool</h4>
+
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="javascript:void(0)" [routerLink]="['../assets-pool-create']" class="btn btn-primary">CREATE POOL</a>
+
+                        </div>
+                    </div>
 
                 </div>
 
