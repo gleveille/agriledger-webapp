@@ -72,9 +72,6 @@ export class UserCreateComponent implements OnInit {
   }
     register(){
 
-      if(!this.user.name){
-       return this.toastService.error('User','Name is required');
-      }
         if(!this.user.email){
             return this.toastService.error('User','Email is required');
         }
@@ -93,7 +90,6 @@ export class UserCreateComponent implements OnInit {
         this.userService.register(this.user).subscribe((data:any)=>{
             this.createRequestStatus='resolved';
             this.toastService.success('User','created successfully');
-            this.user.name=null;
             this.user.email=null;
             this.user.password='';
             this.createPassword();

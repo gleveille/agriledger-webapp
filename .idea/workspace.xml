@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="" />
+    <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/user-create/user-create.component.html" afterPath="$PROJECT_DIR$/src/app/components/user-create/user-create.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts" afterPath="$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/user-list/user-list.component.html" afterPath="$PROJECT_DIR$/src/app/components/user-list/user-list.component.html" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,16 +78,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="asset-pool-create.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5950">
-              <caret line="350" column="60" lean-forward="false" selection-start-line="350" selection-start-column="60" selection-end-line="350" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user-create.component.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.scss">
           <provider selected="true" editor-type-id="text-editor">
@@ -94,15 +88,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-create.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user-create.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-list.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/components/user-list/user-list.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-create.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1496">
+              <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,16 +126,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="7" column="2" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="asset-pool-create.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="110" column="9" lean-forward="false" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -211,7 +215,6 @@
         <option value="$PROJECT_DIR$/src/app/moment.pipe.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/shared.module.ts" />
         <option value="$PROJECT_DIR$/src/app/pipes/onboarding-status.pipe.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/user-list/user-list.component.html" />
         <option value="$PROJECT_DIR$/src/app/image-popup/image-popup.component.ts" />
         <option value="$PROJECT_DIR$/src/app/image-popup/image-popup.component.scss" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
@@ -226,7 +229,6 @@
         <option value="$PROJECT_DIR$/src/app/components/password-reset/password-reset.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/password-change/password-change.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/tokens/tokens.component.html" />
-        <option value="$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/user-list/user-list.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/account-activation/account-activation.component.html" />
@@ -248,7 +250,9 @@
         <option value="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/asset-pool-create/asset-pool-create.component.ts" />
         <option value="$PROJECT_DIR$/src/environments/environment.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/user-create/user-create.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/user-list/user-list.component.html" />
       </list>
     </option>
   </component>
@@ -334,6 +338,14 @@
               <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="user-list" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="environments" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -406,19 +418,19 @@
       <workItem from="1513851414333" duration="10246000" />
       <workItem from="1513944536211" duration="1426000" />
       <workItem from="1514037542470" duration="666000" />
-      <workItem from="1514050801271" duration="102000" />
+      <workItem from="1514050801271" duration="768000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371334000" />
+    <option name="totallyTimeSpent" value="372000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22995462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22995462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -451,13 +463,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/documentation/tutorial-components.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-306">
@@ -574,13 +579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="40" column="58" lean-forward="false" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="97" column="34" lean-forward="false" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -819,14 +817,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding>
             <element signature="n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/user-list/user-list.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

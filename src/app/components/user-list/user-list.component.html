@@ -48,7 +48,6 @@
           <table class="table" *ngIf="users.length">
             <thead  >
             <tr>
-              <th class="boldfont">Name</th>
               <th class="boldfont">Email</th>
 
               <th class="boldfont">Phone</th>
@@ -66,13 +65,8 @@
 
             <tr *ngFor="let user of users;let i=index">
 
-              <td><span>{{i+1}}.</span> {{user?.name}}</td>
+              <td><span>{{i+1}}.</span> {{user?.email}}</td>
 
-              <td >
-
-                {{user?.email}}
-
-              </td>
               <td >
 
                 {{user?.phone}}
