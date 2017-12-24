@@ -23,7 +23,7 @@ export class AssetsService {
 
     getAllAssets() {
 
-        let url=`${AssetApi.getAssets.url()}?filter[include]=user`;
+        let url=`${AssetApi.getAssets.url()}`;
 
         return this.http.get(`${url}`)
             .retry(3)
@@ -56,7 +56,7 @@ export class AssetsService {
 
 
     getAssetByid(assetId:string){
-        const url=`${AssetApi.getAssets.url()}/${assetId}?filter[include]=user`;
+        const url=`${AssetApi.getAssets.url()}/${assetId}?filter[include][user]=profiles`;
 
         return this.http.get(`${url}`)
             .retry(3)

@@ -176,11 +176,10 @@
               <table class="table" >
                 <thead  >
                 <tr >
-                  <th class="boldfont">Farmer Name</th>
+                  <th class="boldfont">Asset Name</th>
 
                   <th class="boldfont">Category ID</th>
 
-                  <th class="boldfont">Asset Name</th>
 
                   <th class="boldfont">Harvest amount</th>
                   <th class="boldfont">Harvest date</th>
@@ -199,7 +198,7 @@
                   <td><span *ngIf="canSelected">
                     <input type="checkbox" [(ngModel)]="asset.isSelected">
                   </span>
-                    <span style="position:relative;top:-3px;">{{asset?.user?.name}}</span>
+                    <span style="position:relative;top:-3px;">{{asset?.name}}</span>
                   </td>
 
 
@@ -209,9 +208,6 @@
                   </td>
 
 
-                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">
-                    <span style="position:relative;top:-3px;">{{asset?.name}}</span>
-                  </td>
                   <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.expectedHarvestAmount}}</td>
                   <td style="cursor: pointer" [routerLink]="['../assets',asset.id]" ata-toggle="tooltip" data-placement="left"
                       title="{{asset?.expectedHarvestDate|date:'medium'}}">

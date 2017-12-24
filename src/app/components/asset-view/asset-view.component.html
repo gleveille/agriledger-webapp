@@ -5,138 +5,242 @@
       <i class="material-icons">keyboard_return</i>Back
     </button>
     <div class="row">
-      <div style="cursor: pointer" class="col-lg-12" >
+      <div class="col-xs-12" >
         <div class="card card-stats" >
-          <div class="card-header" data-background-color="green">
-            <i class="material-icons">store</i>
-          </div>
+
           <div class="card-content">
-            <p class="category">Currency Name</p>
 
-            <div class="row">
-              <div class="col-xs-12" style="margin-top: 40px;">
+            <div class="row" style="text-align: center">
+              <h3>Assets Details</h3>
+              <hr>
+              <div class="row" style="padding: 15px">
+                <div class="col-xs-12">
 
-                <ol class="breadcrumb text-left">
-                  <li><a href="javascript:void (0)">{{asset?.category?.level1}}</a></li>
-                  <li><a href="javascript:void (0)">{{asset?.category?.level2}}</a></li>
-                  <li> <a href="javascript:void (0)">{{asset?.category?.level3}}</a></li>
-                  <li> <a href="javascript:void (0)">{{asset?.category?.level4}}</a></li>
-                  <li> <a href="javascript:void (0)">{{asset?.category?.level5}}</a></li>
+                  <ol class="breadcrumb text-left">
+                    <li><a href="javascript:void (0)">{{asset?.category?.level1}}</a></li>
+                    <li><a href="javascript:void (0)">{{asset?.category?.level2}}</a></li>
+                    <li> <a href="javascript:void (0)">{{asset?.category?.level3}}</a></li>
+                    <li> <a href="javascript:void (0)">{{asset?.category?.level4}}</a></li>
+                    <li> <a href="javascript:void (0)">{{asset?.category?.level5}}</a></li>
 
-                </ol>
-              </div>
-            </div>
-
-
-
-            <div class="row">
-              <div class="col-lg-6">
-
-
-                <div class="row" style="text-align: left">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    <b>Farmer Name</b>
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <span class="text-gray">{{asset?.user?.name}}</span>
-                  </div>
+                  </ol>
                 </div>
+                <div class="col-lg-6" >
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Asset Name</b>
 
 
-                <div class="row" style="text-align: left">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    <b>Asset Name</b>
-
-
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <span class="text-gray">{{asset?.name}}</span>
+                    </div>
                   </div>
-                  <div class="col-xs-6 text-right">
-                    <span class="text-gray">{{asset?.name}}</span>
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Harvest amount</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right" >
+                      <span class="text-gray">{{asset?.expectedHarvestAmount}}</span>
+                    </div>
                   </div>
-                </div>
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Created on</b>
 
 
-                <div class="row" style="text-align: left">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    <b>Harvest amount</b>
-
-
-                  </div>
-                  <div class="col-xs-6 text-right" >
-                    <span class="text-gray">{{asset?.expectedHarvestAmount}}</span>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-lg-6" >
-
-
-
-                <div class="row" style="text-align: left">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    <b>Created on</b>
-
-
-                  </div>
-                  <div class="col-xs-6 text-right">
+                    </div>
+                    <div class="col-xs-6 text-right">
                     <span class="text-gray" [routerLink]="['../assets',asset.id]" ata-toggle="tooltip" data-placement="left"
-                        title="{{asset?.createdAt|date:'medium'}}">
+                          title="{{asset?.createdAt|date:'medium'}}">
                       {{asset?.createdAt|moment}}
                     </span>
 
+                    </div>
                   </div>
+
                 </div>
+                <div class="col-lg-6" >
 
 
 
 
 
 
-                <div class="row" style="text-align: left">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    <b>Harvest date</b>
 
 
-                  </div>
-                  <div class="col-xs-6 text-right" >
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Harvest date</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right" >
                       <span class="text-gray" [routerLink]="['../assets',asset.id]" ata-toggle="tooltip" data-placement="left"
                             title="{{asset?.expectedHarvestDate|date:'medium'}}">
                       {{asset?.expectedHarvestDate|moment}}
                     </span>
+                    </div>
                   </div>
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Pooled</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right" >
+                      <span class="text-gray">{{asset.isPutOnBlockchain?'Yes' :'No'}}</span>
+                    </div>
+
+                  </div>
+
+
+
+
                 </div>
-
-
-                <div class="row" style="text-align: left">
-                  <hr>
-
-                  <div class="col-xs-6 text-left">
-                    <b>Pooled</b>
-
-
-                  </div>
-                  <div class="col-xs-6 text-right" >
-                    <span class="text-gray">{{asset.isPutOnBlockchain?'Yes' :'No'}}</span>
-                  </div>
-
-                </div>
-
-
-
-
               </div>
+
 
             </div>
 
+            <div class="row" style="text-align: center">
+              <h3>Farmer Details</h3>
+              <hr>
+              <div class="row" style="padding: 15px">
+
+                <div class="col-lg-6" >
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Name</b>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <span class="text-gray">{{asset?.user?.profiles?.name}}</span>
+                    </div>
+                  </div>
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Email</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <span class="text-gray">
+                      {{asset?.user?.email}}
+                      </span>
+                    </div>
+                  </div>
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Phone</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right" >
+                      <span class="text-gray">
+                      {{asset?.user?.profiles?.phone}}
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-lg-6" >
+
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Address</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right">
+                    <span class="text-gray">
+                      {{asset?.user?.profiles?.address}}
+
+                    </span>
+
+                    </div>
+                  </div>
+
+
+
+
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Registration no.</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right" >
+                      <span class="text-gray">
+                      {{asset?.user?.profiles?.registration}}
+                    </span>
+                    </div>
+                  </div>
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Company</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right" >
+                      <span class="text-gray">
+                      {{asset?.user?.profiles?.company}}
+                      </span>
+                    </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+
+
+            </div>
 
 
 
