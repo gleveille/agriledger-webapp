@@ -3,34 +3,34 @@
 
     <div class="dropdown" style="float: left">
       <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
-        Filter by role
+        Filter by role <span *ngIf="selectedRoleFiler">({{selectedRoleFiler}})</span>
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu">
         <li *ngFor="let filter of roleFilters">
-          <a style="text-transform: capitalize" href="javascript:void(0)" (click)="getByFilter(filter.type,filter.value)">
+          <a style="text-transform: capitalize" href="javascript:void(0)" (click)="getByFilter(filter)">
             {{filter.name}}
           </a>
         </li>
 
       </ul>
     </div>
-
+<!--
 
     <div class="dropdown" style="float: left">
       <a  href="javascript:void(0)" class="btn dropdown-toggle" data-toggle="dropdown">
-        Filter by Onboarding status
+        Filter by Onboarding status <span *ngIf="selectedOnboardingFilter">({{selectedOnboardingFilter}})</span>
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu">
         <li *ngFor="let filter of onboardingFilters">
-          <a style="text-transform: capitalize" href="javascript:void(0)" (click)="getByFilter(filter.type,filter.value,filter.sortOrder)">
+          <a style="text-transform: capitalize" href="javascript:void(0)" (click)="getByFilter(filter)">
             {{filter.name}}
           </a>
         </li>
 
       </ul>
-    </div>
+    </div>-->
 
     <div class="card" style="margin-top: 50px;">
       <div class="card-header" data-background-color="green">
@@ -49,6 +49,7 @@
             <thead  >
             <tr>
               <th class="boldfont">Email</th>
+              <th class="boldfont">Name</th>
 
               <th class="boldfont">Phone</th>
 
@@ -66,7 +67,12 @@
             <tr *ngFor="let user of users;let i=index">
 
               <td><span>{{i+1}}.</span> {{user?.email}}</td>
+              <td >
 
+                {{user?.profiles?.name}}
+
+
+              </td>
               <td >
 
                 {{user?.phone}}

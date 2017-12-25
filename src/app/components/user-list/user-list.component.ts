@@ -11,6 +11,8 @@ import {ToastService} from "../../services/toast.service";
 export class UserListComponent implements OnInit {
 
   users:Iuser[]=[];
+  selectedRoleFiler:string='All';
+    selectedOnboardingFilter:string=null;
   roleFilters=[
       {name:'Farmer',value:'farmer',type:'role'},
       {name:'Sponsor',value:'sponsor',type:'role'},
@@ -78,23 +80,28 @@ export class UserListComponent implements OnInit {
     }
 
 
-    getByFilter(type:string,value:string,sortOrder:string){
-        console.log(type,value,sortOrder)
-      if(type==='role'){
-            if(value==='all')
+    getByFilter(filter:any){
+        console.log(filter.type,filter.value,filter.sortOrder)
+      if(filter.type==='role'){
+            this.selectedRoleFiler=filter.name;
+            this.selectedOnboardingFilter=null;
+            if(filter.value==='all')
                 this.getAllUsers();
             else
-                this.getUsersByRole(value);
+                this.getUsersByRole(filter.value);
         }
-        else if(type==='date'){
+        else if(filter.type==='date'){
            // this.getUsersByOnboardingStatus(value);
         }
 
-        else if(type==='onboarding'){
-          if(value==='all')
+        else if(filter.type==='onboarding'){
+          this.selectedRoleFiler=null;
+          this.selectedOnboardingFilter=filter.name;
+
+          if(filter.value==='all')
               this.getAllUsers();
           else
-            this.getUsersByOnboardingStatus(value);
+            this.getUsersByOnboardingStatus(filter.value);
         }
     }
 }
