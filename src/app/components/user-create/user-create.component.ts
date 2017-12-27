@@ -72,6 +72,9 @@ export class UserCreateComponent implements OnInit {
   }
     register(){
 
+        if(!this.user.name){
+            return this.toastService.error('User','Name is required');
+        }
         if(!this.user.email){
             return this.toastService.error('User','Email is required');
         }
