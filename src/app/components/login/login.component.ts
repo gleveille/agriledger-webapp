@@ -4,6 +4,7 @@ import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
 
+declare var WxLogin:any;
 @Component({
   selector: 'app-login-sponsor',
   templateUrl: './login.component.html',
@@ -16,6 +17,16 @@ export class LoginComponent implements OnInit {
   constructor(private userService:UserService,private toastService:ToastService,private router:Router) { }
 
   ngOnInit() {
+      var obj = new WxLogin({
+          id:"login_container",
+          appid: "wxea12140cbb27e1b7",
+          scope: "snsapi_login",
+          redirect_uri: "http://quest.careers/api/wechat/callback",
+          state: "",
+          style: "",
+          href: ""
+      });
+
   }
 
     login(){
