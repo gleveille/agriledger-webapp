@@ -2549,7 +2549,7 @@ var PasswordChangeComponent = (function () {
 /***/ "../../../../../src/app/components/password-forget/password-forget.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n\n<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-4 col-md-offset-4\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Forgot your password?</h4>\n            <p class=\"category\">An email will be sent with the code</p>\n          </div>\n          <div class=\"card-content\">\n            <form>\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 13px;\">Email</label>\n                    <input type=\"email\" [(ngModel)]=\"email\"\n                           required\n                           name=\"email\" class=\"form-control\" >\n\n\n                    <button\n                            [disabled]=\"sendHttpRequestStatus==='pending' || !email\"\n                            type=\"submit\"\n                            (click)=\"sendPasswordResetToken()\"\n                            class=\"btn btn-danger pull-right\">SEND\n                    </button>\n                  </div>\n                </div>\n              </div>\n\n\n\n\n\n            </form>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>"
+module.exports = "<app-header></app-header>\n\n<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-6 col-md-offset-3\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Forgot your password?</h4>\n            <p class=\"category\">An email will be sent with the code</p>\n          </div>\n          <div class=\"card-content\">\n            <form *ngIf=\"!isEmailSent\">\n              <div class=\"row\" >\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 13px;\">Email</label>\n                    <input type=\"email\" [(ngModel)]=\"email\"\n                           required\n                           name=\"email\" class=\"form-control\" >\n\n\n                    <button\n                            [disabled]=\"sendHttpRequestStatus==='pending' || !email\"\n                            type=\"submit\"\n                            (click)=\"sendPasswordResetToken()\"\n                            class=\"btn btn-danger pull-right\">SEND\n                    </button>\n                  </div>\n                </div>\n              </div>\n            </form>\n\n\n            <div class=\"row\" *ngIf=\"isEmailSent\">\n              <div class=\"col-xs-12 text-center\">\n                <h5>An email has been sent to {{email}}</h5>\n                <label>Didn't get an email?</label>\n                <a href=\"javascript:void(0)\" (click)=\"resend()\">Resend again</a>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2598,7 +2598,8 @@ var PasswordForgetComponent = (function () {
         this.userService = userService;
         this.toastService = toastService;
         this.router = router;
-        this.email = null;
+        this.email = '';
+        this.isEmailSent = false;
         this.sendHttpRequestStatus = 'resolved';
     }
     PasswordForgetComponent.prototype.ngOnInit = function () {
@@ -2608,11 +2609,17 @@ var PasswordForgetComponent = (function () {
         this.sendHttpRequestStatus = 'pending';
         this.userService.sendPasswordResetToken(this.email).subscribe(function (data) {
             _this.sendHttpRequestStatus = 'resolved';
+            _this.isEmailSent = true;
             _this.toastService.success('Send', 'An email has been sent');
         }, function (err) {
+            _this.isEmailSent = false;
             _this.sendHttpRequestStatus = 'rejected';
             _this.toastService.error('Reset', err.message || 'An email could not be sent');
         });
+    };
+    PasswordForgetComponent.prototype.resend = function () {
+        this.email = '';
+        this.isEmailSent = false;
     };
     PasswordForgetComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -2632,7 +2639,7 @@ var PasswordForgetComponent = (function () {
 /***/ "../../../../../src/app/components/password-new/password-new.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n\n<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-4 col-md-offset-4\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Set your new Password</h4>\n          </div>\n          <div class=\"card-content\">\n            <form>\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 13px;\">New Password</label>\n                    <p class=\"text-gray\" style=\"font-size: 11px;\">\n                      ({{passwordFormatText}})\n                    </p>\n                    <input type=\"password\" [(ngModel)]=\"credential.newPassword\" name=\"newPassword\" class=\"form-control\" >\n\n                    <label class=\"control-label\" style=\"font-size: 13px;\">Re-Type Password</label>\n                    <input type=\"password\" [(ngModel)]=\"credential.rePassword\" name=\"rePassword\" class=\"form-control\" >\n                    <button\n                            [disabled]=\"passwordChangeRequestStatus==='pending'\"\n                            type=\"submit\"\n                            (click)=\"resetPassword()\"\n                            class=\"btn btn-danger pull-right\">SET\n                    </button>\n                  </div>\n                </div>\n              </div>\n\n\n\n\n\n            </form>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>"
+module.exports = "<app-header></app-header>\n\n<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-6 col-md-offset-3\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Set your new Password</h4>\n          </div>\n          <div class=\"card-content\">\n            <form *ngIf=\"!isResetByFarmer\">\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 13px;\">New Password</label>\n                    <p class=\"text-gray\" style=\"font-size: 11px;\">\n                      ({{passwordFormatText}})\n                    </p>\n                    <input type=\"password\" [(ngModel)]=\"credential.newPassword\" name=\"newPassword\" class=\"form-control\" >\n\n                    <label class=\"control-label\" style=\"font-size: 13px;\">Re-Type Password</label>\n                    <input type=\"password\" [(ngModel)]=\"credential.rePassword\" name=\"rePassword\" class=\"form-control\" >\n                    <button\n                            [disabled]=\"passwordChangeRequestStatus==='pending'\"\n                            type=\"submit\"\n                            (click)=\"resetPassword()\"\n                            class=\"btn btn-danger pull-right\">SET\n                    </button>\n                  </div>\n                </div>\n              </div>\n            </form>\n\n            <div class=\"row\" *ngIf=\"isResetByFarmer\">\n              <div class=\"col-xs-12 text-center\">\n                <h5>You have set your password successfully</h5>\n                <label>Please go back to App and login again</label>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2682,7 +2689,8 @@ var PasswordNewComponent = (function () {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.toastService = toastService;
-        this.credential = { accessToken: null, newPassword: null, rePassword: null };
+        this.isResetByFarmer = false;
+        this.credential = { accessToken: null, newPassword: null, rePassword: null, role: null };
         this.passwordChangeRequestStatus = 'resolved';
         this.passwordFormatText = 'Minimum eight characters, must include atleast one number and one special character';
     }
@@ -2691,8 +2699,7 @@ var PasswordNewComponent = (function () {
         this.activatedRoute.queryParams.subscribe(function (params) {
             console.log(params);
             _this.credential.accessToken = params['accessToken'];
-            console.log('access token is.........');
-            console.log(_this.credential.accessToken);
+            _this.credential.role = params['role'];
         });
     };
     PasswordNewComponent.prototype.resetPassword = function () {
@@ -2710,8 +2717,13 @@ var PasswordNewComponent = (function () {
         this.userService.resetPassword(this.credential.accessToken, this.credential.newPassword)
             .subscribe(function (data) {
             _this.passwordChangeRequestStatus = 'resolved';
-            _this.toastService.success('Password', 'Set Sucessfully.please login');
-            _this.router.navigate(['/login']);
+            if (_this.credential.role && _this.credential.role === 'farmer') {
+                _this.isResetByFarmer = true;
+            }
+            else {
+                _this.router.navigate(['/login']);
+            }
+            _this.toastService.success('Success', 'Password has been set.Please login');
         }, function (err) {
             _this.passwordChangeRequestStatus = 'rejected';
             _this.toastService.error('Password', err.message);

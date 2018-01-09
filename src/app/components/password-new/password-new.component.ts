@@ -9,7 +9,8 @@ import {ToastService} from "../../services/toast.service";
   styleUrls: ['./password-new.component.scss']
 })
 export class PasswordNewComponent implements OnInit {
-    credential={accessToken:null,newPassword:null,rePassword:null};
+    isResetByFarmer:boolean=false;
+    credential={accessToken:null,newPassword:null,rePassword:null,role:null};
     passwordChangeRequestStatus='resolved';
     passwordFormatText='Minimum eight characters, must include atleast one number and one special character';
 
@@ -21,8 +22,8 @@ export class PasswordNewComponent implements OnInit {
       this.activatedRoute.queryParams.subscribe((params: Params) => {
         console.log(params)
           this.credential.accessToken = params['accessToken'];
-          console.log('access token is.........')
-          console.log(this.credential.accessToken);
+          this.credential.role = params['role'];
+
       });
   }
 
@@ -44,8 +45,15 @@ export class PasswordNewComponent implements OnInit {
             .subscribe((data:any)=>{
                 this.passwordChangeRequestStatus='resolved';
 
-                this.toastService.success('Password','Set Sucessfully.please login');
-                this.router.navigate(['/login']);
+                if(this.credential.role && this.credential.role==='farmer'){
+                    this.isResetByFarmer=true
+                }
+                else{
+                    this.router.navigate(['/login']);
+
+                }
+
+                this.toastService.success('Success','Password has been set.Please login');
 
             },(err)=>{
                 this.passwordChangeRequestStatus='rejected';
