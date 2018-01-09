@@ -35,7 +35,7 @@ export class PasswordResetComponent implements OnInit {
         }
 
         this.passwordChangeRequestStatus='pending';
-        this.userService.resetPassword(this.credential.oldPassword,this.credential.newPassword)
+        this.userService.changePassword(this.credential.oldPassword,this.credential.newPassword)
             .subscribe((data:any)=>{
                 this.passwordChangeRequestStatus='resolved';
 

@@ -59,6 +59,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { ImagePopupComponent } from './image-popup/image-popup.component';
 import { AccordionModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
+import { PasswordNewComponent } from './components/password-new/password-new.component';
+import { PasswordForgetComponent } from './components/password-forget/password-forget.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/translations/', '.json');
@@ -91,7 +93,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserCreateComponent,
     UserUpdateComponent,
     UserListComponent,
-    ImagePopupComponent
+    ImagePopupComponent,
+    PasswordNewComponent,
+    PasswordForgetComponent
 
   ],
   imports: [

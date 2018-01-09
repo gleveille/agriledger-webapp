@@ -17,16 +17,6 @@ export class LoginComponent implements OnInit {
   constructor(private userService:UserService,private toastService:ToastService,private router:Router) { }
 
   ngOnInit() {
-      var obj = new WxLogin({
-          id:"login_container",
-          appid: "wxea12140cbb27e1b7",
-          scope: "snsapi_login",
-          redirect_uri: "http://quest.careers/api/wechat/callback",
-          state: "",
-          style: "",
-          href: ""
-      });
-
   }
 
     login(){
@@ -52,5 +42,8 @@ export class LoginComponent implements OnInit {
       }
     });
     }
+    goToForgetPasswordPage(){
+        this.router.navigate(['password-forget']);
 
+    }
 }

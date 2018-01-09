@@ -58,8 +58,6 @@ export class UserService {
 
   }
 
-
-
   isAuthenticated(){
     if(this.getUserId() && this.getAccessToken()){
         return true;
@@ -92,18 +90,27 @@ export class UserService {
     setUserFromGuard(user:Iuser){
     this.user=user;
   }
-  resetPassword(oldPassword:string,newPassword:string) {
-      return this.http.post(`${UserApi.changePassword.url()}`,
-          {oldPassword:oldPassword,newPassword:newPassword}).do((data)=>{
-          this.user.isPasswordChanged=true;
-      }).catch((res)=> {
-          return this.errorHandler.handle(res);
-      });
-  };
 
+    sendPasswordResetToken(email:any) {
+        return this.http.post(`${UserApi.sendResetPasswordToken.url()}`, {email: email}).do((res)=> {
+        })
+            .catch((err)=> {
+                return this.errorHandler.handle(err);
+            })
+    };
+
+    resetPassword(accessToken:string, newPassword:string) {
+        return this.http.post(`${UserApi.resetPassword.url()}?access_token=${accessToken}`,
+            {newPassword: newPassword}).do((data)=> {
+        }).catch((res)=> {
+            return this.errorHandler.handle(res);
+        });
+    };
     changePassword(oldPassword:string,newPassword:string) {
         return this.http.post(`${UserApi.changePassword.url()}`,
             {oldPassword:oldPassword,newPassword:newPassword}).do((data)=>{
+            this.user.isPasswordChanged=true;
+
         }).catch((res)=> {
             return this.errorHandler.handle(res);
         });

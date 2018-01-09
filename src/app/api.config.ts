@@ -33,13 +33,22 @@ const UserApi={
         method:'POST'
 
     },
-    logout:{
-        url:()=>ServerUrl+'/api/users/logout',
+    changePassword:{
+        url:()=>ServerUrl+'/api/users/change-password',
         method:'POST'
 
     },
-    changePassword:{
-        url:()=>ServerUrl+'/api/users/change-password',
+    resetPassword: {
+        url: ()=>ServerUrl + '/api/users/reset-password',
+        method: 'POST'
+
+    },
+    sendResetPasswordToken: {
+        url: ()=>ServerUrl + '/api/users/reset',
+        method: 'GET'
+    },
+    logout:{
+        url:()=>ServerUrl+'/api/users/logout',
         method:'POST'
 
     },

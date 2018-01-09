@@ -34,12 +34,24 @@ import {PasswordResetComponent} from "./components/password-reset/password-reset
 import {UserCreateComponent} from "./components/user-create/user-create.component";
 import {UserListComponent} from "./components/user-list/user-list.component";
 import {UserUpdateComponent} from "./components/user-update/user-update.component";
+import {PasswordForgetComponent} from "./components/password-forget/password-forget.component";
+import {PasswordNewComponent} from "./components/password-new/password-new.component";
 
 const routes:Routes = [
     {
         path: '',
         redirectTo: 'login',
         pathMatch: 'full'
+    },
+    {
+        path: 'password-forget',
+        component: PasswordForgetComponent,
+        canActivate: [AlreadyAuthenticatedGuard],
+    },
+    {
+        path: 'password-new',
+        component: PasswordNewComponent,
+        canActivate: [AlreadyAuthenticatedGuard],
     },
     {
         path: 'login',
@@ -141,8 +153,6 @@ const routes:Routes = [
 
 @NgModule({
     imports: [
-        CommonModule,
-        BrowserModule,
         RouterModule.forRoot(routes)
     ],
     exports: [],
