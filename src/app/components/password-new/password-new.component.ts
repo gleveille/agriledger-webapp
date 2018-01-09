@@ -30,12 +30,14 @@ export class PasswordNewComponent implements OnInit {
   resetPassword(){
         const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
 
-        if(!pattern.test(this.credential.newPassword)){
-            this.toastService.error('Password',this.passwordFormatText);
-            return;
+        if(this.credential.role!=='farmer'){
+            if(!pattern.test(this.credential.newPassword)){
+                this.toastService.error('Password',this.passwordFormatText);
+                return;
+            }
         }
 
-        else if(this.credential.newPassword!==this.credential.rePassword){
+      if(this.credential.newPassword!==this.credential.rePassword){
             this.toastService.error('Password','Password does not match');
             return;
         }
