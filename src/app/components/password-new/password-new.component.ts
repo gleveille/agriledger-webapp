@@ -37,6 +37,14 @@ export class PasswordNewComponent implements OnInit {
             }
         }
 
+        if(!this.credential.newPassword){
+            this.toastService.error('Password','Please enter your new password');
+            return;
+        }
+      if(!this.credential.rePassword){
+          this.toastService.error('Password','Please re-type your password');
+          return;
+      }
       if(this.credential.newPassword!==this.credential.rePassword){
             this.toastService.error('Password','Password does not match');
             return;
@@ -46,16 +54,15 @@ export class PasswordNewComponent implements OnInit {
         this.userService.resetPassword(this.credential.accessToken,this.credential.newPassword)
             .subscribe((data:any)=>{
                 this.passwordChangeRequestStatus='resolved';
-
                 if(this.credential.role && this.credential.role==='farmer'){
                     this.isResetByFarmer=true
                 }
                 else{
+                    this.toastService.success('Success','Password has been set.Please login');
                     this.router.navigate(['/login']);
 
                 }
 
-                this.toastService.success('Success','Password has been set.Please login');
 
             },(err)=>{
                 this.passwordChangeRequestStatus='rejected';

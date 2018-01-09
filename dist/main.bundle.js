@@ -2639,7 +2639,7 @@ var PasswordForgetComponent = (function () {
 /***/ "../../../../../src/app/components/password-new/password-new.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n\n<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-6 col-md-offset-3\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Set your new Password</h4>\n          </div>\n          <div class=\"card-content\">\n            <form *ngIf=\"!isResetByFarmer\">\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 13px;\">New Password</label>\n                    <p class=\"text-gray\" style=\"font-size: 11px;\" *ngIf=\"credential.role!=='farmer'\">\n                      ({{passwordFormatText}})\n                    </p>\n                    <input type=\"password\" [(ngModel)]=\"credential.newPassword\" name=\"newPassword\" class=\"form-control\" >\n\n                    <label class=\"control-label\" style=\"font-size: 13px;\">Re-Type Password</label>\n                    <input type=\"password\" [(ngModel)]=\"credential.rePassword\" name=\"rePassword\" class=\"form-control\" >\n                    <button\n                            [disabled]=\"passwordChangeRequestStatus==='pending'\"\n                            type=\"submit\"\n                            (click)=\"resetPassword()\"\n                            class=\"btn btn-danger pull-right\">SET\n                    </button>\n                  </div>\n                </div>\n              </div>\n            </form>\n\n            <div class=\"row\" *ngIf=\"isResetByFarmer\">\n              <div class=\"col-xs-12 text-center\">\n                <h5>You have set your password successfully</h5>\n                <label>Please go back to App and login again</label>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>"
+module.exports = "<app-header></app-header>\n\n<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-6 col-md-offset-3\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Set your new Password</h4>\n          </div>\n          <div class=\"card-content\">\n            <form *ngIf=\"!isResetByFarmer\">\n              <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 13px;\">New Password</label>\n                    <p class=\"text-gray\" style=\"font-size: 11px;\" *ngIf=\"credential.role!=='farmer'\">\n                      ({{passwordFormatText}})\n                    </p>\n                    <input type=\"password\" [(ngModel)]=\"credential.newPassword\" name=\"newPassword\" class=\"form-control\" >\n\n                    <label class=\"control-label\" style=\"font-size: 13px;\">Re-Type Password</label>\n                    <input type=\"password\" [(ngModel)]=\"credential.rePassword\" name=\"rePassword\" class=\"form-control\" >\n                    <button\n                            [disabled]=\"passwordChangeRequestStatus==='pending'\n                            || !credential.newPassword\n                            || !credential.rePassword || credential.newPassword!==credential.rePassword\"\n                            type=\"submit\"\n                            (click)=\"resetPassword()\"\n                            class=\"btn btn-danger pull-right\">SET\n                    </button>\n                  </div>\n                </div>\n              </div>\n            </form>\n\n            <div class=\"row\" *ngIf=\"isResetByFarmer\">\n              <div class=\"col-xs-12 text-center\">\n                <h5>You have set your password successfully</h5>\n                <label>Please go back to App and login again</label>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2711,6 +2711,14 @@ var PasswordNewComponent = (function () {
                 return;
             }
         }
+        if (!this.credential.newPassword) {
+            this.toastService.error('Password', 'Please enter your new password');
+            return;
+        }
+        if (!this.credential.rePassword) {
+            this.toastService.error('Password', 'Please re-type your password');
+            return;
+        }
         if (this.credential.newPassword !== this.credential.rePassword) {
             this.toastService.error('Password', 'Password does not match');
             return;
@@ -2723,9 +2731,9 @@ var PasswordNewComponent = (function () {
                 _this.isResetByFarmer = true;
             }
             else {
+                _this.toastService.success('Success', 'Password has been set.Please login');
                 _this.router.navigate(['/login']);
             }
-            _this.toastService.success('Success', 'Password has been set.Please login');
         }, function (err) {
             _this.passwordChangeRequestStatus = 'rejected';
             _this.toastService.error('Password', err.message);
