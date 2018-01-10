@@ -64,9 +64,6 @@
     .form-control {
       box-shadow: none;
     }
-    &.is-focused .form-control {
-      background-image: linear-gradient($color, $color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
-    }
     label.control-label,
     .help-block {
       color: $color;

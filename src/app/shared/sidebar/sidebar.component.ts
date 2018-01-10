@@ -25,9 +25,9 @@ export const MenuItemsForSponsor:  RouteInfo[] = [
 
 export const MenuItemsForOps:  RouteInfo[] = [
     { path: 'account', title: 'Account',  icon:'account_circle', class: '' },
-    { path: 'assets-pool-list', title: 'Asset Pool',  icon:'store', class: '' },
-    { path: 'tokens', title: 'Issued Tokens',  icon:'stars', class: '' },
-    { path: 'transfer', title: 'Transfer Tokens',  icon:'send', class: '' },
+    { path: 'assets-pool-list', title: 'Pools',  icon:'store', class: '' },
+    { path: 'tokens', title: 'Tokens',  icon:'stars', class: '' },
+    { path: 'transfer', title: 'Transfer',  icon:'send', class: '' },
     { path: 'wallet', title: 'Transactions',  icon:'history', class: '' },
     { path: 'user-create', title: 'Create Users',  icon:'person_add', class: '' },
 

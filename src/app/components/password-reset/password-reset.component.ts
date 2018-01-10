@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./password-reset.component.css']
 })
 export class PasswordResetComponent implements OnInit {
-    credential={oldPassword:null,newPassword:null,rePassword:null};
+    credential={oldPassword:'',newPassword:'',rePassword:''};
     passwordChangeRequestStatus='resolved';
     passwordFormatText='Minimum eight characters, must include atleast one number and one special character';
 
