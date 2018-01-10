@@ -16,14 +16,15 @@ export class InterceptorService implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        request = request.clone({
-            setHeaders: {
-                'X-Access-Token': `${localStorage.getItem('accessToken')}`
-            }
-        });
+        if(request.url.indexOf('reset-password')===-1){
+            request = request.clone({
+                setHeaders: {
+                    'X-Access-Token': `${localStorage.getItem('accessToken')}`
+                }
+            });
+        }
 
         return next.handle(request).do((event: HttpEvent<any>) => {
-            console.log('interceptor')
 
             if (event instanceof HttpResponse) {
                 // do stuff with response if you want
