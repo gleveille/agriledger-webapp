@@ -121,14 +121,17 @@ export class UserService {
         return this.http.post(`${UserApi.logout.url()}`,
             {}).do((data)=>{
           this.resetState();
-          localStorage.removeItem('accessToken');
-          localStorage.removeItem('userId');
 
         });
     }
 
     resetState(){
       this.user={};
+    }
+
+    resetLocalStorage(){
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('userId');
     }
 
     createAccountOnBlockchain(){

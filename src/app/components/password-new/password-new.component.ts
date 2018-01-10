@@ -19,6 +19,8 @@ export class PasswordNewComponent implements OnInit {
               private toastService:ToastService) { }
 
   ngOnInit() {
+
+      this.userService.resetLocalStorage();
       this.activatedRoute.queryParams.subscribe((params: Params) => {
         console.log(params)
           this.credential.accessToken = params['accessToken'];

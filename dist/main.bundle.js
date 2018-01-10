@@ -548,8 +548,7 @@ var routes = [
     },
     {
         path: 'password-new',
-        component: __WEBPACK_IMPORTED_MODULE_34__components_password_new_password_new_component__["a" /* PasswordNewComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_9__guards_already_authenticated_guard__["a" /* AlreadyAuthenticatedGuard */]],
+        component: __WEBPACK_IMPORTED_MODULE_34__components_password_new_password_new_component__["a" /* PasswordNewComponent */]
     },
     {
         path: 'login',
@@ -2696,6 +2695,7 @@ var PasswordNewComponent = (function () {
     }
     PasswordNewComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.userService.resetLocalStorage();
         this.activatedRoute.queryParams.subscribe(function (params) {
             console.log(params);
             _this.credential.accessToken = params['accessToken'];
@@ -5147,12 +5147,14 @@ var UserService = (function () {
         var _this = this;
         return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* UserApi */].logout.url(), {}).do(function (data) {
             _this.resetState();
-            localStorage.removeItem('accessToken');
-            localStorage.removeItem('userId');
         });
     };
     UserService.prototype.resetState = function () {
         this.user = {};
+    };
+    UserService.prototype.resetLocalStorage = function () {
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('userId');
     };
     UserService.prototype.createAccountOnBlockchain = function () {
         var _this = this;

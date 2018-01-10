@@ -50,8 +50,7 @@ const routes:Routes = [
     },
     {
         path: 'password-new',
-        component: PasswordNewComponent,
-        canActivate: [AlreadyAuthenticatedGuard],
+        component: PasswordNewComponent
     },
     {
         path: 'login',
