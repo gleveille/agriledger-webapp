@@ -69,7 +69,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="control-label" style="font-size: 14px;">Message</label>
-                    <input type="text" [(ngModel)]="user.remark" name="remark" class="form-control" >
+                    <input type="text" [(ngModel)]="transaction.remark" name="remark" class="form-control" >
                   </div>
                 </div>
               </div>
@@ -78,7 +78,11 @@
 
               <button
                       type="submit"
-                      [disabled]="transferHttpRequestStatus==='pending'"
+                      [disabled]="transferHttpRequestStatus==='pending'
+                      || !transaction.amount
+                      || !transaction.fee
+                      || !transaction.remark
+                       || !transaction.currency"
                       (click)="transfer()"
                       class="btn btn-danger pull-right">Transfer</button>
               <div class="clearfix"></div>

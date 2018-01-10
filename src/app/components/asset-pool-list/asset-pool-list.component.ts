@@ -34,7 +34,6 @@ export class AssetPoolListComponent implements OnInit {
   token={amount:null,exchangeRate:null};
   selectedPool={maximum:null,precision:null,blockchain:{currency:null},id:null};
   constructor(private assetPoolService:AssetsPoolService,
-              private router:Router,
               private modalService: BsModalService,
               private toastService:ToastService,
               private userService:UserService) {
