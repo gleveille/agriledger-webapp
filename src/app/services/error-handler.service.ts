@@ -15,32 +15,38 @@ export class ErrorHandlerService {
   handle(res:any):Observable<any>{
       console.log(res);
       let msg='';
-      if(res.error){
-          try{
-              const data=JSON.parse(res.error);
-              console.log(data)
-              if(data && data.error && data.error.message){
-                  msg=data.error.message;
-
-              }else{
-                  if(data && data.message){
-                      msg=data.message;
-                  }
-              }
-          }
-
-          catch(err) {
-          }
-
-          if(res.error.error){
-              msg=res.error.error.message ||'Server error.Try again';
-
-          }
+      if(res.error && res.error.message){
+          msg=res.error.message;
       }
       else{
+          if(res.error){
+              try{
+                  const data=JSON.parse(res.error);
+                  console.log(data)
+                  if(data && data.error && data.error.message){
+                      msg=data.error.message;
 
-          msg=res.statusText||'Server error.Try again';
+                  }else{
+                      if(data && data.message){
+                          msg=data.message;
+                      }
+                  }
+              }
+
+              catch(err) {
+              }
+
+              if(res.error.error){
+                  msg=res.error.error.message ||'Server error.Try again';
+
+              }
+          }
+          else{
+
+              msg=res.statusText||'Server error.Try again';
+          }
       }
+
 
       msg= msg ? msg :'Something went wrong';
 

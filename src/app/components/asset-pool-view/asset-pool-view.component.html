@@ -49,7 +49,7 @@
                   <hr>
 
                   <div class="col-xs-6 text-left">
-                    <b>Maximum</b>
+                    <b>Maximum Quantity</b>
 
 
                   </div>
@@ -171,9 +171,9 @@
             <div class="row" style="text-align: center">
 
               <div class="col-xs-12">
+                <hr>
 
-                <button [disabled]="!pool.blockchain || pool.blockchain?.approved===0 " class="btn ">ISSUE TOKENS</button>
-                <button [disabled]="!pool.blockchain || pool.blockchain?.approved===0 "  class="btn btn-success" [routerLink]="['/dashboard','tokens',pool?.id]">ISSUED TOKENS</button>
+                <button [disabled]="!pool.blockchain || pool.blockchain?.approved===0 " (click)="openModal(template,pool)" class="btn btn-success ">I want to Issue Token</button>
 
               </div>
 
@@ -183,9 +183,7 @@
 
               <div class="col-xs-12">
 
-                <h3>Assets Evidences</h3>
-                <hr>
-
+                <h3>Asset Evidences</h3>
                 <section *ngIf="assetEvidenceHttpStatus==='pending' || assetPoolHttpSstatus==='rejected' ">
                   <app-spinner [type]="'bounce'" *ngIf="assetEvidenceHttpStatus==='pending'"></app-spinner>
 
@@ -252,14 +250,14 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" style="font-size: 14px;">Maximum</label>
-              <input [disabled]="true" type="text" [(ngModel)]="selectedPool.maximum" name="maximum" class="form-control" >
+              <label class="control-label" style="font-size: 14px;">Maximum Quantity</label>
+              <input [disabled]="true" type="text" [(ngModel)]="pool.maximum" name="maximum" class="form-control" >
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label class="control-label" style="font-size: 14px;">Currency</label>
-              <input [disabled]="true" type="text" [(ngModel)]="selectedPool.blockchain.currency" name="currency" class="form-control" >
+              <input [disabled]="true" type="text" [(ngModel)]="pool.blockchain.currency" name="currency" class="form-control" >
             </div>
           </div>
 
