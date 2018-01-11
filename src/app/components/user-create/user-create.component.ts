@@ -86,13 +86,15 @@ export class UserCreateComponent implements OnInit {
         if(!this.user.password){
             return this.toastService.error('User','Password is required');
         }
-
+        if(!this.user.profiles.phone){
+            return this.toastService.error('User','Phone is required');
+        }
         if(!this.passwordRetyped){
-            return this.toastService.error('User','Please enter the password again');
+            return this.toastService.error('User','Please confirm the Password');
         }
 
         if(this.user.password!==this.passwordRetyped){
-            return this.toastService.error('User','Password does not match');
+            return this.toastService.error('User','Password and confirm Password does not match');
         }
         this.createRequestStatus='pending';
         console.log(this.user)

@@ -46,4 +46,9 @@ export class AssetViewComponent implements OnInit {
             this.toastService.error('Status',err.message);
     })
   }
+
+    goBack(){
+        this.location.back();
+
+    }
 }

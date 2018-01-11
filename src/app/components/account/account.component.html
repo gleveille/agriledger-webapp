@@ -30,7 +30,8 @@
                                          onError="this.src='assets/img/default-avatar.png'"/>
                             </div>
                             <div class="content text-center" style="padding-left: 20px;padding-right: 20px;">
-                                <h4 class="card-title" style="text-transform: capitalize">{{user.profiles?.name}}
+                                <h4 class="card-title" style="text-transform: capitalize">
+                                    {{user.profiles?.name}}
                                    <!-- <span>
                                      <i class="material-icons">verified_user</i>
 
@@ -39,26 +40,33 @@
                                 </h4>
 
                                 <p class="text-gray">
+
+                                    <span style="position: relative; top: 3px;">
+                                        <i style="font-size: 14px;color: green" class="material-icons">email</i>
+                                    </span>
                                     <span>{{user.email}}</span>
-                                    &nbsp;
-                                    <span style="border:0.5px solid  #999999;"></span>
-                                    &nbsp;
+
+                                    <span style="position: relative; top: 3px;left:3px;margin-left:5px;">
+                                        <i style="font-size: 14px;color: green" class="material-icons">phone</i>
+                                    </span>
                                     <span>{{user.profiles?.phone||'Mobile unavailable'}}</span>&nbsp;
 
-                                    <span style="border:0.5px solid  #999999;"></span>
-                                    &nbsp;
+                                    &nbsp;<span style="position: relative; top: 3px;">
+                                    <i style="font-size: 14px;color: green" class="material-icons">history</i>
+                                </span>
                                     <span>member since {{user?.createdAt|moment:true}}</span>&nbsp;
 
                                 </p>
 
 
+                                <p class="text-gray" *ngIf="user.issuerName">
+                                    <span>
 
-                                <p class="text-gray">
-                                    <b>Issuer Name: {{user?.issuerName}}</b>
+                                        Issuer Name: {{user.issuerName}}</span>
 
                                 </p>
-                                <p class="text-gray">
-                                    <b>Wallet Address: {{user?.walletAddress}}</b>
+                                <p class="text-gray" *ngIf="user.walletAddress">
+                                    <span>Wallet Address: {{user.walletAddress}}</span>
 
                                 </p>
                                 <hr style="margin-bottom:0;">
@@ -76,8 +84,7 @@
                                         <p style="color: darkblue" *ngSwitchCase="'pending'">
                                             <b>Profile changes is pending for approval</b>
                                             <span style="position:relative;top:6px;">
-                                        <i class="material-icons">restore
-                                        </i>
+                                       <i class="material-icons">info_outline</i>
                                     </span>
 
                                         </p>
@@ -85,8 +92,7 @@
                                         <p style="color:orangered" *ngSwitchCase="'rejected'">
                                             <b>Profile changes is rejected</b>
                                             <span style="position:relative;top:6px;">
-                                        <i class="material-icons">warning
-                                        </i>
+                                        <i class="material-icons">highlight_off</i>
                                     </span>
 
                                         </p>

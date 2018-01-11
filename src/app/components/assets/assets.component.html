@@ -195,10 +195,15 @@
 
 
                 <tr *ngFor="let asset of assets"  >
-                  <td><span *ngIf="canSelected">
-                    <input type="checkbox" [(ngModel)]="asset.isSelected">
-                  </span>
-                    <span style="position:relative;top:-3px;">{{asset?.name}}</span>
+                  <td>
+                    <div *ngIf="canSelected">
+                      <span><input type="checkbox" [(ngModel)]="asset.isSelected"></span>
+                      <span style="position:relative;top:-3px;">{{asset?.name}}</span>
+                    </div>
+                    <div style="cursor: pointer" *ngIf="!canSelected" [routerLink]="['../assets',asset.id]">
+                      <span style="position:relative;top:-3px;">{{asset?.name}}</span>
+                    </div>
+
                   </td>
 
 

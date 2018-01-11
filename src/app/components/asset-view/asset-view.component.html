@@ -11,12 +11,11 @@
           <div class="card-content">
 
             <div class="row" style="text-align: center">
-              <h3>Assets Details</h3>
-              <hr>
+              <h3>Asset Details</h3>
               <div class="row" style="padding: 15px">
                 <div class="col-xs-12">
 
-                  <ol class="breadcrumb text-left">
+                  <ol class="breadcrumb text-left" style="margin-bottom: 5px;">
                     <li><a href="javascript:void (0)">{{asset?.category?.level1}}</a></li>
                     <li><a href="javascript:void (0)">{{asset?.category?.level2}}</a></li>
                     <li> <a href="javascript:void (0)">{{asset?.category?.level3}}</a></li>
@@ -125,7 +124,6 @@
 
             <div class="row" style="text-align: center">
               <h3>Farmer Details</h3>
-              <hr>
               <div class="row" style="padding: 15px">
 
                 <div class="col-lg-6" >
@@ -249,7 +247,6 @@
               <div class="col-xs-12">
 
                 <h3>Assets Evidences</h3>
-                <hr>
 
 
                 <div class="row" *ngIf="asset.evidences && !asset.evidences.length">
@@ -261,22 +258,22 @@
                 </div>
 
                 <div class="row" *ngIf="asset.evidences && asset.evidences.length">
-                  <div class="col-xs-12 col-md-4 text-center text-gray" *ngFor="let evidence of asset.evidences">
-                        <img [src]="evidence.url" alt="First slide" style="display: block; width:100%;height: 300px">
-                        <p>{{evidence?.date|moment}}</p>
-                        <p>{{evidence?.hash}}</p>
-                    <p>{{evidence?.lat}},{{evidence?.long}}</p>
+                  <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of asset.evidences">
+                        <img [src]="evidence.url" alt="First slide" style="display: block; width:100%;height:200px">
+                        <div>{{evidence?.date|moment}}</div>
+                        <div style="text-wrap: normal;word-wrap: break-word">{{evidence?.hash}}</div>
+                    <div>{{evidence?.lat}},{{evidence?.long}}</div>
 
-                        <button class="btn btn-primary" *ngIf="evidence && evidence.status==='rejected'">Rejected</button>
+                    <div>
+                      <button  class="btn btn-simple" *ngIf="evidence && evidence.status==='rejected'">Rejected</button>
 
-                        <button class="btn btn-primary" *ngIf="evidence && evidence.status==='approved'">Approved</button>
+                      <button class="btn btn-simple" *ngIf="evidence && evidence.status==='approved'">Approved</button>
 
-                        <button class="btn btn-primary" *ngIf="evidence && evidence.status==='pending'">Pending</button>
+                      <button class="btn btn-primary  btn-simple" *ngIf="evidence && evidence.status==='pending'">Pending</button>
 
-                        <div class="carousel-caption d-none d-md-block">
+                    </div>
 
 
-                        </div>
 
                   </div>
                 </div>
