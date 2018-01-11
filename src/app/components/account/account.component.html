@@ -61,7 +61,7 @@
                                     <b>Wallet Address: {{user?.walletAddress}}</b>
 
                                 </p>
-                                <hr>
+                                <hr style="margin-bottom:0;">
 
                                     <div [ngSwitch]="user.profiles.verificationStatus">
                                         <p style="color: green" *ngSwitchCase="'approved'">
@@ -146,7 +146,7 @@
 
     <ng-template #uploadTemplate>
         <div class="modal-header">
-            <h4 class="modal-title pull-left">Edit Your profile</h4>
+            <h4 class="modal-title pull-left">Change your Photo</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -156,17 +156,18 @@
         <div class="modal-body">
 
             <div class="row">
-                <div class="col-xs-12">
-                    <input type="file" ng2FileSelect [uploader]="uploader" />
+                <div class="col-xs-12 text-center">
+                    <div class="upload-btn-wrapper">
+                        <button class="uploadBtn">Browse</button>
+                        <input type="file" name="myfile" ng2FileSelect [uploader]="uploader"  accept="image/*" />
+                    </div>
 
-                    <table class="table">
+                    <table class="table" *ngIf="uploader.queue.length">
                         <thead>
                         <tr>
                             <th class="text-center">Size</th>
                             <th class="text-center">Progress</th>
                             <th class="text-center">Actions</th>
-                            <th class="text-center">Status</th>
-
                         </tr>
                         </thead>
                         <tbody>
@@ -187,16 +188,7 @@
                                         (click)="item.cancel()" [disabled]="!item.isUploading">
                                     <span class="glyphicon glyphicon-ban-circle"></span> Cancel
                                 </button>
-                                <button type="button" class="btn btn-danger btn-xs"
-                                        (click)="item.remove()">
-                                    <span class="glyphicon glyphicon-trash"></span> Remove
-                                </button>
-                            </td>
 
-                            <td class="text-center">
-                                <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                                <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
                             </td>
                         </tr>
                         </tbody>

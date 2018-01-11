@@ -31,10 +31,11 @@ export class AccountComponent implements OnInit {
         this.uploader= new FileUploader({url: ContainerApi.ProfileUpload.url(),
             headers:[{name:'x-id',value:this.user.profiles.id}]});
 
-        this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
-            console.log("ImageUpload:uploaded:", item, status);
-            console.log(response)
-
+        this.uploader.onAfterAddingFile=(item:any)=>{
+          this.uploader.queue=[];
+          this.uploader.queue.push(item)
+        };
+        this.uploader.onSuccessItem = (item:any, response:any, status:any, headers:any) => {
             let data;
             try{
                 data = JSON.parse(response);
@@ -43,6 +44,7 @@ export class AccountComponent implements OnInit {
                     obj=data.result.files.file[0].data
                 }
                 this.userService.profilePicChanged(obj);
+                this.toastService.success('Upload','Profile image changed')
             }
             catch (err){
                 console.log(err);

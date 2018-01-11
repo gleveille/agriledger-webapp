@@ -9,6 +9,7 @@
 }
 
 .circularImg {
+    cursor: pointer;
     width: 100px;
     height: 100px;
     position: inherit;
@@ -20,4 +21,35 @@
     margin-top: -35px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.uploadBtn {
+    cursor:pointer;
+    background-color: #20bd9a;
+    border: 2px solid #178970;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.uploadBtn:hover{
+    background-color: #00bda2;
+    transition: 0.5s all;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
 }
