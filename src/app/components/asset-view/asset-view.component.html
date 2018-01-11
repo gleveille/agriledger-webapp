@@ -259,7 +259,10 @@
 
                 <div class="row" *ngIf="asset.evidences && asset.evidences.length">
                   <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of asset.evidences">
-                        <img [src]="evidence.url" alt="First slide" style="display: block; width:100%;height:200px">
+                    <a [href]="evidence.url" target="_blank" download>
+                      <img [src]="evidence.url" class="evidencesImage">
+
+                    </a>
                         <div>{{evidence?.date|moment}}</div>
                         <div style="text-wrap: normal;word-wrap: break-word">{{evidence?.hash}}</div>
                     <div>{{evidence?.lat}},{{evidence?.long}}</div>
