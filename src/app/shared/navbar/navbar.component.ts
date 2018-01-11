@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
 
     ngOnInit() {
         this.getAccount();
-        this.userService.getUser().subscribe((user:Iuser)=>{
+        this.userService.user.subscribe((user:Iuser)=>{
             this.user=user;
             if(user.role==='sponsor'){
                 this.listTitles = MenuItemsForSponsor.filter(listTitle => listTitle);
@@ -97,9 +97,7 @@ export class NavbarComponent implements OnInit {
 
     logout() {
         this.userService.logout().subscribe((data)=> {
-            this.router.navigate(['/login']);
         }, (err)=> {
-            this.toastService.error('Logout', 'Could not be logged out.Try again');
         });
     }
 

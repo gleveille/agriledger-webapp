@@ -8,17 +8,16 @@
         <div class="card">
           <div class="card-header" data-background-color="green">
             <h4 class="title">{{'ACCOUNT_CREATE'|translate}}</h4>
-            <p class="category">{{'REGISTER_ON_BLOCKCHAIN'|translate}}</p>
           </div>
           <div class="card-content">
             <form>
               <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="control-label" style="font-size: 14px;">{{'SPONSOR_NAME'|translate}}</label>
+                <div class="col-md-12 text-center">
+                  <h3 style="text-transform: capitalize">Hi {{user.profiles.name}}</h3>
+                  <h4>
+                    <p class="category">{{'REGISTER_ON_BLOCKCHAIN'|translate}}</p>
 
-                    <input [disabled]="true" [(ngModel)]="user.name"  name="name" type="text" class="form-control" >
-                  </div>
+                  </h4>
                 </div>
               </div>
 
@@ -27,7 +26,7 @@
                       (click)="createBlockchainAccount()"
                       type="submit"
                       class="btn btn-danger pull-right">
-                {{'Create'|translate}}
+                {{'REGISTER'|translate}}
               </button>
               <div class="clearfix"></div>
             </form>

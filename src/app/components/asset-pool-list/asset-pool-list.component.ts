@@ -54,7 +54,7 @@ export class AssetPoolListComponent implements OnInit {
 
   ngOnInit() {
 
-      this.userService.getUser().subscribe((user:Iuser)=>{
+      this.userService.user.subscribe((user:Iuser)=>{
           this.user=user;
           if(user.role==='sponsor'){
               this.selectedFilter='My pools';

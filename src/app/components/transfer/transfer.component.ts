@@ -26,7 +26,7 @@ export class TransferComponent implements OnInit {
   ngOnInit() {
 
 
-    this.userService.getUser().concatMap((user:Iuser)=>{
+    this.userService.user.concatMap((user:Iuser)=>{
       this.user=user;
       if(!this.user.walletAddress){
           return Observable.throw({meessage:'User does not have wallet address'})

@@ -69,7 +69,7 @@ export class AssetsPoolService {
 
     getPoolsByIssuerName(){
 
-       return this.userService.getUser().concatMap((user:Iuser)=>{
+       return this.userService.user.concatMap((user:Iuser)=>{
             const url=`${AssetPoolApi.getAssetpool.url()}?filter[where][issuerName]=${user.issuerName}`;
             return this.http.get(`${url}`);
 

@@ -32,7 +32,7 @@ export class TokenService {
 
     getAllTokensByAddressFromBlockchain(){
         const url=`${TokenApi.getTokensByAddressFromBlockchain.url()}`;
-        return this.userService.getUser()
+        return this.userService.user
             .concatMap((user: Iuser) => {
                 return this.http.get(`${url}?address=${user.walletAddress}`);
             })

@@ -11,12 +11,12 @@ import {ToastService} from "../../services/toast.service";
 })
 export class AccountActivationComponent implements OnInit {
 
-  user={} as Iuser;
+  user={profiles:{name:''}} as Iuser;
   accountRequestStatus='resolved';
   constructor(private userService:UserService,private router:Router,private toastService:ToastService) { }
 
   ngOnInit() {
-    this.userService.getUser().subscribe((user:Iuser)=>{
+    this.userService.user.subscribe((user:Iuser)=>{
       this.user=user;
     },(err)=>{
       console.log(err);

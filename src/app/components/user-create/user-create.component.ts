@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class UserCreateComponent implements OnInit {
 
-  user={password:'',role:'farmer'} as Iuser;
+  user={password:'',role:'farmer',profiles:{name:'',phone:''}} as Iuser;
   passwordRetyped:string='';
   roles=['ops','sponsor','farmer'];
     createRequestStatus='resolved';
@@ -75,8 +75,9 @@ export class UserCreateComponent implements OnInit {
 
   }
     register(){
+        console.log(this.user)
 
-        if(!this.user.name){
+        if(!this.user.profiles.name){
             return this.toastService.error('User','Name is required');
         }
         if(!this.user.email){
@@ -94,17 +95,21 @@ export class UserCreateComponent implements OnInit {
             return this.toastService.error('User','Password does not match');
         }
         this.createRequestStatus='pending';
+        console.log(this.user)
         this.userService.register(this.user).subscribe((data:any)=>{
             this.createRequestStatus='resolved';
             this.toastService.success('User','created successfully');
-            this.user.email=null;
+            this.user.email='';
             this.user.password='';
+            this.user.profiles.name='';
+            this.user.profiles.phone='';
+
             this.createPassword();
 
         },(err)=>{
             this.createRequestStatus='rejected';
             if(err.showError){
-                this.toastService.error('User',err.message);
+                this.toastService.error('User',err.message||'User could not be created.Try again');
 
             }
 

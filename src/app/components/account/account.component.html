@@ -6,7 +6,19 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="card">
                     <div class="card-header" data-background-color="green">
-                        <h4 class="title">My Account</h4>
+
+                        <div class="row">
+                            <div class="col-md-6 text-left">
+                                <h4 class="title">My Account</h4>
+
+                            </div>
+                            <div class="col-md-6 text-right" >
+                                <button (click)="openModal(template)" class="btn btn-primary"
+                                        style="padding: 10px;top:-10px;background-color: transparent">EDIT</button>
+                            </div>
+                        </div>
+
+
                     </div>
                     <div class="card-content" style="margin-top: 30px;">
                         <div class=" card-profile">
@@ -17,19 +29,27 @@
                             </div>
 
                             <div class="content" style="padding-left: 20px;padding-right: 20px;">
-                                <h4 class="card-title" style="text-transform: capitalize">{{user?.name}} </h4>
+                                <h4 class="card-title" style="text-transform: capitalize">{{user.profiles?.name}}
+                                   <!-- <span>
+                                     <i class="material-icons">verified_user</i>
+
+                                    </span>-->
+
+                                </h4>
+
                                 <p class="text-gray">
-                                    <span>{{user?.email}}</span>
+                                    <span>{{user.email}}</span>
                                     &nbsp;
                                     <span style="border:0.5px solid  #999999;"></span>
                                     &nbsp;
-                                    <span>{{user?.phone||'Mobile unavailable'}}</span>&nbsp;
+                                    <span>{{user.profiles?.phone||'Mobile unavailable'}}</span>&nbsp;
 
                                     <span style="border:0.5px solid  #999999;"></span>
                                     &nbsp;
                                     <span>member since {{user?.createdAt|moment:true}}</span>&nbsp;
 
                                 </p>
+
 
 
                                 <p class="text-gray">
@@ -71,15 +91,36 @@
                                 </div>
 
                                 <hr>
-                                <p>
-                                    <i class="material-icons">info_outline</i>
-                                    <span style="position: relative;bottom: 7px;" class="text-gray">To change any information please contact us at
-                                        help@agriledger.co</span>
-                                </p>
 
-                                <!--
-                                                    <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
-                                -->
+                                    <div [ngSwitch]="user.profiles.verificationStatus">
+                                        <p style="color: green" *ngSwitchCase="'approved'">
+                                            <b>Profile is Verified</b>
+                                            <span style="position:relative;top:6px;">
+                                        <i class="material-icons">verified_user
+                                        </i>
+                                    </span>
+
+                                        </p>
+
+                                        <p style="color: darkblue" *ngSwitchCase="'pending'">
+                                            <b>Profile changes is pending for approval</b>
+                                            <span style="position:relative;top:6px;">
+                                        <i class="material-icons">restore
+                                        </i>
+                                    </span>
+
+                                        </p>
+
+                                        <p style="color:orangered" *ngSwitchCase="'rejected'">
+                                            <b>Profile changes is rejected</b>
+                                            <span style="position:relative;top:6px;">
+                                        <i class="material-icons">warning
+                                        </i>
+                                    </span>
+
+                                        </p>
+                                    </div>
+
                             </div>
 
 
@@ -90,5 +131,47 @@
             </div>
         </div>
     </div>
+
+    <ng-template #template>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Edit Your profile</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <form name="loginForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" style="font-size: 14px;">Name</label>
+                            <input  type="text" [(ngModel)]="user.profiles.name" name="name" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" style="font-size: 14px;">Phone</label>
+                            <input  type="text" [(ngModel)]="user.profiles.phone" name="phone" class="form-control" >
+                        </div>
+                    </div>
+
+                </div>
+                <p style="color: red;opacity: 0.6">Please note that change will go for ops approval</p>
+
+
+                <button
+                        [disabled]="issueTokenHttpStatus==='pending'"
+                        type="submit"
+                        (click)="updateProfile()"
+                        class="btn btn-danger pull-right">UPDATE</button>
+                <div class="clearfix"></div>
+            </form>
+
+        </div>
+    </ng-template>
 </div>
+
 

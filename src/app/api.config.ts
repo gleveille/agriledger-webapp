@@ -57,6 +57,11 @@ const UserApi={
         method:'POST'
 
     },
+
+    updateProfile:{
+        url:()=>ServerUrl+'/api/users',
+        method:'POST'
+    },
     list:{
         url:()=>ServerUrl+'/api/users',
         method:'GET'

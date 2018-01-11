@@ -16,14 +16,9 @@ export class DashboardAuthorizationGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       const expectedRole:Array<string> = route.data.expectedRole;
-      console.log('inside dashboard authorization guard')
-      console.log('expected role for this dashboard is ',expectedRole)
       return this.userService.getUser()
           .map((user:Iuser)=>{
-          console.log(user);
-          console.log('found role is '+ user.role)
           if(user && expectedRole.includes(user.role)){
-              this.userService.setUserFromGuard(user);
               if(user && !user.isPasswordChanged){
                   this.router.navigate(['/onboarding/password-reset']);
                   return false;
@@ -47,7 +42,6 @@ export class DashboardAuthorizationGuard implements CanActivate {
           }
           })
           .catch(res => {
-              console.log(res);
               return Observable.of(false);
           });
 

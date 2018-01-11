@@ -21,10 +21,7 @@ export class AlreadyResetPasswordGuard implements CanActivate {
 
         return this.userService.getUser()
             .map((user:Iuser)=>{
-                console.log(user);
-                console.log('found role is '+ user.role);
                 if(user && expectedRole.includes(user.role)){
-                    this.userService.setUserFromGuard(user);
                     if(user && user.isPasswordChanged){
                         this.router.navigate(['/onboarding/account-activation']);
                         return false;

@@ -22,7 +22,7 @@ export class WalletService {
 
 
     getBlockchainAccount() {
-        return this.userService.getUser()
+        return this.userService.user
             .concatMap((user: Iuser) => {
                 return this.http.get(`${WalletApi.getAccount.url()}?address=${user.walletAddress}`);
             })
