@@ -41,6 +41,7 @@
     "jquery": "3.2.1",
     "md-steppers": "^0.3.4",
     "moment": "2.18.1",
+    "ng2-file-upload": "^1.3.0",
     "ng2-toasty": "^4.0.3",
     "ngx-bootstrap": "^2.0.0-beta.10",
     "ngx-progressbar": "^2.1.1",

@@ -16,8 +16,8 @@ const ProfileApi= {
 };
 
 const ContainerApi={
-    ProfileUploadUrl:()=>ServerUrl+'/api/containers/profiles/upload',
-    FieldUploadUrl:()=>ServerUrl+'/api/containers/fields/upload'
+    ProfileUpload:{url:()=>ServerUrl+'/api/containers/profiles/upload'},
+    FieldUpload:{url:()=>ServerUrl+'/api/containers/fields/upload'}
 
 };
 
@@ -174,4 +174,4 @@ const AssetPoolApi={
 
 
 
-export {UserApi,OnboardingApi,WalletApi,AssetApi,AssetPoolApi,TokenApi}
+export {UserApi,OnboardingApi,WalletApi,AssetApi,AssetPoolApi,TokenApi,ContainerApi}
