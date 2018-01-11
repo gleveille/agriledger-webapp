@@ -1,243 +1,246 @@
 <div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 ">
-                <div class="dropdown">
-                    <a  href="javascript:void(0)" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                        Filter
-                        <span style="font-weight: bolder" *ngIf="selectedFilter">
-                    ({{selectedFilter}})
-                </span>
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li *ngFor="let filter of filters">
-                            <a *ngIf="filter.role.includes(user.role)" style="text-transform: capitalize" href="javascript:void(0)" (click)="filterChange(filter.name,filter.value)">
-                                {{filter.name}}
-                            </a>
-                        </li>
+<div class="container-fluid">
+<!--        <div class="row">
+<div class="col-md-12 ">
+<div class="dropdown">
+<a  href="javascript:void(0)" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+    Filter
+    <span style="font-weight: bolder" *ngIf="selectedFilter">
+({{selectedFilter}})
+</span>
+    <b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+    <li *ngFor="let filter of filters">
+        <a *ngIf="filter.role.includes(user.role)" style="text-transform: capitalize" href="javascript:void(0)" (click)="filterChange(filter.name,filter.value)">
+            {{filter.name}}
+        </a>
+    </li>
 
 
 
 
-                    </ul>
-                </div>
+</ul>
+</div>
+</div>
+</div>-->
+
+
+<div class="card">
+<div class="card-header" data-background-color="green">
+<div class="row">
+<div class="col-md-6 text-left">
+    <h4 class="title">Assets pool</h4>
+
+</div>
+<div class="col-md-6 text-right" *ngIf="user.role==='sponsor'">
+    <button  [routerLink]="['../assets-pool-create']"
+            class="btn btn-danger" style="padding: 10px;top:-10px">CREATE POOL</button>
+</div>
+</div>
+
+</div>
+
+<div class="card-content table-responsive" >
+
+<section *ngIf="assetPoolHttpSstatus==='pending' || assetPoolHttpSstatus==='rejected' ">
+    <app-spinner [type]="'bounce'" *ngIf="assetPoolHttpSstatus==='pending'"></app-spinner>
+
+    <app-error-show *ngIf="assetPoolHttpSstatus==='rejected'" [error]="'Assets pool could not be fetched.Try again!'">
+
+    </app-error-show>
+</section>
+
+
+
+<section *ngIf="assetPoolHttpSstatus==='resolved'">
+    <div class="row" *ngIf="!pools.length">
+        <div class="col-xs-12 text-center">
+            <div *ngIf="user.role==='sponsor'" style="text-align: center">
+                <h4 class="text-gray">
+                    You have not created any pool yet!.
+                </h4>
+            </div>
+            <div *ngIf="user.role==='ops'">
+                <h4 class="text-gray">
+                    No asset pool has been created by any Sponsor yet!
+                </h4>
             </div>
         </div>
-
-
-            <div class="card">
-                <div class="card-header" data-background-color="green">
-                    <div class="row">
-                    <div class="col-md-6 text-left">
-                        <h4 class="title">Assets pool</h4>
-
-                    </div>
-                    <div class="col-md-6 text-right" *ngIf="user.role==='sponsor'">
-                        <button  [routerLink]="['../assets-pool-create']"
-                                class="btn btn-primary" style="padding: 10px;top:-10px">CREATE POOL</button>
-                    </div>
-                </div>
-
-                </div>
-
-                <div class="card-content table-responsive" >
-
-                    <section *ngIf="assetPoolHttpSstatus==='pending' || assetPoolHttpSstatus==='rejected' ">
-                        <app-spinner [type]="'bounce'" *ngIf="assetPoolHttpSstatus==='pending'"></app-spinner>
-
-                        <app-error-show *ngIf="assetPoolHttpSstatus==='rejected'" [error]="'Assets pool could not be fetched.Try again!'">
-
-                        </app-error-show>
-                    </section>
-
-
-
-                    <section *ngIf="assetPoolHttpSstatus==='resolved'">
-                        <div class="row" *ngIf="!pools.length">
-                            <div class="col-xs-12 text-center">
-                                <div *ngIf="selectedFilter==='My pools'" style="text-align: center">
-                                    <h3 class="text-gray">
-                                        You have not created any pool yet!.
-                                        <br>
-                                    </h3>
-                                    <p style="font-size: 12px;">
-                                        Tap on the filter button to see others pool
-                                    </p>
-                                </div>
-                                <div *ngIf="selectedFilter==='All pools'">
-                                    <h3 class="text-gray">
-                                        No asset pool has been created yet!
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div style="cursor: pointer" class="col-lg-4 col-md-6 col-sm-6" *ngFor="let pool of pools">
-                                <div class="card card-stats" style="border: 1px solid #c4c4c4" >
-
-                                    <div class="card-content" style="text-align: left" >
-
-                                        <div *ngIf="blockchainHttpStatus==='pending'"
-                                                    style="position: absolute;
-                                                left: 0;right: 0;
-                                                top: 45%;
-                                                margin: 0 auto">
-                                        <app-spinner></app-spinner>
-
-                                    </div>
-
-                                        <div *ngIf="blockchainHttpStatus==='rejected'"
-                                             style="position: absolute;
-                                                top: 45%;
-                                                left:45%;
-                                                margin: 0 auto">
-                                            <i class="material-icons">error</i>
-                                        </div>
-
-
-                                        <div [routerLink]="['../assets-pool-view',pool.id]">
-                                            <p class="category">Currency Name</p>
-                                            <h5 class="title">{{pool.issuerName}}.{{pool.currency}}</h5>
-
-                                            <hr>
-
-                                            <div class="row" style="text-align: left">
-
-                                                <div class="col-xs-6 text-left">
-                                                    Total Quantity
-                                                </div>
-                                                <div class="col-xs-6 text-right">
-                                                    <b>{{pool.maximum}}</b>
-                                                </div>
-                                            </div>
-                                            <hr>
-
-                                            <div class="row" style="text-align: left">
-
-                                                <div class="col-xs-6 text-left">
-                                                    Issued Quantity
-                                                </div>
-                                                <div class="col-xs-6 text-right">
-                                                    <b>{{pool?.blockchain?.quantity|truncateBalance:pool?.blockchain?.precision}}</b>
-                                                </div>
-                                            </div>
-
-                                            <hr>
-<!--
-                                            <div class="row" style="text-align: left" >
-
-                                                <div class="col-xs-6 text-left">
-                                                    Left quantity
-                                                </div>
-                                                <div class="col-xs-6 text-right">
-                                                    <b>{{(pool?.blockchain?.maximum-pool?.blockchain?.quantity)|truncateBalance:pool?.blockchain?.precision}}</b>
-                                                </div>
-                                            </div>
-                                            <hr>-->
-
-                                            <div class="row" style="text-align: left" >
-
-                                                <div class="col-xs-6 text-left">
-                                                    Status
-                                                </div>
-                                                <div class="col-xs-6 text-right" *ngIf="pool.blockchain">
-                                                    <b [style.color]="getColor(pool.blockchain?.approved)">
-                                                        {{pool.blockchain?.approved===0?'Pending':'Approved'}}</b>
-                                                </div>
-                                            </div>
-
-                                        </div>
-<!--
-
-                                        <div class="row" style="text-align: center">
-
-                                            <div class="col-xs-12">
-                                                <button  [disabled]="!pool.blockchain || pool.blockchain.approved===0" class="btn btn-info " (click)="openModal(template,pool)">ISSUE</button>
-                                                <button  [disabled]="!pool.blockchain || pool.blockchain.approved===0" class="btn btn-success " [routerLink]="['/dashboard','tokens',pool?.id]">ISSUED</button>
-
-                                            </div>
-
-
-                                        </div>-->
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <div class="stats">
-                                            <i class="material-icons text-danger">update</i>
-                                            <a href="javascript:void(0)">{{pool.created|moment}}</a>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </section>
-
-
-                </div>
-
-            </div>
-
-        <ng-template #template>
-            <div class="modal-header">
-                <h4 class="modal-title pull-left">ISSUE TOKEN</h4>
-                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form name="loginForm">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label" style="font-size: 14px;">Maximum</label>
-                                <input [disabled]="true" type="text" [(ngModel)]="selectedPool.maximum" name="maximum" class="form-control" >
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label" style="font-size: 14px;">Currency</label>
-                                <input [disabled]="true" type="text" [(ngModel)]="selectedPool.blockchain.currency" name="currency" class="form-control" >
-                            </div>
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label" style="font-size: 14px;">Issue Number</label>
-                                <input type="text"  [(ngModel)]="token.amount"  name="amount" class="form-control" >
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label" style="font-size: 14px;">Exchange rate</label>
-                                <input type="text"  [(ngModel)]="token.exchangeRate"  name="exchangeRate" class="form-control" >
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <button
-                            [disabled]="issueTokenHttpStatus==='pending'"
-                            type="submit"
-                            (click)="issueToken(selectedPool)"
-                            class="btn btn-danger pull-right">SUBMIT</button>
-                    <div class="clearfix"></div>
-                </form>
-
-            </div>
-        </ng-template>
-
     </div>
+
+    <div class="row">
+        <div style="cursor: pointer" class="col-lg-4 col-md-6 col-sm-6" *ngFor="let pool of pools">
+            <div class="card card-stats" style="border: 1px solid #c4c4c4" >
+
+                <div class="card-content" style="text-align: left" >
+
+                    <div *ngIf="blockchainHttpStatus==='pending'"
+                                style="position: absolute;
+                            left: 0;right: 0;
+                            top: 45%;
+                            margin: 0 auto">
+                    <app-spinner></app-spinner>
+
+                </div>
+
+                    <div *ngIf="blockchainHttpStatus==='rejected'"
+                         style="position: absolute;
+                            top: 45%;
+                            left:45%;
+                            margin: 0 auto">
+                        <i class="material-icons">error</i>
+                    </div>
+
+
+                    <div [routerLink]="['../assets-pool-view',pool.id]">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="category">{{pool.issuerName}}.{{pool.currency}}</p>
+
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                    <i style="position: relative;top: 3px;font-size: 14px;color:#9c27b0"
+                                       class="material-icons text-danger">update</i>
+                                    <a style="font-size: 13px;" href="javascript:void(0)">{{pool.created|moment}}</a>
+                            </div>
+
+                        </div>
+
+                        <hr style="margin:10px">
+
+                        <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                                Total Quantity
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <b>{{pool.maximum}}</b>
+                            </div>
+                        </div>
+                        <hr style="margin:10px">
+
+                        <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                                Issued Quantity
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <b>{{pool?.blockchain?.quantity|truncateBalance:pool?.blockchain?.precision}}</b>
+                            </div>
+                        </div>
+
+                        <hr style="margin:10px">
+<!--
+                        <div class="row" style="text-align: left" >
+
+                            <div class="col-xs-6 text-left">
+                                Left quantity
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <b>{{(pool?.blockchain?.maximum-pool?.blockchain?.quantity)|truncateBalance:pool?.blockchain?.precision}}</b>
+                            </div>
+                        </div>
+                        <hr>-->
+
+                        <div class="row" style="text-align: left" >
+
+                            <div class="col-xs-6 text-left">
+                                Status
+                            </div>
+                            <div class="col-xs-6 text-right" *ngIf="pool.blockchain">
+                                <b [style.color]="getColor(pool.blockchain?.approved)">
+                                    {{pool.blockchain?.approved===0?'Pending':'Approved'}}</b>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="text-align: center">
+                        <div class="col-xs-12">
+                            <hr style="margin:0">
+
+                            <button  [disabled]="!pool.blockchain || pool.blockchain.approved===0"
+                                     class="btn btn-primary btn-simple "
+                                     (click)="openModal(template,pool)">CREATE TOKEN</button>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+</div>
+
+</div>
+
+<ng-template #template>
+<div class="modal-header">
+<h4 class="modal-title pull-left">ISSUE TOKEN</h4>
+<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form name="loginForm">
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Maximum</label>
+            <input [disabled]="true" type="text" [(ngModel)]="selectedPool.maximum" name="maximum" class="form-control" >
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Currency</label>
+            <input [disabled]="true" type="text" [(ngModel)]="selectedPool.blockchain.currency" name="currency" class="form-control" >
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Issue Number</label>
+            <input type="text"  [(ngModel)]="token.amount"  name="amount" class="form-control" >
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Exchange rate</label>
+            <input type="text"  [(ngModel)]="token.exchangeRate"  name="exchangeRate" class="form-control" >
+        </div>
+    </div>
+
+</div>
+
+
+<button
+        [disabled]="issueTokenHttpStatus==='pending'"
+        type="submit"
+        (click)="issueToken(selectedPool)"
+        class="btn btn-danger pull-right">SUBMIT</button>
+<div class="clearfix"></div>
+</form>
+
+</div>
+</ng-template>
+
+</div>
 </div>

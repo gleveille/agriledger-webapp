@@ -13,8 +13,8 @@
 
                             </div>
                             <div class="col-md-6 text-right" >
-                                <button (click)="openModal(template)" class="btn btn-primary"
-                                        style="padding: 10px;top:-10px;background-color: transparent">EDIT</button>
+                                <button (click)="openModal(template)" class="btn btn-danger"
+                                        style="padding: 10px;top:-10px;">EDIT</button>
                             </div>
                         </div>
 
@@ -73,27 +73,31 @@
 
                                     <div [ngSwitch]="user.profiles.verificationStatus">
                                         <p style="color: green" *ngSwitchCase="'approved'">
-                                            <b>Profile is Verified</b>
-                                            <span style="position:relative;top:6px;">
-                                        <i class="material-icons">verified_user
+                                                <span style="position:relative;top:4px;">
+                                        <i class="material-icons" style="font-size: 14px;">verified_user
                                         </i>
                                     </span>
+                                            <span style="font-weight: 500;font-size: 13px;">Profile is Verified</span>
+
 
                                         </p>
 
                                         <p style="color: darkblue" *ngSwitchCase="'pending'">
-                                            <b>Profile changes is pending for approval</b>
-                                            <span style="position:relative;top:6px;">
-                                       <i class="material-icons">info_outline</i>
-                                    </span>
+                                            <span style="position:relative;top:4px;">
+                                                <i class="material-icons" style="font-size: 16px;">info_outline</i>
+                                            </span>
+
+                                            <span style="font-weight: 500;font-size: 13px;">Profile changes is pending for approval</span>
+
 
                                         </p>
 
                                         <p style="color:orangered" *ngSwitchCase="'rejected'">
-                                            <b>Profile changes is rejected</b>
-                                            <span style="position:relative;top:6px;">
-                                        <i class="material-icons">highlight_off</i>
+                                               <span style="position:relative;top:4px;">
+                                        <i class="material-icons" style="font-size: 14px;">highlight_off</i>
                                     </span>
+                                            <span style="font-weight: 500;font-size: 13px;">Profile changes is rejected</span>
+
 
                                         </p>
                                     </div>

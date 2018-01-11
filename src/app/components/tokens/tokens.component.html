@@ -5,7 +5,7 @@
       <div class="card-header" data-background-color="green">
         <div class="row">
           <div class="col-md-6 text-left">
-            <h4 class="title">Issued Tokens</h4>
+            <h4 class="title">My Tokens</h4>
 
           </div>
 
@@ -27,10 +27,16 @@
         <section *ngIf="tokenHttpRequestStatus==='resolved'">
           <div class="row" *ngIf="!tokens.length">
             <div class="col-xs-12 text-center">
-              <h3 class="text-center text-gray" *ngIf="tokenHttpRequestStatus==='resolved' && !tokens.length ">
-                No Token has been issued yet!
-
-              </h3>
+              <div *ngIf="user.role==='sponsor'" style="text-align: center">
+                <h4 class="text-gray">
+                  You have not issued any tokens yet
+                </h4>
+              </div>
+              <div *ngIf="user.role==='ops'">
+                <h4 class="text-gray">
+                  No token has been issued by any Sponsor yet!
+                </h4>
+              </div>
             </div>
           </div>
 

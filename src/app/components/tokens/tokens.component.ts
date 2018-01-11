@@ -5,6 +5,7 @@ import {ToastService} from "../../services/toast.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import 'rxjs/add/operator/concatMap';
 import {AssetsPoolService} from "../../services/assets-pool.service";
+import {Iuser} from "../../interface/user.interface";
 
 @Component({
   selector: 'app-tokens',
@@ -13,6 +14,7 @@ import {AssetsPoolService} from "../../services/assets-pool.service";
 })
 export class TokensComponent implements OnInit {
 
+  user={} as Iuser;
   tokens:any[]=[];
   tokensFromBlockchain:any[]=[];
   tokenHttpRequestStatus='resolved';
@@ -21,6 +23,10 @@ export class TokensComponent implements OnInit {
               private assetPoolService:AssetsPoolService,
               private userService:UserService,private toastService:ToastService) { }
     ngOnInit() {
+        this.userService.user.subscribe((user:Iuser)=>{
+            this.user=user;
+        })
+
         this.activatedRoute.params.subscribe((param:any)=>{
             console.log(param)
 
