@@ -14,7 +14,7 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label class="control-label required" style="font-size: 14px;">Role</label>
-                  <select  #role="ngModel" class="form-control "  name="role" [(ngModel)]="user.role">
+                  <select (ngModelChange)="onChange($event)"  #role="ngModel" class="form-control "  name="role" [(ngModel)]="user.role">
 
                     <option *ngFor="let role of roles" [value]="role">
                       {{role}}
@@ -29,6 +29,7 @@
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Name</label>
                     <input #name="ngModel" type="text" required [(ngModel)]="user.profiles.name"
+                           placeholder="Full Name"
                            name="name" minlength="5" class="form-control" >
                     <small [hidden]="name.valid || (name.pristine && !f.submitted)">
                       Name is required (minimum 5 characters).
@@ -40,7 +41,9 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Email</label>
-                    <input #email=ngModel  type="email" required [(ngModel)]="user.email" name="email" class="form-control" >
+                    <input #email=ngModel  type="email" required [(ngModel)]="user.email"
+                           placeholder="Email"
+                           name="email" class="form-control" >
                     <small [hidden]="email.valid || (email.pristine && !f.submitted)">
                       Email is required
                     </small>
@@ -56,17 +59,17 @@
                   <div class="form-group">
                     <label class="control-label" style="font-size: 14px;">Password</label>
                     <span class="required" style="font-size: 12px;color:gray">(auto generated)</span>
-                    <input #password="ngModel" minlength="6" maxlength="6" required type="text" [(ngModel)]="user.password" name="password" class="form-control" >
-                    <small [hidden]="password.valid || (password.pristine && !f.submitted)">
-                    Password is required with 6 character long
-                  </small>
+                    <input [disabled]="true"  required type="text" [(ngModel)]="user.password" name="password" class="form-control" >
+
                   </div>
                 </div>
 
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Phone</label>
-                    <input #phone="ngModel" type="text" required [(ngModel)]="user.profiles.phone"  name="phone" class="form-control" >
+                    <input #phone="ngModel" type="text" required [(ngModel)]="user.profiles.phone"
+                           placeholder="Phone"
+                           name="phone" class="form-control" >
                     <small [hidden]="phone.valid || (phone.pristine && !f.submitted)">
                       Phone is required
                     </small>
@@ -76,7 +79,9 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Address line1</label>
-                    <input #line1="ngModel" type="text" required [(ngModel)]="user.profiles.address.line1"  name="line1" class="form-control" >
+                    <input #line1="ngModel" type="text" required [(ngModel)]="user.profiles.address.line1"
+                           placeholder="Address Line1"
+                           name="line1" class="form-control" >
                     <small [hidden]="line1.valid || (line1.pristine && !f.submitted)">
                       Address Line1 is required
                     </small>
@@ -90,7 +95,9 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Address line2</label>
-                    <input #line2="ngModel" type="text" required [(ngModel)]="user.profiles.address.line2"  name="line2" class="form-control" >
+                    <input #line2="ngModel" type="text" required [(ngModel)]="user.profiles.address.line2"
+                           placeholder="Address Line2"
+                           name="line2" class="form-control" >
                     <small [hidden]="line2.valid || (line2.pristine && !f.submitted)">
                       Address Line2 is required
                     </small>
@@ -100,7 +107,10 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">City</label>
-                    <input #city="ngModel" type="text" required [(ngModel)]="user.profiles.address.city"  name="city" class="form-control" >
+                    <input #city="ngModel" type="text" required [(ngModel)]="user.profiles.address.city"
+                           placeholder="City"
+
+                           name="city" class="form-control" >
                     <small [hidden]="city.valid || (city.pristine && !f.submitted)">
                       City is required
                     </small>
@@ -111,7 +121,9 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Province</label>
-                    <input #province="ngModel" type="text" required [(ngModel)]="user.profiles.address.province"  name="province" class="form-control" >
+                    <input #province="ngModel" type="text" required [(ngModel)]="user.profiles.address.province"
+                           placeholder="Province"
+                           name="province" class="form-control" >
                     <small [hidden]="province.valid || (province.pristine && !f.submitted)">
                       Province is required
                     </small>

@@ -51,11 +51,13 @@ export class UserCreateComponent implements OnInit {
         this.totalSelectedFiles=this.uploader.queue.length;
         this.uploader.uploadAll();
     }
-    private createPassword(){
+    private createPassword(forFarmer:boolean=true){
+        this.user.password='';
       const specials = '!@&*';
       const lowercase = 'abcdefghijklmnopqrstuvwxyz';
       const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       const numbers = '0123456789';
+      let password='';
 
       const all = specials + lowercase + uppercase + numbers;
 
@@ -91,14 +93,18 @@ export class UserCreateComponent implements OnInit {
       };
 
       console.log(this.user.password)
-     let  password=this.user.password+pick(numbers,6,6)
+        if(forFarmer){
+            password=this.user.password+pick(numbers,6,6)
+
+        }
+        else{
+            password=password+this.user.password+pick(lowercase,4,4)
+            password=password+this.user.password+pick(numbers,3,3)
+            password=password+this.user.password+pick(specials,1,1)
+
+        }
         console.log(password)
-/*
-      password=password+this.user.password+pick(numbers,6,6)
-*/
-/*
-      password=password+this.user.password+pick(specials,1,undefined)
-*/
+
       password=shuffle(password);
 
       this.user.password=password;
@@ -130,11 +136,22 @@ export class UserCreateComponent implements OnInit {
         });
     }
 
+    onChange(role){
+        console.log(role)
+        if(role==='farmer'){
+            this.createPassword(true)
+        }
+        else{
+            this.createPassword(false)
+
+        }
+    }
     private resetForm(){
         this.createRequestStatus='resolved';
         this.uploader.queue=[];
         this.loginForm.resetForm();
         this.totalSelectedFiles=0;
+        this.user.role='farmer';
         this.user.email='';
         this.user.password='';
         this.user.profiles.name='';
