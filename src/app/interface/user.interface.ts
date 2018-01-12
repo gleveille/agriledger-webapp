@@ -5,8 +5,13 @@ export interface Iuser {
         passcode?: number,
         name?: string,
         registration?:String,
-        address?:string,
         company?:string,
+        address?:{
+            line1:string,
+            line2:string,
+            city:string,
+            province:string
+        }
         profileUrl?: {
             url: string,
             lat: number,

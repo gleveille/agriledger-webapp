@@ -9,26 +9,30 @@
             <h4 class="title">Create User</h4>
           </div>
           <div class="card-content">
-            <form name="loginForm">
+            <form #f="ngForm" (ngSubmit)="register(f, f.valid)" novalidate>
               <div class="row">
                 <div class="col-md-4">
                 <div class="form-group">
                   <label class="control-label required" style="font-size: 14px;">Role</label>
-                  <select class="form-control "  name="role" [(ngModel)]="user.role">
+                  <select  #role="ngModel" class="form-control "  name="role" [(ngModel)]="user.role">
 
                     <option *ngFor="let role of roles" [value]="role">
                       {{role}}
                     </option>
-
-
                   </select>
-
+                  <small [hidden]="role.valid || (role.pristine && !f.submitted)">
+                    Role is required
+                  </small>
                 </div>
               </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Name</label>
-                    <input type="text" [(ngModel)]="user.profiles.name" name="name" class="form-control" >
+                    <input #name="ngModel" type="text" required [(ngModel)]="user.profiles.name"
+                           name="name" minlength="5" class="form-control" >
+                    <small [hidden]="name.valid || (name.pristine && !f.submitted)">
+                      Name is required (minimum 5 characters).
+                    </small>
                   </div>
                 </div>
 
@@ -36,7 +40,10 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Email</label>
-                    <input type="email" [(ngModel)]="user.email" name="email" class="form-control" >
+                    <input #email=ngModel  type="email" required [(ngModel)]="user.email" name="email" class="form-control" >
+                    <small [hidden]="email.valid || (email.pristine && !f.submitted)">
+                      Email is required
+                    </small>
                   </div>
                 </div>
 
@@ -47,18 +54,72 @@
 
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label class="control-label required" style="font-size: 14px;">Password</label>
-                    <input [disabled]="true" type="text" [(ngModel)]="user.password" name="passsword" class="form-control" >
+                    <label class="control-label" style="font-size: 14px;">Password</label>
+                    <span class="required" style="font-size: 12px;color:gray">(auto generated)</span>
+                    <input #password="ngModel" minlength="6" maxlength="6" required type="text" [(ngModel)]="user.password" name="password" class="form-control" >
+                    <small [hidden]="password.valid || (password.pristine && !f.submitted)">
+                    Password is required with 6 character long
+                  </small>
                   </div>
                 </div>
 
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Phone</label>
-                    <input type="text" [(ngModel)]="user.profiles.phone"  name="phone" class="form-control" >
+                    <input #phone="ngModel" type="text" required [(ngModel)]="user.profiles.phone"  name="phone" class="form-control" >
+                    <small [hidden]="phone.valid || (phone.pristine && !f.submitted)">
+                      Phone is required
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Address line1</label>
+                    <input #line1="ngModel" type="text" required [(ngModel)]="user.profiles.address.line1"  name="line1" class="form-control" >
+                    <small [hidden]="line1.valid || (line1.pristine && !f.submitted)">
+                      Address Line1 is required
+                    </small>
+
                   </div>
                 </div>
               </div>
+
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Address line2</label>
+                    <input #line2="ngModel" type="text" required [(ngModel)]="user.profiles.address.line2"  name="line2" class="form-control" >
+                    <small [hidden]="line2.valid || (line2.pristine && !f.submitted)">
+                      Address Line2 is required
+                    </small>
+
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">City</label>
+                    <input #city="ngModel" type="text" required [(ngModel)]="user.profiles.address.city"  name="city" class="form-control" >
+                    <small [hidden]="city.valid || (city.pristine && !f.submitted)">
+                      City is required
+                    </small>
+
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Province</label>
+                    <input #province="ngModel" type="text" required [(ngModel)]="user.profiles.address.province"  name="province" class="form-control" >
+                    <small [hidden]="province.valid || (province.pristine && !f.submitted)">
+                      Province is required
+                    </small>
+
+                  </div>
+                </div>
+              </div>
+
 
               <div class="row">
                 <div class="col-xs-12">
@@ -119,16 +180,10 @@
               </div>
 
 
-
-
-
-
               <button
                       type="submit"
                       [disabled]="createRequestStatus==='pending'"
-                      (click)="register()"
                       class="btn btn-danger pull-right">CREATE</button>
-              <div class="clearfix"></div>
             </form>
           </div>
         </div>

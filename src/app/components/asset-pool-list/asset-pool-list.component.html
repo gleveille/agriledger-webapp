@@ -95,12 +95,12 @@
 
                     <div [routerLink]="['../assets-pool-view',pool.id]">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 text-left">
                                 <p class="category">{{pool.issuerName}}.{{pool.currency}}</p>
 
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 text-right">
                                     <i style="position: relative;top: 3px;font-size: 14px;color:#9c27b0"
                                        class="material-icons text-danger">update</i>
                                     <a style="font-size: 13px;" href="javascript:void(0)">{{pool.created|moment}}</a>
@@ -108,7 +108,7 @@
 
                         </div>
 
-                        <hr style="margin:10px">
+                        <hr class="hr-margin">
 
                         <div class="row" style="text-align: left">
 
@@ -119,7 +119,7 @@
                                 <b>{{pool.maximum}}</b>
                             </div>
                         </div>
-                        <hr style="margin:10px">
+                        <hr class="hr-margin">
 
                         <div class="row" style="text-align: left">
 
@@ -131,7 +131,7 @@
                             </div>
                         </div>
 
-                        <hr style="margin:10px">
+                        <hr class="hr-margin">
 <!--
                         <div class="row" style="text-align: left" >
 
@@ -150,8 +150,8 @@
                                 Status
                             </div>
                             <div class="col-xs-6 text-right" *ngIf="pool.blockchain">
-                                <b [style.color]="getColor(pool.blockchain?.approved)">
-                                    {{pool.blockchain?.approved===0?'Pending':'Approved'}}</b>
+                                <span [style.color]="getColor(pool.blockchain?.approved)">
+                                    {{pool.blockchain?.approved===0?'Pending':'Approved'}}</span>
                             </div>
                         </div>
 
@@ -162,7 +162,7 @@
                             <hr style="margin:0">
 
                             <button  [disabled]="!pool.blockchain || pool.blockchain.approved===0"
-                                     class="btn btn-primary btn-simple "
+                                     class="btn btn-danger btn-simple "
                                      (click)="openModal(template,pool)">CREATE TOKEN</button>
 
                         </div>
@@ -232,7 +232,7 @@
 
 
 <button
-        [disabled]="issueTokenHttpStatus==='pending'"
+        [disabled]="issueTokenHttpStatus==='pending'|| !token.amount || !token.exchangeRate"
         type="submit"
         (click)="issueToken(selectedPool)"
         class="btn btn-danger pull-right">SUBMIT</button>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Iuser} from "../../interface/user.interface";
 import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import { FileUploader } from 'ng2-file-upload';
 import {ContainerApi} from '../../../../src/app/api.config'
 import {ServerUrl} from '../../../../src/app/api.config'
+import {NgForm} from "@angular/forms";
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
@@ -13,8 +14,9 @@ import {ServerUrl} from '../../../../src/app/api.config'
 })
 export class UserCreateComponent implements OnInit {
     serverUrl=ServerUrl;
+    @ViewChild('f') loginForm :NgForm;
     uploader= new FileUploader({url: ContainerApi.profileDocumentsUpload.url()});
-    user={password:'',role:'farmer',profiles:{name:'',phone:''}} as Iuser;
+    user={password:'',role:'farmer',profiles:{name:'',phone:'',address:{line1:'',line2:'',city:'',province:''}}} as Iuser;
     passwordRetyped:string='';
     totalSelectedFiles:number=0;
     roles=['ops','sponsor','farmer'];
@@ -88,7 +90,9 @@ export class UserCreateComponent implements OnInit {
           return array.join('');
       };
 
+      console.log(this.user.password)
      let  password=this.user.password+pick(numbers,6,6)
+        console.log(password)
 /*
       password=password+this.user.password+pick(numbers,6,6)
 */
@@ -98,40 +102,22 @@ export class UserCreateComponent implements OnInit {
       password=shuffle(password);
 
       this.user.password=password;
-      this.passwordRetyped=password;
 
   }
-    private register(){
-        console.log(this.user)
-
-        if(!this.user.profiles.name){
-            return this.toastService.error('User','Name is required');
-        }
-        if(!this.user.email){
-            return this.toastService.error('User','Email is required');
-        }
-        if(!this.user.password){
-            return this.toastService.error('User','Password is required');
-        }
-        if(!this.user.profiles.phone){
-            return this.toastService.error('User','Phone is required');
-        }
-        if(!this.passwordRetyped){
-            return this.toastService.error('User','Please confirm the Password');
+    private register(f:NgForm,isValid){
+        if(!isValid){
+            return;
         }
 
-        if(this.user.password!==this.passwordRetyped){
-            return this.toastService.error('User','Password and confirm Password does not match');
-        }
+
         this.createRequestStatus='pending';
         this.userService.register(this.user).subscribe((profile:any)=>{
-            console.log('recived')
-            console.log(profile)
             if(this.uploader.queue.length){
                 this.upload(profile.id);
             }
             else{
                 this.toastService.success('User','User has been created');
+                this.resetForm();
             }
 
         },(err)=>{
@@ -146,12 +132,18 @@ export class UserCreateComponent implements OnInit {
 
     private resetForm(){
         this.createRequestStatus='resolved';
+        this.uploader.queue=[];
+        this.loginForm.resetForm();
         this.totalSelectedFiles=0;
         this.user.email='';
         this.user.password='';
         this.user.profiles.name='';
         this.user.profiles.phone='';
+        this.user.profiles.address.line1='';
+        this.user.profiles.address.line2='';
+        this.user.profiles.address.city='';
+        this.user.profiles.address.province='';
         this.createPassword();
-        this.uploader.queue=[];
+
     }
 }

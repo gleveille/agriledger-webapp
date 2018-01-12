@@ -30,6 +30,7 @@ export class AssetPoolListComponent implements OnInit {
   selectedPool={maximum:null,precision:null,blockchain:{currency:null},id:null};
   constructor(private assetPoolService:AssetsPoolService,
               private modalService: BsModalService,
+              private router:Router,
               private toastService:ToastService,
               private userService:UserService) {
 
@@ -43,10 +44,10 @@ export class AssetPoolListComponent implements OnInit {
       this.userService.user.subscribe((user:Iuser)=>{
           this.user=user;
           if(user.role==='sponsor'){
-              this.getMyPools();
+              this.getPools(user.issuerName);
           }
           else{
-              this.getOtherPools();
+              this.getPools();
           }
 
       },(err)=>{
@@ -73,7 +74,6 @@ export class AssetPoolListComponent implements OnInit {
             return;
 
         }
-
         this.issueTokenHttpStatus='pending';
         this.assetPoolService.issueToken(this.selectedPool.id,this.token.amount,this.token.exchangeRate,this.selectedPool.precision,this.selectedPool.blockchain.currency)
             .subscribe((data:any)=>{
@@ -82,6 +82,9 @@ export class AssetPoolListComponent implements OnInit {
             this.token.amount=null;
             this.token.exchangeRate=null;
             this.toastService.success('Issue','Issued successfully');
+            this.router.navigate(['/dashboard/tokens'])
+            this.modalRef.hide();
+
         },(err)=>{
             this.issueTokenHttpStatus='rejected';
             this.toastService.error('Issue',err.message);
@@ -90,12 +93,11 @@ export class AssetPoolListComponent implements OnInit {
     }
 
 
-  getMyPools(){
+  getPools(issuerName:string=null){
         this.assetPoolHttpSstatus='pending';
 
-    this.assetPoolService.getPoolsByIssuerName().subscribe((pools:any[])=>{
+    this.assetPoolService.getPools(issuerName).subscribe((pools:any[])=>{
         this.pools=pools;
-        console.log(pools)
 
         this.assetPoolHttpSstatus='resolved';
 
@@ -107,21 +109,6 @@ export class AssetPoolListComponent implements OnInit {
     })
   }
 
-    getOtherPools(){
-        this.assetPoolHttpSstatus='pending';
-
-        this.assetPoolService.getPools().subscribe((pools:any[])=>{
-            this.pools=pools;
-            console.log(pools)
-            this.assetPoolHttpSstatus='resolved';
-
-            this.getPoolInfoFromBlockchain(pools);
-        },(err)=>{
-            console.log(err);
-            this.assetPoolHttpSstatus='rejected';
-
-        });
-    }
 
 
   getPoolInfoFromBlockchain(pools:any[]){

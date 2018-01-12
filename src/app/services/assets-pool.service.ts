@@ -56,9 +56,15 @@ export class AssetsPoolService {
 
   }
 
-  getPools(){
-      const url=`${AssetPoolApi.getAssetpool.url()}`;
+  getPools(issuerName:string){
+      let url;
+      if(issuerName){
+          url=`${AssetPoolApi.getAssetpool.url()}?filter[where][issuerName]=${issuerName}`;
 
+      }
+      else{
+          url=`${AssetPoolApi.getAssetpool.url()}`;
+      }
       return this.http.get(`${url}`)
           .catch((res) => {
               return this.errorHandler.handle(res);
@@ -67,17 +73,6 @@ export class AssetsPoolService {
   }
 
 
-    getPoolsByIssuerName(){
-
-       return this.userService.user.concatMap((user:Iuser)=>{
-            const url=`${AssetPoolApi.getAssetpool.url()}?filter[where][issuerName]=${user.issuerName}`;
-            return this.http.get(`${url}`);
-
-        }).catch((res) => {
-                return this.errorHandler.handle(res);
-            });
-
-    }
 
   issueToken(assetPoolId,amount,exchangeRate,precision,currency){
       const url=`${AssetPoolApi.issueToken.url()}`;

@@ -19,8 +19,14 @@ export class TokenService {
   constructor(private http:HttpClient,private errorHandler:ErrorHandlerService,private userService:UserService) { }
 
 
-  getTokens(){
-      const url=`${TokenApi.getTokens.url()}?filter[include]=assetpool`;
+  getTokens(issuerName:string){
+      let url;
+      if(issuerName){
+          url=`${TokenApi.getTokens.url()}?filter[where][issuerName]=${issuerName}&filter[include]=assetpool`;
+      }
+      else{
+          url=`${TokenApi.getTokens.url()}?filter[include]=assetpool`;
+      }
       return this.http.get(`${url}`)
           .catch((res) => {
           return this.errorHandler.handle(res);

@@ -137,7 +137,6 @@ const routes:Routes = [
             {path: 'wallet', component: WalletComponent},
             {path: 'transfer', component: TransferComponent},
             {path: 'tokens', component: TokensComponent},
-            {path: 'tokens/:assetPoolId', component: TokensComponent},
             {path: 'password-change', component: PasswordChangeComponent},
             {path: 'user-create', component: UserCreateComponent},
             {path: 'user-list', component: UserListComponent},

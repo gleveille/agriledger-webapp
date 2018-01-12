@@ -45,10 +45,20 @@
               <div class="card card-stats" style="border: 1px solid #c4c4c4" >
 
                 <div class="card-content ">
-                  <p class="category text-left">Currency Name</p>
-                  <h5 class="title text-left">{{token?.issuerName}}.{{token?.assetpool?.currency}}</h5>
+                  <div class="row">
+                    <div class="col-md-6 text-left">
+                      <p class="category">{{token?.issuerName}}.{{token?.assetpool?.currency}}</p>
 
-                  <hr>
+                    </div>
+
+                    <div class="col-md-6 text-right">
+                      <i style="position: relative;top: 3px;font-size: 14px;color:#9c27b0"
+                         class="material-icons text-danger">update</i>
+                      <a style="font-size: 13px;" href="javascript:void(0)">{{token?.created|moment}}</a>
+                    </div>
+
+                  </div>
+                  <hr class="hr-margin">
 
                   <div class="row" style="text-align: left">
 
@@ -59,7 +69,7 @@
                       <b>{{token?.amount}}</b>
                     </div>
                   </div>
-                  <hr>
+                  <hr class="hr-margin">
 
                   <div class="row" style="text-align: left">
 
@@ -70,7 +80,7 @@
                       <b>{{token?.exchangeRate}}</b>
                     </div>
                   </div>
-                  <hr>
+                  <hr class="hr-margin">
 
 
                   <div class="row" style="text-align: left">
@@ -79,17 +89,19 @@
                       Status
                     </div>
                     <div class="col-xs-6 text-right">
-                      <b [style.color]="getColor(token?.status)">
-                        {{token?.status}}{{token?.status!==undefined ? (token?.status===0?'Pending':'Approved') : 'Checking'}}</b>
+                      <span [style.color]="getColor(token?.status)">
+                        <span *ngIf="!token.status">
+                          Pending
+                        </span>
+                        <span *ngIf="token.status===1">
+                          Approved
+                        </span>
+                        </span>
                     </div>
                   </div>
 
                 </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons text-danger">update</i> <a href="javascript:void(0)">{{token?.created|moment}}</a>
-                  </div>
-                </div>
+
 
 
 

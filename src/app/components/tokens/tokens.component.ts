@@ -25,9 +25,15 @@ export class TokensComponent implements OnInit {
     ngOnInit() {
         this.userService.user.subscribe((user:Iuser)=>{
             this.user=user;
+            if(user.role==='sponsor'){
+                this.getTokens(this.user.issuerName);
+            }
+            else{
+                this.getTokens();
+            }
         })
 
-        this.activatedRoute.params.subscribe((param:any)=>{
+      /*  this.activatedRoute.params.subscribe((param:any)=>{
             console.log(param)
 
             if(param && param.assetPoolId){
@@ -39,29 +45,13 @@ export class TokensComponent implements OnInit {
             }
         },(err)=>{
             console.log(err);
-        })
+        })*/
     }
 
 
-
-    getTokensByAssetPoolId(assetPoolId:string){
-      this.tokenHttpRequestStatus='pending';
-      this.assetPoolService.getTokensByAssetPoolId(assetPoolId).subscribe((tokens:any[])=>{
-          console.log(tokens)
-          this.tokens=tokens;
-          this.tokenHttpRequestStatus='resolved';
-          console.log(this.tokens)
-          this.getAllTokensFromBlockchain();
-
-      },(err)=>{
-          this.tokenHttpRequestStatus='rejected';
-          console.log(err)
-          this.toastService.error('Tokens',err.message);
-      });
-  }
-  getTokens(){
+    getTokens(issuerName:string=null){
     this.tokenHttpRequestStatus='pending';
-    this.tokenService.getTokens().subscribe((tokens:any[])=>{
+    this.tokenService.getTokens(issuerName).subscribe((tokens:any[])=>{
       this.tokens=tokens;
       this.tokenHttpRequestStatus='resolved';
       console.log(this.tokens)
@@ -69,7 +59,6 @@ export class TokensComponent implements OnInit {
 
     },(err)=>{
       this.tokenHttpRequestStatus='rejected';
-      console.log(err)
         this.toastService.error('Tokens',err.message);
     });
   }
@@ -104,7 +93,7 @@ export class TokensComponent implements OnInit {
             case '0':
                 return '#ff8b4c';
             default:
-                return 'grey';
+                return '#ff8b4c';
         }
     }
 }
