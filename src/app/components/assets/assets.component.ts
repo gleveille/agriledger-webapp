@@ -322,11 +322,11 @@ export class AssetsComponent implements OnInit {
             case 'pending':
                 return 'black';
             case 'verified':
-                return 'green';
+                return 'blue';
             case 'rejected':
                 return '#ff8b4c';
             case 'pooled':
-                return 'blue';
+                return 'green';
             default:
                 return 'black';
         }

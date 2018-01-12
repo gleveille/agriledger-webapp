@@ -129,4 +129,21 @@ export class AssetPoolViewComponent implements OnInit {
                 console.log(err);
             });
     }
+
+
+    getColorForStatus(status:string){
+        switch (status){
+            case 'pending':
+                return 'black';
+            case 'verified':
+                return 'blue';
+            case 'rejected':
+                return '#ff8b4c';
+            case 'pooled':
+                return 'green';
+            default:
+                return 'black';
+        }
+    }
+
 }

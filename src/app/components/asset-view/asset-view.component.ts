@@ -6,6 +6,7 @@ import {AssetsService} from "../../services/assets.service";
 import {ToastService} from "../../services/toast.service";
 import {IserviceError} from "../../interface/serviceError.interface";
 import {environment} from '../../../environments/environment'
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-asset-view',
@@ -16,6 +17,7 @@ export class AssetViewComponent implements OnInit {
 
   asset={user:{},status:null,evidences:[]};
   constructor(private activatedRoute:ActivatedRoute,
+              private location:Location,
               private assetService:AssetsService,private toastService:ToastService) { }
 
 
