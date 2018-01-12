@@ -46,6 +46,7 @@ export class UserCreateComponent implements OnInit {
 
     private upload(profileId:string){
         this.uploader.queue.forEach((queue)=>{
+            console.log(queue)
             queue.headers.push({name:'x-id',value:profileId})
         });
         this.totalSelectedFiles=this.uploader.queue.length;
@@ -163,4 +164,5 @@ export class UserCreateComponent implements OnInit {
         this.createPassword();
 
     }
+    
 }

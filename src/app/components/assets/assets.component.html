@@ -178,8 +178,7 @@
                 <tr >
                   <th class="boldfont">Asset Name</th>
 
-                  <th class="boldfont">Category ID</th>
-
+                  <th class="boldfont">City</th>
 
                   <th class="boldfont">Harvest amount</th>
                   <th class="boldfont">Harvest date</th>
@@ -206,10 +205,8 @@
 
                   </td>
 
-
                   <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">
-
-                    {{asset?.categoryId}}
+                    {{asset?.user?.profiles?.address?.city}}
                   </td>
 
 

@@ -14,7 +14,6 @@ declare interface RouteInfo {
 
 export const MenuItemsForSponsor:  RouteInfo[] = [
     { path: 'account', title: 'Account',  icon:'account_circle', class: '' },
-    { path: 'assets', title: 'Assets',  icon:'account_balance_wallet', class: '' },
     { path: 'assets-pool-list', title: 'Pools',  icon:'donut_large', class: '' },
     { path: 'tokens', title: 'Tokens',  icon:'grade', class: '' },
     { path: 'transfer', title: 'Transfer',  icon:'send', class: '' },
@@ -25,6 +24,7 @@ export const MenuItemsForSponsor:  RouteInfo[] = [
 
 export const MenuItemsForOps:  RouteInfo[] = [
     { path: 'account', title: 'Account',  icon:'account_circle', class: '' },
+    { path: 'assets', title: 'Assets',  icon:'account_balance_wallet', class: '' },
     { path: 'assets-pool-list', title: 'Pools',  icon:'store', class: '' },
     { path: 'tokens', title: 'Tokens',  icon:'stars', class: '' },
     { path: 'transfer', title: 'Transfer',  icon:'send', class: '' },

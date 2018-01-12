@@ -48,11 +48,11 @@
 .uploadBtn {
     cursor:pointer;
     background-color: #20bd9a;
-    border: 2px solid #178970;
+    border:1px solid #178970;
     color: white;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-size: 20px;
+    padding: 5px 15px;
+    border-radius:5px;
+    font-size: 14px;
     font-weight: bold;
 }
 
