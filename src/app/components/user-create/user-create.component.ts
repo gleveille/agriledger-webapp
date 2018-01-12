@@ -3,26 +3,53 @@ import {Iuser} from "../../interface/user.interface";
 import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
-
+import { FileUploader } from 'ng2-file-upload';
+import {ContainerApi} from '../../../../src/app/api.config'
+import {ServerUrl} from '../../../../src/app/api.config'
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
   styleUrls: ['./user-create.component.scss']
 })
 export class UserCreateComponent implements OnInit {
-
-  user={password:'',role:'farmer',profiles:{name:'',phone:''}} as Iuser;
-  passwordRetyped:string='';
-  roles=['ops','sponsor','farmer'];
+    serverUrl=ServerUrl;
+    uploader= new FileUploader({url: ContainerApi.profileDocumentsUpload.url()});
+    user={password:'',role:'farmer',profiles:{name:'',phone:''}} as Iuser;
+    passwordRetyped:string='';
+    totalSelectedFiles:number=0;
+    roles=['ops','sponsor','farmer'];
     createRequestStatus='resolved';
 
     constructor(private userService:UserService,private toastService:ToastService,private router:Router) { }
 
   ngOnInit() {
-        this.createPassword();
+      this.createPassword();
+
+      this.uploader.onSuccessItem= (item:any, response:any, status:any, headers:any) => {
+          //this.resetForm();
+          this.totalSelectedFiles--;
+          if(this.totalSelectedFiles===0){
+              this.toastService.success('User','User has been created and document uploaded',5000);
+              this.resetForm();
+          }
+      };
+
+      this.uploader.onErrorItem= (item:any, response:any, status:any, headers:any) => {
+          this.toastService.error('User','User has been created but one or more documents could not be uploaded',10000);
+          this.resetForm();
+
+      };
+
   }
 
-  createPassword(){
+    private upload(profileId:string){
+        this.uploader.queue.forEach((queue)=>{
+            queue.headers.push({name:'x-id',value:profileId})
+        });
+        this.totalSelectedFiles=this.uploader.queue.length;
+        this.uploader.uploadAll();
+    }
+    private createPassword(){
       const specials = '!@&*';
       const lowercase = 'abcdefghijklmnopqrstuvwxyz';
       const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -74,7 +101,7 @@ export class UserCreateComponent implements OnInit {
       this.passwordRetyped=password;
 
   }
-    register(){
+    private register(){
         console.log(this.user)
 
         if(!this.user.profiles.name){
@@ -97,25 +124,34 @@ export class UserCreateComponent implements OnInit {
             return this.toastService.error('User','Password and confirm Password does not match');
         }
         this.createRequestStatus='pending';
-        console.log(this.user)
-        this.userService.register(this.user).subscribe((data:any)=>{
-            this.createRequestStatus='resolved';
-            this.toastService.success('User','created successfully');
-            this.user.email='';
-            this.user.password='';
-            this.user.profiles.name='';
-            this.user.profiles.phone='';
-
-            this.createPassword();
+        this.userService.register(this.user).subscribe((profile:any)=>{
+            console.log('recived')
+            console.log(profile)
+            if(this.uploader.queue.length){
+                this.upload(profile.id);
+            }
+            else{
+                this.toastService.success('User','User has been created');
+            }
 
         },(err)=>{
-            this.createRequestStatus='rejected';
             if(err.showError){
                 this.toastService.error('User',err.message||'User could not be created.Try again');
-
             }
+            this.resetForm();
 
 
         });
+    }
+
+    private resetForm(){
+        this.createRequestStatus='resolved';
+        this.totalSelectedFiles=0;
+        this.user.email='';
+        this.user.password='';
+        this.user.profiles.name='';
+        this.user.profiles.phone='';
+        this.createPassword();
+        this.uploader.queue=[];
     }
 }

@@ -2,3 +2,48 @@
   content:"*" ;
   color:red
 }
+.circularImgForUpload {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  position: inherit;
+  border-radius: 50%;
+  border: solid forestgreen;
+  opacity: 1;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.5s;
+}
+
+.circularImg:hover{
+  opacity: 0.7;
+}
+.upload-btn-wrapper {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.uploadBtn {
+  cursor:pointer;
+  background-color: #20bd9a;
+  border:1px solid #178970;
+  color: white;
+  padding: 5px 15px;
+  border-radius:5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.uploadBtn:hover{
+  background-color: #00bda2;
+  transition: 0.5s all;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}

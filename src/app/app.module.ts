@@ -63,6 +63,7 @@ import { AccordionModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
 import { PasswordNewComponent } from './components/password-new/password-new.component';
 import { PasswordForgetComponent } from './components/password-forget/password-forget.component';
+import {ImagePreviewDirective} from './img-preview.directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/translations/', '.json');
@@ -97,7 +98,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserListComponent,
     ImagePopupComponent,
     PasswordNewComponent,
-    PasswordForgetComponent
+    PasswordForgetComponent,
+    ImagePreviewDirective
 
   ],
   imports: [

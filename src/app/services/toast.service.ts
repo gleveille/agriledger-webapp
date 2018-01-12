@@ -10,12 +10,12 @@ export class ToastService {
         this.toastyConfig.theme = 'material';
     }
 
-    success(title:string,msg:string) {
+    success(title:string,msg:string,timeout:number=5000) {
         const toastOptions:ToastOptions = {
             title: title ? title : 'Success',
             msg: msg,
             showClose: true,
-            timeout: 5000,
+            timeout: timeout,
             onAdd: (toast:ToastData) => {
                 console.log('Toast ' + toast.id + ' has been added!');
             },
@@ -29,12 +29,12 @@ export class ToastService {
     }
 
 
-    info(title:string,msg:string) {
+    info(title:string,msg:string,timeout:number=5000) {
         const toastOptions:ToastOptions = {
             title: title ? title : 'Info',
             msg: msg,
             showClose: true,
-            timeout: 5000,
+            timeout:timeout,
             onAdd: (toast:ToastData) => {
                 console.log('Toast ' + toast.id + ' has been added!');
             },
@@ -48,12 +48,12 @@ export class ToastService {
 
 
 
-    error(title:string,msg:string) {
+    error(title:string,msg:string,timeout:number=5000) {
         const toastOptions:ToastOptions = {
             title: title ? title : 'Error',
             msg: msg,
             showClose: true,
-            timeout: 5000,
+            timeout: timeout,
             onAdd: (toast:ToastData) => {
                 console.log('Toast ' + toast.id + ' has been added!');
             },

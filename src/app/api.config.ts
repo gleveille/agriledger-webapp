@@ -17,8 +17,9 @@ const ProfileApi= {
 
 const ContainerApi={
     ProfileUpload:{url:()=>ServerUrl+'/api/containers/profiles/upload'},
-    FieldUpload:{url:()=>ServerUrl+'/api/containers/fields/upload'}
-
+    AssetEvidencesUpload:{url:()=>ServerUrl+ '/api/containers/evidences/upload'},
+    AssetDocuementsUpload:{url:()=>ServerUrl+ '/api/containers/asset_documents/upload'},
+    profileDocumentsUpload:{url:()=>ServerUrl+ '/api/containers/profile_documents/upload'}
 };
 
 

@@ -98,10 +98,9 @@ export class UserService {
 
     createProfile(user:Iuser) {
 
+        //create others profile
         const profile=user.profiles;
         return this.http.post(`${UserApi.updateProfile.url()}/${user.id}/profiles`, profile).do((profiles)=> {
-            this.dataStore.user.profiles=profiles;
-            this._user.next(JSON.parse(JSON.stringify(this.dataStore.user)));
         })
             .catch((err)=> {
                 return this.errorHandler.handle(err);

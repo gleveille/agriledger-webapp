@@ -28,30 +28,39 @@ export class AccountComponent implements OnInit {
 
     this.userService.user.subscribe((user:Iuser)=>{
         this.user=user;
-        this.uploader= new FileUploader({url: ContainerApi.ProfileUpload.url(),
-            headers:[{name:'x-id',value:this.user.profiles.id}]});
+        this.initUpload();
 
-        this.uploader.onAfterAddingFile=(item:any)=>{
+    })
+  }
+
+  initUpload(){
+      this.uploader= new FileUploader({url: ContainerApi.ProfileUpload.url(),
+          headers:[{name:'x-id',value:this.user.profiles.id}]});
+
+      this.uploader.onAfterAddingFile=(item:any)=>{
           this.uploader.queue=[];
           this.uploader.queue.push(item)
-        };
-        this.uploader.onSuccessItem = (item:any, response:any, status:any, headers:any) => {
-            let data;
-            try{
-                data = JSON.parse(response);
-                let obj={url:null,lat:null,long:null,hash:null};
-                if(data.result.files && data.result.files.file[0].data) {
-                    obj=data.result.files.file[0].data
-                }
-                this.userService.profilePicChanged(obj);
-                this.toastService.success('Upload','Profile image changed')
-            }
-            catch (err){
-                console.log(err);
+      };
+      this.uploader.onSuccessItem = (item:any, response:any, status:any, headers:any) => {
+          let data;
+          try{
+              data = JSON.parse(response);
+              let obj={url:null,lat:null,long:null,hash:null};
+              if(data.result.files && data.result.files.file[0].data) {
+                  obj=data.result.files.file[0].data
+              }
+              this.userService.profilePicChanged(obj);
+              this.toastService.success('Upload','Profile image changed')
+          }
+          catch (err){
+              console.log(err);
 
-            }
-        };
-    })
+          }
+      };
+
+      this.uploader.onErrorItem= (item:any, response:any, status:any, headers:any) => {
+          this.toastService.error('Upload','Profile image could not be changed')
+      };
   }
     openModal(template: TemplateRef<any>) {
         this.modalRef = this.modalService.show(template);
