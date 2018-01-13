@@ -28,7 +28,6 @@
                       <li> <a href="javascript:void (0)">{{pool?.category?.level5}}</a></li>
 
                     </ol>
-                <h3  class="text-center">Pool Details</h3>
 
                 <div class="row">
 
@@ -157,7 +156,6 @@
 
               <div class="tab-pane" id="assets">
 
-                    <h3 class="text-center">Asset Details</h3>
                     <section *ngIf="assetEvidenceHttpStatus==='pending' || assetPoolHttpSstatus==='rejected' ">
                       <app-spinner [type]="'bounce'" *ngIf="assetEvidenceHttpStatus==='pending'"></app-spinner>
 
@@ -172,6 +170,8 @@
                       <table class="table" style="border: 1px solid #ddd" >
                         <thead  >
                         <tr >
+                          <th class="boldfont text-center">Sr.no</th>
+
                           <th class="boldfont text-center">Asset Name</th>
 
                           <th class="boldfont text-center">Harvest amount</th>
@@ -187,7 +187,10 @@
 
 
 
-                        <tr *ngFor="let asset of  pool.assets"  >
+                        <tr *ngFor="let asset of  pool.assets;let i=index"  >
+                          <td class="text-center" style="cursor: pointer" [routerLink]="['../../assets',asset.id]">
+                            <span>{{i+1}}</span>
+                          </td>
                           <td class="text-center" style="cursor: pointer" [routerLink]="['../../assets',asset.id]">
                             <span>{{asset?.name}}</span>
                           </td>

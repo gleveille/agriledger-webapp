@@ -25,19 +25,16 @@
               <div class="tab-content">
                   <div class="tab-pane active" id="asset">
                       <div class="row" style="text-align: center">
-                          <h3>Asset Details</h3>
+                          <ol class="breadcrumb text-left" style="margin-bottom: 5px;">
+                              <li><a href="javascript:void (0)">{{asset?.category?.level1}}</a></li>
+                              <li><a href="javascript:void (0)">{{asset?.category?.level2}}</a></li>
+                              <li> <a href="javascript:void (0)">{{asset?.category?.level3}}</a></li>
+                              <li> <a href="javascript:void (0)">{{asset?.category?.level4}}</a></li>
+                              <li> <a href="javascript:void (0)">{{asset?.category?.level5}}</a></li>
+
+                          </ol>
                           <div class="row" style="padding: 15px">
-                              <div class="col-xs-12">
 
-                                  <ol class="breadcrumb text-left" style="margin-bottom: 5px;">
-                                      <li><a href="javascript:void (0)">{{asset?.category?.level1}}</a></li>
-                                      <li><a href="javascript:void (0)">{{asset?.category?.level2}}</a></li>
-                                      <li> <a href="javascript:void (0)">{{asset?.category?.level3}}</a></li>
-                                      <li> <a href="javascript:void (0)">{{asset?.category?.level4}}</a></li>
-                                      <li> <a href="javascript:void (0)">{{asset?.category?.level5}}</a></li>
-
-                                  </ol>
-                              </div>
                               <div class="col-lg-6" >
 
                                   <div class="row" style="text-align: left">
@@ -138,12 +135,11 @@
 
                   </div>
 
-                  <div class="tab-pane active" id="asset_documents">
+                  <div class="tab-pane" id="asset_documents">
                       <div class="row" style="text-align: center">
 
                           <div class="col-xs-12">
 
-                              <h3>Asset Evidences</h3>
 
 
                               <div class="row" *ngIf="asset.evidences && !asset.evidences.length">
@@ -188,11 +184,10 @@
 
                   </div>
 
-                  <div class="tab-pane active" id="farmer">
+                  <div class="tab-pane" id="farmer">
 
 
                       <div class="row" style="text-align: center">
-                          <h3>Farmer Details</h3>
                           <div class="row" style="padding: 15px">
 
 
@@ -375,16 +370,11 @@
                       </div>
                   </div>
 
-                  <div class="tab-pane active" id="farmer_documents">
+                  <div class="tab-pane" id="farmer_documents">
 
                       <div class="row" style="text-align: center">
 
                           <div class="col-xs-12">
-                              <hr>
-
-                              <h3>Farmer Documents</h3>
-
-
                               <div class="row" *ngIf="!asset.user?.profiles?.documents?.length">
                                   <div class="col-xs-12 text-center">
                                       <h5 class="text-gray">
