@@ -36,6 +36,7 @@ import {UserListComponent} from "./components/user-list/user-list.component";
 import {UserUpdateComponent} from "./components/user-update/user-update.component";
 import {PasswordForgetComponent} from "./components/password-forget/password-forget.component";
 import {PasswordNewComponent} from "./components/password-new/password-new.component";
+import {UserViewComponent} from "./components/user-view/user-view.component";
 
 const routes:Routes = [
     {
@@ -141,6 +142,8 @@ const routes:Routes = [
             {path: 'user-create', component: UserCreateComponent},
             {path: 'user-list', component: UserListComponent},
             {path: 'user-update', component: UserUpdateComponent},
+            {path: 'user-view/:userId', component: UserViewComponent},
+
 
 
         ]

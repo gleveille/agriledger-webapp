@@ -1,0 +1,261 @@
+<div class="main-content">
+  <div class="container-fluid">
+
+    <button class="btn btn-simple" (click)="goBack()" style="margin: 0;">
+      <i class="material-icons">keyboard_return</i>Back
+    </button>
+    <div class="row">
+      <div class="col-xs-12" >
+        <div class="card card-stats" >
+
+          <div class="card-content">
+
+            <div class="row" style="text-align: center">
+              <h3>Details</h3>
+              <div class="row" style="padding: 15px">
+
+
+                <div class="col-lg-6" >
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Name</b>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <span class="text-gray">{{user?.profiles?.name}}</span>
+                    </div>
+                  </div>
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Email</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <span class="text-gray">
+                      {{user?.email}}
+                      </span>
+                    </div>
+                  </div>
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Phone</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right" >
+                      <span class="text-gray">
+                      {{user?.profiles?.phone}}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Address Line1</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right">
+                    <span class="text-gray">
+                      {{user?.profiles?.address.line1}}
+
+                    </span>
+
+                    </div>
+                  </div>
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Address Line2</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right">
+                    <span class="text-gray">
+                      {{user?.profiles?.address.line2}}
+
+                    </span>
+
+                    </div>
+                  </div>
+
+
+                </div>
+                <div class="col-lg-6" >
+
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+
+                    <div class="col-xs-6 text-left">
+                      <b>Registration no.</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right" >
+                      <span class="text-gray">
+                      {{user?.profiles?.registration}}
+                    </span>
+                    </div>
+
+                  </div>
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Company</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right" >
+                      <span class="text-gray">
+                      {{user?.profiles?.company}}
+                      </span>
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>City</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right">
+                    <span class="text-gray">
+                      {{user?.profiles?.address.city}}
+
+                    </span>
+
+                    </div>
+                  </div>
+
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Province</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right">
+                    <span class="text-gray">
+                      {{user?.profiles?.address.province}}
+
+                    </span>
+
+                    </div>
+                  </div>
+                  <div class="row" style="text-align: left">
+                    <hr>
+
+                    <div class="col-xs-6 text-left">
+                      <b>Wechat ID</b>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right">
+                    <span class="text-gray">
+                      {{user?.profiles?.weChat}}
+
+                    </span>
+
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="row" style="text-align: center">
+
+              <div class="col-xs-12">
+                <hr>
+
+                <h3>Documents</h3>
+
+
+                <div class="row" *ngIf="!user?.profiles?.documents?.length">
+                  <div class="col-xs-12 text-center">
+                    <h5 class="text-gray">
+                      No Documents uploaded
+                    </h5>
+
+                    <hr>
+
+                  </div>
+                </div>
+
+                <div class="row" *ngIf="user?.profiles?.documents?.length">
+                  <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of user?.profiles?.documents?.length">
+                    <a [href]="evidence.url" target="_blank" download>
+                      <img [src]="evidence.url" class="evidencesImage">
+
+                    </a>
+                    <div>{{evidence?.date|moment}}</div>
+                    <div style="text-wrap: normal;word-wrap: break-word">{{evidence?.hash}}</div>
+                    <div>{{evidence?.lat}},{{evidence?.long}}</div>
+
+                    <div>
+                      <button  class="btn btn-simple" *ngIf="evidence && evidence.status==='rejected'">Rejected</button>
+
+                      <button class="btn btn-simple" *ngIf="evidence && evidence.status==='approved'">Approved</button>
+
+                      <button class="btn btn-primary  btn-simple" *ngIf="evidence && evidence.status==='pending'">Pending</button>
+
+                    </div>
+
+                  </div>
+
+                  <hr>
+
+                </div>
+
+
+
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

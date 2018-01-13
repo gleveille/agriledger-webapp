@@ -64,7 +64,7 @@
             <tbody>
 
 
-            <tr *ngFor="let user of users;let i=index">
+            <tr *ngFor="let user of users;let i=index" style="cursor:pointer" [routerLink]="['../user-view',user.id]">
 
               <td><span>{{i+1}}.</span> {{user?.email}}</td>
               <td >

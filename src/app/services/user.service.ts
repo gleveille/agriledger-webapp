@@ -17,7 +17,7 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 export class UserService {
 
     private _user: BehaviorSubject<Iuser>;
-    dataStore:{user:Iuser} = { user:{} };
+    dataStore:{user:Iuser,otherUsers:Iuser[]} = { user:{},otherUsers:[] };
 
     user: Observable<Iuser>;
 
@@ -137,12 +137,26 @@ export class UserService {
 
 
     getUsers(){
-        return this.http.get(`${UserApi.list.url()}?filter[include]=profiles`)
+        return this.http.get(`${UserApi.list.url()}?filter[include]=profiles&filter[order]=createdAt DESC`).do((users:Iuser[])=>{
+            this.dataStore.otherUsers=users;
+        })
             .catch((res)=> {
                 return this.errorHandler.handle(res);
             })
     };
 
+
+    getUserById(userId:string){
+        this.dataStore.otherUsers.forEach((user)=>{
+            if(user && user.id===userId){
+                return Observable.of(user)
+            }
+        })
+
+        return this.http.get(`${UserApi.list.url()}/${userId}?filter[include]=profiles`).catch((res)=> {
+            return this.errorHandler.handle(res);
+        })
+    }
 
     sendPasswordResetToken(email:any) {
         return this.http.post(`${UserApi.sendResetPasswordToken.url()}`, {email: email}).do((res)=> {
@@ -213,7 +227,7 @@ export class UserService {
       if(!role){
         return Observable.throw('Role is not found');
       }
-        return this.http.get(`${UserApi.list.url()}?filter[where][role]=${role}`)
+        return this.http.get(`${UserApi.list.url()}?filter[where][role]=${role}&filter[order]=createdAt DESC`)
             .do((farmers:any)=>{
             })
             .catch((res)=> {
