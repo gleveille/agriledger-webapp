@@ -171,7 +171,7 @@
 
               </div>
 
-              
+
               <div class="row" style="text-align: center">
                   <h3>Farmer Details</h3>
                   <div class="row" style="padding: 15px">
@@ -375,7 +375,7 @@
                       </div>
 
                       <div class="row" *ngIf="asset.user?.profiles?.documents?.length">
-                          <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of asset.user?.profiles?.documents?.length">
+                          <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of asset.user?.profiles?.documents">
                               <a [href]="evidence.url" target="_blank" download>
                                   <img [src]="evidence.url" class="evidencesImage">
 

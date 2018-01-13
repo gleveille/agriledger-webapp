@@ -4,6 +4,7 @@ import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
 import {Iuser} from "../../interface/user.interface";
 import {Location} from "@angular/common";
+import {ServerUrl} from '../../api.config'
 
 @Component({
   selector: 'app-user-view',
@@ -12,6 +13,7 @@ import {Location} from "@angular/common";
 })
 export class UserViewComponent implements OnInit {
 
+  serverUrl=ServerUrl;
   user:Iuser={};
   constructor(private activatedRoute:ActivatedRoute,private router:Router,
               private toastService:ToastService,
