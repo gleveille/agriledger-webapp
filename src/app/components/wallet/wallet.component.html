@@ -22,7 +22,7 @@
                             <app-error-show *ngIf="txnRequestStatus==='rejected'" [error]="'Transactions could not be fetched.Try again!'">
 
                             </app-error-show>
-                            <div class="row" *ngIf="txnRequestStatus==='resolved'&& !transactions.length">
+                            <div class="row" *ngIf="txnRequestStatus==='resolved'&& !transactions.length && user.walletAddress">
                                 <div class="col-xs-12 text-center">
                                     <h3 class="text-gray">
                                         No Transaction found!
