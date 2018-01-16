@@ -63,7 +63,7 @@ export class AssetsService {
             .retry(3)
             .subscribe((assets:any[])=>{
                 this.dataStore.assets.allAssets=assets;
-                this._assets.next(this.dataStore.assets);
+                this._assets.next(this.deepCopy(this.dataStore.assets));
             },(err)=>{
 
             })
@@ -74,7 +74,7 @@ export class AssetsService {
         this.http.get(`${url}`)
             .subscribe((assets:any[])=>{
                 this.dataStore.assets.availableAssets=assets;
-                this._assets.next(this.dataStore.assets);
+                this._assets.next(this.deepCopy(this.dataStore.assets));
             },(err)=>{
 
             })
@@ -91,7 +91,7 @@ export class AssetsService {
             this.dataStore.stat.allAssetCount=t[0].count||0;
             this.dataStore.stat.pooledAssetCount=t[1].count||0;
             this.dataStore.stat.availableAssetCount=this.dataStore.stat.allAssetCount-this.dataStore.stat.pooledAssetCount;
-            this._assets.next(this.dataStore.stat)
+            this._assets.next(this.deepCopy(this.dataStore.stat))
         });
     }
 
@@ -100,8 +100,8 @@ export class AssetsService {
         return this.http.get(`${url}`).map((assets:any[])=>{
             this.dataStore.assets.favouriteAssets=assets;
             this.dataStore.stat.favouriteAssetCount=assets.length;
-            this._assets.next(this.dataStore.assets);
-            this._stat.next(this.dataStore.stat);
+            this._assets.next(this.deepCopy(this.dataStore.assets));
+            this._stat.next(this.deepCopy(this.dataStore.stat));
         }).subscribe(()=>{
 
         },(err)=>{
@@ -164,7 +164,7 @@ export class AssetsService {
         return this.http.post(`${url}`,data)
             .do((asset:any)=>{
                 this.dataStore.assets.favouriteAssets.push(asset);
-                this._assets.next(this.dataStore.assets);
+                this._assets.next(this.deepCopy(this.dataStore.assets));
             })
             .catch((res) => {
                 return this.errorHandler.handle(res);
@@ -182,11 +182,22 @@ export class AssetsService {
             })
             if(i>-1){
                 this.dataStore.assets.favouriteAssets.splice(i,1);
-                this._assets.next(this.dataStore.assets);
+                this._assets.next(this.deepCopy(this.dataStore.assets));
             }
         })
             .catch((res) => {
                 return this.errorHandler.handle(res);
             });
     }
+
+    private deepCopy(data){
+        try{
+           const copy= JSON.parse(JSON.stringify(data))
+            return copy;
+        } 
+        catch (e){
+            return data;
+        }
+    }
 }
+

@@ -56,11 +56,13 @@ export class AssetsComponent implements OnInit {
       this.assetsService.loadAvailableAssets();
 
       this.assetsService.assets.subscribe((assets:any)=>{
+          console.log('.....................')
+          console.log(assets)
           if(this.showNonPooledAssetOnly){
-              this.assets=assets.availableAssets.splice();
+              this.assets=assets.availableAssets||[];
           }
           else{
-              this.assets=assets.allAssets;
+              this.assets=assets.allAssets||[];
           }
       });
       this.assetsService.stat.subscribe((stat:any)=>{
