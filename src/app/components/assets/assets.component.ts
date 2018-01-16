@@ -6,6 +6,7 @@ import {AssetsPoolService} from "../../services/assets-pool.service";
 import {UserService} from "../../services/user.service";
 import {Iuser} from "../../interface/user.interface";
 import {concatMap} from 'rxjs/operator/concatMap'
+import {tr} from "ngx-bootstrap";
 
 @Component({
   selector: 'app-assets',
@@ -93,9 +94,9 @@ export class AssetsComponent implements OnInit {
 
     }
 
-    loadAllAssets(){
+    loadAllAssets(forceRefresh:boolean=false){
         this.assetsRequestStatus='pending';
-        this.assetsService.loadAllAssets().subscribe((assets:any[])=>{
+        this.assetsService.loadAllAssets(forceRefresh).subscribe((assets:any[])=>{
             this.assets=assets;
             this.assetsRequestStatus='resolved';
 
@@ -104,9 +105,9 @@ export class AssetsComponent implements OnInit {
         });
     }
 
-    loadAvailableAssets(){
+    loadAvailableAssets(forceRefresh:boolean=false){
         this.assetsRequestStatus='pending';
-        this.assetsService.loadAvailableAssets().subscribe((assets:any[])=>{
+        this.assetsService.loadAvailableAssets(forceRefresh).subscribe((assets:any[])=>{
             this.assets=assets;
             this.assetsRequestStatus='resolved';
         },(err)=>{
@@ -281,9 +282,8 @@ export class AssetsComponent implements OnInit {
         this.currentLevel=null;
         this.lastCategoryId=null;
         this.selectedFilter=null;
-        this.assetsService.loadStat();
-        this.assetsService.loadAllAssets();
-        this.assetsService.loadAvailableAssets();
+        this.loadAllAssets(true);
+        this.loadAvailableAssets(true);
     }
 
 

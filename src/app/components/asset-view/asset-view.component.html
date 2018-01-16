@@ -148,7 +148,7 @@
 
 
 
-                              <div class="row" *ngIf="asset.evidences && !asset.evidences.length">
+                              <div class="row" *ngIf="!asset.evidences || (asset.evidences && !asset.evidences.length)">
                                   <div class="col-xs-12 text-center">
                                       <h5 class="text-gray">
                                           No evidences uploaded
@@ -386,9 +386,6 @@
                                       <h5 class="text-gray">
                                           No Documents uploaded
                                       </h5>
-
-                                      <hr>
-
                                   </div>
                               </div>
 

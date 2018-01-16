@@ -63,8 +63,8 @@ export class AssetsService {
 
     }
 
-    loadAllAssets() {
-        if(this.dataStore.metadata.isAllAssetLoaded){
+    loadAllAssets(forceRefresh:boolean=false) {
+        if(!forceRefresh && this.dataStore.metadata.isAllAssetLoaded){
             return Observable.of(this.dataStore.assets);
         }
         const url=`${AssetApi.getAssets.url()}?filter[include][user]=profiles`;
@@ -79,8 +79,8 @@ export class AssetsService {
             });
     }
 
-    loadAvailableAssets() {
-        if(this.dataStore.metadata.isAvailableAssetLoaded){
+    loadAvailableAssets(forceRefresh:boolean=false) {
+        if(!forceRefresh && this.dataStore.metadata.isAvailableAssetLoaded){
             return Observable.of(this.dataStore.assets);
         }
         const url=`${AssetApi.getAssets.url()}?filter[include]=user&filter[where][isPutOnBlockchain]=false`;
