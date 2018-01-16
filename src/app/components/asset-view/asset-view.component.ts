@@ -33,13 +33,28 @@ export class AssetViewComponent implements OnInit {
 
 
   ngOnInit() {
-      this.userService.user.subscribe((user:Iuser)=>{
+      this.userService.user.concatMap((user:Iuser)=>{
           this.user=user;
-          this.assetService.loadFavouriteAssets(user.id);
+          return this.assetService.loadFavouriteAssets(user.id);
+      }).subscribe(()=>{
+
+      },(err)=>{
+
       });
 
+
+      this.activatedRoute.params.subscribe((param)=>{
+          this.currentAssetId=param.assetId;
+          this.getAssetById();
+          this.subscribeToAssets();
+      })
+  }
+
+
+  subscribeToAssets(){
       this.assetService.assets.subscribe((assets:any)=>{
-          this.favouriteAssets=assets.favouriteAssets;
+          console.log(assets)
+          this.favouriteAssets=assets.favouriteAssets||[];
           let found=false;
           this.favouriteAssets.forEach((asset)=>{
               if(asset.assetId===this.currentAssetId){
@@ -54,13 +69,10 @@ export class AssetViewComponent implements OnInit {
               this.isFavourite=false;
 
           }
-      })
-      this.activatedRoute.params.subscribe((param)=>{
-          this.currentAssetId=param.assetId;
-          this.getAssetById();
+
+          console.log('is favourite', this.isFavourite)
       })
   }
-
 
   getAssetById(){
       this.assetService.getAssetByid(this.currentAssetId).subscribe((asset)=>{
@@ -104,7 +116,7 @@ export class AssetViewComponent implements OnInit {
     }
 
     addToFavourite(){
-        this.assetService.addAssetToFavourite(this.asset.id,this.user.id).subscribe((data)=>{
+        this.assetService.addAssetToFavourite(this.asset,this.user.id).subscribe((data)=>{
             this.toastService.success('Addedd','success!');
         },(err:IserviceError)=>{
             this.toastService.success('Favourite','Could not be added!');

@@ -47,6 +47,12 @@ export class AssetsService {
             pooledAssetCount:0,
             favouriteAssetCount:0,
             availableAssetCount:0
+        },
+        metadata:{
+            isStatLoaded:false,
+            isAllAssetLoaded:false,
+            isFavouriteAssetLoaded:false,
+            isAvailableAssetLoaded:false
         }
     };
 
@@ -58,55 +64,77 @@ export class AssetsService {
     }
 
     loadAllAssets() {
+        if(this.dataStore.metadata.isAllAssetLoaded){
+            return Observable.of(this.dataStore.assets);
+        }
         const url=`${AssetApi.getAssets.url()}?filter[include][user]=profiles`;
-        this.http.get(`${url}`)
-            .retry(3)
-            .subscribe((assets:any[])=>{
+        return this.http.get(`${url}`)
+            .do((assets:any[])=>{
+                this.dataStore.metadata.isAllAssetLoaded=true;
                 this.dataStore.assets.allAssets=assets;
                 this._assets.next(this.deepCopy(this.dataStore.assets));
-            },(err)=>{
-
             })
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
     }
 
     loadAvailableAssets() {
+        if(this.dataStore.metadata.isAvailableAssetLoaded){
+            return Observable.of(this.dataStore.assets);
+        }
         const url=`${AssetApi.getAssets.url()}?filter[include]=user&filter[where][isPutOnBlockchain]=false`;
-        this.http.get(`${url}`)
-            .subscribe((assets:any[])=>{
+        return this.http.get(`${url}`)
+            .do((assets:any[])=>{
+                this.dataStore.metadata.isAvailableAssetLoaded=true;
                 this.dataStore.assets.availableAssets=assets;
                 this._assets.next(this.deepCopy(this.dataStore.assets));
-            },(err)=>{
-
             })
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
     }
 
 
     loadStat(){
+        if(this.dataStore.metadata.isStatLoaded){
+            return Observable.of(this.dataStore.stat);
+        }
         const url=`${AssetApi.getAssets.url()}/count`;
         const url2=`${AssetApi.getAssets.url()}/count?[where][isPutOnBlockchain]=true`;
-        Observable.forkJoin([
+        const url3=`${FavouriteAssetApi.getAssets.url()}/count?[where][userId]=${this.userService.dataStore.user.id}`;
+
+        return Observable.forkJoin([
             this.http.get(`${url}`),
-            this.http.get(`${url2}`)])
-            .subscribe((t:any[])=> {
-            this.dataStore.stat.allAssetCount=t[0].count||0;
-            this.dataStore.stat.pooledAssetCount=t[1].count||0;
-            this.dataStore.stat.availableAssetCount=this.dataStore.stat.allAssetCount-this.dataStore.stat.pooledAssetCount;
-            this._assets.next(this.deepCopy(this.dataStore.stat))
-        });
+            this.http.get(`${url2}`),
+            this.http.get(`${url3}`)])
+            .do((t:any[])=>{
+                this.dataStore.metadata.isStatLoaded=true;
+                this.dataStore.stat.allAssetCount=t[0].count||0;
+                this.dataStore.stat.pooledAssetCount=t[1].count||0;
+                this.dataStore.stat.availableAssetCount=this.dataStore.stat.allAssetCount-this.dataStore.stat.pooledAssetCount;
+                this.dataStore.stat.favouriteAssetCount=t[2].count||0;
+                this._stat.next(this.deepCopy(this.dataStore.stat))
+            })
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
+
     }
 
     loadFavouriteAssets(userId:string){
+        if(this.dataStore.metadata.isFavouriteAssetLoaded){
+            return Observable.of(this.dataStore.assets);
+        }
         const url=`${FavouriteAssetApi.getAssets.url()}?filter[where][userId]=${userId}&filter[include]=asset`;
-        return this.http.get(`${url}`).map((assets:any[])=>{
+        return this.http.get(`${url}`)
+            .do((assets:any[])=>{
+            this.dataStore.metadata.isFavouriteAssetLoaded=true;
             this.dataStore.assets.favouriteAssets=assets;
-            this.dataStore.stat.favouriteAssetCount=assets.length;
             this._assets.next(this.deepCopy(this.dataStore.assets));
-            this._stat.next(this.deepCopy(this.dataStore.stat));
-        }).subscribe(()=>{
-
-        },(err)=>{
-
-        })
+        }).catch((res) => {
+                return this.errorHandler.handle(res);
+            });
     }
 
 
@@ -157,14 +185,17 @@ export class AssetsService {
             });
     }
 
-    addAssetToFavourite(assetId:any,userId:string){
+    addAssetToFavourite(asset:any,userId:string){
         const url=`${FavouriteAssetApi.addToFavourite.url()}`;
 
-        const data={assetId,userId};
+        const data={assetId:asset.id,userId};
         return this.http.post(`${url}`,data)
-            .do((asset:any)=>{
-                this.dataStore.assets.favouriteAssets.push(asset);
+            .do((created:any)=>{
+            created.asset=asset;
+                this.dataStore.assets.favouriteAssets.push(created);
                 this._assets.next(this.deepCopy(this.dataStore.assets));
+                this.dataStore.stat.favouriteAssetCount++;
+                this._stat.next(this.dataStore.stat);
             })
             .catch((res) => {
                 return this.errorHandler.handle(res);
@@ -183,6 +214,9 @@ export class AssetsService {
             if(i>-1){
                 this.dataStore.assets.favouriteAssets.splice(i,1);
                 this._assets.next(this.deepCopy(this.dataStore.assets));
+                this.dataStore.stat.favouriteAssetCount--;
+                this._stat.next(this.dataStore.stat);
+                console.log(this.dataStore.assets)
             }
         })
             .catch((res) => {

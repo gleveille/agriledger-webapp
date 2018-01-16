@@ -51,13 +51,12 @@ export class AssetsComponent implements OnInit {
 
 
   ngOnInit() {
-      this.assetsService.loadStat();
-      this.assetsService.loadAllAssets();
-      this.assetsService.loadAvailableAssets();
+
+      this.loadAvailableAssets();
+      this.loadStat();
+      this.loadAllAssets();
 
       this.assetsService.assets.subscribe((assets:any)=>{
-          console.log('.....................')
-          console.log(assets)
           if(this.showNonPooledAssetOnly){
               this.assets=assets.availableAssets||[];
           }
@@ -72,14 +71,47 @@ export class AssetsComponent implements OnInit {
       });
 
 
-      this.userService.user.subscribe((user:Iuser)=>{
-          this.assetsService.loadFavouriteAssets(user.id);
-      });
+      this.userService.user.concatMap((user:Iuser)=>{
+         return this.assetsService.loadFavouriteAssets(user.id);
+      }).subscribe(()=>{
+
+      },(err)=>{
+
+      })
 
 
     this.getCategories(0);
   }
 
+
+    loadStat(){
+        this.assetsService.loadStat().subscribe(()=>{
+
+        },(err)=>{
+
+        });
+
+    }
+
+    loadAllAssets(){
+        this.assetsRequestStatus='pending';
+        this.assetsService.loadAllAssets().subscribe((assets:any[])=>{
+            this.assets=assets;
+            this.assetsRequestStatus='resolved';
+
+        },(err)=>{
+
+        });
+    }
+
+    loadAvailableAssets(){
+        this.assetsRequestStatus='pending';
+        this.assetsService.loadAvailableAssets().subscribe((assets:any[])=>{
+            this.assets=assets;
+            this.assetsRequestStatus='resolved';
+        },(err)=>{
+        });
+    }
 
     putInPool(){
 
