@@ -8,7 +8,7 @@
         </div>
         <div class="card-content">
           <p class="category">Total Assets</p>
-          <p class="">work in progress</p>
+          <h3 class="title">{{stat.allAssetCount}}</h3>
         </div>
 
       </div>
@@ -21,7 +21,7 @@
           </div>
           <div class="card-content">
             <p class="category"> Pooled Assets</p>
-            <p class="">work in progress</p>
+            <h3 class="title">{{stat.pooledAssetCount}}</h3>
           </div>
 
         </div>
@@ -29,12 +29,25 @@
 
       <div class="col-md-3">
         <div class="card card-stats">
+          <div class="card-header custom-padding" data-background-color="green">
+            <i class="material-icons">offline_pin</i>
+          </div>
+          <div class="card-content">
+            <p class="category"> Available Assets</p>
+            <h3 class="title">{{stat.allAssetCount-stat.pooledAssetCount}}</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card card-stats pointer" [routerLink]="['../favourite-assets']">
           <div class="card-header custom-padding" data-background-color="blue">
             <i class="material-icons">favorite</i>
           </div>
           <div class="card-content">
             <p class="category"> Favourite Assets</p>
-            <p class="">work in progress</p>
+            <h3 class="title">{{stat.favouriteAssetsCount}}</h3>
           </div>
 
         </div>
@@ -205,7 +218,13 @@
 
           </section>
 
-
+          <div class="row" *ngIf="assetsRequestStatus==='resolved' && !assets.length ">
+            <div class="col-xs-12 text-center">
+              <h4 class="text-gray">
+                No Asset available
+              </h4>
+            </div>
+          </div>
 
 
             <div class="card-content table-responsive" *ngIf="assetsRequestStatus==='resolved' && assets.length ">

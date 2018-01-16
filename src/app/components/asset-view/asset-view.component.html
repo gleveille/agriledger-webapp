@@ -6,8 +6,8 @@
     </button>
     <div class="row">
 
-        <div class="col-xs-12">
-            <ul class="nav nav-pills nav-pills-info">
+        <div class="col-xs-12" >
+            <ul class="nav nav-pills nav-pills-info" style="background-color:#00bcd41c;padding:8px;">
                 <li class="active"><a href="#asset" data-toggle="tab">Asset Details</a></li>
                 <li><a href="#asset_documents" data-toggle="tab">Asset Evidences</a></li>
                 <li><a href="#farmer" data-toggle="tab">Farmer Details</a></li>
@@ -33,6 +33,12 @@
                               <li> <a href="javascript:void (0)">{{asset?.category?.level5}}</a></li>
 
                           </ol>
+
+                          <div class="row text-right">
+                              <button (click)="favouriteOrUnfavourite()" class="btn btn-primary btn-simple" style="margin:0px 15px;padding:5px">
+                                  {{isFavourite?'UnFavourite':'Favourite'}}
+                              </button>
+                          </div>
                           <div class="row" style="padding: 15px">
 
                               <div class="col-lg-6" >
@@ -153,7 +159,7 @@
                               <div class="row" *ngIf="asset.evidences && asset.evidences.length">
                                   <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of asset.evidences">
                                       <a [href]="evidence.url" target="_blank" download>
-                                          <img [src]="evidence.url" class="evidencesImage">
+                                          <img [src]="serverUrl+evidence.url" class="evidencesImage">
 
                                       </a>
                                       <div>{{evidence?.date|moment}}</div>
@@ -389,7 +395,7 @@
                               <div class="row" *ngIf="asset.user?.profiles?.documents?.length">
                                   <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of asset.user?.profiles?.documents">
                                       <a [href]="evidence.url" target="_blank" download>
-                                          <img [src]="evidence.url" class="evidencesImage">
+                                          <img [src]="serverUrl+evidence.url" class="evidencesImage">
 
                                       </a>
                                       <div>{{evidence?.date|moment}}</div>

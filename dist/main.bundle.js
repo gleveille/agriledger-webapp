@@ -324,12 +324,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_password_forget_password_forget_component__ = __webpack_require__("../../../../../src/app/components/password-forget/password-forget.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__img_preview_directive__ = __webpack_require__("../../../../../src/app/img-preview.directive.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_user_view_user_view_component__ = __webpack_require__("../../../../../src/app/components/user-view/user-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_favourite_asset_favourite_asset_component__ = __webpack_require__("../../../../../src/app/components/favourite-asset/favourite-asset.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -432,7 +434,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_56__components_password_new_password_new_component__["a" /* PasswordNewComponent */],
                 __WEBPACK_IMPORTED_MODULE_57__components_password_forget_password_forget_component__["a" /* PasswordForgetComponent */],
                 __WEBPACK_IMPORTED_MODULE_58__img_preview_directive__["a" /* ImagePreviewDirective */],
-                __WEBPACK_IMPORTED_MODULE_59__components_user_view_user_view_component__["a" /* UserViewComponent */]
+                __WEBPACK_IMPORTED_MODULE_59__components_user_view_user_view_component__["a" /* UserViewComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__components_favourite_asset_favourite_asset_component__["a" /* FavouriteAssetComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -530,12 +533,14 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_password_forget_password_forget_component__ = __webpack_require__("../../../../../src/app/components/password-forget/password-forget.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_password_new_password_new_component__ = __webpack_require__("../../../../../src/app/components/password-new/password-new.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_user_view_user_view_component__ = __webpack_require__("../../../../../src/app/components/user-view/user-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_favourite_asset_favourite_asset_component__ = __webpack_require__("../../../../../src/app/components/favourite-asset/favourite-asset.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -656,6 +661,7 @@ var routes = [
             { path: 'account', component: __WEBPACK_IMPORTED_MODULE_2__components_account_account_component__["a" /* AccountComponent */] },
             { path: 'farmers', component: __WEBPACK_IMPORTED_MODULE_18__components_farmers_farmers_component__["a" /* FarmersComponent */] },
             { path: 'assets', component: __WEBPACK_IMPORTED_MODULE_16__components_assets_assets_component__["a" /* AssetsComponent */] },
+            { path: 'favourite-assets', component: __WEBPACK_IMPORTED_MODULE_36__components_favourite_asset_favourite_asset_component__["a" /* FavouriteAssetComponent */] },
             { path: 'assets/:assetId', component: __WEBPACK_IMPORTED_MODULE_23__components_asset_view_asset_view_component__["a" /* AssetViewComponent */] },
             { path: 'assets-pool-list', component: __WEBPACK_IMPORTED_MODULE_26__components_asset_pool_list_asset_pool_list_component__["a" /* AssetPoolListComponent */] },
             { path: 'assets-pool-view/:assetPoolId', component: __WEBPACK_IMPORTED_MODULE_25__components_asset_pool_view_asset_pool_view_component__["a" /* AssetPoolViewComponent */] },
@@ -1168,7 +1174,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/asset-pool-list/asset-pool-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n<div class=\"container-fluid\">\n<!--        <div class=\"row\">\n<div class=\"col-md-12 \">\n<div class=\"dropdown\">\n<a  href=\"javascript:void(0)\" class=\"btn btn-danger dropdown-toggle\" data-toggle=\"dropdown\">\n    Filter\n    <span style=\"font-weight: bolder\" *ngIf=\"selectedFilter\">\n({{selectedFilter}})\n</span>\n    <b class=\"caret\"></b>\n</a>\n<ul class=\"dropdown-menu\">\n    <li *ngFor=\"let filter of filters\">\n        <a *ngIf=\"filter.role.includes(user.role)\" style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"filterChange(filter.name,filter.value)\">\n            {{filter.name}}\n        </a>\n    </li>\n\n\n\n\n</ul>\n</div>\n</div>\n</div>-->\n\n\n<div class=\"card\">\n<div class=\"card-header\" data-background-color=\"green\">\n<div class=\"row\">\n<div class=\"col-md-6 text-left\">\n    <h4 class=\"title\">Assets pool</h4>\n\n</div>\n<div class=\"col-md-6 text-right\" *ngIf=\"user.role==='sponsor'\">\n    <button  [routerLink]=\"['../assets-pool-create']\"\n            class=\"btn btn-danger\" style=\"padding: 10px;top:-10px\">CREATE POOL</button>\n</div>\n</div>\n\n</div>\n\n<div class=\"card-content table-responsive\" >\n\n<section *ngIf=\"assetPoolHttpSstatus==='pending' || assetPoolHttpSstatus==='rejected' \">\n    <app-spinner [type]=\"'bounce'\" *ngIf=\"assetPoolHttpSstatus==='pending'\"></app-spinner>\n\n    <app-error-show *ngIf=\"assetPoolHttpSstatus==='rejected'\" [error]=\"'Assets pool could not be fetched.Try again!'\">\n\n    </app-error-show>\n</section>\n\n\n\n<section *ngIf=\"assetPoolHttpSstatus==='resolved'\">\n    <div class=\"row\" *ngIf=\"!pools.length\">\n        <div class=\"col-xs-12 text-center\">\n            <div *ngIf=\"user.role==='sponsor'\" style=\"text-align: center\">\n                <h4 class=\"text-gray\">\n                    You have not created any pool yet!.\n                </h4>\n            </div>\n            <div *ngIf=\"user.role==='ops'\">\n                <h4 class=\"text-gray\">\n                    No asset pool has been created by any Sponsor yet!\n                </h4>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"row\">\n        <div style=\"cursor: pointer\" class=\"col-lg-4 col-md-6 col-sm-6\" *ngFor=\"let pool of pools\">\n            <div class=\"card card-stats\" style=\"border: 1px solid #c4c4c4\" >\n\n                <div class=\"card-content\" style=\"text-align: left\" >\n\n                    <div *ngIf=\"blockchainHttpStatus==='pending'\"\n                                style=\"position: absolute;\n                            left: 0;right: 0;\n                            top: 45%;\n                            margin: 0 auto\">\n                    <app-spinner></app-spinner>\n\n                </div>\n\n                    <div *ngIf=\"blockchainHttpStatus==='rejected'\"\n                         style=\"position: absolute;\n                            top: 45%;\n                            left:45%;\n                            margin: 0 auto\">\n                        <i class=\"material-icons\">error</i>\n                    </div>\n\n\n                    <div [routerLink]=\"['../assets-pool-view',pool.id]\">\n                        <div class=\"row\">\n                            <div class=\"col-md-6 text-left\">\n                                <p class=\"category\">{{pool.issuerName}}.{{pool.currency}}</p>\n\n                            </div>\n\n                            <div class=\"col-md-6 text-right\">\n                                    <i style=\"position: relative;top: 3px;font-size: 14px;color:#9c27b0\"\n                                       class=\"material-icons text-danger\">update</i>\n                                    <a style=\"font-size: 13px;\" href=\"javascript:void(0)\">{{pool.created|moment}}</a>\n                            </div>\n\n                        </div>\n\n                        <hr class=\"hr-margin\">\n\n                        <div class=\"row\" style=\"text-align: left\">\n\n                            <div class=\"col-xs-6 text-left\">\n                                Total Quantity\n                            </div>\n                            <div class=\"col-xs-6 text-right\">\n                                <b>{{pool.maximum}}</b>\n                            </div>\n                        </div>\n                        <hr class=\"hr-margin\">\n\n                        <div class=\"row\" style=\"text-align: left\">\n\n                            <div class=\"col-xs-6 text-left\">\n                                Issued Quantity\n                            </div>\n                            <div class=\"col-xs-6 text-right\">\n                                <b>{{pool?.blockchain?.quantity|truncateBalance:pool?.blockchain?.precision}}</b>\n                            </div>\n                        </div>\n\n                        <hr class=\"hr-margin\">\n<!--\n                        <div class=\"row\" style=\"text-align: left\" >\n\n                            <div class=\"col-xs-6 text-left\">\n                                Left quantity\n                            </div>\n                            <div class=\"col-xs-6 text-right\">\n                                <b>{{(pool?.blockchain?.maximum-pool?.blockchain?.quantity)|truncateBalance:pool?.blockchain?.precision}}</b>\n                            </div>\n                        </div>\n                        <hr>-->\n\n                        <div class=\"row\" style=\"text-align: left\" >\n\n                            <div class=\"col-xs-6 text-left\">\n                                Status\n                            </div>\n                            <div class=\"col-xs-6 text-right\" *ngIf=\"pool.blockchain\">\n                                <span [style.color]=\"getColor(pool.blockchain?.approved)\">\n                                    {{pool.blockchain?.approved===0?'Pending':'Approved'}}</span>\n                            </div>\n                        </div>\n\n                    </div>\n\n                    <div class=\"row\" style=\"text-align: center\">\n                        <div class=\"col-xs-12\">\n                            <hr style=\"margin:0\">\n\n                            <button  [disabled]=\"!pool.blockchain || pool.blockchain.approved===0\"\n                                     class=\"btn btn-danger btn-simple \"\n                                     (click)=\"openModal(template,pool)\">CREATE TOKEN</button>\n\n                        </div>\n\n\n                    </div>\n                </div>\n\n\n\n\n            </div>\n        </div>\n    </div>\n\n\n</section>\n\n\n</div>\n\n</div>\n\n<ng-template #template>\n<div class=\"modal-header\">\n<h4 class=\"modal-title pull-left\">ISSUE TOKEN</h4>\n<button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n<span aria-hidden=\"true\">&times;</span>\n</button>\n</div>\n<div class=\"modal-body\">\n<form name=\"loginForm\">\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"form-group\">\n            <label class=\"control-label\" style=\"font-size: 14px;\">Maximum</label>\n            <input [disabled]=\"true\" type=\"text\" [(ngModel)]=\"selectedPool.maximum\" name=\"maximum\" class=\"form-control\" >\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <div class=\"form-group\">\n            <label class=\"control-label\" style=\"font-size: 14px;\">Currency</label>\n            <input [disabled]=\"true\" type=\"text\" [(ngModel)]=\"selectedPool.blockchain.currency\" name=\"currency\" class=\"form-control\" >\n        </div>\n    </div>\n\n</div>\n\n\n\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"form-group\">\n            <label class=\"control-label\" style=\"font-size: 14px;\">Issue Number</label>\n            <input type=\"text\"  [(ngModel)]=\"token.amount\"  name=\"amount\" class=\"form-control\" >\n        </div>\n    </div>\n\n    <div class=\"col-md-6\">\n        <div class=\"form-group\">\n            <label class=\"control-label\" style=\"font-size: 14px;\">Exchange rate</label>\n            <input type=\"text\"  [(ngModel)]=\"token.exchangeRate\"  name=\"exchangeRate\" class=\"form-control\" >\n        </div>\n    </div>\n\n</div>\n\n\n<button\n        [disabled]=\"issueTokenHttpStatus==='pending'|| !token.amount || !token.exchangeRate\"\n        type=\"submit\"\n        (click)=\"issueToken(selectedPool)\"\n        class=\"btn btn-danger pull-right\">SUBMIT</button>\n<div class=\"clearfix\"></div>\n</form>\n\n</div>\n</ng-template>\n\n</div>\n</div>\n"
+module.exports = "<div class=\"main-content\">\n<div class=\"container-fluid\">\n<!--        <div class=\"row\">\n<div class=\"col-md-12 \">\n<div class=\"dropdown\">\n<a  href=\"javascript:void(0)\" class=\"btn btn-danger dropdown-toggle\" data-toggle=\"dropdown\">\n    Filter\n    <span style=\"font-weight: bolder\" *ngIf=\"selectedFilter\">\n({{selectedFilter}})\n</span>\n    <b class=\"caret\"></b>\n</a>\n<ul class=\"dropdown-menu\">\n    <li *ngFor=\"let filter of filters\">\n        <a *ngIf=\"filter.role.includes(user.role)\" style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"filterChange(filter.name,filter.value)\">\n            {{filter.name}}\n        </a>\n    </li>\n\n\n\n\n</ul>\n</div>\n</div>\n</div>-->\n\n\n<div class=\"card\">\n<div class=\"card-header\" data-background-color=\"green\">\n<div class=\"row\">\n<div class=\"col-md-6 text-left\">\n    <h4 class=\"title\">Assets pool</h4>\n\n</div>\n<div class=\"col-md-6 text-right\" *ngIf=\"user.role==='sponsor'\">\n    <button  [routerLink]=\"['../assets-pool-create']\"\n            class=\"btn btn-danger\" style=\"padding: 10px;top:-10px\">CREATE POOL</button>\n</div>\n</div>\n\n</div>\n\n<div class=\"card-content table-responsive\" >\n\n<section *ngIf=\"assetPoolHttpSstatus==='pending' || assetPoolHttpSstatus==='rejected' \">\n    <app-spinner [type]=\"'bounce'\" *ngIf=\"assetPoolHttpSstatus==='pending'\"></app-spinner>\n\n    <app-error-show *ngIf=\"assetPoolHttpSstatus==='rejected'\" [error]=\"'Assets pool could not be fetched.Try again!'\">\n\n    </app-error-show>\n</section>\n\n\n\n<section *ngIf=\"assetPoolHttpSstatus==='resolved'\">\n    <div class=\"row\" *ngIf=\"!pools.length\">\n        <div class=\"col-xs-12 text-center\">\n            <div *ngIf=\"user.role==='sponsor'\" style=\"text-align: center\">\n                <h4 class=\"text-gray\">\n                    You have not created any pool yet!.\n                </h4>\n            </div>\n            <div *ngIf=\"user.role==='ops'\">\n                <h4 class=\"text-gray\">\n                    No asset pool has been created by any Sponsor yet!\n                </h4>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"row\">\n        <div style=\"cursor: pointer\" class=\"col-lg-4 col-md-6 col-sm-6\" *ngFor=\"let pool of pools\">\n            <div class=\"card card-stats\" style=\"border: 1px solid #c4c4c4\" >\n\n                <div class=\"card-content\" style=\"text-align: left\" >\n\n                    <div *ngIf=\"blockchainHttpStatus==='pending'\"\n                                style=\"position: absolute;\n                            left: 0;right: 0;\n                            top: 45%;\n                            margin: 0 auto\">\n                    <app-spinner></app-spinner>\n\n                </div>\n\n                    <div *ngIf=\"blockchainHttpStatus==='rejected'\"\n                         style=\"position: absolute;\n                            top: 45%;\n                            left:45%;\n                            margin: 0 auto\">\n                        <i class=\"material-icons\">error</i>\n                    </div>\n\n\n                    <div [routerLink]=\"['../assets-pool-view',pool.id]\">\n                        <div class=\"row\">\n                            <div class=\"col-md-6 text-left\">\n                                <p class=\"category\">{{pool.issuerName}}.{{pool.currency}}</p>\n\n                            </div>\n\n                            <div class=\"col-md-6 text-right\">\n                                    <i style=\"position: relative;top: 3px;font-size: 14px;color:#9c27b0\"\n                                       class=\"material-icons text-danger\">update</i>\n                                    <a style=\"font-size: 13px;\" href=\"javascript:void(0)\">{{pool.created|moment}}</a>\n                            </div>\n\n                        </div>\n\n                        <hr class=\"hr-margin\">\n\n                        <div class=\"row\" style=\"text-align: left\">\n\n                            <div class=\"col-xs-6 text-left\">\n                                Total Quantity\n                            </div>\n                            <div class=\"col-xs-6 text-right\">\n                                <b>{{pool.maximum}}</b>\n                            </div>\n                        </div>\n                        <hr class=\"hr-margin\">\n\n                        <div class=\"row\" style=\"text-align: left\">\n\n                            <div class=\"col-xs-6 text-left\">\n                                Issued Quantity\n                            </div>\n                            <div class=\"col-xs-6 text-right\">\n                                <b>{{pool?.blockchain?.quantity|truncateBalance:pool?.blockchain?.precision}}</b>\n                            </div>\n                        </div>\n\n                        <hr class=\"hr-margin\">\n<!--\n                        <div class=\"row\" style=\"text-align: left\" >\n\n                            <div class=\"col-xs-6 text-left\">\n                                Left quantity\n                            </div>\n                            <div class=\"col-xs-6 text-right\">\n                                <b>{{(pool?.blockchain?.maximum-pool?.blockchain?.quantity)|truncateBalance:pool?.blockchain?.precision}}</b>\n                            </div>\n                        </div>\n                        <hr>-->\n\n                        <div class=\"row\" style=\"text-align: left\" >\n\n                            <div class=\"col-xs-6 text-left\">\n                                Status\n                            </div>\n                            <div class=\"col-xs-6 text-right\" *ngIf=\"pool.blockchain\">\n                                <span [style.color]=\"getColor(pool.blockchain?.approved)\">\n                                    {{pool.blockchain?.approved===0?'Pending':'Approved'}}</span>\n                            </div>\n                        </div>\n\n                    </div>\n\n                    <div class=\"row\" style=\"text-align: center\" *ngIf=\"user.role==='sponsor'\">\n                        <div class=\"col-xs-12\">\n                            <hr style=\"margin:0\">\n\n                            <button  [disabled]=\"!pool.blockchain || pool.blockchain.approved===0\"\n                                     class=\"btn btn-danger btn-simple \"\n                                     (click)=\"openModal(template,pool)\">CREATE TOKEN</button>\n\n                        </div>\n\n\n                    </div>\n                </div>\n\n\n\n\n            </div>\n        </div>\n    </div>\n\n\n</section>\n\n\n</div>\n\n</div>\n\n<ng-template #template>\n<div class=\"modal-header\">\n<h4 class=\"modal-title pull-left\">ISSUE TOKEN</h4>\n<button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n<span aria-hidden=\"true\">&times;</span>\n</button>\n</div>\n<div class=\"modal-body\">\n<form name=\"loginForm\">\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"form-group\">\n            <label class=\"control-label\" style=\"font-size: 14px;\">Maximum</label>\n            <input [disabled]=\"true\" type=\"text\" [(ngModel)]=\"selectedPool.maximum\" name=\"maximum\" class=\"form-control\" >\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <div class=\"form-group\">\n            <label class=\"control-label\" style=\"font-size: 14px;\">Currency</label>\n            <input [disabled]=\"true\" type=\"text\" [(ngModel)]=\"selectedPool.blockchain.currency\" name=\"currency\" class=\"form-control\" >\n        </div>\n    </div>\n\n</div>\n\n\n\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"form-group\">\n            <label class=\"control-label\" style=\"font-size: 14px;\">Issue Number</label>\n            <input type=\"text\"  [(ngModel)]=\"token.amount\"  name=\"amount\" class=\"form-control\" >\n        </div>\n    </div>\n\n    <div class=\"col-md-6\">\n        <div class=\"form-group\">\n            <label class=\"control-label\" style=\"font-size: 14px;\">Exchange rate</label>\n            <input type=\"text\"  [(ngModel)]=\"token.exchangeRate\"  name=\"exchangeRate\" class=\"form-control\" >\n        </div>\n    </div>\n\n</div>\n\n\n<button\n        [disabled]=\"issueTokenHttpStatus==='pending'|| !token.amount || !token.exchangeRate\"\n        type=\"submit\"\n        (click)=\"issueToken(selectedPool)\"\n        class=\"btn btn-danger pull-right\">SUBMIT</button>\n<div class=\"clearfix\"></div>\n</form>\n\n</div>\n</ng-template>\n\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -1539,7 +1545,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/asset-view/asset-view.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n\n    <button class=\"btn btn-simple\" (click)=\"goBack()\" style=\"margin: 0;\">\n      <i class=\"material-icons\">keyboard_return</i>Back\n    </button>\n    <div class=\"row\">\n\n        <div class=\"col-xs-12\">\n            <ul class=\"nav nav-pills nav-pills-info\">\n                <li class=\"active\"><a href=\"#asset\" data-toggle=\"tab\">Asset Details</a></li>\n                <li><a href=\"#asset_documents\" data-toggle=\"tab\">Asset Evidences</a></li>\n                <li><a href=\"#farmer\" data-toggle=\"tab\">Farmer Details</a></li>\n                <li><a href=\"#farmer_documents\" data-toggle=\"tab\">Farmer Documents</a></li>\n\n            </ul>\n        </div>\n\n\n      <div class=\"col-xs-12\" >\n        <div class=\"card card-stats\" >\n\n          <div class=\"card-content\">\n\n              <div class=\"tab-content\">\n                  <div class=\"tab-pane active\" id=\"asset\">\n                      <div class=\"row\" style=\"text-align: center\">\n                          <ol class=\"breadcrumb text-left\" style=\"margin-bottom: 5px;\">\n                              <li><a href=\"javascript:void (0)\">{{asset?.category?.level1}}</a></li>\n                              <li><a href=\"javascript:void (0)\">{{asset?.category?.level2}}</a></li>\n                              <li> <a href=\"javascript:void (0)\">{{asset?.category?.level3}}</a></li>\n                              <li> <a href=\"javascript:void (0)\">{{asset?.category?.level4}}</a></li>\n                              <li> <a href=\"javascript:void (0)\">{{asset?.category?.level5}}</a></li>\n\n                          </ol>\n                          <div class=\"row\" style=\"padding: 15px\">\n\n                              <div class=\"col-lg-6\" >\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Asset Name</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                                          <span class=\"text-gray\">{{asset?.name}}</span>\n                                      </div>\n                                  </div>\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Harvest amount</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                                          <span class=\"text-gray\">{{asset?.expectedHarvestAmount}}</span>\n                                      </div>\n                                  </div>\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Created on</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\" [routerLink]=\"['../assets',asset.id]\" ata-toggle=\"tooltip\" data-placement=\"left\"\n                          title=\"{{asset?.createdAt|date:'medium'}}\">\n                      {{asset?.createdAt|moment}}\n                    </span>\n\n                                      </div>\n                                  </div>\n\n                              </div>\n                              <div class=\"col-lg-6\" >\n\n\n\n\n\n\n\n\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Harvest date</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                      <span class=\"text-gray\" [routerLink]=\"['../assets',asset.id]\" ata-toggle=\"tooltip\" data-placement=\"left\"\n                            title=\"{{asset?.expectedHarvestDate|date:'medium'}}\">\n                      {{asset?.expectedHarvestDate|moment}}\n                    </span>\n                                      </div>\n                                  </div>\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Pooled</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                                          <span class=\"text-gray\">{{asset.isPutOnBlockchain?'Yes' :'No'}}</span>\n                                      </div>\n\n                                  </div>\n\n\n\n\n                              </div>\n                          </div>\n\n\n                      </div>\n\n                  </div>\n\n                  <div class=\"tab-pane\" id=\"asset_documents\">\n                      <div class=\"row\" style=\"text-align: center\">\n\n                          <div class=\"col-xs-12\">\n\n\n\n                              <div class=\"row\" *ngIf=\"asset.evidences && !asset.evidences.length\">\n                                  <div class=\"col-xs-12 text-center\">\n                                      <h5 class=\"text-gray\">\n                                          No evidences uploaded\n                                      </h5>\n                                  </div>\n                              </div>\n\n                              <div class=\"row\" *ngIf=\"asset.evidences && asset.evidences.length\">\n                                  <div class=\"col-xs-12 col-md-3 text-center text-gray\" *ngFor=\"let evidence of asset.evidences\">\n                                      <a [href]=\"evidence.url\" target=\"_blank\" download>\n                                          <img [src]=\"evidence.url\" class=\"evidencesImage\">\n\n                                      </a>\n                                      <div>{{evidence?.date|moment}}</div>\n                                      <div style=\"text-wrap: normal;word-wrap: break-word\">{{evidence?.hash}}</div>\n                                      <div>{{evidence?.lat}},{{evidence?.long}}</div>\n\n                                      <div>\n                                          <button  class=\"btn btn-simple\" *ngIf=\"evidence && evidence.status==='rejected'\">Rejected</button>\n\n                                          <button class=\"btn btn-simple\" *ngIf=\"evidence && evidence.status==='approved'\">Approved</button>\n\n                                          <button class=\"btn btn-primary  btn-simple\" *ngIf=\"evidence && evidence.status==='pending'\">Pending</button>\n\n                                      </div>\n\n\n\n                                  </div>\n                              </div>\n\n\n\n\n                          </div>\n\n\n                      </div>\n\n                  </div>\n\n                  <div class=\"tab-pane\" id=\"farmer\">\n\n\n                      <div class=\"row\" style=\"text-align: center\">\n                          <div class=\"row\" style=\"padding: 15px\">\n\n\n                              <div class=\"col-lg-6\" >\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Name</b>\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                                          <span class=\"text-gray\">{{asset?.user?.profiles?.name}}</span>\n                                      </div>\n                                  </div>\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Email</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                      <span class=\"text-gray\">\n                      {{asset?.user?.email}}\n                      </span>\n                                      </div>\n                                  </div>\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Phone</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                      <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.phone}}\n                      </span>\n                                      </div>\n                                  </div>\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Address Line1</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.address.line1}}\n\n                    </span>\n\n                                      </div>\n                                  </div>\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Address Line2</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.address.line2}}\n\n                    </span>\n\n                                      </div>\n                                  </div>\n\n\n                              </div>\n                              <div class=\"col-lg-6\" >\n\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Registration no.</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                      <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.registration}}\n                    </span>\n                                      </div>\n\n                                  </div>\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Company</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                      <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.company}}\n                      </span>\n                                      </div>\n\n                                  </div>\n\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>City</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.address.city}}\n\n                    </span>\n\n                                      </div>\n                                  </div>\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Province</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.address.province}}\n\n                    </span>\n\n                                      </div>\n                                  </div>\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Wechat ID</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.weChat}}\n\n                    </span>\n\n                                      </div>\n                                  </div>\n\n\n                              </div>\n                          </div>\n\n\n                      </div>\n                  </div>\n\n                  <div class=\"tab-pane\" id=\"farmer_documents\">\n\n                      <div class=\"row\" style=\"text-align: center\">\n\n                          <div class=\"col-xs-12\">\n                              <div class=\"row\" *ngIf=\"!asset.user?.profiles?.documents?.length\">\n                                  <div class=\"col-xs-12 text-center\">\n                                      <h5 class=\"text-gray\">\n                                          No Documents uploaded\n                                      </h5>\n\n                                      <hr>\n\n                                  </div>\n                              </div>\n\n                              <div class=\"row\" *ngIf=\"asset.user?.profiles?.documents?.length\">\n                                  <div class=\"col-xs-12 col-md-3 text-center text-gray\" *ngFor=\"let evidence of asset.user?.profiles?.documents\">\n                                      <a [href]=\"evidence.url\" target=\"_blank\" download>\n                                          <img [src]=\"evidence.url\" class=\"evidencesImage\">\n\n                                      </a>\n                                      <div>{{evidence?.date|moment}}</div>\n                                      <div style=\"text-wrap: normal;word-wrap: break-word\">{{evidence?.hash}}</div>\n                                      <div>{{evidence?.lat}},{{evidence?.long}}</div>\n\n                                      <div>\n                                          <button  class=\"btn btn-simple\" *ngIf=\"evidence && evidence.status==='rejected'\">Rejected</button>\n\n                                          <button class=\"btn btn-simple\" *ngIf=\"evidence && evidence.status==='approved'\">Approved</button>\n\n                                          <button class=\"btn btn-primary  btn-simple\" *ngIf=\"evidence && evidence.status==='pending'\">Pending</button>\n\n                                      </div>\n\n                                  </div>\n\n                                  <hr>\n\n                              </div>\n\n\n\n\n                          </div>\n\n\n                      </div>\n\n\n\n                  </div>\n              </div>\n\n\n\n\n\n\n\n          </div>\n\n\n\n\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n\n</div>\n"
+module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n\n    <button class=\"btn btn-simple\" (click)=\"goBack()\" style=\"margin: 0;\">\n      <i class=\"material-icons\">keyboard_return</i>Back\n    </button>\n    <div class=\"row\">\n\n        <div class=\"col-xs-12\" >\n            <ul class=\"nav nav-pills nav-pills-info\" style=\"background-color:#00bcd41c;padding:8px;\">\n                <li class=\"active\"><a href=\"#asset\" data-toggle=\"tab\">Asset Details</a></li>\n                <li><a href=\"#asset_documents\" data-toggle=\"tab\">Asset Evidences</a></li>\n                <li><a href=\"#farmer\" data-toggle=\"tab\">Farmer Details</a></li>\n                <li><a href=\"#farmer_documents\" data-toggle=\"tab\">Farmer Documents</a></li>\n\n            </ul>\n        </div>\n\n\n      <div class=\"col-xs-12\" >\n        <div class=\"card card-stats\" >\n\n          <div class=\"card-content\">\n\n              <div class=\"tab-content\">\n                  <div class=\"tab-pane active\" id=\"asset\">\n                      <div class=\"row\" style=\"text-align: center\">\n                          <ol class=\"breadcrumb text-left\" style=\"margin-bottom: 5px;\">\n                              <li><a href=\"javascript:void (0)\">{{asset?.category?.level1}}</a></li>\n                              <li><a href=\"javascript:void (0)\">{{asset?.category?.level2}}</a></li>\n                              <li> <a href=\"javascript:void (0)\">{{asset?.category?.level3}}</a></li>\n                              <li> <a href=\"javascript:void (0)\">{{asset?.category?.level4}}</a></li>\n                              <li> <a href=\"javascript:void (0)\">{{asset?.category?.level5}}</a></li>\n\n                          </ol>\n\n                          <div class=\"row text-right\">\n                              <button (click)=\"favouriteOrUnfavourite()\" class=\"btn btn-primary btn-simple\" style=\"margin:0px 15px;padding:5px\">\n                                  {{isFavourite?'UnFavourite':'Favourite'}}\n                              </button>\n                          </div>\n                          <div class=\"row\" style=\"padding: 15px\">\n\n                              <div class=\"col-lg-6\" >\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Asset Name</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                                          <span class=\"text-gray\">{{asset?.name}}</span>\n                                      </div>\n                                  </div>\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Harvest amount</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                                          <span class=\"text-gray\">{{asset?.expectedHarvestAmount}}</span>\n                                      </div>\n                                  </div>\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Created on</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\" [routerLink]=\"['../assets',asset.id]\" ata-toggle=\"tooltip\" data-placement=\"left\"\n                          title=\"{{asset?.createdAt|date:'medium'}}\">\n                      {{asset?.createdAt|moment}}\n                    </span>\n\n                                      </div>\n                                  </div>\n\n                              </div>\n                              <div class=\"col-lg-6\" >\n\n\n\n\n\n\n\n\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Harvest date</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                      <span class=\"text-gray\" [routerLink]=\"['../assets',asset.id]\" ata-toggle=\"tooltip\" data-placement=\"left\"\n                            title=\"{{asset?.expectedHarvestDate|date:'medium'}}\">\n                      {{asset?.expectedHarvestDate|moment}}\n                    </span>\n                                      </div>\n                                  </div>\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Pooled</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                                          <span class=\"text-gray\">{{asset.isPutOnBlockchain?'Yes' :'No'}}</span>\n                                      </div>\n\n                                  </div>\n\n\n\n\n                              </div>\n                          </div>\n\n\n                      </div>\n\n                  </div>\n\n                  <div class=\"tab-pane\" id=\"asset_documents\">\n                      <div class=\"row\" style=\"text-align: center\">\n\n                          <div class=\"col-xs-12\">\n\n\n\n                              <div class=\"row\" *ngIf=\"asset.evidences && !asset.evidences.length\">\n                                  <div class=\"col-xs-12 text-center\">\n                                      <h5 class=\"text-gray\">\n                                          No evidences uploaded\n                                      </h5>\n                                  </div>\n                              </div>\n\n                              <div class=\"row\" *ngIf=\"asset.evidences && asset.evidences.length\">\n                                  <div class=\"col-xs-12 col-md-3 text-center text-gray\" *ngFor=\"let evidence of asset.evidences\">\n                                      <a [href]=\"evidence.url\" target=\"_blank\" download>\n                                          <img [src]=\"serverUrl+evidence.url\" class=\"evidencesImage\">\n\n                                      </a>\n                                      <div>{{evidence?.date|moment}}</div>\n                                      <div style=\"text-wrap: normal;word-wrap: break-word\">{{evidence?.hash}}</div>\n                                      <div>{{evidence?.lat}},{{evidence?.long}}</div>\n\n                                      <div>\n                                          <button  class=\"btn btn-simple\" *ngIf=\"evidence && evidence.status==='rejected'\">Rejected</button>\n\n                                          <button class=\"btn btn-simple\" *ngIf=\"evidence && evidence.status==='approved'\">Approved</button>\n\n                                          <button class=\"btn btn-primary  btn-simple\" *ngIf=\"evidence && evidence.status==='pending'\">Pending</button>\n\n                                      </div>\n\n\n\n                                  </div>\n                              </div>\n\n\n\n\n                          </div>\n\n\n                      </div>\n\n                  </div>\n\n                  <div class=\"tab-pane\" id=\"farmer\">\n\n\n                      <div class=\"row\" style=\"text-align: center\">\n                          <div class=\"row\" style=\"padding: 15px\">\n\n\n                              <div class=\"col-lg-6\" >\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Name</b>\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                                          <span class=\"text-gray\">{{asset?.user?.profiles?.name}}</span>\n                                      </div>\n                                  </div>\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Email</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                      <span class=\"text-gray\">\n                      {{asset?.user?.email}}\n                      </span>\n                                      </div>\n                                  </div>\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Phone</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                      <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.phone}}\n                      </span>\n                                      </div>\n                                  </div>\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Address Line1</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.address.line1}}\n\n                    </span>\n\n                                      </div>\n                                  </div>\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Address Line2</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.address.line2}}\n\n                    </span>\n\n                                      </div>\n                                  </div>\n\n\n                              </div>\n                              <div class=\"col-lg-6\" >\n\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Registration no.</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                      <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.registration}}\n                    </span>\n                                      </div>\n\n                                  </div>\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Company</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\" >\n                      <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.company}}\n                      </span>\n                                      </div>\n\n                                  </div>\n\n\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>City</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.address.city}}\n\n                    </span>\n\n                                      </div>\n                                  </div>\n\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Province</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.address.province}}\n\n                    </span>\n\n                                      </div>\n                                  </div>\n                                  <div class=\"row\" style=\"text-align: left\">\n                                      <hr>\n\n                                      <div class=\"col-xs-6 text-left\">\n                                          <b>Wechat ID</b>\n\n\n                                      </div>\n                                      <div class=\"col-xs-6 text-right\">\n                    <span class=\"text-gray\">\n                      {{asset?.user?.profiles?.weChat}}\n\n                    </span>\n\n                                      </div>\n                                  </div>\n\n\n                              </div>\n                          </div>\n\n\n                      </div>\n                  </div>\n\n                  <div class=\"tab-pane\" id=\"farmer_documents\">\n\n                      <div class=\"row\" style=\"text-align: center\">\n\n                          <div class=\"col-xs-12\">\n                              <div class=\"row\" *ngIf=\"!asset.user?.profiles?.documents?.length\">\n                                  <div class=\"col-xs-12 text-center\">\n                                      <h5 class=\"text-gray\">\n                                          No Documents uploaded\n                                      </h5>\n\n                                      <hr>\n\n                                  </div>\n                              </div>\n\n                              <div class=\"row\" *ngIf=\"asset.user?.profiles?.documents?.length\">\n                                  <div class=\"col-xs-12 col-md-3 text-center text-gray\" *ngFor=\"let evidence of asset.user?.profiles?.documents\">\n                                      <a [href]=\"evidence.url\" target=\"_blank\" download>\n                                          <img [src]=\"serverUrl+evidence.url\" class=\"evidencesImage\">\n\n                                      </a>\n                                      <div>{{evidence?.date|moment}}</div>\n                                      <div style=\"text-wrap: normal;word-wrap: break-word\">{{evidence?.hash}}</div>\n                                      <div>{{evidence?.lat}},{{evidence?.long}}</div>\n\n                                      <div>\n                                          <button  class=\"btn btn-simple\" *ngIf=\"evidence && evidence.status==='rejected'\">Rejected</button>\n\n                                          <button class=\"btn btn-simple\" *ngIf=\"evidence && evidence.status==='approved'\">Approved</button>\n\n                                          <button class=\"btn btn-primary  btn-simple\" *ngIf=\"evidence && evidence.status==='pending'\">Pending</button>\n\n                                      </div>\n\n                                  </div>\n\n                                  <hr>\n\n                              </div>\n\n\n\n\n                          </div>\n\n\n                      </div>\n\n\n\n                  </div>\n              </div>\n\n\n\n\n\n\n\n          </div>\n\n\n\n\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n\n</div>\n"
 
 /***/ }),
 
@@ -1553,8 +1559,9 @@ module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_concatMap__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/concatMap.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_assets_service__ = __webpack_require__("../../../../../src/app/services/assets.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__api_config__ = __webpack_require__("../../../../../src/app/api.config.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1571,33 +1578,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AssetViewComponent = (function () {
-    function AssetViewComponent(activatedRoute, location, assetService, toastService) {
+    function AssetViewComponent(activatedRoute, location, userService, assetService, toastService) {
         this.activatedRoute = activatedRoute;
         this.location = location;
+        this.userService = userService;
         this.assetService = assetService;
         this.toastService = toastService;
-        this.asset = { user: {}, status: null, evidences: [] };
+        this.serverUrl = __WEBPACK_IMPORTED_MODULE_7__api_config__["f" /* ServerUrl */];
+        this.user = {};
+        this.asset = { user: {}, status: null, evidences: [], id: '' };
+        this.isFavourite = false;
+        this.currentAssetId = '';
         this.favouriteAssets = [];
     }
     AssetViewComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.user.concatMap(function (user) {
+            _this.user = user;
+            return _this.assetService.loadFavouriteAssets(user.id);
+        }).subscribe(function () {
+        }, function (err) {
+        });
+        this.activatedRoute.params.subscribe(function (param) {
+            _this.currentAssetId = param.assetId;
+            _this.getAssetById();
+        });
+        this.subscribeFavouriteAsset();
+    };
+    AssetViewComponent.prototype.getAssetById = function () {
+        var _this = this;
+        this.assetService.getAssetByid(this.currentAssetId).subscribe(function (asset) {
+            _this.asset = asset;
+            console.log(_this.asset);
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    AssetViewComponent.prototype.subscribeFavouriteAsset = function () {
         var _this = this;
         this.assetService.favouriteAssets.subscribe(function (assets) {
             console.log('from subscribe,fav assets are');
             console.log(assets);
             _this.favouriteAssets = assets;
-        });
-        this.activatedRoute.params.concatMap(function (param) {
-            console.log(param);
-            return _this.assetService.getAssetByid(param.assetId);
-        }).subscribe(function (asset) {
-            _this.asset = asset;
-            console.log(asset);
-            _this.asset.evidences.forEach(function (evidence) {
-                evidence.url = __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].apiURL + ':' + __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].apiPORT + evidence.url;
+            console.log(_this.favouriteAssets);
+            var found = false;
+            _this.favouriteAssets.forEach(function (asset) {
+                if (asset.assetId === _this.currentAssetId) {
+                    found = true;
+                }
             });
-        }, function (err) {
-            console.log(err);
+            if (found) {
+                _this.isFavourite = true;
+            }
+            else {
+                _this.isFavourite = false;
+            }
         });
     };
     AssetViewComponent.prototype.changeStatus = function (status) {
@@ -1616,22 +1653,42 @@ var AssetViewComponent = (function () {
     AssetViewComponent.prototype.goBack = function () {
         this.location.back();
     };
-    AssetViewComponent.prototype.addToFavourite = function (asset) {
+    AssetViewComponent.prototype.favouriteOrUnfavourite = function () {
+        if (!this.asset.id || !this.user.id) {
+            this.toastService.error('Ooops', 'Operation can not be performed!');
+            return;
+        }
+        if (this.isFavourite) {
+            this.removeFromFavourite();
+        }
+        else {
+            this.addToFavourite();
+        }
+    };
+    AssetViewComponent.prototype.addToFavourite = function () {
         var _this = this;
-        this.assetService.addAssetToFavourite(asset.id, asset.userId).subscribe(function (data) {
-            _this.toastService.success('Favourite', 'Added!');
-            console.log(asset);
+        this.assetService.addAssetToFavourite(this.asset.id, this.user.id).subscribe(function (data) {
+            _this.toastService.success('Addedd', 'success!');
         }, function (err) {
             _this.toastService.success('Favourite', 'Could not be added!');
         });
     };
-    AssetViewComponent.prototype.removeFromFavourite = function (asset) {
+    AssetViewComponent.prototype.removeFromFavourite = function () {
         var _this = this;
-        this.assetService.removeAssetFromFavourite(asset.userId).subscribe(function (data) {
-            _this.toastService.success('Favourite', 'Removed!');
-            console.log(asset);
+        var id;
+        this.favouriteAssets.forEach(function (asset) {
+            if (asset.userId === _this.user.id) {
+                id = asset.id;
+            }
+        });
+        if (!id) {
+            this.toastService.error('Unfavourite', 'could not be removed from favourite');
+            return;
+        }
+        this.assetService.removeAssetFromFavourite(id).subscribe(function (data) {
+            _this.toastService.success('Removed', 'success!');
         }, function (err) {
-            _this.toastService.success('Favourite', 'Could not be removed from favourite!');
+            _this.toastService.success('UnFavourite', 'Could not be removed from favourite!');
         });
     };
     AssetViewComponent = __decorate([
@@ -1641,7 +1698,8 @@ var AssetViewComponent = (function () {
             styles: [__webpack_require__("../../../../../src/app/components/asset-view/asset-view.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_common__["Location"],
+            __WEBPACK_IMPORTED_MODULE_5__angular_common__["Location"],
+            __WEBPACK_IMPORTED_MODULE_6__services_user_service__["a" /* UserService */],
             __WEBPACK_IMPORTED_MODULE_3__services_assets_service__["a" /* AssetsService */], __WEBPACK_IMPORTED_MODULE_4__services_toast_service__["a" /* ToastService */]])
     ], AssetViewComponent);
     return AssetViewComponent;
@@ -1659,7 +1717,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* The container */\n.container {\n    display: block;\n    position: absolute;\n    cursor: pointer;\n    margin-left: -20px;\n    margin-top: 3px;\n\n}\n\n/* Hide the browser's default checkbox */\n.container input {\n    position: absolute;\n    opacity: 0;\n}\n\n/* Create a custom checkbox */\n.checkmark {\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 15px;\n    width: 15px;\n    background-color: #eee;\n}\n\n/* On mouse-over, add a grey background color */\n.container:hover input ~ .checkmark {\n    background-color: #ccc;\n}\n\n/* When the checkbox is checked, add a blue background */\n.container input:checked ~ .checkmark {\n    background-color: #2196F3;\n}\n\n/* Create the checkmark/indicator (hidden when not checked) */\n.checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n\n/* Show the checkmark when checked */\n.container input:checked ~ .checkmark:after {\n    display: block;\n}\n\n/* Style the checkmark/indicator */\n.container .checkmark:after {\n    left: 4px;\n    top: 1px;\n    width: 6px;\n    height: 11px;\n    border: solid white;\n    border-width: 0 3px 3px 0;\n    -webkit-transform: rotate(45deg);\n    transform: rotate(45deg);\n}\n\n\n.boldfont{\n    font-weight: 400;\n}\n.custom-margin{\n    margin:5px 0;\n}\n\n.custom-padding{\n    padding: 5px;\n}\n\n.card-stats .card-header i {\n    font-size: 24px;\n    line-height: 24px;\n    width: 24px;\n    height: 24px;\n}", ""]);
+exports.push([module.i, "/* The container */\n.container {\n    display: block;\n    position: absolute;\n    cursor: pointer;\n    margin-left: -20px;\n    margin-top: 3px;\n\n}\n\n/* Hide the browser's default checkbox */\n.container input {\n    position: absolute;\n    opacity: 0;\n}\n\n/* Create a custom checkbox */\n.checkmark {\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 15px;\n    width: 15px;\n    background-color: #eee;\n}\n\n/* On mouse-over, add a grey background color */\n.container:hover input ~ .checkmark {\n    background-color: #ccc;\n}\n\n/* When the checkbox is checked, add a blue background */\n.container input:checked ~ .checkmark {\n    background-color: #2196F3;\n}\n\n/* Create the checkmark/indicator (hidden when not checked) */\n.checkmark:after {\n    content: \"\";\n    position: absolute;\n    display: none;\n}\n\n/* Show the checkmark when checked */\n.container input:checked ~ .checkmark:after {\n    display: block;\n}\n\n/* Style the checkmark/indicator */\n.container .checkmark:after {\n    left: 4px;\n    top: 1px;\n    width: 6px;\n    height: 11px;\n    border: solid white;\n    border-width: 0 3px 3px 0;\n    -webkit-transform: rotate(45deg);\n    transform: rotate(45deg);\n}\n\n\n.boldfont{\n    font-weight: 400;\n}\n.custom-margin{\n    margin:5px 0;\n}\n\n.custom-padding{\n    padding: 5px;\n    height: 34px;\n}\n\n.card-stats .card-header i {\n    font-size: 24px;\n    line-height: 24px;\n    width: 24px;\n    height: 24px;\n}\n\n.pointer{\n    cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -1672,7 +1730,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/assets/assets.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-3\">\n      <div class=\"card card-stats\">\n        <div class=\"card-header custom-padding\" data-background-color=\"red\">\n          <i class=\"material-icons\">account_balance_wallet</i>\n        </div>\n        <div class=\"card-content\">\n          <p class=\"category\">Total Assets</p>\n          <p class=\"\">work in progress</p>\n        </div>\n\n      </div>\n    </div>\n\n      <div class=\"col-md-3\">\n        <div class=\"card card-stats\">\n          <div class=\"card-header custom-padding\" data-background-color=\"orange\">\n            <i class=\"material-icons\">store</i>\n          </div>\n          <div class=\"card-content\">\n            <p class=\"category\"> Pooled Assets</p>\n            <p class=\"\">work in progress</p>\n          </div>\n\n        </div>\n      </div>\n\n      <div class=\"col-md-3\">\n        <div class=\"card card-stats\">\n          <div class=\"card-header custom-padding\" data-background-color=\"blue\">\n            <i class=\"material-icons\">favorite</i>\n          </div>\n          <div class=\"card-content\">\n            <p class=\"category\"> Favourite Assets</p>\n            <p class=\"\">work in progress</p>\n          </div>\n\n        </div>\n      </div>\n    </div>\n\n\n\n\n    <div class=\"row\" >\n      <div class=\"col-md-12 \">\n        <div class=\"dropdown\">\n          <a  href=\"javascript:void(0)\" class=\"btn   dropdown-toggle\" data-toggle=\"dropdown\">\n            Filter\n            <span style=\"font-weight: bolder\" *ngIf=\"selectedFilter\">\n                    ({{selectedFilter}})\n                </span>\n            <b class=\"caret\"></b>\n          </a>\n          <ul class=\"dropdown-menu\">\n            <li *ngFor=\"let filter of filters\">\n              <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"filterChange(filter.value)\">\n                {{filter.name}}\n              </a>\n            </li>\n\n\n\n\n          </ul>\n        </div>\n      </div>\n\n      <div class=\"col-md-12\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <h4 class=\"title\">Assets</h4>\n\n              </div>\n\n\n\n\n\n            </div>\n          </div>\n\n          <div class=\"row\"  style=\"padding: 15px;\" *ngIf=\"selectedFilter==='category'\">\n            <div class=\"col-xs-12\" >\n              <div class=\"dropdown\" style=\"float: left\">\n                <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n                  Category 1\n                  <span style=\"font-weight: bolder\" *ngIf=\"assetCategoriesLevelOne[selectedIndexOnLevelOne]?.attrs[chosenLang]\">\n                  ({{assetCategoriesLevelOne[selectedIndexOnLevelOne]?.attrs[chosenLang]}})\n                </span>\n                  <b class=\"caret\"></b>\n                </a>\n                <ul class=\"dropdown-menu\">\n                  <li *ngFor=\"let c of assetCategoriesLevelOne;let i=index\">\n                    <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"onAssetCategoryLevelChange(c,0,i)\">\n                      {{c.attrs[chosenLang]}}\n                    </a>\n                  </li>\n\n\n\n\n                </ul>\n              </div>\n\n\n              <div class=\"dropdown\" style=\"float: left\" >\n                <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n                  Category 2\n                  <span style=\"font-weight: bolder\" *ngIf=\"assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.attrs[chosenLang]\">\n                  ({{assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.attrs[chosenLang]}})\n                </span>\n                  <b class=\"caret\"></b>\n                </a>\n                <ul class=\"dropdown-menu\">\n                  <li *ngFor=\"let c of assetCategoriesLevelTwo;let i=index\">\n                    <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"onAssetCategoryLevelChange(c,1,i)\">\n                      {{c.attrs[chosenLang]}}\n                    </a>\n                  </li>\n\n\n                </ul>\n              </div>\n\n              <div class=\"dropdown\" style=\"float: left\" >\n                <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n                  Category 3\n                  <span style=\"font-weight: bolder\" *ngIf=\"assetCategoriesLevelThree[selectedIndexOnLevelThree]?.attrs[chosenLang]\">\n\n                  ({{assetCategoriesLevelThree[selectedIndexOnLevelThree]?.attrs[chosenLang]}})\n                  </span>\n                  <b class=\"caret\"></b>\n                </a>\n                <ul class=\"dropdown-menu\">\n                  <li *ngFor=\"let c of assetCategoriesLevelThree;let i=index\">\n                    <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"onAssetCategoryLevelChange(c,2,i)\">\n                      {{c.attrs[chosenLang]}}\n                    </a>\n                  </li>\n\n\n                </ul>\n              </div>\n\n              <div class=\"dropdown\" style=\"float: left\" >\n                <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n                  Category 4\n                  <span style=\"font-weight: bolder\" *ngIf=\"assetCategoriesLevelFour[selectedIndexOnLevelFour]?.attrs[chosenLang]\">\n                    ({{assetCategoriesLevelFour[selectedIndexOnLevelFour]?.attrs[chosenLang]}})\n\n                  </span>\n                  <b class=\"caret\"></b>\n                </a>\n                <ul class=\"dropdown-menu\">\n                  <li *ngFor=\"let c of assetCategoriesLevelFour;let i=index\">\n                    <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"onAssetCategoryLevelChange(c,3,i)\">\n                      {{c.attrs[chosenLang]}}\n                    </a>\n                  </li>\n\n\n                </ul>\n              </div>\n\n              <div class=\"dropdown\" style=\"float: left\">\n                <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n                  Category 5\n                  <span style=\"font-weight: bolder\" *ngIf=\"assetCategoriesLevelFive[selectedIndexOnLevelFive]?.attrs[chosenLang]\">\n                   ({{assetCategoriesLevelFive[selectedIndexOnLevelFive]?.attrs[chosenLang]}})\n                  </span>\n                  <b class=\"caret\"></b>\n                </a>\n                <ul class=\"dropdown-menu\">\n                  <li *ngFor=\"let c of assetCategoriesLevelFive;let i=index\">\n                    <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"onAssetCategoryLevelChange(c,4,i)\">\n                      {{c.attrs[chosenLang]}}\n                    </a>\n                  </li>\n\n\n                </ul>\n              </div>\n\n            </div>\n\n          </div>\n          <section *ngIf=\"assetsRequestStatus==='rejected' || assetsRequestStatus==='pending'\">\n\n            <div class=\"row\">\n              <div class=\"col-xs-12\">\n                <div class=\"card-content table-responsive\">\n                  <app-error-show *ngIf=\"assetsRequestStatus==='rejected'\" [error]=\"'Assets could not be fetched.Try again!'\">\n\n                  </app-error-show>\n\n                  <app-spinner *ngIf=\"assetsRequestStatus==='pending'\" [type]=\"'bounce'\"></app-spinner>\n                </div>\n              </div>\n            </div>\n\n          </section>\n\n\n\n\n            <div class=\"card-content table-responsive\" *ngIf=\"assetsRequestStatus==='resolved' && assets.length \">\n\n              <table class=\"table\" >\n                <thead  >\n                <tr >\n                  <th class=\"boldfont\">Asset Name</th>\n\n                  <th class=\"boldfont\">City</th>\n\n                  <th class=\"boldfont\">Harvest amount</th>\n                  <th class=\"boldfont\">Harvest date</th>\n\n                  <th class=\"boldfont\">Created on</th>\n\n                  <th class=\"boldfont\">Status</th>\n\n                </tr>\n                </thead>\n                <tbody>\n\n\n\n                <tr *ngFor=\"let asset of assets\"  >\n                  <td>\n                    <div *ngIf=\"canSelected\">\n                      <span><input type=\"checkbox\" [(ngModel)]=\"asset.isSelected\"></span>\n                      <span style=\"position:relative;top:-3px;\">{{asset?.name}}</span>\n                    </div>\n                    <div style=\"cursor: pointer\" *ngIf=\"!canSelected\" [routerLink]=\"['../assets',asset.id]\">\n                      <span style=\"position:relative;top:-3px;\">{{asset?.name}}</span>\n                    </div>\n\n                  </td>\n\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',asset.id]\">\n                    {{asset?.user?.profiles?.address?.city}}\n                  </td>\n\n\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',asset.id]\">{{asset?.expectedHarvestAmount}}</td>\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',asset.id]\" ata-toggle=\"tooltip\" data-placement=\"left\"\n                      title=\"{{asset?.expectedHarvestDate|date:'medium'}}\">\n                    {{asset?.expectedHarvestDate|moment}}</td>\n\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',asset.id]\" ata-toggle=\"tooltip\" data-placement=\"left\"\n                      title=\"{{asset?.createdAt|date:'medium'}}\">\n                    {{asset?.createdAt|moment}}\n                  </td>\n\n                  <td [style.color]=\"getColorForStatus(asset.status)\"\n                      style=\"text-transform: capitalize;font-weight: bold;\n                    cursor: pointer\"\n                      [routerLink]=\"['../assets',asset.id]\">{{asset?.status}}</td>\n                </tr>\n                </tbody>\n              </table>\n\n              <div class=\"row\" *ngIf=\"showPoolButton\">\n                <div class=\"col-xs-12\">\n                  <button class=\"btn btn-success\" (click)=\"putInPool()\">Select and continue</button>\n                </div>\n              </div>\n\n            </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-md-3\">\n      <div class=\"card card-stats\">\n        <div class=\"card-header custom-padding\" data-background-color=\"red\">\n          <i class=\"material-icons\">account_balance_wallet</i>\n        </div>\n        <div class=\"card-content\">\n          <p class=\"category\">Total Assets</p>\n          <h3 class=\"title\">{{stat.allAssetCount}}</h3>\n        </div>\n\n      </div>\n    </div>\n\n      <div class=\"col-md-3\">\n        <div class=\"card card-stats\">\n          <div class=\"card-header custom-padding\" data-background-color=\"orange\">\n            <i class=\"material-icons\">store</i>\n          </div>\n          <div class=\"card-content\">\n            <p class=\"category\"> Pooled Assets</p>\n            <h3 class=\"title\">{{stat.pooledAssetCount}}</h3>\n          </div>\n\n        </div>\n      </div>\n\n      <div class=\"col-md-3\">\n        <div class=\"card card-stats\">\n          <div class=\"card-header custom-padding\" data-background-color=\"green\">\n            <i class=\"material-icons\">offline_pin</i>\n          </div>\n          <div class=\"card-content\">\n            <p class=\"category\"> Available Assets</p>\n            <h3 class=\"title\">{{stat.allAssetCount-stat.pooledAssetCount}}</h3>\n          </div>\n\n        </div>\n      </div>\n\n      <div class=\"col-md-3\">\n        <div class=\"card card-stats pointer\" [routerLink]=\"['../favourite-assets']\">\n          <div class=\"card-header custom-padding\" data-background-color=\"blue\">\n            <i class=\"material-icons\">favorite</i>\n          </div>\n          <div class=\"card-content\">\n            <p class=\"category\"> Favourite Assets</p>\n            <h3 class=\"title\">{{stat.favouriteAssetsCount}}</h3>\n          </div>\n\n        </div>\n      </div>\n    </div>\n\n\n\n\n    <div class=\"row\" >\n      <div class=\"col-md-12 \">\n        <div class=\"dropdown\">\n          <a  href=\"javascript:void(0)\" class=\"btn   dropdown-toggle\" data-toggle=\"dropdown\">\n            Filter\n            <span style=\"font-weight: bolder\" *ngIf=\"selectedFilter\">\n                    ({{selectedFilter}})\n                </span>\n            <b class=\"caret\"></b>\n          </a>\n          <ul class=\"dropdown-menu\">\n            <li *ngFor=\"let filter of filters\">\n              <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"filterChange(filter.value)\">\n                {{filter.name}}\n              </a>\n            </li>\n\n\n\n\n          </ul>\n        </div>\n      </div>\n\n      <div class=\"col-md-12\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <h4 class=\"title\">Assets</h4>\n\n              </div>\n\n\n\n\n\n            </div>\n          </div>\n\n          <div class=\"row\"  style=\"padding: 15px;\" *ngIf=\"selectedFilter==='category'\">\n            <div class=\"col-xs-12\" >\n              <div class=\"dropdown\" style=\"float: left\">\n                <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n                  Category 1\n                  <span style=\"font-weight: bolder\" *ngIf=\"assetCategoriesLevelOne[selectedIndexOnLevelOne]?.attrs[chosenLang]\">\n                  ({{assetCategoriesLevelOne[selectedIndexOnLevelOne]?.attrs[chosenLang]}})\n                </span>\n                  <b class=\"caret\"></b>\n                </a>\n                <ul class=\"dropdown-menu\">\n                  <li *ngFor=\"let c of assetCategoriesLevelOne;let i=index\">\n                    <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"onAssetCategoryLevelChange(c,0,i)\">\n                      {{c.attrs[chosenLang]}}\n                    </a>\n                  </li>\n\n\n\n\n                </ul>\n              </div>\n\n\n              <div class=\"dropdown\" style=\"float: left\" >\n                <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n                  Category 2\n                  <span style=\"font-weight: bolder\" *ngIf=\"assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.attrs[chosenLang]\">\n                  ({{assetCategoriesLevelTwo[selectedIndexOnLevelTwo]?.attrs[chosenLang]}})\n                </span>\n                  <b class=\"caret\"></b>\n                </a>\n                <ul class=\"dropdown-menu\">\n                  <li *ngFor=\"let c of assetCategoriesLevelTwo;let i=index\">\n                    <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"onAssetCategoryLevelChange(c,1,i)\">\n                      {{c.attrs[chosenLang]}}\n                    </a>\n                  </li>\n\n\n                </ul>\n              </div>\n\n              <div class=\"dropdown\" style=\"float: left\" >\n                <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n                  Category 3\n                  <span style=\"font-weight: bolder\" *ngIf=\"assetCategoriesLevelThree[selectedIndexOnLevelThree]?.attrs[chosenLang]\">\n\n                  ({{assetCategoriesLevelThree[selectedIndexOnLevelThree]?.attrs[chosenLang]}})\n                  </span>\n                  <b class=\"caret\"></b>\n                </a>\n                <ul class=\"dropdown-menu\">\n                  <li *ngFor=\"let c of assetCategoriesLevelThree;let i=index\">\n                    <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"onAssetCategoryLevelChange(c,2,i)\">\n                      {{c.attrs[chosenLang]}}\n                    </a>\n                  </li>\n\n\n                </ul>\n              </div>\n\n              <div class=\"dropdown\" style=\"float: left\" >\n                <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n                  Category 4\n                  <span style=\"font-weight: bolder\" *ngIf=\"assetCategoriesLevelFour[selectedIndexOnLevelFour]?.attrs[chosenLang]\">\n                    ({{assetCategoriesLevelFour[selectedIndexOnLevelFour]?.attrs[chosenLang]}})\n\n                  </span>\n                  <b class=\"caret\"></b>\n                </a>\n                <ul class=\"dropdown-menu\">\n                  <li *ngFor=\"let c of assetCategoriesLevelFour;let i=index\">\n                    <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"onAssetCategoryLevelChange(c,3,i)\">\n                      {{c.attrs[chosenLang]}}\n                    </a>\n                  </li>\n\n\n                </ul>\n              </div>\n\n              <div class=\"dropdown\" style=\"float: left\">\n                <a  href=\"javascript:void(0)\" class=\"btn dropdown-toggle\" data-toggle=\"dropdown\">\n                  Category 5\n                  <span style=\"font-weight: bolder\" *ngIf=\"assetCategoriesLevelFive[selectedIndexOnLevelFive]?.attrs[chosenLang]\">\n                   ({{assetCategoriesLevelFive[selectedIndexOnLevelFive]?.attrs[chosenLang]}})\n                  </span>\n                  <b class=\"caret\"></b>\n                </a>\n                <ul class=\"dropdown-menu\">\n                  <li *ngFor=\"let c of assetCategoriesLevelFive;let i=index\">\n                    <a style=\"text-transform: capitalize\" href=\"javascript:void(0)\" (click)=\"onAssetCategoryLevelChange(c,4,i)\">\n                      {{c.attrs[chosenLang]}}\n                    </a>\n                  </li>\n\n\n                </ul>\n              </div>\n\n            </div>\n\n          </div>\n          <section *ngIf=\"assetsRequestStatus==='rejected' || assetsRequestStatus==='pending'\">\n\n            <div class=\"row\">\n              <div class=\"col-xs-12\">\n                <div class=\"card-content table-responsive\">\n                  <app-error-show *ngIf=\"assetsRequestStatus==='rejected'\" [error]=\"'Assets could not be fetched.Try again!'\">\n\n                  </app-error-show>\n\n                  <app-spinner *ngIf=\"assetsRequestStatus==='pending'\" [type]=\"'bounce'\"></app-spinner>\n                </div>\n              </div>\n            </div>\n\n          </section>\n\n          <div class=\"row\" *ngIf=\"assetsRequestStatus==='resolved' && !assets.length \">\n            <div class=\"col-xs-12 text-center\">\n              <h4 class=\"text-gray\">\n                No Asset available\n              </h4>\n            </div>\n          </div>\n\n\n            <div class=\"card-content table-responsive\" *ngIf=\"assetsRequestStatus==='resolved' && assets.length \">\n\n              <table class=\"table\" >\n                <thead  >\n                <tr >\n                  <th class=\"boldfont\">Asset Name</th>\n\n                  <th class=\"boldfont\">City</th>\n\n                  <th class=\"boldfont\">Harvest amount</th>\n                  <th class=\"boldfont\">Harvest date</th>\n\n                  <th class=\"boldfont\">Created on</th>\n\n                  <th class=\"boldfont\">Status</th>\n\n                </tr>\n                </thead>\n                <tbody>\n\n\n\n                <tr *ngFor=\"let asset of assets\"  >\n                  <td>\n                    <div *ngIf=\"canSelected\">\n                      <span><input type=\"checkbox\" [(ngModel)]=\"asset.isSelected\"></span>\n                      <span style=\"position:relative;top:-3px;\">{{asset?.name}}</span>\n                    </div>\n                    <div style=\"cursor: pointer\" *ngIf=\"!canSelected\" [routerLink]=\"['../assets',asset.id]\">\n                      <span style=\"position:relative;top:-3px;\">{{asset?.name}}</span>\n                    </div>\n\n                  </td>\n\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',asset.id]\">\n                    {{asset?.user?.profiles?.address?.city}}\n                  </td>\n\n\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',asset.id]\">{{asset?.expectedHarvestAmount}}</td>\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',asset.id]\" ata-toggle=\"tooltip\" data-placement=\"left\"\n                      title=\"{{asset?.expectedHarvestDate|date:'medium'}}\">\n                    {{asset?.expectedHarvestDate|moment}}</td>\n\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',asset.id]\" ata-toggle=\"tooltip\" data-placement=\"left\"\n                      title=\"{{asset?.createdAt|date:'medium'}}\">\n                    {{asset?.createdAt|moment}}\n                  </td>\n\n                  <td [style.color]=\"getColorForStatus(asset.status)\"\n                      style=\"text-transform: capitalize;font-weight: bold;\n                    cursor: pointer\"\n                      [routerLink]=\"['../assets',asset.id]\">{{asset?.status}}</td>\n                </tr>\n                </tbody>\n              </table>\n\n              <div class=\"row\" *ngIf=\"showPoolButton\">\n                <div class=\"col-xs-12\">\n                  <button class=\"btn btn-success\" (click)=\"putInPool()\">Select and continue</button>\n                </div>\n              </div>\n\n            </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1714,6 +1772,7 @@ var AssetsComponent = (function () {
         this.showPoolButton = false;
         this.showNonPooledAssetOnly = false;
         this.onPoolSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.stat = { favouriteAssetsCount: 0, allAssetCount: 0, pooledAssetCount: 0 };
         this.assetsRequestStatus = 'resolved';
         this.categoryHttpReequestStatus = 'resolved';
         this.filters = [{ name: 'By Category', value: 'category' },
@@ -1734,6 +1793,44 @@ var AssetsComponent = (function () {
         this.currentLevel = null;
         this.lastCategoryId = null;
     }
+    AssetsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.subscribeFavouriteAsset();
+        this.getAllAssetCount();
+        this.getPooledAssetCount();
+        if (this.showNonPooledAssetOnly) {
+            this.getNonPooledAssets();
+        }
+        else {
+            this.getAllAssets();
+        }
+        this.userService.user.concatMap(function (user) {
+            return _this.assetsService.loadFavouriteAssets(user.id);
+        }).subscribe(function (fAssets) {
+        }, function (err) {
+        });
+        this.getCategories(0);
+    };
+    AssetsComponent.prototype.subscribeFavouriteAsset = function () {
+        var _this = this;
+        this.assetsService.favouriteAssets.subscribe(function (assets) {
+            _this.stat.favouriteAssetsCount = assets.length;
+        });
+    };
+    AssetsComponent.prototype.getAllAssetCount = function () {
+        var _this = this;
+        this.assetsService.getAllAssetCount().subscribe(function (count) {
+            _this.stat.allAssetCount = count || 0;
+        }, function (err) {
+        });
+    };
+    AssetsComponent.prototype.getPooledAssetCount = function () {
+        var _this = this;
+        this.assetsService.getPooledAssetCount().subscribe(function (count) {
+            _this.stat.pooledAssetCount = count || 0;
+        }, function (err) {
+        });
+    };
     AssetsComponent.prototype.putInPool = function () {
         var filterdAssets = this.assets.filter(function (asset) {
             return asset.isSelected;
@@ -1760,19 +1857,6 @@ var AssetsComponent = (function () {
                return;
            }*/
         this.onPoolSelect.emit(filterdAssets);
-    };
-    AssetsComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.userService.user.subscribe(function (user) {
-            _this.assetsService.loadFavouriteAssets(user.id);
-        });
-        if (this.showNonPooledAssetOnly) {
-            this.getNonPooledAssets();
-        }
-        else {
-            this.getAllAssets();
-        }
-        this.getCategories(0);
     };
     AssetsComponent.prototype.filterChange = function (value) {
         if (value === 'reset') {
@@ -2197,6 +2281,130 @@ var FarmersComponent = (function () {
             __WEBPACK_IMPORTED_MODULE_3__services_toast_service__["a" /* ToastService */]])
     ], FarmersComponent);
     return FarmersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/favourite-asset/favourite-asset.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"main-content\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"row\" >\r\n\r\n      <div class=\"col-md-12\">\r\n        <div class=\"card\">\r\n          <div class=\"card-header\" data-background-color=\"green\">\r\n            <div class=\"row\">\r\n              <div class=\"col-md-6\">\r\n                <h4 class=\"title\">Favourite Assets</h4>\r\n\r\n              </div>\r\n            </div>\r\n          </div>\r\n\r\n\r\n          <div class=\"card-content \" >\r\n\r\n\r\n            <div class=\"row\" *ngIf=\"!favouriteAssets.length\">\r\n              <div class=\"col-xs-12 text-center\">\r\n                <h4 class=\"text-gray\">\r\n                  You have not marked any assets as favourite!\r\n                </h4>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"table-responsive\" *ngIf=\"favouriteAssets.length \">\r\n              <table class=\"table\" >\r\n                <thead  >\r\n                <tr >\r\n                  <th class=\"boldfont\">Asset Name</th>\r\n\r\n                  <th class=\"boldfont\">City</th>\r\n\r\n                  <th class=\"boldfont\">Harvest amount</th>\r\n                  <th class=\"boldfont\">Harvest date</th>\r\n\r\n                  <th class=\"boldfont\">Created on</th>\r\n\r\n                  <th class=\"boldfont\">Status</th>\r\n                  <th class=\"boldfont\">Unfavourite</th>\r\n\r\n                </tr>\r\n                </thead>\r\n                <tbody>\r\n\r\n\r\n\r\n                <tr *ngFor=\"let fasset of favouriteAssets\"  >\r\n                  <td>\r\n                    <div style=\"cursor: pointer\" [routerLink]=\"['../assets',fasset.asset.id]\">\r\n                      <span style=\"position:relative;top:-3px;\">{{fasset.asset?.name}}</span>\r\n                    </div>\r\n\r\n                  </td>\r\n\r\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',fasset.asset.id]\">\r\n                    {{fasset.asset?.user?.profiles?.address?.city}}\r\n                  </td>\r\n\r\n\r\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',fasset.asset.id]\">{{fasset.asset?.expectedHarvestAmount}}</td>\r\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',fasset.asset.id]\" ata-toggle=\"tooltip\" data-placement=\"left\"\r\n                      title=\"{{fasset.asset?.expectedHarvestDate|date:'medium'}}\">\r\n                    {{fasset.asset?.expectedHarvestDate|moment}}</td>\r\n\r\n                  <td style=\"cursor: pointer\" [routerLink]=\"['../assets',fasset.asset.id]\" ata-toggle=\"tooltip\" data-placement=\"left\"\r\n                      title=\"{{fasset.asset?.createdAt|date:'medium'}}\">\r\n                    {{fasset.asset?.createdAt|moment}}\r\n                  </td>\r\n\r\n                  <td [style.color]=\"getColorForStatus(fasset.asset.status)\"\r\n                      style=\"text-transform: capitalize;font-weight: bold;\r\n                    cursor: pointer\"\r\n                      [routerLink]=\"['../assets',fasset.asset.id]\">{{fasset.asset?.status}}\r\n                  </td>\r\n\r\n                  <td>\r\n                    <a href=\"javascript:void(0)\"  (click)=\"unfavourite(fasset.id)\">Unfavourite</a>\r\n                  </td>\r\n                </tr>\r\n                </tbody>\r\n              </table>\r\n\r\n            </div>\r\n\r\n\r\n\r\n\r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/favourite-asset/favourite-asset.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/favourite-asset/favourite-asset.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavouriteAssetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_assets_service__ = __webpack_require__("../../../../../src/app/services/assets.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var FavouriteAssetComponent = (function () {
+    function FavouriteAssetComponent(userService, assetService, router, toastService) {
+        this.userService = userService;
+        this.assetService = assetService;
+        this.router = router;
+        this.toastService = toastService;
+        this.user = {};
+        this.favouriteAssets = [];
+    }
+    FavouriteAssetComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.user.concatMap(function (user) {
+            _this.user = user;
+            _this.subscribeFavouriteAsset();
+            return _this.assetService.loadFavouriteAssets(user.id);
+        }).subscribe(function () {
+        }, function (err) {
+        });
+    };
+    FavouriteAssetComponent.prototype.subscribeFavouriteAsset = function () {
+        var _this = this;
+        this.assetService.favouriteAssets.subscribe(function (assets) {
+            _this.favouriteAssets = assets;
+            console.log(_this.favouriteAssets);
+        });
+    };
+    FavouriteAssetComponent.prototype.getColorForStatus = function (status) {
+        switch (status) {
+            case 'pending':
+                return 'black';
+            case 'verified':
+                return 'blue';
+            case 'rejected':
+                return '#ff8b4c';
+            case 'pooled':
+                return 'green';
+            default:
+                return 'black';
+        }
+    };
+    FavouriteAssetComponent.prototype.getColorForPoolStatus = function (status) {
+        switch (status) {
+            case true:
+                return 'blue';
+            case false:
+                return 'black';
+            default:
+                return 'black';
+        }
+    };
+    FavouriteAssetComponent.prototype.unfavourite = function (id) {
+        var _this = this;
+        this.assetService.removeAssetFromFavourite(id).subscribe(function (data) {
+            _this.toastService.success('Removed', 'success!');
+        }, function (err) {
+            _this.toastService.success('UnFavourite', 'Could not be removed from favourite!');
+        });
+    };
+    FavouriteAssetComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-favourite-asset',
+            template: __webpack_require__("../../../../../src/app/components/favourite-asset/favourite-asset.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/favourite-asset/favourite-asset.component.scss")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__services_assets_service__["a" /* AssetsService */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_3__services_toast_service__["a" /* ToastService */]])
+    ], FavouriteAssetComponent);
+    return FavouriteAssetComponent;
 }());
 
 
@@ -4866,11 +5074,12 @@ var AssetsPoolService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_concatMap__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/concatMap.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_interval__ = __webpack_require__("../../../../rxjs/_esm5/add/observable/interval.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_retry__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/retry.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_throw__ = __webpack_require__("../../../../rxjs/_esm5/add/observable/throw.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__error_handler_service__ = __webpack_require__("../../../../../src/app/services/error-handler.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_publishLast__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/publishLast.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_observable_throw__ = __webpack_require__("../../../../rxjs/_esm5/add/observable/throw.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__error_handler_service__ = __webpack_require__("../../../../../src/app/services/error-handler.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4892,15 +5101,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AssetsService = (function () {
     function AssetsService(http, errorHandler, userService) {
         this.http = http;
         this.errorHandler = errorHandler;
         this.userService = userService;
-        this.dataStore = { assets: [], favouriteAssets: [] };
+        this.dataStore = { assets: [], favouriteAssets: [], stat: { allAssetCount: 0, pooledAssetCount: 0 } };
         this.categories = [];
         this.assets = [];
-        this._favouriteAssets = new __WEBPACK_IMPORTED_MODULE_11_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]([]);
+        this._favouriteAssets = new __WEBPACK_IMPORTED_MODULE_12_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]([]);
         this.favouriteAssets = this._favouriteAssets.asObservable();
     }
     AssetsService.prototype.getAllAssets = function () {
@@ -4916,7 +5126,32 @@ var AssetsService = (function () {
         var _this = this;
         var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getAssets.url() + "?filter[include]=user&filter[where][isPutOnBlockchain]=false";
         return this.http.get("" + url)
-            .retry(3)
+            .catch(function (res) {
+            return _this.errorHandler.handle(res);
+        });
+    };
+    AssetsService.prototype.getAllAssetCount = function () {
+        var _this = this;
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getAssets.url() + "/count";
+        return this.http.get("" + url)
+            .map(function (data) { return data.count; })
+            .do(function (count) {
+            console.log('all asset count is ', count);
+            _this.dataStore.stat.allAssetCount = count;
+        })
+            .catch(function (res) {
+            return _this.errorHandler.handle(res);
+        });
+    };
+    AssetsService.prototype.getPooledAssetCount = function () {
+        var _this = this;
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getAssets.url() + "/count?[where][isPutOnBlockchain]=true";
+        return this.http.get("" + url)
+            .map(function (data) { return data.count; })
+            .do(function (count) {
+            console.log('pooled asset count is ', count);
+            _this.dataStore.stat.pooledAssetCount = count;
+        })
             .catch(function (res) {
             return _this.errorHandler.handle(res);
         });
@@ -4963,13 +5198,16 @@ var AssetsService = (function () {
     AssetsService.prototype.loadFavouriteAssets = function (userId) {
         var _this = this;
         var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["d" /* FavouriteAssetApi */].getAssets.url() + "?filter[where][userId]=" + userId + "&filter[include]=asset";
-        this.http.get("" + url).do(function (assets) {
+        return this.http.get("" + url).map(function (assets) {
             console.log('fav assets are');
             console.log(assets);
+            if (!Array.isArray(assets)) {
+                assets = [];
+            }
             _this.dataStore.favouriteAssets = assets;
             _this._favouriteAssets.next(_this.dataStore.favouriteAssets);
-        }).subscribe(function () {
-        }, function (err) {
+        }).publishLast().refCount().catch(function (err) {
+            return _this.errorHandler.handle(err);
         });
     };
     AssetsService.prototype.addAssetToFavourite = function (assetId, userId) {
@@ -4990,14 +5228,25 @@ var AssetsService = (function () {
     AssetsService.prototype.removeAssetFromFavourite = function (id) {
         var _this = this;
         var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["d" /* FavouriteAssetApi */].removeFromFavourite.url() + "/" + id;
-        return this.http.delete("" + url)
+        return this.http.delete("" + url).do(function () {
+            var i = -1;
+            _this.dataStore.favouriteAssets.forEach(function (asset, index) {
+                if (asset.id === id) {
+                    i = index;
+                }
+            });
+            if (i > -1) {
+                _this.dataStore.favouriteAssets.splice(i, 1);
+                _this._favouriteAssets.next(_this.dataStore.favouriteAssets);
+            }
+        })
             .catch(function (res) {
             return _this.errorHandler.handle(res);
         });
     };
     AssetsService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_8__angular_common_http__["b" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_9__error_handler_service__["a" /* ErrorHandlerService */], __WEBPACK_IMPORTED_MODULE_10__user_service__["a" /* UserService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_9__angular_common_http__["b" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_10__error_handler_service__["a" /* ErrorHandlerService */], __WEBPACK_IMPORTED_MODULE_11__user_service__["a" /* UserService */]])
     ], AssetsService);
     return AssetsService;
 }());

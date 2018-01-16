@@ -68,6 +68,7 @@
 
 .custom-padding{
     padding: 5px;
+    height: 34px;
 }
 
 .card-stats .card-header i {
@@ -75,4 +76,8 @@
     line-height: 24px;
     width: 24px;
     height: 24px;
+}
+
+.pointer{
+    cursor: pointer;
 }

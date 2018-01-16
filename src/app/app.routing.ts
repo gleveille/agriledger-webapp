@@ -37,6 +37,7 @@ import {UserUpdateComponent} from "./components/user-update/user-update.componen
 import {PasswordForgetComponent} from "./components/password-forget/password-forget.component";
 import {PasswordNewComponent} from "./components/password-new/password-new.component";
 import {UserViewComponent} from "./components/user-view/user-view.component";
+import {FavouriteAssetComponent} from "./components/favourite-asset/favourite-asset.component";
 
 const routes:Routes = [
     {
@@ -128,6 +129,7 @@ const routes:Routes = [
             {path: 'account', component: AccountComponent},
             {path: 'farmers', component: FarmersComponent},
             {path: 'assets', component: AssetsComponent},
+            {path: 'favourite-assets', component: FavouriteAssetComponent},
             {path: 'assets/:assetId', component: AssetViewComponent},
 
             {path: 'assets-pool-list', component: AssetPoolListComponent},

@@ -74,10 +74,6 @@ export class AssetPoolCreateComponent implements OnInit {
         console.log(this.selectedAssetsForPool);
     }
   ngOnInit() {
-
-
-
-
   }
 
     stepperSelected(index:number){

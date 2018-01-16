@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {AssetsPoolService} from "../../services/assets-pool.service";
 import {UserService} from "../../services/user.service";
 import {Iuser} from "../../interface/user.interface";
+import {concatMap} from 'rxjs/operator/concatMap'
 
 @Component({
   selector: 'app-assets',
@@ -18,7 +19,7 @@ export class AssetsComponent implements OnInit {
     @Input() showPoolButton:boolean=false;
     @Input() showNonPooledAssetOnly:boolean=false;
     @Output() onPoolSelect:EventEmitter<any> = new EventEmitter();
-
+    stat={favouriteAssetsCount:0,allAssetCount:0,pooledAssetCount:0}
     assetsRequestStatus='resolved';
   categoryHttpReequestStatus='resolved';
   filters=[{name:'By Category',value:'category'},
@@ -49,6 +50,48 @@ export class AssetsComponent implements OnInit {
 
 
 
+  ngOnInit() {
+        this.subscribeFavouriteAsset();
+        this.getAllAssetCount();
+        this.getPooledAssetCount();
+      if(this.showNonPooledAssetOnly){
+          this.getNonPooledAssets()
+      }
+      else{
+          this.getAllAssets();
+
+      }
+      this.userService.user.concatMap((user:Iuser)=>{
+          return this.assetsService.loadFavouriteAssets(user.id);
+      }).subscribe((fAssets:any[])=>{
+      },(err)=>{
+      })
+
+
+    this.getCategories(0);
+  }
+
+    subscribeFavouriteAsset(){
+        this.assetsService.favouriteAssets.subscribe((assets:any[])=>{
+            this.stat.favouriteAssetsCount=assets.length;
+        })
+    }
+
+    getAllAssetCount(){
+        this.assetsService.getAllAssetCount().subscribe((count:number)=>{
+            this.stat.allAssetCount=count||0;
+        },(err)=>{
+        })
+    }
+
+    getPooledAssetCount(){
+        this.assetsService.getPooledAssetCount().subscribe((count:number)=>{
+            this.stat.pooledAssetCount=count||0;
+
+        },(err)=>{
+        })
+    }
+
     putInPool(){
 
         let filterdAssets=this.assets.filter((asset)=>{
@@ -76,32 +119,15 @@ export class AssetsComponent implements OnInit {
             return;
         }
 
-     /*   if(!this.deepestCategorySelected){
-            this.toastService.error('Pool','Please choose the category');
-            return;
-        }*/
+        /*   if(!this.deepestCategorySelected){
+               this.toastService.error('Pool','Please choose the category');
+               return;
+           }*/
 
 
 
         this.onPoolSelect.emit(filterdAssets);
     }
-  ngOnInit() {
-      this.userService.user.subscribe((user:Iuser)=>{
-
-          this.assetsService.loadFavouriteAssets(user.id);
-      })
-
-        if(this.showNonPooledAssetOnly){
-            this.getNonPooledAssets()
-        }
-        else{
-            this.getAllAssets();
-
-        }
-    this.getCategories(0);
-  }
-
-
     filterChange(value:string){
         if(value==='reset'){
             this.reset();

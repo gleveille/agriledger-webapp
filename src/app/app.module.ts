@@ -65,6 +65,7 @@ import { PasswordNewComponent } from './components/password-new/password-new.com
 import { PasswordForgetComponent } from './components/password-forget/password-forget.component';
 import {ImagePreviewDirective} from './img-preview.directive';
 import { UserViewComponent } from './components/user-view/user-view.component';
+import { FavouriteAssetComponent } from './components/favourite-asset/favourite-asset.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/translations/', '.json');
@@ -101,7 +102,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PasswordNewComponent,
     PasswordForgetComponent,
     ImagePreviewDirective,
-    UserViewComponent
+    UserViewComponent,
+    FavouriteAssetComponent
 
   ],
   imports: [

@@ -1,0 +1,97 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row" >
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="green">
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="title">Favourite Assets</h4>
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card-content " >
+
+
+            <div class="row" *ngIf="!favouriteAssets.length">
+              <div class="col-xs-12 text-center">
+                <h4 class="text-gray">
+                  You have not marked any assets as favourite!
+                </h4>
+              </div>
+            </div>
+
+            <div class="table-responsive" *ngIf="favouriteAssets.length ">
+              <table class="table" >
+                <thead  >
+                <tr >
+                  <th class="boldfont">Asset Name</th>
+
+                  <th class="boldfont">City</th>
+
+                  <th class="boldfont">Harvest amount</th>
+                  <th class="boldfont">Harvest date</th>
+
+                  <th class="boldfont">Created on</th>
+
+                  <th class="boldfont">Status</th>
+                  <th class="boldfont">Unfavourite</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+
+
+                <tr *ngFor="let fasset of favouriteAssets"  >
+                  <td>
+                    <div style="cursor: pointer" [routerLink]="['../assets',fasset.asset.id]">
+                      <span style="position:relative;top:-3px;">{{fasset.asset?.name}}</span>
+                    </div>
+
+                  </td>
+
+                  <td style="cursor: pointer" [routerLink]="['../assets',fasset.asset.id]">
+                    {{fasset.asset?.user?.profiles?.address?.city}}
+                  </td>
+
+
+                  <td style="cursor: pointer" [routerLink]="['../assets',fasset.asset.id]">{{fasset.asset?.expectedHarvestAmount}}</td>
+                  <td style="cursor: pointer" [routerLink]="['../assets',fasset.asset.id]" ata-toggle="tooltip" data-placement="left"
+                      title="{{fasset.asset?.expectedHarvestDate|date:'medium'}}">
+                    {{fasset.asset?.expectedHarvestDate|moment}}</td>
+
+                  <td style="cursor: pointer" [routerLink]="['../assets',fasset.asset.id]" ata-toggle="tooltip" data-placement="left"
+                      title="{{fasset.asset?.createdAt|date:'medium'}}">
+                    {{fasset.asset?.createdAt|moment}}
+                  </td>
+
+                  <td [style.color]="getColorForStatus(fasset.asset.status)"
+                      style="text-transform: capitalize;font-weight: bold;
+                    cursor: pointer"
+                      [routerLink]="['../assets',fasset.asset.id]">{{fasset.asset?.status}}
+                  </td>
+
+                  <td>
+                    <a href="javascript:void(0)"  (click)="unfavourite(fasset.id)">Unfavourite</a>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+            </div>
+
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

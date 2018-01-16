@@ -7,6 +7,11 @@ import {ToastService} from "../../services/toast.service";
 import {IserviceError} from "../../interface/serviceError.interface";
 import {environment} from '../../../environments/environment'
 import {Location} from '@angular/common';
+import {UserService} from "../../services/user.service";
+import {Iuser} from "../../interface/user.interface";
+import {concatMap} from 'rxjs/operator/concatMap'
+
+import {ServerUrl} from '../../api.config'
 
 @Component({
   selector: 'app-asset-view',
@@ -15,33 +20,68 @@ import {Location} from '@angular/common';
 })
 export class AssetViewComponent implements OnInit {
 
-  asset={user:{},status:null,evidences:[]};
+    serverUrl=ServerUrl;
+    user={} as Iuser;
+  asset={user:{},status:null,evidences:[],id:''};
+  isFavourite:boolean=false;
+  currentAssetId:string='';
   favouriteAssets=[];
   constructor(private activatedRoute:ActivatedRoute,
               private location:Location,
+              private userService:UserService,
               private assetService:AssetsService,private toastService:ToastService) { }
 
 
   ngOnInit() {
+      this.userService.user.concatMap((user:Iuser)=>{
+          this.user=user;
+          return this.assetService.loadFavouriteAssets(user.id);
+      }).subscribe(()=>{
+
+      },(err)=>{
+
+      });
+      this.activatedRoute.params.subscribe((param)=>{
+          this.currentAssetId=param.assetId;
+          this.getAssetById();
+      });
+      this.subscribeFavouriteAsset();
+
+  }
+
+
+  getAssetById(){
+      this.assetService.getAssetByid(this.currentAssetId).subscribe((asset)=>{
+          this.asset=asset;
+          console.log(this.asset)
+
+      },(err)=>{
+          console.log(err);
+      })
+  }
+
+  subscribeFavouriteAsset(){
       this.assetService.favouriteAssets.subscribe((assets:any[])=>{
           console.log('from subscribe,fav assets are')
           console.log(assets)
           this.favouriteAssets=assets;
-      })
-      this.activatedRoute.params.concatMap((param)=>{
-        console.log(param)
-       return this.assetService.getAssetByid(param.assetId);
-      }).subscribe((asset)=>{
-        this.asset=asset;
-        console.log(asset)
-          this.asset.evidences.forEach((evidence)=>{
-              evidence.url=environment.apiURL+':'+environment.apiPORT+evidence.url;
+          console.log(this.favouriteAssets)
+          let found=false;
+          this.favouriteAssets.forEach((asset)=>{
+              if(asset.assetId===this.currentAssetId){
+                  found=true;
+              }
           });
-      },(err)=>{
-        console.log(err);
+
+          if(found){
+              this.isFavourite=true;
+          }
+          else {
+              this.isFavourite=false;
+
+          }
       })
   }
-
     changeStatus(status:string){
     this.asset.status=status;
     console.log(this.asset)
@@ -60,21 +100,42 @@ export class AssetViewComponent implements OnInit {
 
     }
 
-    addToFavourite(asset:any){
-        this.assetService.addAssetToFavourite(asset.id,asset.userId).subscribe((data)=>{
-            this.toastService.success('Favourite','Added!');
-            console.log(asset)
+    favouriteOrUnfavourite(){
+        if(!this.asset.id || !this.user.id){
+            this.toastService.error('Ooops','Operation can not be performed!');
+            return;
+        }
+        if(this.isFavourite){
+            this.removeFromFavourite()
+        }
+        else {
+            this.addToFavourite();
+        }
+    }
+
+    addToFavourite(){
+        this.assetService.addAssetToFavourite(this.asset.id,this.user.id).subscribe((data)=>{
+            this.toastService.success('Addedd','success!');
         },(err:IserviceError)=>{
             this.toastService.success('Favourite','Could not be added!');
         })
     }
 
-    removeFromFavourite(asset:any){
-        this.assetService.removeAssetFromFavourite(asset.userId).subscribe((data)=>{
-            this.toastService.success('Favourite','Removed!');
-            console.log(asset)
+    removeFromFavourite(){
+        let id;
+        this.favouriteAssets.forEach((asset)=>{
+            if(asset.userId===this.user.id){
+                id=asset.id;
+            }
+        });
+        if(!id){
+            this.toastService.error('Unfavourite','could not be removed from favourite');
+            return;
+        }
+        this.assetService.removeAssetFromFavourite(id).subscribe((data)=>{
+            this.toastService.success('Removed','success!');
         },(err:IserviceError)=>{
-            this.toastService.success('Favourite','Could not be removed from favourite!');
+            this.toastService.success('UnFavourite','Could not be removed from favourite!');
         })
     }
 }

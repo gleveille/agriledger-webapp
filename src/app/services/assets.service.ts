@@ -7,7 +7,7 @@ import 'rxjs/add/operator/concatMap';
 
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/retry';
-
+import 'rxjs/add/operator/publishLast'
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
@@ -19,7 +19,7 @@ export class AssetsService {
     private _favouriteAssets: BehaviorSubject<any>;
     favouriteAssets: Observable<any>;
 
-    dataStore = { assets:[],favouriteAssets:[] };
+    dataStore = { assets:[],favouriteAssets:[],stat:{allAssetCount:0,pooledAssetCount:0} };
 
     categories:any[]=[];
     assets:any[]=[];
@@ -41,19 +41,47 @@ export class AssetsService {
     }
 
     getNonPooledAssets() {
-
-        let url=`${AssetApi.getAssets.url()}?filter[include]=user&filter[where][isPutOnBlockchain]=false`;
+        const url=`${AssetApi.getAssets.url()}?filter[include]=user&filter[where][isPutOnBlockchain]=false`;
 
         return this.http.get(`${url}`)
-            .retry(3)
             .catch((res) => {
                 return this.errorHandler.handle(res);
             });
     }
+
+    getAllAssetCount(){
+        const url=`${AssetApi.getAssets.url()}/count`;
+
+        return this.http.get(`${url}`)
+            .map((data:any)=>data.count)
+            .do((count)=>{
+                console.log('all asset count is ',count)
+
+                this.dataStore.stat.allAssetCount=count;
+            })
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
+    }
+
+
+    getPooledAssetCount(){
+        const url=`${AssetApi.getAssets.url()}/count?[where][isPutOnBlockchain]=true`;
+
+        return this.http.get(`${url}`)
+            .map((data:any)=>data.count)
+            .do((count)=>{
+            console.log('pooled asset count is ',count)
+                this.dataStore.stat.pooledAssetCount=count;
+            })
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
+    }
+
+
     getAssetsByCategoryId(categoryId:string,isPutOnBlockchain:boolean=false) {
-
-
-      const url=`${AssetApi.getAssets.url()}?filter[where][categoryId]=${categoryId}&filter[where][isPutOnBlockchain]=${isPutOnBlockchain}&filter[include]=user`;
+        const url=`${AssetApi.getAssets.url()}?filter[where][categoryId]=${categoryId}&filter[where][isPutOnBlockchain]=${isPutOnBlockchain}&filter[include]=user`;
 
         return this.http.get(`${url}`)
             .retry(3)
@@ -100,16 +128,16 @@ export class AssetsService {
 
     loadFavouriteAssets(userId:string){
         const url=`${FavouriteAssetApi.getAssets.url()}?filter[where][userId]=${userId}&filter[include]=asset`;
-
-        this.http.get(`${url}`).do((assets:any[])=>{
+        return this.http.get(`${url}`).map((assets:any[])=>{
             console.log('fav assets are')
             console.log(assets)
+            if(!Array.isArray(assets)){
+                assets=[];
+            }
             this.dataStore.favouriteAssets=assets;
             this._favouriteAssets.next(this.dataStore.favouriteAssets);
-        }).subscribe(()=>{
-
-        },(err)=>{
-
+        }).publishLast().refCount().catch((err)=>{
+            return this.errorHandler.handle(err);
         })
     }
     addAssetToFavourite(assetId:any,userId:string){
@@ -130,7 +158,18 @@ export class AssetsService {
 
     removeAssetFromFavourite(id:any){
         const url=`${FavouriteAssetApi.removeFromFavourite.url()}/${id}`;
-        return this.http.delete(`${url}`)
+        return this.http.delete(`${url}`).do(()=>{
+            let i=-1;
+            this.dataStore.favouriteAssets.forEach((asset,index)=>{
+                if(asset.id===id){
+                    i=index;
+                }
+            })
+            if(i>-1){
+                this.dataStore.favouriteAssets.splice(i,1);
+                this._favouriteAssets.next(this.dataStore.favouriteAssets);
+            }
+        })
             .catch((res) => {
                 return this.errorHandler.handle(res);
             });
