@@ -81,10 +81,25 @@ const AssetApi={
         method:'GET',
         params:['level']
     }
-
 };
 
-
+const FavouriteAssetApi={
+    getAssets:{
+        url:()=>ServerUrl+'/api/favouriteAssets',
+        method:'GET',
+        params:[]
+    },
+    addToFavourite:{
+        url:()=>ServerUrl+'/api/favouriteAssets',
+        method:'POST',
+        params:['assetId','userId']
+    },
+    removeFromFavourite:{
+        url:()=>ServerUrl+'/api/favouriteAssets',
+        method:'DELETE',
+        params:['assetId']
+    },
+};
 
 
 /*
@@ -175,4 +190,4 @@ const AssetPoolApi={
 
 
 
-export {UserApi,OnboardingApi,WalletApi,AssetApi,AssetPoolApi,TokenApi,ContainerApi}
+export {UserApi,OnboardingApi,WalletApi,AssetApi,AssetPoolApi,TokenApi,ContainerApi,FavouriteAssetApi}

@@ -3,6 +3,8 @@ import {AssetsService} from "../../services/assets.service";
 import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
 import {AssetsPoolService} from "../../services/assets-pool.service";
+import {UserService} from "../../services/user.service";
+import {Iuser} from "../../interface/user.interface";
 
 @Component({
   selector: 'app-assets',
@@ -40,6 +42,7 @@ export class AssetsComponent implements OnInit {
 
 
     constructor(private assetsService:AssetsService,private assetPoolService:AssetsPoolService,
+                private userService:UserService,
                 private toastService:ToastService,private router:Router) {
 
     }
@@ -83,6 +86,10 @@ export class AssetsComponent implements OnInit {
         this.onPoolSelect.emit(filterdAssets);
     }
   ngOnInit() {
+      this.userService.user.subscribe((user:Iuser)=>{
+
+          this.assetsService.loadFavouriteAssets(user.id);
+      })
 
         if(this.showNonPooledAssetOnly){
             this.getNonPooledAssets()

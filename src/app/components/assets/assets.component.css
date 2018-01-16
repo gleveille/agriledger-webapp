@@ -62,3 +62,17 @@
 .boldfont{
     font-weight: 400;
 }
+.custom-margin{
+    margin:5px 0;
+}
+
+.custom-padding{
+    padding: 5px;
+}
+
+.card-stats .card-header i {
+    font-size: 24px;
+    line-height: 24px;
+    width: 24px;
+    height: 24px;
+}

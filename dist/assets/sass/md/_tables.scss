@@ -42,4 +42,7 @@
     > tbody > tr{
         position: relative;
     }
+  > tbody > tr:hover{
+    background-color: rgba(235, 190, 191, 0.31);
+  }
 }

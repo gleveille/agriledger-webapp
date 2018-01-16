@@ -16,12 +16,18 @@ import {Location} from '@angular/common';
 export class AssetViewComponent implements OnInit {
 
   asset={user:{},status:null,evidences:[]};
+  favouriteAssets=[];
   constructor(private activatedRoute:ActivatedRoute,
               private location:Location,
               private assetService:AssetsService,private toastService:ToastService) { }
 
 
   ngOnInit() {
+      this.assetService.favouriteAssets.subscribe((assets:any[])=>{
+          console.log('from subscribe,fav assets are')
+          console.log(assets)
+          this.favouriteAssets=assets;
+      })
       this.activatedRoute.params.concatMap((param)=>{
         console.log(param)
        return this.assetService.getAssetByid(param.assetId);
@@ -52,5 +58,23 @@ export class AssetViewComponent implements OnInit {
     goBack(){
         this.location.back();
 
+    }
+
+    addToFavourite(asset:any){
+        this.assetService.addAssetToFavourite(asset.id,asset.userId).subscribe((data)=>{
+            this.toastService.success('Favourite','Added!');
+            console.log(asset)
+        },(err:IserviceError)=>{
+            this.toastService.success('Favourite','Could not be added!');
+        })
+    }
+
+    removeFromFavourite(asset:any){
+        this.assetService.removeAssetFromFavourite(asset.userId).subscribe((data)=>{
+            this.toastService.success('Favourite','Removed!');
+            console.log(asset)
+        },(err:IserviceError)=>{
+            this.toastService.success('Favourite','Could not be removed from favourite!');
+        })
     }
 }
