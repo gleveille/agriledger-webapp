@@ -19,7 +19,7 @@ export class AssetsComponent implements OnInit {
     @Input() showPoolButton:boolean=false;
     @Input() showNonPooledAssetOnly:boolean=false;
     @Output() onPoolSelect:EventEmitter<any> = new EventEmitter();
-    stat={favouriteAssetsCount:0,allAssetCount:0,pooledAssetCount:0}
+    stat={favouriteAssetCount:0,allAssetCount:0,pooledAssetCount:0,availableAssetCount:0}
     assetsRequestStatus='resolved';
   categoryHttpReequestStatus='resolved';
   filters=[{name:'By Category',value:'category'},
@@ -51,46 +51,33 @@ export class AssetsComponent implements OnInit {
 
 
   ngOnInit() {
-        this.subscribeFavouriteAsset();
-        this.getAllAssetCount();
-        this.getPooledAssetCount();
-      if(this.showNonPooledAssetOnly){
-          this.getNonPooledAssets()
-      }
-      else{
-          this.getAllAssets();
+      this.assetsService.loadStat();
+      this.assetsService.loadAllAssets();
+      this.assetsService.loadAvailableAssets();
 
-      }
-      this.userService.user.concatMap((user:Iuser)=>{
-          return this.assetsService.loadFavouriteAssets(user.id);
-      }).subscribe((fAssets:any[])=>{
-      },(err)=>{
-      })
+      this.assetsService.assets.subscribe((assets:any)=>{
+          if(this.showNonPooledAssetOnly){
+              this.assets=assets.availableAssets.splice();
+          }
+          else{
+              this.assets=assets.allAssets;
+          }
+      });
+      this.assetsService.stat.subscribe((stat:any)=>{
+          this.stat=stat;
+          console.log('stat from subs')
+          console.log(stat)
+      });
+
+
+      this.userService.user.subscribe((user:Iuser)=>{
+          this.assetsService.loadFavouriteAssets(user.id);
+      });
 
 
     this.getCategories(0);
   }
 
-    subscribeFavouriteAsset(){
-        this.assetsService.favouriteAssets.subscribe((assets:any[])=>{
-            this.stat.favouriteAssetsCount=assets.length;
-        })
-    }
-
-    getAllAssetCount(){
-        this.assetsService.getAllAssetCount().subscribe((count:number)=>{
-            this.stat.allAssetCount=count||0;
-        },(err)=>{
-        })
-    }
-
-    getPooledAssetCount(){
-        this.assetsService.getPooledAssetCount().subscribe((count:number)=>{
-            this.stat.pooledAssetCount=count||0;
-
-        },(err)=>{
-        })
-    }
 
     putInPool(){
 
@@ -260,14 +247,9 @@ export class AssetsComponent implements OnInit {
         this.currentLevel=null;
         this.lastCategoryId=null;
         this.selectedFilter=null;
-
-        if(this.showNonPooledAssetOnly){
-            this.getNonPooledAssets()
-        }
-        else{
-            this.getAllAssets();
-
-        }
+        this.assetsService.loadStat();
+        this.assetsService.loadAllAssets();
+        this.assetsService.loadAvailableAssets();
     }
 
 
@@ -324,31 +306,8 @@ export class AssetsComponent implements OnInit {
             console.log( err);
         })
     }
-    getAllAssets(){
-        this.assetsRequestStatus='pending';
-        this.assetsService.getAllAssets().subscribe((assets:any[])=>{
-            this.assetsRequestStatus='resolved';
-            console.log(assets)
-            this.assets=assets;
-        },(err)=>{
-            this.assetsRequestStatus='rejected';
 
-            console.log( err);
-        })
-    }
 
-    getNonPooledAssets(){
-        this.assetsRequestStatus='pending';
-        this.assetsService.getNonPooledAssets().subscribe((assets:any[])=>{
-            this.assetsRequestStatus='resolved';
-            console.log(assets)
-            this.assets=assets;
-        },(err)=>{
-            this.assetsRequestStatus='rejected';
-
-            console.log( err);
-        })
-    }
 
   getColorForStatus(status:string){
         switch (status){

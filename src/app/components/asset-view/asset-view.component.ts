@@ -33,39 +33,13 @@ export class AssetViewComponent implements OnInit {
 
 
   ngOnInit() {
-      this.userService.user.concatMap((user:Iuser)=>{
+      this.userService.user.subscribe((user:Iuser)=>{
           this.user=user;
-          return this.assetService.loadFavouriteAssets(user.id);
-      }).subscribe(()=>{
-
-      },(err)=>{
-
+          this.assetService.loadFavouriteAssets(user.id);
       });
-      this.activatedRoute.params.subscribe((param)=>{
-          this.currentAssetId=param.assetId;
-          this.getAssetById();
-      });
-      this.subscribeFavouriteAsset();
 
-  }
-
-
-  getAssetById(){
-      this.assetService.getAssetByid(this.currentAssetId).subscribe((asset)=>{
-          this.asset=asset;
-          console.log(this.asset)
-
-      },(err)=>{
-          console.log(err);
-      })
-  }
-
-  subscribeFavouriteAsset(){
-      this.assetService.favouriteAssets.subscribe((assets:any[])=>{
-          console.log('from subscribe,fav assets are')
-          console.log(assets)
-          this.favouriteAssets=assets;
-          console.log(this.favouriteAssets)
+      this.assetService.assets.subscribe((assets:any)=>{
+          this.favouriteAssets=assets.favouriteAssets;
           let found=false;
           this.favouriteAssets.forEach((asset)=>{
               if(asset.assetId===this.currentAssetId){
@@ -81,7 +55,23 @@ export class AssetViewComponent implements OnInit {
 
           }
       })
+      this.activatedRoute.params.subscribe((param)=>{
+          this.currentAssetId=param.assetId;
+          this.getAssetById();
+      })
   }
+
+
+  getAssetById(){
+      this.assetService.getAssetByid(this.currentAssetId).subscribe((asset)=>{
+          this.asset=asset;
+          console.log(this.asset)
+
+      },(err)=>{
+          console.log(err);
+      })
+  }
+
     changeStatus(status:string){
     this.asset.status=status;
     console.log(this.asset)

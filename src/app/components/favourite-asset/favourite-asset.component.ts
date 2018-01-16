@@ -20,24 +20,15 @@ export class FavouriteAssetComponent implements OnInit {
               private toastService:ToastService) { }
 
   ngOnInit() {
-      this.userService.user.concatMap((user:Iuser)=>{
+      this.assetService.assets.subscribe((assets:any)=>{
+          this.favouriteAssets=assets.favouriteAssets;
+      });
+      this.userService.user.subscribe((user:Iuser)=>{
           this.user=user;
-          this.subscribeFavouriteAsset();
-          return this.assetService.loadFavouriteAssets(user.id);
-      }).subscribe(()=>{
-      },(err)=>{
+          this.assetService.loadFavouriteAssets(user.id);
       })
 
   }
-
-    subscribeFavouriteAsset(){
-        this.assetService.favouriteAssets.subscribe((assets:any[])=>{
-            this.favouriteAssets=assets;
-            console.log(this.favouriteAssets)
-
-        })
-    }
-
 
 
     getColorForStatus(status:string){

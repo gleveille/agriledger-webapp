@@ -7,77 +7,108 @@ import 'rxjs/add/operator/concatMap';
 
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/retry';
-import 'rxjs/add/operator/publishLast'
+import 'rxjs/add/observable/forkJoin';
+
+import 'rxjs/add/operator/share'
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
 import {ErrorHandlerService} from "./error-handler.service";
 import {UserService} from "./user.service";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+
 @Injectable()
 export class AssetsService {
-    private _favouriteAssets: BehaviorSubject<any>;
-    favouriteAssets: Observable<any>;
+    private _assets: BehaviorSubject<any>=new BehaviorSubject({
+        allAssets:[],
+        pooledAssets:[],
+        availableAssets:[],
+        favouriteAssets:[]
+    });
+    private _stat: BehaviorSubject<any>=new BehaviorSubject({
+        allAssetCount:0,
+        pooledAssetCount:0,
+        favouriteAssetCount:0,
+        availableAssetCount:0
+    });
 
-    dataStore = { assets:[],favouriteAssets:[],stat:{allAssetCount:0,pooledAssetCount:0} };
+    public assets: Observable<any>;
+    public stat: Observable<any>;
+
+    dataStore = {
+        assets:{
+            allAssets:[],
+            pooledAssets:[],
+            availableAssets:[],
+            favouriteAssets:[]
+        },
+        stat:{
+            allAssetCount:0,
+            pooledAssetCount:0,
+            favouriteAssetCount:0,
+            availableAssetCount:0
+        }
+    };
 
     categories:any[]=[];
-    assets:any[]=[];
     constructor(private http: HttpClient, private errorHandler: ErrorHandlerService, private userService: UserService) {
-        this._favouriteAssets = <BehaviorSubject<Iuser>>new BehaviorSubject([]);
-        this.favouriteAssets = this._favouriteAssets.asObservable();
+        this.assets = this._assets.asObservable();
+        this.stat = this._stat.asObservable();
 
     }
 
-    getAllAssets() {
-
+    loadAllAssets() {
         const url=`${AssetApi.getAssets.url()}?filter[include][user]=profiles`;
-
-        return this.http.get(`${url}`)
+        this.http.get(`${url}`)
             .retry(3)
-            .catch((res) => {
-                return this.errorHandler.handle(res);
-            });
+            .subscribe((assets:any[])=>{
+                this.dataStore.assets.allAssets=assets;
+                this._assets.next(this.dataStore.assets);
+            },(err)=>{
+
+            })
     }
 
-    getNonPooledAssets() {
+    loadAvailableAssets() {
         const url=`${AssetApi.getAssets.url()}?filter[include]=user&filter[where][isPutOnBlockchain]=false`;
+        this.http.get(`${url}`)
+            .subscribe((assets:any[])=>{
+                this.dataStore.assets.availableAssets=assets;
+                this._assets.next(this.dataStore.assets);
+            },(err)=>{
 
-        return this.http.get(`${url}`)
-            .catch((res) => {
-                return this.errorHandler.handle(res);
-            });
+            })
     }
 
-    getAllAssetCount(){
+
+    loadStat(){
         const url=`${AssetApi.getAssets.url()}/count`;
-
-        return this.http.get(`${url}`)
-            .map((data:any)=>data.count)
-            .do((count)=>{
-                console.log('all asset count is ',count)
-
-                this.dataStore.stat.allAssetCount=count;
-            })
-            .catch((res) => {
-                return this.errorHandler.handle(res);
-            });
+        const url2=`${AssetApi.getAssets.url()}/count?[where][isPutOnBlockchain]=true`;
+        Observable.forkJoin([
+            this.http.get(`${url}`),
+            this.http.get(`${url2}`)])
+            .subscribe((t:any[])=> {
+            this.dataStore.stat.allAssetCount=t[0].count||0;
+            this.dataStore.stat.pooledAssetCount=t[1].count||0;
+            this.dataStore.stat.availableAssetCount=this.dataStore.stat.allAssetCount-this.dataStore.stat.pooledAssetCount;
+            this._assets.next(this.dataStore.stat)
+        });
     }
 
+    loadFavouriteAssets(userId:string){
+        const url=`${FavouriteAssetApi.getAssets.url()}?filter[where][userId]=${userId}&filter[include]=asset`;
+        return this.http.get(`${url}`).map((assets:any[])=>{
+            this.dataStore.assets.favouriteAssets=assets;
+            this.dataStore.stat.favouriteAssetCount=assets.length;
+            this._assets.next(this.dataStore.assets);
+            this._stat.next(this.dataStore.stat);
+        }).subscribe(()=>{
 
-    getPooledAssetCount(){
-        const url=`${AssetApi.getAssets.url()}/count?[where][isPutOnBlockchain]=true`;
+        },(err)=>{
 
-        return this.http.get(`${url}`)
-            .map((data:any)=>data.count)
-            .do((count)=>{
-            console.log('pooled asset count is ',count)
-                this.dataStore.stat.pooledAssetCount=count;
-            })
-            .catch((res) => {
-                return this.errorHandler.handle(res);
-            });
+        })
     }
+
 
 
     getAssetsByCategoryId(categoryId:string,isPutOnBlockchain:boolean=false) {
@@ -126,30 +157,14 @@ export class AssetsService {
             });
     }
 
-    loadFavouriteAssets(userId:string){
-        const url=`${FavouriteAssetApi.getAssets.url()}?filter[where][userId]=${userId}&filter[include]=asset`;
-        return this.http.get(`${url}`).map((assets:any[])=>{
-            console.log('fav assets are')
-            console.log(assets)
-            if(!Array.isArray(assets)){
-                assets=[];
-            }
-            this.dataStore.favouriteAssets=assets;
-            this._favouriteAssets.next(this.dataStore.favouriteAssets);
-        }).publishLast().refCount().catch((err)=>{
-            return this.errorHandler.handle(err);
-        })
-    }
     addAssetToFavourite(assetId:any,userId:string){
         const url=`${FavouriteAssetApi.addToFavourite.url()}`;
 
         const data={assetId,userId};
         return this.http.post(`${url}`,data)
             .do((asset:any)=>{
-                console.log('fav assets are')
-                console.log(asset)
-                this.dataStore.favouriteAssets.push(asset);
-                this._favouriteAssets.next(this.dataStore.favouriteAssets);
+                this.dataStore.assets.favouriteAssets.push(asset);
+                this._assets.next(this.dataStore.assets);
             })
             .catch((res) => {
                 return this.errorHandler.handle(res);
@@ -160,14 +175,14 @@ export class AssetsService {
         const url=`${FavouriteAssetApi.removeFromFavourite.url()}/${id}`;
         return this.http.delete(`${url}`).do(()=>{
             let i=-1;
-            this.dataStore.favouriteAssets.forEach((asset,index)=>{
+            this.dataStore.assets.favouriteAssets.forEach((asset,index)=>{
                 if(asset.id===id){
                     i=index;
                 }
             })
             if(i>-1){
-                this.dataStore.favouriteAssets.splice(i,1);
-                this._favouriteAssets.next(this.dataStore.favouriteAssets);
+                this.dataStore.assets.favouriteAssets.splice(i,1);
+                this._assets.next(this.dataStore.assets);
             }
         })
             .catch((res) => {
