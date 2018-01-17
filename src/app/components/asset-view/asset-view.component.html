@@ -9,7 +9,9 @@
         <div class="col-xs-12" >
             <ul class="nav nav-pills nav-pills-info" style="background-color:#00bcd41c;padding:8px;">
                 <li class="active"><a href="#asset" data-toggle="tab">Asset Details</a></li>
-                <li><a href="#asset_documents" data-toggle="tab">Asset Evidences</a></li>
+                <li><a href="#asset_evidences" data-toggle="tab">Asset Evidences</a></li>
+                <li><a href="#asset_documents" data-toggle="tab">Asset Documents</a></li>
+
                 <li><a href="#farmer" data-toggle="tab">Farmer Details</a></li>
                 <li><a href="#farmer_documents" data-toggle="tab">Farmer Documents</a></li>
 
@@ -141,7 +143,7 @@
 
                   </div>
 
-                  <div class="tab-pane" id="asset_documents">
+                  <div class="tab-pane" id="asset_evidences">
                       <div class="row" style="text-align: center">
 
                           <div class="col-xs-12">
@@ -189,6 +191,56 @@
                       </div>
 
                   </div>
+
+                  <div class="tab-pane" id="asset_documents">
+                      <div class="row" style="text-align: center">
+
+                          <div class="col-xs-12">
+
+
+
+                              <div class="row" *ngIf="!asset.documents || (asset.documents && !asset.documents.length)">
+                                  <div class="col-xs-12 text-center">
+                                      <h5 class="text-gray">
+                                          No Documents uploaded
+                                      </h5>
+                                  </div>
+                              </div>
+
+                              <div class="row" *ngIf="asset.documents && asset.documents.length">
+                                  <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of asset.documents">
+                                      <a [href]="evidence.url" target="_blank" download>
+                                          <img [src]="serverUrl+evidence.url" class="evidencesImage">
+
+                                      </a>
+                                      <div>{{evidence?.date|moment}}</div>
+                                      <div style="text-wrap: normal;word-wrap: break-word">{{evidence?.hash}}</div>
+                                      <div>{{evidence?.lat}},{{evidence?.long}}</div>
+
+                                      <div>
+                                          <button  class="btn btn-simple" *ngIf="evidence && evidence.status==='rejected'">Rejected</button>
+
+                                          <button class="btn btn-simple" *ngIf="evidence && evidence.status==='approved'">Approved</button>
+
+                                          <button class="btn btn-primary  btn-simple" *ngIf="evidence && evidence.status==='pending'">Pending</button>
+
+                                      </div>
+
+
+
+                                  </div>
+                              </div>
+
+
+
+
+                          </div>
+
+
+                      </div>
+
+                  </div>
+
 
                   <div class="tab-pane" id="farmer">
 

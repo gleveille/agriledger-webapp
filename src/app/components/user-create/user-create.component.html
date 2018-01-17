@@ -268,7 +268,7 @@
               <button
                       type="submit"
                       [disabled]="createRequestStatus==='pending'"
-                      class="btn btn-danger pull-right">CREATE
+                      class="btn btn-danger pull-right">{{uploader.queue.length?'CREATE AND UPLOAD':'CREATE'}}
               </button>
 
 

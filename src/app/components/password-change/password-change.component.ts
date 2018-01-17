@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ToastService} from "../../services/toast.service";
 import {UserService} from "../../services/user.service";
 import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-password-change',
@@ -9,6 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./password-change.component.css']
 })
 export class PasswordChangeComponent implements OnInit {
+    @ViewChild('f') loginForm :NgForm;
 
   credential={oldPassword:null,newPassword:null,rePassword:null};
   passwordChangeRequestStatus='resolved';
@@ -17,28 +19,10 @@ export class PasswordChangeComponent implements OnInit {
 
   ngOnInit() {
   }
-    changePassword(){
-        const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
-
-      if(!this.credential.oldPassword){
-          this.toastService.error('Password','Old password is required');
-          return;
-
-      }
-      else if(!this.credential.newPassword){
-          this.toastService.error('Password','New password is required');
-          return;
-
-      }
-      else if(!this.credential.rePassword){
-          this.toastService.error('Password','Please type your new password again');
-          return;
-
-      }
-      else if(!pattern.test(this.credential.newPassword)){
-          this.toastService.error('Password',this.passwordFormatText);
-          return;
-      }
+    changePassword(f:NgForm,isValid){
+        if(!isValid){
+            return;
+        }
     if(this.credential.newPassword!==this.credential.rePassword){
       this.toastService.error('Password','Password does not match');
       return;
@@ -48,9 +32,10 @@ export class PasswordChangeComponent implements OnInit {
     this.userService.changePassword(this.credential.oldPassword,this.credential.newPassword)
         .subscribe((data:any)=>{
             this.passwordChangeRequestStatus='resolved';
-            this.credential.oldPassword=null;
-            this.credential.newPassword=null;
-            this.credential.rePassword=null;
+            this.loginForm.resetForm();
+            this.credential.oldPassword='';
+            this.credential.newPassword='';
+            this.credential.rePassword='';
 
             this.toastService.success('Password','Changed Sucessfully');
 
