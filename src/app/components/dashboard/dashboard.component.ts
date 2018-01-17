@@ -43,6 +43,13 @@ export class DashboardSponserComponent implements OnInit {
             if(!user.id){
                 this.router.navigate(['/login']);
             }
+            else {
+                this.assetService.loadFavouriteAssets(user.id).subscribe(()=>{
+
+                },(err)=>{
+
+                });
+            }
         });
 
         $.material.init();

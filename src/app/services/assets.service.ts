@@ -151,6 +151,20 @@ export class AssetsService {
 
 
     getAssetByid(assetId:string){
+        //check if it is already in data store
+        if(this.dataStore.metadata.isAllAssetLoaded){
+            let index=-1;
+            this.dataStore.assets.allAssets.forEach((asset,i)=>{
+                if(asset.id===assetId){
+                    index=i;
+                    console.log('return from cache')
+                }
+            });
+
+            if(index>-1){
+                return Observable.of(this.dataStore.assets.allAssets[index]);
+            }
+        }
         const url=`${AssetApi.getAssets.url()}/${assetId}?filter[include][user]=profiles`;
 
         return this.http.get(`${url}`)
