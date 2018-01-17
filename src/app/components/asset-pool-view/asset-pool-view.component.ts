@@ -103,32 +103,6 @@ export class AssetPoolViewComponent implements OnInit {
                 return 'black';
         }
     }
-    issueToken(){
-        if(!this.token.amount){
-            this.toastService.error('Issue','Invalid amount');
-            return;
-        }
-
-        if(!this.token.exchangeRate){
-            this.toastService.error('Issue','Invalid exchangeRate');
-            return;
-
-        }
-
-        this.issueTokenHttpStatus='pending';
-        this.assetPoolService.issueToken(this.pool.id,this.token.amount,this.token.exchangeRate,this.pool.precision,this.pool.blockchain.currency)
-            .subscribe((data:any)=>{
-                console.log(data)
-                this.issueTokenHttpStatus='resolved';
-                this.token.amount=null;
-                this.token.exchangeRate=null;
-                this.toastService.success('Issue','Issued successfully');
-            },(err)=>{
-                this.issueTokenHttpStatus='rejected';
-                this.toastService.error('Issue',err.message);
-                console.log(err);
-            });
-    }
 
 
     getColorForStatus(status:string){
