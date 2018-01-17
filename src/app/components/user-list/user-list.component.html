@@ -52,10 +52,9 @@
               <th class="boldfont">Name</th>
 
               <th class="boldfont">Phone</th>
-
-              <th class="boldfont">Wallet Address</th>
               <th class="boldfont">Role</th>
               <th class="boldfont">Joined on</th>
+              <th class="boldfont">Last Login</th>
 
               <th class="boldfont">Onboarding Status</th>
 
@@ -75,14 +74,7 @@
               </td>
               <td >
 
-                {{user?.phone}}
-
-
-              </td>
-
-              <td data-toggle="tooltip" data-placement="left" title="{{user?.walletAddress}}">
-
-                {{user.walletAddress ?(user.walletAddress|slice:0:10 )+'...' :'' }}
+                {{user.phone||'N.A'}}
 
 
               </td>
@@ -90,8 +82,16 @@
                 {{user?.role}}
               </td>
               <td *ngIf="user.createdAt" data-toggle="tooltip" data-placement="left" title="{{user?.createdAt|date:'medium'}}" >
-                {{user?.createdAt|moment}}</td>
+                <span *ngIf="user.createdAt">{{user?.createdAt|moment}}</span>
+                <span *ngIf="!user.createdAt">N.A</span>
+
+              </td>
+              <td  data-toggle="tooltip" data-placement="left" title="{{user?.createdAt|date:'medium'}}" >
+              <span *ngIf="user.lastLoggedIn">{{user?.lastLoggedIn|moment}}</span>
+              <span *ngIf="!user.lastLoggedIn">N.A</span>
+            </td>
               <td>
+
                 {{user|onboardingStatus}}
               </td>
 

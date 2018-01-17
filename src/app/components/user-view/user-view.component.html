@@ -31,10 +31,10 @@
                       <div class="row" style="text-align: left">
                         <hr>
 
-                        <div class="col-xs-6 text-left">
+                        <div class="col-xs-4 text-left">
                           <b>Name</b>
                         </div>
-                        <div class="col-xs-6 text-right">
+                        <div class="col-xs-8 text-right">
                           <span class="text-gray">{{user?.profiles?.name}}</span>
                         </div>
                       </div>
@@ -43,12 +43,12 @@
                       <div class="row" style="text-align: left">
                         <hr>
 
-                        <div class="col-xs-6 text-left">
+                        <div class="col-xs-4 text-left">
                           <b>Email</b>
 
 
                         </div>
-                        <div class="col-xs-6 text-right">
+                        <div class="col-xs-8 text-right">
                       <span class="text-gray">
                       {{user?.email}}
                       </span>
@@ -59,12 +59,12 @@
                       <div class="row" style="text-align: left">
                         <hr>
 
-                        <div class="col-xs-6 text-left">
+                        <div class="col-xs-4 text-left">
                           <b>Phone</b>
 
 
                         </div>
-                        <div class="col-xs-6 text-right" >
+                        <div class="col-xs-8 text-right" >
                       <span class="text-gray">
                       {{user?.profiles?.phone}}
                       </span>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="col-xs-6 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.address.line1}}
+                      {{user?.profiles?.address?.line1}}
 
                     </span>
 
@@ -91,14 +91,14 @@
                       <div class="row" style="text-align: left">
                         <hr>
 
-                        <div class="col-xs-6 text-left">
+                        <div class="col-xs-4 text-left">
                           <b>Address Line2</b>
 
 
                         </div>
-                        <div class="col-xs-6 text-right">
+                        <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.address.line2}}
+                      {{user?.profiles?.address?.line2}}
 
                     </span>
 
@@ -108,12 +108,12 @@
                       <div class="row" style="text-align: left">
                         <hr>
 
-                        <div class="col-xs-6 text-left">
+                        <div class="col-xs-4 text-left">
                           <b>Member since</b>
 
 
                         </div>
-                        <div class="col-xs-6 text-right">
+                        <div class="col-xs-8 text-right">
                     <span class="text-gray">
                       {{user?.createdAt|moment:true}}
 
@@ -125,52 +125,53 @@
                       <div class="row" style="text-align: left">
                         <hr>
 
-                        <div class="col-xs-6 text-left">
-                          <b>Registered on Blockchain?</b>
+                        <div class="col-xs-4 text-left">
+                          <b>Last Login</b>
 
 
                         </div>
-                        <div class="col-xs-6 text-right">
+                        <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.isRegisteredOnBlockchain?'Yes':'No'}}
+                      {{user?.lastLoggedIn|moment}}
 
                     </span>
 
                         </div>
                       </div>
 
-                      <div class="row" style="text-align: left">
-                        <hr>
 
-                        <div class="col-xs-6 text-left">
-                          <b>Issuer on Blockchain</b>
-
-
-                        </div>
-                        <div class="col-xs-6 text-right">
-                    <span class="text-gray">
-                      {{user?.isIssuerOnBlockchain?'Yes':'No'}}
-
-                    </span>
-
-                        </div>
-                      </div>
 
                     </div>
                     <div class="col-lg-6" >
 
+                      <div class="row" style="text-align: left">
+                        <hr>
+
+
+                        <div class="col-xs-4 text-left">
+                          <b>Wallet address</b>
+
+
+                        </div>
+                        <div class="col-xs-8 text-right" >
+                      <span class="text-gray">
+                      {{user.walletAddress || 'N.A'}}
+                    </span>
+                        </div>
+
+                      </div>
 
 
                       <div class="row" style="text-align: left">
                         <hr>
 
 
-                        <div class="col-xs-6 text-left">
+                        <div class="col-xs-4 text-left">
                           <b>Registration no.</b>
 
 
                         </div>
-                        <div class="col-xs-6 text-right" >
+                        <div class="col-xs-8 text-right" >
                       <span class="text-gray">
                       {{user?.profiles?.registration}}
                     </span>
@@ -181,12 +182,12 @@
                       <div class="row" style="text-align: left">
                         <hr>
 
-                        <div class="col-xs-6 text-left">
+                        <div class="col-xs-4 text-left">
                           <b>Company</b>
 
 
                         </div>
-                        <div class="col-xs-6 text-right" >
+                        <div class="col-xs-8 text-right" >
                       <span class="text-gray">
                       {{user?.profiles?.company}}
                       </span>
@@ -199,14 +200,14 @@
                       <div class="row" style="text-align: left">
                         <hr>
 
-                        <div class="col-xs-6 text-left">
+                        <div class="col-xs-4 text-left">
                           <b>City</b>
 
 
                         </div>
-                        <div class="col-xs-6 text-right">
+                        <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.address.city}}
+                      {{user?.profiles?.address?.city}}
 
                     </span>
 
@@ -216,14 +217,14 @@
                       <div class="row" style="text-align: left">
                         <hr>
 
-                        <div class="col-xs-6 text-left">
+                        <div class="col-xs-4 text-left">
                           <b>Province</b>
 
 
                         </div>
-                        <div class="col-xs-6 text-right">
+                        <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.address.province}}
+                      {{user?.profiles?.address?.province}}
 
                     </span>
 
@@ -232,12 +233,12 @@
                       <div class="row" style="text-align: left">
                         <hr>
 
-                        <div class="col-xs-6 text-left">
+                        <div class="col-xs-4 text-left">
                           <b>Wechat ID</b>
 
 
                         </div>
-                        <div class="col-xs-6 text-right">
+                        <div class="col-xs-8 text-right">
                     <span class="text-gray">
                       {{user?.profiles?.weChat}}
 
@@ -246,6 +247,39 @@
                         </div>
                       </div>
 
+                      <div class="row" style="text-align: left">
+                        <hr>
+
+                        <div class="col-xs-4 text-left">
+                          <b>Registered on Blockchain?</b>
+
+
+                        </div>
+                        <div class="col-xs-8 text-right">
+                    <span class="text-gray">
+                      {{user?.isRegisteredOnBlockchain?'Yes':'No'}}
+
+                    </span>
+
+                        </div>
+                      </div>
+
+                      <div class="row" style="text-align: left">
+                        <hr>
+
+                        <div class="col-xs-4 text-left">
+                          <b>Issuer on Blockchain</b>
+
+
+                        </div>
+                        <div class="col-xs-8 text-right">
+                    <span class="text-gray">
+                      {{user?.isIssuerOnBlockchain?'Yes':'No'}}
+
+                    </span>
+
+                        </div>
+                      </div>
 
                     </div>
                   </div>

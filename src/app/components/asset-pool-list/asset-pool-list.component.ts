@@ -75,7 +75,7 @@ export class AssetPoolListComponent implements OnInit {
 
         }
         this.issueTokenHttpStatus='pending';
-        this.assetPoolService.issueToken(this.selectedPool.id,this.token.amount,this.token.exchangeRate,this.selectedPool.precision,this.selectedPool.blockchain.currency)
+        this.assetPoolService.issueToken(this.user.id,this.selectedPool.id,this.token.amount,this.token.exchangeRate,this.selectedPool.precision,this.selectedPool.blockchain.currency)
             .subscribe((data:any)=>{
             console.log(data)
             this.issueTokenHttpStatus='resolved';

@@ -21,6 +21,7 @@ export interface Iuser {
     },
     id?:string,
     username?:string,
+    lastLoggedIn?:string,
     email?:string,
     role?:string,
     issuerName?:string,
