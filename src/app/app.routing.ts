@@ -35,9 +35,10 @@ import {UserCreateComponent} from "./components/user-create/user-create.componen
 import {UserListComponent} from "./components/user-list/user-list.component";
 import {UserUpdateComponent} from "./components/user-update/user-update.component";
 import {PasswordForgetComponent} from "./components/password-forget/password-forget.component";
-import {PasswordNewComponent} from "./components/password-new/password-new.component";
 import {UserViewComponent} from "./components/user-view/user-view.component";
 import {FavouriteAssetComponent} from "./components/favourite-asset/favourite-asset.component";
+import {PasswordSetFarmerComponent} from "./components/password-set-farmer/password-set-farmer.component";
+import {PasswordSetInternalComponent} from "./components/password-set-internal/password-set-internal.component";
 
 const routes:Routes = [
     {
@@ -51,8 +52,12 @@ const routes:Routes = [
         canActivate: [AlreadyAuthenticatedGuard],
     },
     {
-        path: 'password-new',
-        component: PasswordNewComponent
+        path: 'set-farmer-password',
+        component: PasswordSetFarmerComponent
+    },
+    {
+        path: 'set-internal-password',
+        component: PasswordSetInternalComponent
     },
     {
         path: 'login',

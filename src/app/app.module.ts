@@ -61,11 +61,12 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { ImagePopupComponent } from './image-popup/image-popup.component';
 import { AccordionModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap';
-import { PasswordNewComponent } from './components/password-new/password-new.component';
 import { PasswordForgetComponent } from './components/password-forget/password-forget.component';
 import {ImagePreviewDirective} from './img-preview.directive';
 import { UserViewComponent } from './components/user-view/user-view.component';
 import { FavouriteAssetComponent } from './components/favourite-asset/favourite-asset.component';
+import { PasswordSetFarmerComponent } from './components/password-set-farmer/password-set-farmer.component';
+import { PasswordSetInternalComponent } from './components/password-set-internal/password-set-internal.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/translations/', '.json');
@@ -99,11 +100,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserUpdateComponent,
     UserListComponent,
     ImagePopupComponent,
-    PasswordNewComponent,
     PasswordForgetComponent,
     ImagePreviewDirective,
     UserViewComponent,
-    FavouriteAssetComponent
+    FavouriteAssetComponent,
+    PasswordSetFarmerComponent,
+    PasswordSetInternalComponent
 
   ],
   imports: [
