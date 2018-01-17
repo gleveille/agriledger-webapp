@@ -144,100 +144,16 @@
                   </div>
 
                   <div class="tab-pane" id="asset_evidences">
-                      <div class="row" style="text-align: center">
+                      <app-document-list [documents]="asset?.evidences" [documentType]="'asset_evidences'">
 
-                          <div class="col-xs-12">
-
-
-
-                              <div class="row" *ngIf="!asset.evidences || (asset.evidences && !asset.evidences.length)">
-                                  <div class="col-xs-12 text-center">
-                                      <h5 class="text-gray">
-                                          No evidences uploaded
-                                      </h5>
-                                  </div>
-                              </div>
-
-                              <div class="row" *ngIf="asset.evidences && asset.evidences.length">
-                                  <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of asset.evidences">
-                                      <a [href]="evidence.url" target="_blank" download>
-                                          <img [src]="serverUrl+evidence.url" class="evidencesImage">
-
-                                      </a>
-                                      <div>{{evidence?.date|moment}}</div>
-                                      <div style="text-wrap: normal;word-wrap: break-word">{{evidence?.hash}}</div>
-                                      <div>{{evidence?.lat}},{{evidence?.long}}</div>
-
-                                      <div>
-                                          <button  class="btn btn-simple" *ngIf="evidence && evidence.status==='rejected'">Rejected</button>
-
-                                          <button class="btn btn-simple" *ngIf="evidence && evidence.status==='approved'">Approved</button>
-
-                                          <button class="btn btn-primary  btn-simple" *ngIf="evidence && evidence.status==='pending'">Pending</button>
-
-                                      </div>
-
-
-
-                                  </div>
-                              </div>
-
-
-
-
-                          </div>
-
-
-                      </div>
+                      </app-document-list>
 
                   </div>
 
                   <div class="tab-pane" id="asset_documents">
-                      <div class="row" style="text-align: center">
+                      <app-document-list [documents]="asset?.documents" [documentType]="'asset_documents'">
 
-                          <div class="col-xs-12">
-
-
-
-                              <div class="row" *ngIf="!asset.documents || (asset.documents && !asset.documents.length)">
-                                  <div class="col-xs-12 text-center">
-                                      <h5 class="text-gray">
-                                          No Documents uploaded
-                                      </h5>
-                                  </div>
-                              </div>
-
-                              <div class="row" *ngIf="asset.documents && asset.documents.length">
-                                  <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of asset.documents">
-                                      <a [href]="evidence.url" target="_blank" download>
-                                          <img [src]="serverUrl+evidence.url" class="evidencesImage">
-
-                                      </a>
-                                      <div>{{evidence?.date|moment}}</div>
-                                      <div style="text-wrap: normal;word-wrap: break-word">{{evidence?.hash}}</div>
-                                      <div>{{evidence?.lat}},{{evidence?.long}}</div>
-
-                                      <div>
-                                          <button  class="btn btn-simple" *ngIf="evidence && evidence.status==='rejected'">Rejected</button>
-
-                                          <button class="btn btn-simple" *ngIf="evidence && evidence.status==='approved'">Approved</button>
-
-                                          <button class="btn btn-primary  btn-simple" *ngIf="evidence && evidence.status==='pending'">Pending</button>
-
-                                      </div>
-
-
-
-                                  </div>
-                              </div>
-
-
-
-
-                          </div>
-
-
-                      </div>
+                      </app-document-list>
 
                   </div>
 
@@ -430,49 +346,9 @@
 
                   <div class="tab-pane" id="farmer_documents">
 
-                      <div class="row" style="text-align: center">
+                    <app-document-list [documents]="asset.user?.profiles?.documents" [documentType]="'farmer_documents'">
 
-                          <div class="col-xs-12">
-                              <div class="row" *ngIf="!asset.user?.profiles?.documents?.length">
-                                  <div class="col-xs-12 text-center">
-                                      <h5 class="text-gray">
-                                          No Documents uploaded
-                                      </h5>
-                                  </div>
-                              </div>
-
-                              <div class="row" *ngIf="asset.user?.profiles?.documents?.length">
-                                  <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of asset.user?.profiles?.documents">
-                                      <a [href]="evidence.url" target="_blank" download>
-                                          <img [src]="serverUrl+evidence.url" class="evidencesImage">
-
-                                      </a>
-                                      <div>{{evidence?.date|moment}}</div>
-                                      <div style="text-wrap: normal;word-wrap: break-word">{{evidence?.hash}}</div>
-                                      <div>{{evidence?.lat}},{{evidence?.long}}</div>
-
-                                      <div>
-                                          <button  class="btn btn-simple" *ngIf="evidence && evidence.status==='rejected'">Rejected</button>
-
-                                          <button class="btn btn-simple" *ngIf="evidence && evidence.status==='approved'">Approved</button>
-
-                                          <button class="btn btn-primary  btn-simple" *ngIf="evidence && evidence.status==='pending'">Pending</button>
-
-                                      </div>
-
-                                  </div>
-
-                                  <hr>
-
-                              </div>
-
-
-
-
-                          </div>
-
-
-                      </div>
+                    </app-document-list>
 
 
 

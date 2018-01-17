@@ -1,0 +1,46 @@
+<div class="row" style="text-align: center;padding:5px;margin: 5px;">
+
+  <div class="col-xs-12" *ngIf="!_documents.length">
+    <div class="row" >
+      <div class="col-xs-12 text-center">
+        <h5 class="text-gray">
+          No Documents uploaded
+        </h5>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let document of _documents">
+        <a [href]="document.url" target="_blank" download>
+          <img [src]="serverUrl+document.url" class="documentsImage">
+
+        </a>
+        <p style="text-wrap: normal;word-wrap: break-word">
+          {{document?.description||'No description added'}}
+        </p>
+        <div>{{document?.date|moment}}</div>
+        <div style="text-wrap: normal;word-wrap: break-word">{{document?.hash}}</div>
+        <div>{{document?.lat}},{{document?.long}}</div>
+
+        <div>
+          <button  class="btn btn-simple" *ngIf="document && document.status==='rejected'">Rejected</button>
+
+          <button class="btn btn-simple" *ngIf="document && document.status==='approved'">Approved</button>
+
+          <button class="btn btn-primary  btn-simple" *ngIf="document && document.status==='pending'">Pending</button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
+

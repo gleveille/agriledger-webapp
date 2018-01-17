@@ -300,63 +300,9 @@
               </div>
 
               <div class="tab-pane" id="user_documents">
-                <div class="row" style="text-align: center">
+                <app-document-list [documents]="user?.profiles?.documents" [documentType]="'user_documents'">
 
-                  <div class="col-xs-12">
-                    <hr>
-
-                    <h3>Document Details</h3>
-
-
-                    <div class="row" *ngIf="!user?.profiles?.documents?.length">
-                      <div class="col-xs-12 text-center">
-                        <h5 class="text-gray">
-                          No Documents uploaded
-                        </h5>
-
-                        <hr>
-
-                      </div>
-                    </div>
-
-                    <div class="row" *ngIf="user?.profiles?.documents?.length">
-                      <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of user?.profiles?.documents">
-
-
-                        <a [href]="serverUrl+evidence.url" target="_blank" download>
-                          <img [src]="serverUrl+evidence.url" class="evidencesImage">
-
-                        </a>
-                        <p style="text-wrap: normal;word-wrap: break-word">
-                          {{evidence?.description||'No description added'}}
-                        </p>
-
-                        <div>{{evidence?.date|moment}}</div>
-                        <div style="text-wrap: normal;word-wrap: break-word">{{evidence?.hash}}</div>
-                        <div>{{evidence?.lat}},{{evidence?.long}}</div>
-
-                        <div>
-                          <button  class="btn btn-simple" *ngIf="evidence && evidence.status==='rejected'">Rejected</button>
-
-                          <button class="btn btn-simple" *ngIf="evidence && evidence.status==='approved'">Approved</button>
-
-                          <button class="btn btn-primary  btn-simple" *ngIf="evidence && evidence.status==='pending'">Pending</button>
-
-                        </div>
-
-                      </div>
-
-                      <hr>
-
-                    </div>
-
-
-
-
-                  </div>
-
-
-                </div>
+                </app-document-list>
               </div>
 
               <div class="tab-pane" id="assets">

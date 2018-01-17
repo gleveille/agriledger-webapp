@@ -67,6 +67,7 @@ import { UserViewComponent } from './components/user-view/user-view.component';
 import { FavouriteAssetComponent } from './components/favourite-asset/favourite-asset.component';
 import { PasswordSetFarmerComponent } from './components/password-set-farmer/password-set-farmer.component';
 import { PasswordSetInternalComponent } from './components/password-set-internal/password-set-internal.component';
+import { DocumentListComponent } from './components/document-list/document-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/translations/', '.json');
@@ -105,7 +106,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserViewComponent,
     FavouriteAssetComponent,
     PasswordSetFarmerComponent,
-    PasswordSetInternalComponent
+    PasswordSetInternalComponent,
+    DocumentListComponent
 
   ],
   imports: [
