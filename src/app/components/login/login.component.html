@@ -10,12 +10,21 @@
                             <p class="category">{{'SIGNIN_DESCRIPTION'|translate}}</p>
                         </div>
                         <div class="card-content">
-                            <form name="loginForm">
+                            <form #f="ngForm" (ngSubmit)="login(f, f.valid)" novalidate>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label" style="font-size: 14px;">{{'Email'|translate}}</label>
-                                            <input style="text-transform: lowercase" type="email" [(ngModel)]="user.email" name="email" class="form-control" >
+                                            <input #email="ngModel"
+                                                   required
+                                                   style="text-transform: lowercase"
+                                                   type="email"
+                                                   email
+                                                   [(ngModel)]="user.email"
+                                                   name="email" class="form-control" >
+                                            <small [hidden]="email.valid || (email.pristine && !f.submitted)">
+                                                Email is required
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
@@ -24,15 +33,29 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label" style="font-size: 14px;">{{'Password'|translate}}</label>
-                                            <input style="text-transform: lowercase" type="password" [(ngModel)]="user.password" name="password" class="form-control" >
+                                            <input #password="ngModel"
+                                                   required
+                                                    style="text-transform: lowercase"
+                                                   type="password"
+                                                    [(ngModel)]="user.password"
+                                                    name="password"
+                                                    class="form-control" >
+                                            <small [hidden]="password.valid || (password.pristine && !f.submitted)">
+                                                Password is required
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
 
+                                <label class="checkbox-inline">
+                                    <input type="checkbox"
+                                           [(ngModel)]="isTermChecked"
+                                           name="isTermChecked">
+                                    <a href="javascript:void(0)">I agree to Term and condition</a>
+                                </label>
                                 <button
                                         type="submit"
-                                        [disabled]="!user.email || !user.password || loginRequestStatus==='pending'"
-                                        (click)="login()"
+                                        [disabled]="loginRequestStatus==='pending'"
                                         class="btn btn-danger pull-right">
                                     {{'SIGNIN'|translate}}
                                 </button>

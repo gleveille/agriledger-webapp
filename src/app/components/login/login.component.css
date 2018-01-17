@@ -1,10 +1,4 @@
-.login-wrapper{
-    height: 100vh;
 
+small{
+    color: red;
 }
-
-.navbar.navbar-primary {
-    background-color: #6ab187;
-    color: #ffffff;
-}
-

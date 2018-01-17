@@ -322,12 +322,15 @@
                     <div class="row" *ngIf="user?.profiles?.documents?.length">
                       <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of user?.profiles?.documents">
 
-                        <div>{{evidence?.description||'No description added'}}</div>
 
                         <a [href]="serverUrl+evidence.url" target="_blank" download>
                           <img [src]="serverUrl+evidence.url" class="evidencesImage">
 
                         </a>
+                        <p style="text-wrap: normal;word-wrap: break-word">
+                          {{evidence?.description||'No description added'}}
+                        </p>
+
                         <div>{{evidence?.date|moment}}</div>
                         <div style="text-wrap: normal;word-wrap: break-word">{{evidence?.hash}}</div>
                         <div>{{evidence?.lat}},{{evidence?.long}}</div>

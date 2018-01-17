@@ -3,6 +3,7 @@ import {Iuser} from "../../interface/user.interface";
 import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 declare var WxLogin:any;
 @Component({
@@ -13,13 +14,22 @@ declare var WxLogin:any;
 export class LoginComponent implements OnInit {
 
   user={} as Iuser;
+  isTermChecked:boolean=false;
   loginRequestStatus='resolved';
   constructor(private userService:UserService,private toastService:ToastService,private router:Router) { }
 
   ngOnInit() {
   }
 
-    login(){
+    login(f:NgForm,isValid){
+        if(!isValid){
+            return;
+        }
+
+        if(!this.isTermChecked){
+           return this.toastService.error('Term','Please check the term and condition before proceed');
+
+        }
       this.loginRequestStatus='pending';
     this.userService.login(this.user).subscribe((data:any)=>{
         this.loginRequestStatus='resolved';
