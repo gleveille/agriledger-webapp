@@ -3756,6 +3756,7 @@ var UserCreateComponent = (function () {
                 _this.resetForm();
             }
         }, function (err) {
+            _this.createRequestStatus = 'rejected';
             if (err.showError) {
                 _this.toastService.error('User', err.message || 'User could not be created.Try again');
             }
