@@ -14,10 +14,12 @@
                 <div class="col-md-4">
                 <div class="form-group">
                   <label class="control-label required" style="font-size: 14px;">Role</label>
-                  <select (ngModelChange)="onChange($event)"  #role="ngModel" class="form-control "  name="role" [(ngModel)]="user.role">
+                  <select (ngModelChange)="onChange($event)"  #role="ngModel" class="form-control "
+                          required
+                          name="role" [(ngModel)]="user.role">
 
                     <option *ngFor="let role of roles" [value]="role">
-                      {{role}}
+                      {{role.length?role:'Select Role'}}
                     </option>
                   </select>
                   <small [hidden]="role.valid || (role.pristine && !f.submitted)">
@@ -37,7 +39,6 @@
                   </div>
                 </div>
 
-
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Email</label>
@@ -50,11 +51,9 @@
                   </div>
                 </div>
 
-
               </div>
 
               <div class="row">
-
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label" style="font-size: 14px;">Password</label>
@@ -88,8 +87,8 @@
 
                   </div>
                 </div>
-              </div>
 
+              </div>
 
               <div class="row">
                 <div class="col-md-4">
@@ -130,6 +129,78 @@
 
                   </div>
                 </div>
+              </div>
+
+              <div class="row" *ngIf="user.role==='farmer'">
+                <h4 class="text-center">Farm Details (optional) </h4>
+                <hr>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label" style="font-size: 14px;">Farm Name</label>
+                    <input  type="text"  [(ngModel)]="user.profiles.farmDetails.farmName"
+                            placeholder="Farm Name"
+                            name="farmName" class="form-control" >
+
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label" style="font-size: 14px;">Product Name</label>
+                    <input  type="text" required [(ngModel)]="user.profiles.farmDetails.products"
+                            placeholder="Product name"
+                            name="product" class="form-control" >
+
+
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label" style="font-size: 14px;">Grade Name</label>
+                    <input  type="text" required [(ngModel)]="user.profiles.farmDetails.grade"
+                            placeholder="Grade Name"
+                            name="grade" class="form-control" >
+
+
+                  </div>
+                </div>
+
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label" style="font-size: 14px;">Crop Name</label>
+                    <input  type="text" required [(ngModel)]="user.profiles.farmDetails.crops"
+                            placeholder="Crop Name"
+                            name="crop" class="form-control" >
+
+
+                  </div>
+                </div>
+
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label" style="font-size: 14px;">Size</label>
+                    <input  type="text" required [(ngModel)]="user.profiles.farmDetails.size"
+                            placeholder="Size"
+                            name="size" class="form-control" >
+
+
+                  </div>
+                </div>
+
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label" style="font-size: 14px;">Region Name</label>
+                    <input  type="text" required [(ngModel)]="user.profiles.farmDetails.region"
+                            placeholder="Region Name"
+                            name="region" class="form-control" >
+
+                  </div>
+                </div>
+
               </div>
 
 
@@ -194,11 +265,14 @@
                 </div>
               </div>
 
-
               <button
                       type="submit"
                       [disabled]="createRequestStatus==='pending'"
-                      class="btn btn-danger pull-right">CREATE</button>
+                      class="btn btn-danger pull-right">CREATE
+              </button>
+
+
+
             </form>
           </div>
         </div>

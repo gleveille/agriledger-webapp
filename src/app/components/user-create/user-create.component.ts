@@ -16,10 +16,29 @@ export class UserCreateComponent implements OnInit {
     serverUrl=ServerUrl;
     @ViewChild('f') loginForm :NgForm;
     uploader= new FileUploader({url: ContainerApi.profileDocumentsUpload.url()});
-    user={password:'',role:'farmer',profiles:{name:'',phone:'',address:{line1:'',line2:'',city:'',province:''}}} as Iuser;
-    passwordRetyped:string='';
+    user:Iuser={
+        password:'',
+        role:'',
+        profiles:{
+            name:'',
+            phone:'',
+            address:{
+                line1:'',
+                line2:'',
+                city:'',
+                province:''
+            },farmDetails:{
+                farmName:'',
+                products:'',
+                grade:'',
+                crops:'',
+                size:'',
+                region:''
+            }
+        }};
     totalSelectedFiles:number=0;
-    roles=['ops','sponsor','farmer'];
+    roles=['','ops','sponsor','farmer'];
+
     createRequestStatus='resolved';
 
     constructor(private userService:UserService,private toastService:ToastService,private router:Router) { }
@@ -131,14 +150,10 @@ export class UserCreateComponent implements OnInit {
             if(err.showError){
                 this.toastService.error('User',err.message||'User could not be created.Try again');
             }
-            this.resetForm();
-
-
         });
     }
 
     onChange(role){
-        console.log(role)
         if(role==='farmer'){
             this.createPassword(true)
         }
@@ -152,15 +167,20 @@ export class UserCreateComponent implements OnInit {
         this.uploader.queue=[];
         this.loginForm.resetForm();
         this.totalSelectedFiles=0;
-        this.user.role='farmer';
+        this.user.role='';
         this.user.email='';
         this.user.password='';
         this.user.profiles.name='';
         this.user.profiles.phone='';
-        this.user.profiles.address.line1='';
-        this.user.profiles.address.line2='';
-        this.user.profiles.address.city='';
-        this.user.profiles.address.province='';
+        for (const key of Object.keys(this.user)) {
+            console.log(key);
+        }
+        for (const key of Object.keys(this.user.profiles.address)) {
+            this.user.profiles.address[key]='';
+        }
+        for (const key of Object.keys(this.user.profiles.farmDetails)) {
+            this.user.profiles.farmDetails[key]='';
+        }
         this.createPassword();
 
     }
