@@ -226,12 +226,12 @@
 
                           <th class="text-left">Progress</th>
                           <th class="text-left">Remove</th>
-                          <th class="text-left">Description</th>
+                          <th class="text-left">Description (mandatory)</th>
 
                         </tr>
                         </thead>
                         <tbody>
-                        <tr *ngFor="let item of uploader.queue">
+                        <tr *ngFor="let item of uploader.queue;let i=index">
                           <td class="text-left">
                             <img class="circularImgForUpload" src="" appImagePreview [image]="item?._file" />
 
@@ -252,6 +252,16 @@
                                     (click)="item.remove()">
                               <span class="glyphicon glyphicon-trash"></span>
                             </button>
+                          </td>
+
+                          <td class="text-left">
+                            <textarea type="text"
+                                      maxlength="100"
+                                      placeholder="say something about this document"
+                                      rows="1"
+                                      cols="25"
+                                      [name]="'picDescription'+i" [(ngModel)]="description[i]">
+                            </textarea>
                           </td>
 
                         </tr>

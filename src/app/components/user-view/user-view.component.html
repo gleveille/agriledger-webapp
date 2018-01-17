@@ -8,7 +8,7 @@
       <div class="col-xs-12">
         <ul class="nav nav-pills nav-pills-info" style="background-color:#00bcd41c;padding:8px;">
           <li class="active"><a href="#profile" data-toggle="tab">User Details</a></li>
-          <li><a href="#messages" data-toggle="tab">User Documents</a></li>
+          <li><a href="#user_documents" data-toggle="tab">User Documents</a></li>
           <li><a href="#assets" data-toggle="tab">User Assets</a></li>
         </ul>
       </div>
@@ -299,7 +299,7 @@
                 </div>
               </div>
 
-              <div class="tab-pane" id="messages">
+              <div class="tab-pane" id="user_documents">
                 <div class="row" style="text-align: center">
 
                   <div class="col-xs-12">
@@ -321,6 +321,9 @@
 
                     <div class="row" *ngIf="user?.profiles?.documents?.length">
                       <div class="col-xs-12 col-md-3 text-center text-gray" *ngFor="let evidence of user?.profiles?.documents">
+
+                        <div>{{evidence?.description||'No description added'}}</div>
+
                         <a [href]="serverUrl+evidence.url" target="_blank" download>
                           <img [src]="serverUrl+evidence.url" class="evidencesImage">
 

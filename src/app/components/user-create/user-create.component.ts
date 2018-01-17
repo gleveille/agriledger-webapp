@@ -16,6 +16,7 @@ export class UserCreateComponent implements OnInit {
     serverUrl=ServerUrl;
     @ViewChild('f') loginForm :NgForm;
     uploader= new FileUploader({url: ContainerApi.profileDocumentsUpload.url()});
+    description= Array(10).fill('');
     user:Iuser={
         password:'',
         role:'',
@@ -64,11 +65,17 @@ export class UserCreateComponent implements OnInit {
   }
 
     private upload(profileId:string){
-        this.uploader.queue.forEach((queue)=>{
-            console.log(queue)
-            queue.headers.push({name:'x-id',value:profileId})
+        console.log(this.description)
+        this.uploader.queue.forEach((queue,index)=>{
+            const header={name:'x-id',value:profileId};
+            queue.headers.push(header)
+
+            if(this.description[index]){
+                queue.headers.push({name:'description',value:this.description[index]})
+            }
         });
         this.totalSelectedFiles=this.uploader.queue.length;
+        console.log(this.uploader.queue)
         this.uploader.uploadAll();
     }
     private createPassword(forFarmer:boolean=true){
@@ -135,7 +142,17 @@ export class UserCreateComponent implements OnInit {
             return;
         }
 
+        let totalFileToUpload=this.uploader.queue.length;
+        let count=0;
+        this.description.forEach((desc)=>{
+            if(desc && desc.length)
+                count++;
+        });
 
+        if(count<totalFileToUpload){
+            this.toastService.error('Upload','Please fill the description for the document');
+            return;
+        }
         this.createRequestStatus='pending';
         this.userService.register(this.user).subscribe((profile:any)=>{
             if(this.uploader.queue.length){
@@ -173,6 +190,7 @@ export class UserCreateComponent implements OnInit {
         this.user.password='';
         this.user.profiles.name='';
         this.user.profiles.phone='';
+        this.description=Array(10).fill('');
         for (const key of Object.keys(this.user)) {
             console.log(key);
         }
