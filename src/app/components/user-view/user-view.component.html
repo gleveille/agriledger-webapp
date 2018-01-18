@@ -8,7 +8,7 @@
       <div class="col-xs-12">
         <ul class="nav nav-pills nav-pills-info" style="background-color:#00bcd41c;padding:8px;">
           <li class="active"><a href="#profile" data-toggle="tab">User Details</a></li>
-          <li><a href="#user_documents" data-toggle="tab">User Documents</a></li>
+          <li><a href="#profile_documents" data-toggle="tab">User Documents</a></li>
           <li><a href="#assets" data-toggle="tab">User Assets</a></li>
         </ul>
       </div>
@@ -299,8 +299,11 @@
                 </div>
               </div>
 
-              <div class="tab-pane" id="user_documents">
-                <app-document-list [documents]="user?.profiles?.documents" [documentType]="'user_documents'">
+              <div class="tab-pane" id="profile_documents">
+                <app-document-list
+                        (onStatusChange)="onStatusChange($event)"
+                        [documents]="user?.profiles?.documents"
+                        [documentType]="DocumentType.PROFILE_DOCUMENTS">
 
                 </app-document-list>
               </div>

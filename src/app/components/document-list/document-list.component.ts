@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ServerUrl} from '../../api.config'
+
+import {DocumentType} from '../../enum/document_enum'
 
 @Component({
   selector: 'app-document-list',
@@ -7,9 +9,13 @@ import {ServerUrl} from '../../api.config'
   styleUrls: ['./document-list.component.scss']
 })
 export class DocumentListComponent implements OnInit {
+  private serverUrl=ServerUrl;
+  private _documents:any[];
+  private documentStatus=['pending','approved','rejected'];
 
-  serverUrl=ServerUrl;
-  private _documents:any[]=[];
+    @Output() onStatusChange:EventEmitter<any> = new EventEmitter();
+
+    @Input()documentType='';
 
   @Input('documents')
     set documents(value:any[]) {
@@ -20,10 +26,19 @@ export class DocumentListComponent implements OnInit {
       this._documents=value;
     }
   }
-  @Input() documentType:string='';
-  constructor() { }
+
+
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  onChange(status,document){
+    console.log(status)
+      document.status=status;
+      this.onStatusChange.emit({documentType:this.documentType});
   }
 
 }

@@ -10,6 +10,7 @@ import {Location} from '@angular/common';
 import {UserService} from "../../services/user.service";
 import {Iuser} from "../../interface/user.interface";
 import {concatMap} from 'rxjs/operator/concatMap'
+import {DocumentType} from '../../enum/document_enum'
 
 import {ServerUrl} from '../../api.config'
 
@@ -20,6 +21,7 @@ import {ServerUrl} from '../../api.config'
 })
 export class AssetViewComponent implements OnInit {
 
+    DocumentType=DocumentType;
     serverUrl=ServerUrl;
     user={} as Iuser;
   asset={user:{},status:null,evidences:[],id:''};
@@ -120,6 +122,43 @@ export class AssetViewComponent implements OnInit {
             this.toastService.success('Addedd','success!');
         },(err:IserviceError)=>{
             this.toastService.success('Favourite','Could not be added!');
+        })
+    }
+
+    onStatusChange(e){
+        switch (e.documentType){
+            case DocumentType.ASSET_DOCUMENTS:
+                return this.updateAsset();
+
+            case DocumentType.ASSET_EVIDENCES:
+                return this.updateAsset();
+
+            case DocumentType.PROFILE_DOCUMENTS:
+                return this.updateProfile(this.asset.user);
+
+            default:
+                return null;
+
+
+        }
+    }
+
+
+    updateAsset(){
+        this.assetService.updateAsset(this.asset).subscribe(()=>{
+            this.toastService.success('Status','Changed');
+        },(err)=>{
+            this.toastService.error('Status','Could not be changed');
+
+        })
+    }
+
+    updateProfile(user:Iuser){
+        this.userService.updateProfile(user).subscribe(()=>{
+            this.toastService.success('Status','Changed');
+        },(err)=>{
+            this.toastService.error('Status','Could not be changed');
+
         })
     }
 

@@ -144,14 +144,20 @@
                   </div>
 
                   <div class="tab-pane" id="asset_evidences">
-                      <app-document-list [documents]="asset?.evidences" [documentType]="'asset_evidences'">
+                      <app-document-list
+                                         [documents]="asset.evidences"
+                                         (onStatusChange)="onStatusChange($event)"
+                                         [documentType]="DocumentType.ASSET_EVIDENCES">
 
                       </app-document-list>
 
                   </div>
 
                   <div class="tab-pane" id="asset_documents">
-                      <app-document-list [documents]="asset?.documents" [documentType]="'asset_documents'">
+                      <app-document-list
+                                         [documents]="asset.documents"
+                                         (onStatusChange)="onStatusChange($event)"
+                                         [documentType]="DocumentType.ASSET_DOCUMENTS">
 
                       </app-document-list>
 
@@ -346,7 +352,10 @@
 
                   <div class="tab-pane" id="farmer_documents">
 
-                    <app-document-list [documents]="asset.user?.profiles?.documents" [documentType]="'farmer_documents'">
+                    <app-document-list
+                            [documents]="asset.user?.profiles?.documents"
+                            (onStatusChange)="onStatusChange($event)"
+                            [documentType]="DocumentType.FARMER_DOCUMENTS">
 
                     </app-document-list>
 
