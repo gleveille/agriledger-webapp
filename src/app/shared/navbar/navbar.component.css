@@ -8,3 +8,7 @@
     background-color: #6ab187;
     color: #ffffff;
 }
+
+.customNavBar{
+    background: linear-gradient(90deg, #ffffff, #b7b8b6) !important;
+}
