@@ -11,29 +11,44 @@
             <p class="category">to register yourself as an Issuer on Blockchain </p>
           </div>
           <div class="card-content">
-            <form>
+            <form #f="ngForm" (ngSubmit)="registerAsIssuer(f, f.valid)" novalidate>
               <div class="row">
 
 
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Issuer Name</label>
-                    <p class="text-gray" style="font-size: 11px;">
-                      (Name should be in all capital and 1-16 character long)
-                    </p>
-                    <input  [(ngModel)]="issuer.name"  name="issuerName" type="text" class="form-control" >
 
+                    <input  [(ngModel)]="issuer.name"
+                            #issuerName="ngModel"
+                            name="issuerName"
+                            required
+                            pattern="^[A-Z]{1,16}$"
+                            type="text" class="form-control" >
+                    <small [hidden]="issuerName.valid || (issuerName.pristine && !f.submitted)">
+                      Name should be in all capital and 1-16 character long
+                    </small>
 
                   </div>
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Description</label>
-                    <input [(ngModel)]="issuer.description"  name="description" type="text" class="form-control" >
+                    <input [(ngModel)]="issuer.description"
+                           #description="ngModel"
+                           name="description"
+                           required
+                           type="text" class="form-control" >
+                    <small [hidden]="description.valid || (description.pristine && !f.submitted)">
+                     Description is required
+                    </small>
                   </div>
 
                   <div class="form-group">
 
                     <label class="control-label required" style="font-size: 14px;">Fee</label>
-                    <input [disabled]="true" [(ngModel)]="fee"  name="fee" type="text" class="form-control" >
+                    <input [disabled]="true"
+                           [(ngModel)]="fee"
+                           name="fee" type="text" class="form-control" >
+
                   </div>
 
 
@@ -42,9 +57,7 @@
                 </div>
 
                 <button
-                        [disabled]="!account?.balance || issuerRequestStatus==='pending'
-                        || !issuer.name || !issuer.description || !fee"
-                        (click)="registerAsIssuer()"
+                        [disabled]="!account?.balance || issuerRequestStatus==='pending'"
                         type="submit"
                         class="btn btn-danger pull-right">Activate</button>
             </form>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ToastService} from "../../services/toast.service";
 import {UserService} from "../../services/user.service";
 import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-password-reset',
@@ -17,22 +18,16 @@ export class PasswordResetComponent implements OnInit {
 
     ngOnInit() {
     }
-    changePassword(){
-        const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
-
-        if(!this.credential.newPassword){
-            this.toastService.error('Password','Please enter your new password');
-            return;
-        }
-        else if(!pattern.test(this.credential.newPassword)){
-            this.toastService.error('Password',this.passwordFormatText);
+    changePassword(f:NgForm,isValid){
+        if(!isValid){
             return;
         }
 
-        else if(this.credential.newPassword!==this.credential.rePassword){
+        if(this.credential.newPassword!==this.credential.rePassword){
             this.toastService.error('Password','Password does not match');
             return;
         }
+
 
         this.passwordChangeRequestStatus='pending';
         this.userService.changePassword(this.credential.oldPassword,this.credential.newPassword)

@@ -7,6 +7,7 @@ import 'rxjs/add/observable/interval';
 import {Subscription} from "rxjs/Subscription";
 import {IserviceError} from "../../interface/serviceError.interface";
 import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 @Component({
   selector: 'app-issuer-registration',
   templateUrl: './issuer-registration.component.html',
@@ -109,25 +110,15 @@ export class IssuerRegistrationComponent implements OnInit,OnDestroy {
 
     }
 
-    registerAsIssuer(){
+    registerAsIssuer(f:NgForm,isValid){
         this.clearToast();
 
         if(!this.account.balance)
             return false;
-        console.log('creating');
 
-        const reg = /^[A-Z]{1,16}$/;
-        if(!reg.test(this.issuer.name)){
-            const msg='Issuer name invalid.Name should be in all capital and 1-16 character long';
-            return this.showToast('error','Issuer',msg,true,5000);
-
+        if(!isValid){
+            return;
         }
-
-        if(!this.issuer.description){
-            const msg='Issuer description required';
-            return this.showToast('error','Issuer',msg,true,5000);
-        }
-
 
         this.issuerRequestStatus='pending';
         this.userService.resgisterAsIssuer(this.issuer).subscribe((user:Iuser)=>{

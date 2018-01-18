@@ -113,17 +113,22 @@ export class AssetPoolListComponent implements OnInit {
 
   getPoolInfoFromBlockchain(pools:any[]){
 
+      console.log(pools)
       const arr=[];
       pools.forEach((pool)=>{
         const name=pool.issuerName+'.'+pool.currency;
         arr.push(this.assetPoolService.getAssetPoolInfoFromBlockchain(name));
       });
 
+      console.log(arr)
+
       console.log(arr.length)
 
       this.blockchainHttpStatus='pending';
       forkJoin(arr).subscribe(results => {
 
+          console.log('result is')
+          console.log(results)
         const length=pools.length;
         for(let i=0;i<length;i++){
             if(results[i].constructor === Object && Object.keys(results[i]).length > 0 )
