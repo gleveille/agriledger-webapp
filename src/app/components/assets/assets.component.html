@@ -267,12 +267,10 @@
 
 
                   <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">{{asset?.expectedHarvestAmount}}</td>
-                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]" ata-toggle="tooltip" data-placement="left"
-                      title="{{asset?.expectedHarvestDate|date:'medium'}}">
+                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">
                     {{asset?.expectedHarvestDate|moment}}</td>
 
-                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]" ata-toggle="tooltip" data-placement="left"
-                      title="{{asset?.createdAt|date:'medium'}}">
+                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">
                     {{asset?.createdAt|moment}}
                   </td>
 
