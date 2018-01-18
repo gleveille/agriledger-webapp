@@ -35,31 +35,38 @@ export class AssetsService {
     public assets: Observable<any>;
     public stat: Observable<any>;
 
-    dataStore = {
-        assets:{
-            allAssets:[],
-            pooledAssets:[],
-            availableAssets:[],
-            favouriteAssets:[]
-        },
-        stat:{
-            allAssetCount:0,
-            pooledAssetCount:0,
-            favouriteAssetCount:0,
-            availableAssetCount:0
-        },
-        metadata:{
-            isStatLoaded:false,
-            isAllAssetLoaded:false,
-            isFavouriteAssetLoaded:false,
-            isAvailableAssetLoaded:false
-        }
-    };
+    dataStore:any;
 
     categories:any[]=[];
     constructor(private http: HttpClient, private errorHandler: ErrorHandlerService, private userService: UserService) {
+        this.initDatastore();
         this.assets = this._assets.asObservable();
         this.stat = this._stat.asObservable();
+
+    }
+
+    initDatastore(){
+        this.dataStore = {
+            assets:{
+                allAssets:[],
+                pooledAssets:[],
+                availableAssets:[],
+                favouriteAssets:[]
+            },
+            stat:{
+                allAssetCount:0,
+                pooledAssetCount:0,
+                favouriteAssetCount:0,
+                availableAssetCount:0
+            },
+            metadata:{
+                isStatLoaded:false,
+                isAllAssetLoaded:false,
+                isFavouriteAssetLoaded:false,
+                isAvailableAssetLoaded:false
+            }
+        };
+
 
     }
 

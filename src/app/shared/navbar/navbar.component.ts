@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, Input} from '@angular/core';
+import {Component, OnInit, ElementRef, Input, OnDestroy} from '@angular/core';
 import {MenuItemsForOps} from '../sidebar/sidebar.component';
 import {MenuItemsForSponsor} from '../sidebar/sidebar.component';
 
@@ -8,13 +8,15 @@ import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {Iuser} from "../../interface/user.interface";
 import {WalletService} from "../../services/wallet.service";
+import {Iwallet} from "../../interface/wallet.interface";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit,OnDestroy {
 
     user={} as Iuser;
     account={};
@@ -22,6 +24,7 @@ export class NavbarComponent implements OnInit {
     location:Location;
     private toggleButton:any;
     private sidebarVisible:boolean;
+    private walletSubscription:Subscription;
 
     constructor(location:Location, private element:ElementRef,
                 private walletService:WalletService,
@@ -32,8 +35,11 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getAccount();
-        this.userService.user.subscribe((user:Iuser)=>{
+        this.walletSubscription=this.walletService.wallet.subscribe((data:Iwallet)=>{
+            this.account=data.account;
+        });
+
+        this.userService.user.concatMap((user:Iuser)=>{
             this.user=user;
             if(user.role==='sponsor'){
                 this.listTitles = MenuItemsForSponsor.filter(listTitle => listTitle);
@@ -43,11 +49,20 @@ export class NavbarComponent implements OnInit {
                 this.listTitles = MenuItemsForOps.filter(listTitle => listTitle);
 
             }
+           return this.walletService.loadBlockchainAccount(user.walletAddress);
+        }).subscribe(()=>{
+
         },(err)=>{
-            console.log(err)
+
         });
         const navbar:HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
+    }
+
+    ngOnDestroy() {
+        if(this.walletSubscription){
+            this.walletSubscription.unsubscribe();
+        }
     }
 
     sidebarOpen() {
@@ -97,19 +112,12 @@ export class NavbarComponent implements OnInit {
 
     logout() {
         this.userService.logout().subscribe((data)=> {
+            window.location.replace('/login');
         }, (err)=> {
         });
     }
 
 
-    getAccount(){
-        this.walletService.getBlockchainAccount().subscribe((account:any)=>{
-            this.account=account;
-            console.log(account)
-        },(err)=>{
 
-            console.log( err)
-        })
-    }
 
 }

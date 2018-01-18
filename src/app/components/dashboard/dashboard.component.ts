@@ -1,14 +1,15 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
 import 'rxjs/add/operator/filter';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import PerfectScrollbar from 'perfect-scrollbar';
+import { Router } from '@angular/router';
 import {NavbarComponent} from '../../shared/navbar/navbar.component';
 import {WalletService} from "../../services/wallet.service";
 import {UserService} from "../../services/user.service";
 import {Iuser} from "../../interface/user.interface";
 import {AssetsService} from "../../services/assets.service";
+import 'rxjs/add/observable/forkJoin';
+import {Observable} from 'rxjs/Observable';
+
 declare const $: any;
 
 @Component({
@@ -19,7 +20,6 @@ declare const $: any;
 export class DashboardSponserComponent implements OnInit {
 
     private lastPoppedUrl: string;
-
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
     constructor( public location: Location,private userService:UserService,
@@ -28,29 +28,17 @@ export class DashboardSponserComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.assetService.loadAllAssets().subscribe(()=>{
+        this.userService.user.concatMap((user:Iuser)=>{
+            return Observable.forkJoin([
+                this.assetService.loadAllAssets(),
+                this.assetService.loadStat(),
+                this.assetService.loadFavouriteAssets(user.id)
+            ]);
+        }).subscribe(()=>{
 
         },(err)=>{
 
-        });
-        this.assetService.loadStat().subscribe(()=>{
-
-        },(err)=>{
-
-        });
-
-        this.userService.user.subscribe((user:Iuser)=>{
-            if(!user.id){
-                this.router.navigate(['/login']);
-            }
-            else {
-                this.assetService.loadFavouriteAssets(user.id).subscribe(()=>{
-
-                },(err)=>{
-
-                });
-            }
-        });
+        })
 
         $.material.init();
 
@@ -59,6 +47,7 @@ export class DashboardSponserComponent implements OnInit {
         });
 
     }
+
 
 
 

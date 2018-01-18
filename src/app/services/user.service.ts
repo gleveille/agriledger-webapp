@@ -17,23 +17,31 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 export class UserService {
 
     private _user: BehaviorSubject<Iuser>;
-    dataStore:{user:Iuser,otherUsers:Iuser[]} = { user:{},otherUsers:[] };
+    dataStore:any;
 
     user: Observable<Iuser>;
 
 
   constructor(private http:HttpClient,private errorHandler:ErrorHandlerService) {
+      this.initDatastore();
       this._user = <BehaviorSubject<Iuser>>new BehaviorSubject({});
       this.user = this._user.asObservable();
 
   }
 
+
+    initDatastore(){
+      this.dataStore={user:{},otherUsers:[] }
+  }
   login(user:Iuser){
     return this.http.post(`${UserApi.login.url()}?include=User`,user)
         .do((res:any)=>{
       this.saveAccessToken(res.id);
       this.saveUserId(res.user.id);
       this.dataStore.user=res.user;
+      if(!this.dataStore.user.profiles){
+          this.dataStore.user.profiles={};
+      }
       this._user.next(JSON.parse(JSON.stringify(this.dataStore.user)));
 
     }).catch((res)=> {
@@ -189,19 +197,11 @@ export class UserService {
     logout(){
         return this.http.post(`${UserApi.logout.url()}`,
             {}).do((data)=>{
-            //order matters because dashboard component is subscribed to user,
-            //once user is reset ,that will redirect you to login page
-            //and login page has already logged in guard which will check for localstorage
           this.resetLocalStorage();
-          this.resetState();
 
         });
     }
 
-    resetState(){
-      this.dataStore.user={};
-      this._user.next(JSON.parse(JSON.stringify(this.dataStore.user)));
-    }
 
     resetLocalStorage(){
         localStorage.removeItem('accessToken');
