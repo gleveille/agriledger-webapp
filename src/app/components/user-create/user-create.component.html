@@ -66,11 +66,15 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label required" style="font-size: 14px;">Phone</label>
-                    <input #phone="ngModel" type="text" required [(ngModel)]="user.profiles.phone"
+                    <input #phone="ngModel"
+                           [minlength]="6"
+                           [maxlength]="15"
+                           pattern="^[0-9]+$"
+                           type="text" required [(ngModel)]="user.profiles.phone"
                            placeholder="Phone"
                            name="phone" class="form-control" >
                     <small [hidden]="phone.valid || (phone.pristine && !f.submitted)">
-                      Phone is required
+                      Phone is required and should be valid one
                     </small>
                   </div>
                 </div>
