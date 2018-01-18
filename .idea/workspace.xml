@@ -2,72 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/enum/document_enum.ts" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/img/default-avatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/img/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/img/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/js/wechat.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/material-dashboard.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_alerts.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_buttons.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_cards.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_chartist.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_checkboxes.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_colors.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_dialogs.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_dropdown.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_footers.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_forms.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_inputs-size.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_inputs.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_misc.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_mixins.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_navbars.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_pills.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_popups.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_radios.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_responsive.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_ripples.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_shadows.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_sidebar-and-main-panel.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_tables.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_tabs.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_togglebutton.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_typography.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_variables.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/mixins/_chartist.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/mixins/_transparency.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/mixins/_vendor-prefixes.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/plugins/_animate.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/plugins/_plugin-nouislider.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/translations/ch.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/translations/en.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.448c34a56d699c29117a.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.89889688147bd7575d63.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.fa2772327f55d8198301.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/inline.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/inline.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/main.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/main.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/polyfills.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/polyfills.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/vendor.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/vendor.bundle.js.map" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html" afterPath="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.ts" afterPath="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/document-list/document-list.component.html" afterPath="$PROJECT_DIR$/src/app/components/document-list/document-list.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/document-list/document-list.component.scss" afterPath="$PROJECT_DIR$/src/app/components/document-list/document-list.component.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/document-list/document-list.component.ts" afterPath="$PROJECT_DIR$/src/app/components/document-list/document-list.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/user-view/user-view.component.html" afterPath="$PROJECT_DIR$/src/app/components/user-view/user-view.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/user-view/user-view.component.ts" afterPath="$PROJECT_DIR$/src/app/components/user-view/user-view.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/environments/environment.ts" afterPath="$PROJECT_DIR$/src/environments/environment.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -120,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/components/user-view/user-view.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+              <caret line="49" column="9" lean-forward="false" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -185,17 +120,17 @@
         <entry file="file://$PROJECT_DIR$/src/app/enum/document_enum.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+              <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="asset-view.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="asset-view.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-42">
-              <caret line="136" column="57" lean-forward="false" selection-start-line="136" selection-start-column="57" selection-end-line="136" selection-end-column="57" />
+            <state relative-caret-position="196">
+              <caret line="135" column="47" lean-forward="false" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="47" />
               <folding>
                 <element signature="e#0#79#0" expanded="true" />
                 <element signature="n#!!block;n#subscribeToAssets#0;n#AssetViewComponent#0" expanded="false" />
@@ -208,11 +143,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="asset-view.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="asset-view.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="148" column="47" lean-forward="true" selection-start-line="148" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+            <state relative-caret-position="476">
+              <caret line="357" column="74" lean-forward="false" selection-start-line="357" selection-start-column="74" selection-end-line="357" selection-end-column="74" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
@@ -356,7 +291,6 @@
         <option value="$PROJECT_DIR$/src/app/services/user.service.ts" />
         <option value="$PROJECT_DIR$/src/app/components/user-create/user-create.component.html" />
         <option value="$PROJECT_DIR$/src/app/interface/document_type.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/document-list/document-list.component.ts" />
         <option value="$PROJECT_DIR$/src/app/services/assets.service.ts" />
         <option value="$PROJECT_DIR$/src/app/components/document-list/document-list.component.html" />
@@ -366,6 +300,7 @@
         <option value="$PROJECT_DIR$/src/app/components/user-view/user-view.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/user-view/user-view.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html" />
       </list>
     </option>
   </component>
@@ -598,7 +533,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="549579000" />
+    <option name="totallyTimeSpent" value="549954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1075,24 +1010,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="148" column="47" lean-forward="true" selection-start-line="148" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -1125,7 +1042,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/enum/document_enum.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1153,7 +1070,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/components/user-view/user-view.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
-          <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+          <caret line="49" column="9" lean-forward="false" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
@@ -1162,8 +1079,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret line="136" column="57" lean-forward="false" selection-start-line="136" selection-start-column="57" selection-end-line="136" selection-end-column="57" />
+        <state relative-caret-position="196">
+          <caret line="135" column="47" lean-forward="false" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="47" />
           <folding>
             <element signature="e#0#79#0" expanded="true" />
             <element signature="n#!!block;n#subscribeToAssets#0;n#AssetViewComponent#0" expanded="false" />
@@ -1171,6 +1088,24 @@
             <element signature="n#!!block;n#goBack#0;n#AssetViewComponent#0" expanded="false" />
             <element signature="n#!!block;n#favouriteOrUnfavourite#0;n#AssetViewComponent#0" expanded="false" />
             <element signature="n#!!block;n#removeFromFavourite#0;n#AssetViewComponent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="357" column="74" lean-forward="false" selection-start-line="357" selection-start-column="74" selection-end-line="357" selection-end-column="74" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
