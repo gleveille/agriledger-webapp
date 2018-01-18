@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {Iuser} from "../../interface/user.interface";
 import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
-
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
+    modalRef: BsModalRef;
 
   users:Iuser[]=[];
   selectedRoleFiler:string='All';
@@ -32,7 +34,9 @@ export class UserListComponent implements OnInit {
 
     ];
   usersHttpSstatus:string='resolved';
-  constructor(private userService:UserService,private toastService:ToastService) { }
+  constructor(private userService:UserService,
+              private modalService: BsModalService,
+              private toastService:ToastService) { }
 
   ngOnInit() {
     this.getAllUsers();
@@ -51,6 +55,10 @@ export class UserListComponent implements OnInit {
           this.toastService.error('Users',err.message);
     })
   }
+    openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template);
+
+    }
 
     getUsersByRole(role:string){
         this.usersHttpSstatus='pending'
