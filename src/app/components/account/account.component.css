@@ -1,9 +1,6 @@
-
-.navbar.navbar-primary {
-    background-color: #6ab187;
-    color: #ffffff;
+small{
+    color: red;
 }
-
 .circularImg {
     cursor: pointer;
     width: 100px;

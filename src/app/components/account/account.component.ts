@@ -7,6 +7,7 @@ import {ToastService} from "../../services/toast.service";
 import { FileUploader } from 'ng2-file-upload';
 import {ContainerApi} from '../../../../src/app/api.config'
 import {ServerUrl} from '../../../../src/app/api.config'
+import {NgForm} from "@angular/forms";
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -70,9 +71,13 @@ export class AccountComponent implements OnInit {
         this.modalRef = this.modalService.show(template);
 
     }
-    updateProfile(){
+    updateProfile(f:NgForm,isValid){
+        if(!isValid){
+            return;
+        }
     this.userService.updateProfile(this.user).subscribe(()=>{
-      this.toastService.success('Profile','Updated!')
+      this.toastService.success('Profile','Updated!');
+      this.modalRef.hide();
     },(err)=>{
         this.toastService.error('Profile',err.message || 'Could not be updated.Try again')
     })
