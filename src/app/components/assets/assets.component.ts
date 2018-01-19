@@ -58,6 +58,7 @@ export class AssetsComponent implements OnInit {
       this.loadAllAssets();
 
       this.assetsService.assets.subscribe((assets:any)=>{
+          console.log(assets)
           if(this.showNonPooledAssetOnly){
               this.assets=assets.availableAssets||[];
           }

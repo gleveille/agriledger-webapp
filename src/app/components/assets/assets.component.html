@@ -233,6 +233,7 @@
                 <thead  >
                 <tr >
                   <th class="boldfont">Asset Name</th>
+                  <th class="boldfont">Category(L1)</th>
 
                   <th class="boldfont">City</th>
 
@@ -259,6 +260,11 @@
                       <span style="position:relative;top:-3px;">{{asset?.name}}</span>
                     </div>
 
+                  </td>
+
+
+                  <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">
+                    {{asset?.category?.level1}}
                   </td>
 
                   <td style="cursor: pointer" [routerLink]="['../assets',asset.id]">
