@@ -10,6 +10,8 @@
           <li class="active"><a href="#profile" data-toggle="tab">User Details</a></li>
           <li><a href="#profile_documents" data-toggle="tab">User Documents</a></li>
           <li><a href="#assets" data-toggle="tab">User Assets</a></li>
+          <li><a href="#farm_details" data-toggle="tab">User Farm Details</a></li>
+
         </ul>
       </div>
       <div class="col-xs-12">
@@ -31,10 +33,21 @@
                         <hr>
 
                         <div class="col-xs-4 text-left">
-                          <b>AgriId</b>
+                          <b>InternalID</b>
                         </div>
                         <div class="col-xs-8 text-right">
                           <span class="text-gray">{{user?.id}}</span>
+                        </div>
+                      </div>
+
+                      <div class="row" style="text-align: left">
+                        <hr>
+
+                        <div class="col-xs-4 text-left">
+                          <b>AgriID</b>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                          <span class="text-gray">{{user?.agriId || 'N.A'}}</span>
                         </div>
                       </div>
 
@@ -142,10 +155,10 @@
 
                         </div>
                         <div class="col-xs-8 text-right">
-                    <span class="text-gray">
-                      {{user?.lastLoggedIn|moment}}
 
-                    </span>
+                          <span class="text-gray" *ngIf="user.lastLoggedIn">{{user?.lastLoggedIn|moment}}</span>
+                          <span  class="text-gray" *ngIf="!user.lastLoggedIn">N.A</span>
+
 
                         </div>
                       </div>
@@ -309,7 +322,10 @@
               </div>
 
               <div class="tab-pane" id="assets">
-                Asset Details
+                Coming Soon
+              </div>
+              <div class="tab-pane" id="farm_details">
+                Coming Soon
               </div>
             </div>
 
