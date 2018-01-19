@@ -1,13 +1,4 @@
-.navbar.navbar-transparent {
-    background-color: white;
-    box-shadow: none;
-    border-bottom: 0;
-}
 
-.navbar.navbar-primary {
-    background-color: #6ab187;
-    color: #ffffff;
-}
 
 .customNavBar{
     background: linear-gradient(90deg, #ffffff, #b7b8b6) !important;
