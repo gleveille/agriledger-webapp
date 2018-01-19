@@ -148,7 +148,7 @@
 
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label class="control-label required" style="font-size: 14px;">Address line1</label>
+                    <label class="control-label required" style="font-size: 14px;">Address line 1</label>
                     <input #line1="ngModel" type="text" required [(ngModel)]="user.profiles.address.line1"
                            placeholder="Street address, P.O.box, c\o"
                            name="line1" class="form-control" >
@@ -160,14 +160,11 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label class="control-label required" style="font-size: 14px;">Address line2</label>
-                    <input #line2="ngModel" type="text" required [(ngModel)]="user.profiles.address.line2"
+                    <label class="control-label" style="font-size: 14px;">Address line 2</label>
+                    <input type="text"
+                           [(ngModel)]="user.profiles.address.line2"
                            placeholder="Unit, building, floor, etc"
                            name="line2" class="form-control" >
-                    <small [hidden]="line2.valid || (line2.pristine && !f.submitted)">
-                      Address Line2 is required
-                    </small>
-
                   </div>
                 </div>
 

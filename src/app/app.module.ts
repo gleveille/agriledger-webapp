@@ -68,7 +68,7 @@ import { FavouriteAssetComponent } from './components/favourite-asset/favourite-
 import { PasswordSetFarmerComponent } from './components/password-set-farmer/password-set-farmer.component';
 import { PasswordSetInternalComponent } from './components/password-set-internal/password-set-internal.component';
 import { DocumentListComponent } from './components/document-list/document-list.component';
-import { UserDetailCardComponent } from './user-detail-card/user-detail-card.component';
+import { UserDetailCardComponent } from './components/user-detail-card/user-detail-card.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/translations/', '.json');
