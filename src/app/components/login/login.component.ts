@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {Iuser} from "../../interface/user.interface";
 import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
-
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 declare var WxLogin:any;
 @Component({
   selector: 'app-login-sponsor',
@@ -12,14 +13,22 @@ declare var WxLogin:any;
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+    modalRef: BsModalRef;
 
   user={} as Iuser;
   isTermChecked:boolean=false;
   loginRequestStatus='resolved';
-  constructor(private userService:UserService,private toastService:ToastService,private router:Router) { }
+  constructor(private userService:UserService,
+              private modalService: BsModalService,
+              private toastService:ToastService,private router:Router) { }
 
   ngOnInit() {
   }
+
+    openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template);
+
+    }
 
     login(f:NgForm,isValid){
         if(!isValid){
