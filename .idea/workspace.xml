@@ -2,7 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d43b668c-f1a1-45f9-a3d7-2807fa13da72" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/components/issuer-registration/issuer-registration.component.css" afterPath="$PROJECT_DIR$/src/app/components/issuer-registration/issuer-registration.component.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/img/default-avatar.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/img/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/img/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/js/wechat.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/material-dashboard.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_alerts.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_buttons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_cards.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_chartist.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_checkboxes.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_colors.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_dialogs.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_dropdown.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_footers.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_forms.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_inputs-size.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_inputs.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_misc.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_mixins.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_navbars.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_pills.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_popups.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_radios.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_responsive.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_ripples.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_shadows.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_sidebar-and-main-panel.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_tables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_tabs.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_togglebutton.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_typography.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/_variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/mixins/_chartist.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/mixins/_transparency.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/mixins/_vendor-prefixes.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/plugins/_animate.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/sass/md/plugins/_plugin-nouislider.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/translations/ch.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/translations/en.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.448c34a56d699c29117a.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.89889688147bd7575d63.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.fa2772327f55d8198301.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/inline.bundle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/inline.bundle.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/main.bundle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/main.bundle.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/polyfills.bundle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/polyfills.bundle.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts.bundle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles.bundle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles.bundle.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/vendor.bundle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/vendor.bundle.js.map" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/shared/header/header.component.html" afterPath="$PROJECT_DIR$/src/app/shared/header/header.component.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -17,16 +73,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="navbar.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/navbar/navbar.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="48" column="44" lean-forward="false" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="sidebar.component.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -40,8 +86,8 @@
       <file leaf-file-name="sidebar.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
@@ -50,38 +96,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="assets.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.ts">
+      <file leaf-file-name="header.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/header/header.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="60" column="28" lean-forward="false" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+            <state relative-caret-position="187">
+              <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="password-set-internal.component.spec.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/password-set-internal/password-set-internal.component.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="e#0#77#0" expanded="true" />
+                <element signature="e#0#73#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="assets.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.html">
+      <file leaf-file-name="password-set-internal.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/password-set-internal/password-set-internal.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="262" column="23" lean-forward="false" selection-start-line="262" selection-start-column="23" selection-end-line="262" selection-end-column="23" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account-activation.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/account-activation/account-activation.component.html">
+      <file leaf-file-name="user.service.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/services/user.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="60" lean-forward="false" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+            <state relative-caret-position="214">
+              <caret line="206" column="34" lean-forward="true" selection-start-line="206" selection-start-column="34" selection-end-line="206" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -101,7 +152,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -117,11 +168,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="issuer-registration.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="issuer-registration.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/issuer-registration/issuer-registration.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="527">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -204,7 +255,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/components/login/login.component.css" />
         <option value="$PROJECT_DIR$/src/app/components/asset-view/asset-view.component.css" />
         <option value="$PROJECT_DIR$/src/app/interface/wallet.interface.ts" />
         <option value="$PROJECT_DIR$/src/app/components/wallet/wallet.component.ts" />
@@ -255,6 +305,7 @@
         <option value="$PROJECT_DIR$/src/app/components/assets/assets.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/user-create/user-create.component.scss" />
         <option value="$PROJECT_DIR$/src/app/components/issuer-registration/issuer-registration.component.css" />
+        <option value="$PROJECT_DIR$/src/app/shared/header/header.component.html" />
       </list>
     </option>
   </component>
@@ -366,6 +417,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="password-set-internal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="user-create" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -381,6 +440,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="agriledgerWebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="agriledgerWebapp" type="b2602c69:ProjectViewProjectNode" />
@@ -503,7 +570,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="568046000" />
+    <option name="totallyTimeSpent" value="569192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -549,34 +616,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/assets/sass/md/_sidebar-and-main-panel.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-527">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1192#2140#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/password-reset/password-reset.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#50#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/password-reset/password-reset.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/password-reset/password-reset.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
@@ -597,14 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="21" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/password-set-internal/password-set-internal.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="33" column="3" lean-forward="false" selection-start-line="33" selection-start-column="3" selection-end-line="35" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -966,28 +997,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/img/logo.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/assets/assets.component.ts">
@@ -1032,7 +1044,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/components/user-create/user-create.component.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1048,7 +1060,60 @@
     <entry file="file://$PROJECT_DIR$/src/app/components/issuer-registration/issuer-registration.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/sidebar/sidebar.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/password-set-internal/password-set-internal.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/password-set-internal/password-set-internal.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/user.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="206" column="34" lean-forward="true" selection-start-line="206" selection-start-column="34" selection-end-line="206" selection-end-column="34" />
           <folding />
         </state>
       </provider>
