@@ -84,28 +84,30 @@
 
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label class="control-label required" style="font-size: 14px;">Address line1</label>
-                    <input #line1="ngModel" type="text" required [(ngModel)]="user.profiles.address.line1"
-                           placeholder="Address Line1"
-                           name="line1" class="form-control" >
-                    <small [hidden]="line1.valid || (line1.pristine && !f.submitted)">
-                      Address Line1 is required
+                    <label class="control-label required" style="font-size: 14px;">Country</label>
+                    <input #country="ngModel" type="text" required [(ngModel)]="user.profiles.address.country"
+                           placeholder="Country Name"
+                           name="country" class="form-control" >
+                    <small [hidden]="country.valid || (country.pristine && !f.submitted)">
+                      Country is required
                     </small>
 
                   </div>
                 </div>
 
+
               </div>
 
               <div class="row">
+
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label class="control-label required" style="font-size: 14px;">Address line2</label>
-                    <input #line2="ngModel" type="text" required [(ngModel)]="user.profiles.address.line2"
-                           placeholder="Address Line2"
-                           name="line2" class="form-control" >
-                    <small [hidden]="line2.valid || (line2.pristine && !f.submitted)">
-                      Address Line2 is required
+                    <label class="control-label required" style="font-size: 14px;">Province</label>
+                    <input #province="ngModel" type="text" required [(ngModel)]="user.profiles.address.province"
+                           placeholder="Province"
+                           name="province" class="form-control" >
+                    <small [hidden]="province.valid || (province.pristine && !f.submitted)">
+                      Province is required
                     </small>
 
                   </div>
@@ -123,19 +125,52 @@
 
                   </div>
                 </div>
-
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label class="control-label required" style="font-size: 14px;">Province</label>
-                    <input #province="ngModel" type="text" required [(ngModel)]="user.profiles.address.province"
-                           placeholder="Province"
-                           name="province" class="form-control" >
-                    <small [hidden]="province.valid || (province.pristine && !f.submitted)">
-                      Province is required
+                    <label class="control-label required" style="font-size: 14px;">District</label>
+                    <input #district="ngModel" type="text" required [(ngModel)]="user.profiles.address.district"
+                           placeholder="District"
+
+                           name="district" class="form-control" >
+                    <small [hidden]="district.valid || (district.pristine && !f.submitted)">
+                      District is required
                     </small>
 
                   </div>
                 </div>
+
+
+              </div>
+
+
+
+              <div class="row">
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Address line1</label>
+                    <input #line1="ngModel" type="text" required [(ngModel)]="user.profiles.address.line1"
+                           placeholder="Street address, P.O.box, c\o"
+                           name="line1" class="form-control" >
+                    <small [hidden]="line1.valid || (line1.pristine && !f.submitted)">
+                      Address Line1 is required
+                    </small>
+
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label required" style="font-size: 14px;">Address line2</label>
+                    <input #line2="ngModel" type="text" required [(ngModel)]="user.profiles.address.line2"
+                           placeholder="Unit, building, floor, etc"
+                           name="line2" class="form-control" >
+                    <small [hidden]="line2.valid || (line2.pristine && !f.submitted)">
+                      Address Line2 is required
+                    </small>
+
+                  </div>
+                </div>
+
               </div>
 
               <div class="row" *ngIf="user.role==='farmer'">

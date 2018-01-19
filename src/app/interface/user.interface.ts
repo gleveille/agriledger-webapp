@@ -15,10 +15,12 @@ export interface Iuser {
             region?: string,
         },
         address?:{
-            line1:string,
-            line2:string,
-            city:string,
-            province:string
+            line1?:string,
+            line2?:string,
+            city?:string,
+            province?:string,
+            country?:string,
+            district?:string
         }
         profileUrl?: {
             url: string,
