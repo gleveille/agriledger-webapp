@@ -18,7 +18,7 @@ export class AssetsComponent implements OnInit {
     @Input() selectedFilter:string=null;
     @Input() canSelected:boolean=false;
     @Input() showPoolButton:boolean=false;
-    @Input() showNonPooledAssetOnly:boolean=false;
+    @Input() showAvailableAssetOnly:boolean=false;
     @Output() onPoolSelect:EventEmitter<any> = new EventEmitter();
     stat={favouriteAssetCount:0,allAssetCount:0,pooledAssetCount:0,availableAssetCount:0}
     assetsRequestStatus='resolved';
@@ -59,7 +59,8 @@ export class AssetsComponent implements OnInit {
 
       this.assetsService.assets.subscribe((assets:any)=>{
           console.log(assets)
-          if(this.showNonPooledAssetOnly){
+          console.log(this.showAvailableAssetOnly)
+          if(this.showAvailableAssetOnly){
               this.assets=assets.availableAssets||[];
           }
           else{
@@ -98,7 +99,6 @@ export class AssetsComponent implements OnInit {
     loadAllAssets(forceRefresh:boolean=false){
         this.assetsRequestStatus='pending';
         this.assetsService.loadAllAssets(forceRefresh).subscribe((assets:any[])=>{
-            this.assets=assets;
             this.assetsRequestStatus='resolved';
 
         },(err)=>{
@@ -109,7 +109,6 @@ export class AssetsComponent implements OnInit {
     loadAvailableAssets(forceRefresh:boolean=false){
         this.assetsRequestStatus='pending';
         this.assetsService.loadAvailableAssets(forceRefresh).subscribe((assets:any[])=>{
-            this.assets=assets;
             this.assetsRequestStatus='resolved';
         },(err)=>{
         });
@@ -200,7 +199,7 @@ export class AssetsComponent implements OnInit {
         if (!category.hasChildren) {
             this.deepestCategorySelected = true;
             this.lastCategoryId = category.id;
-            if(this.showNonPooledAssetOnly)
+            if(this.showAvailableAssetOnly)
             this.getAssetsByCategoryId(this.lastCategoryId,false);
             else
                 this.getAssetsByCategoryId(this.lastCategoryId,true);
