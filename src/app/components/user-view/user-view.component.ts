@@ -4,7 +4,6 @@ import {UserService} from "../../services/user.service";
 import {ToastService} from "../../services/toast.service";
 import {Iuser} from "../../interface/user.interface";
 import {Location} from "@angular/common";
-import {ServerUrl} from '../../api.config'
 import {DocumentType} from '../../enum/document_enum'
 
 @Component({
@@ -14,7 +13,6 @@ import {DocumentType} from '../../enum/document_enum'
 })
 export class UserViewComponent implements OnInit {
     DocumentType=DocumentType;
-  serverUrl=ServerUrl;
   user:Iuser={};
   constructor(private activatedRoute:ActivatedRoute,private router:Router,
               private toastService:ToastService,

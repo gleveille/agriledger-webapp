@@ -12,7 +12,6 @@ import {Iuser} from "../../interface/user.interface";
 import {concatMap} from 'rxjs/operator/concatMap'
 import {DocumentType} from '../../enum/document_enum'
 
-import {ServerUrl} from '../../api.config'
 
 @Component({
   selector: 'app-asset-view',
@@ -22,7 +21,6 @@ import {ServerUrl} from '../../api.config'
 export class AssetViewComponent implements OnInit {
 
     DocumentType=DocumentType;
-    serverUrl=ServerUrl;
     user={} as Iuser;
   asset={user:{},status:null,evidences:[],id:''};
   isFavourite:boolean=false;

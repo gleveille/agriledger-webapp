@@ -74,10 +74,6 @@ export class AssetPoolViewComponent implements OnInit {
         forkJoin(arr).subscribe((results:any[]) => {
 
             for(let i=0;i<results.length;i++){
-                if(results[i].evidences)
-                results[i].evidences.forEach((evidence)=>{
-                    evidence.url=environment.apiURL+':'+environment.apiPORT+evidence.url;
-                });
                 this.pool.assets.push(results[i])
             }
 

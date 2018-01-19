@@ -5,7 +5,6 @@ import {ToastService} from "../../services/toast.service";
 import {Router} from "@angular/router";
 import { FileUploader } from 'ng2-file-upload';
 import {ContainerApi} from '../../../../src/app/api.config'
-import {ServerUrl} from '../../../../src/app/api.config'
 import {NgForm} from "@angular/forms";
 @Component({
   selector: 'app-user-create',
@@ -13,7 +12,6 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./user-create.component.scss']
 })
 export class UserCreateComponent implements OnInit {
-    serverUrl=ServerUrl;
     @ViewChild('f') loginForm :NgForm;
     uploader= new FileUploader({url: ContainerApi.profileDocumentsUpload.url()});
     description= Array(10).fill('');
