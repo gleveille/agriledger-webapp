@@ -71,15 +71,7 @@ export class AccountComponent implements OnInit {
         this.modalRef = this.modalService.show(template);
 
     }
-    updateProfile(f:NgForm,isValid){
-        if(!isValid){
-            return;
-        }
-    this.userService.updateProfile(this.user).subscribe(()=>{
-      this.toastService.success('Profile','Updated!');
-      this.modalRef.hide();
-    },(err)=>{
-        this.toastService.error('Profile',err.message || 'Could not be updated.Try again')
-    })
+    onProfileUpdate(){
+        this.modalRef.hide();
     }
 }

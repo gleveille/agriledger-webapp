@@ -50,14 +50,7 @@ export class UserService {
   }
 
   register(user:Iuser){
-      console.log(user)
-      const profiles=user.profiles;
         return this.http.post(`${UserApi.register.url()}`,user)
-            .concatMap((createdUser:Iuser)=> {
-            createdUser.profiles=user.profiles;
-                return this.createProfile(createdUser)
-
-            })
             .catch((res)=> {
                 return this.errorHandler.handle(res);
             });
@@ -104,18 +97,6 @@ export class UserService {
       })
   };
 
-    createProfile(user:Iuser) {
-
-        //create others profile
-        const profile=user.profiles;
-        return this.http.post(`${UserApi.updateProfile.url()}/${user.id}/profiles`, profile).do((profiles)=> {
-        })
-            .catch((err)=> {
-                return this.errorHandler.handle(err);
-            })
-
-    };
-
 
     profilePicChanged(data:any){
         this.dataStore.user.profiles.profileUrl=data;
@@ -123,16 +104,16 @@ export class UserService {
     }
     updateProfile(user:Iuser) {
 
+        const isMineProfile=user.profiles.userId===this.dataStore.user.id;
         const profiles=user.profiles;
-        if(!this.dataStore.user.profiles.id)
-        {
-            return this.createProfile(user);
-        }
         console.log('updating profile is')
         console.log(profiles)
         return this.http.put(`${UserApi.updateProfile.url()}/${user.id}/profiles`, profiles).do((profile:any)=> {
-            this.dataStore.user.profiles=profile;
-            this._user.next(JSON.parse(JSON.stringify(this.dataStore.user)));
+            if(isMineProfile){
+                this.dataStore.user.profiles=profile;
+                this._user.next(JSON.parse(JSON.stringify(this.dataStore.user)));
+            }
+
             console.log('updated')
             console.log(this.dataStore.user)
         })

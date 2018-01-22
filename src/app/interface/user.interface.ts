@@ -1,6 +1,8 @@
 export interface Iuser {
     profiles?: {
         id?:string,
+        userId?:string,
+        verificationStatus?:string,
         phone?: string,
         passcode?: number,
         name?: string,

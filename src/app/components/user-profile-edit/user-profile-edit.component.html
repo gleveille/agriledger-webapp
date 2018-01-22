@@ -1,0 +1,235 @@
+<div class="row">
+  <div class="col-xs-12" *ngIf="currentUser.role">
+    <form #f="ngForm" (ngSubmit)="updateProfile(f, f.valid)" novalidate>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label required" style="font-size: 14px;">Email</label>
+            <input [disabled]="true"  type="email"  [(ngModel)]="_user.email"
+                   placeholder="Email"
+                   name="email" class="form-control" >
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label required" style="font-size: 14px;">Name</label>
+            <input #name="ngModel" type="text" required [(ngModel)]="_user.profiles.name"
+                   placeholder="Full Name"
+                   name="name"
+                   [maxLength]="30"
+                   [minlength]="5"
+                   class="form-control" >
+            <small [hidden]="name.valid || (name.pristine && !f.submitted)">
+              Name is required (minimum 5 characters).
+            </small>
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label required" style="font-size: 14px;">Phone</label>
+            <input #phone="ngModel"
+                   [minlength]="6"
+                   [maxlength]="15"
+                   pattern="^[0-9]+$"
+                   type="text" required [(ngModel)]="_user.profiles.phone"
+                   placeholder="Phone"
+                   name="phone" class="form-control" >
+            <small [hidden]="phone.valid || (phone.pristine && !f.submitted)">
+              Phone is required and should be valid one
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label required" style="font-size: 14px;">Country</label>
+            <input #country="ngModel" type="text" required [(ngModel)]="_user.profiles.address.country"
+                   placeholder="Country Name"
+                   name="country" class="form-control" >
+            <small [hidden]="country.valid || (country.pristine && !f.submitted)">
+              Country is required
+            </small>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label required" style="font-size: 14px;">Province</label>
+            <input #province="ngModel" type="text" required [(ngModel)]="_user.profiles.address.province"
+                   placeholder="Province"
+                   name="province" class="form-control" >
+            <small [hidden]="province.valid || (province.pristine && !f.submitted)">
+              Province is required
+            </small>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label required" style="font-size: 14px;">City</label>
+            <input #city="ngModel" type="text" required [(ngModel)]="_user.profiles.address.city"
+                   placeholder="City"
+
+                   name="city" class="form-control" >
+            <small [hidden]="city.valid || (city.pristine && !f.submitted)">
+              City is required
+            </small>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label required" style="font-size: 14px;">District</label>
+            <input #district="ngModel" type="text" required [(ngModel)]="_user.profiles.address.district"
+                   placeholder="District"
+
+                   name="district" class="form-control" >
+            <small [hidden]="district.valid || (district.pristine && !f.submitted)">
+              District is required
+            </small>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label required" style="font-size: 14px;">Address line 1</label>
+            <input #line1="ngModel" type="text" required [(ngModel)]="_user.profiles.address.line1"
+                   placeholder="Street address, P.O.box, c\o"
+                   name="line1" class="form-control" >
+            <small [hidden]="line1.valid || (line1.pristine && !f.submitted)">
+              Address Line1 is required
+            </small>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Address line 2</label>
+            <input type="text"
+                   [(ngModel)]="_user.profiles.address.line2"
+                   placeholder="Unit, building, floor, etc"
+                   name="line2" class="form-control" >
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row" *ngIf="_user.role==='farmer'">
+        <h4 class="text-center">Farm Details (optional) </h4>
+        <hr>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Farm Name</label>
+            <input  type="text"  [(ngModel)]="_user.profiles.farmDetails.farmName"
+                    placeholder="Farm Name"
+                    name="farmName" class="form-control" >
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Product Name</label>
+            <input  type="text"  [(ngModel)]="_user.profiles.farmDetails.products"
+                    placeholder="Product name"
+                    name="product" class="form-control" >
+
+
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Grade Name</label>
+            <input  type="text"  [(ngModel)]="_user.profiles.farmDetails.grade"
+                    placeholder="Grade Name"
+                    name="grade" class="form-control" >
+
+
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Crop Name</label>
+            <input  type="text"  [(ngModel)]="_user.profiles.farmDetails.crops"
+                    placeholder="Crop Name"
+                    name="crop" class="form-control" >
+
+
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Size</label>
+            <input  type="text"  [(ngModel)]="_user.profiles.farmDetails.size"
+                    placeholder="Size"
+                    name="size" class="form-control" >
+
+
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label" style="font-size: 14px;">Region Name</label>
+            <input  type="text"  [(ngModel)]="_user.profiles.farmDetails.region"
+                    placeholder="Region Name"
+                    name="region" class="form-control" >
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row" *ngIf="currentUser.role==='ops'">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label class="control-label required" style="font-size: 14px;">Verification status</label>
+            <select  #verificationStatus="ngModel" class="form-control "
+                    required
+                    name="verificationStatus" [(ngModel)]="_user.profiles.verificationStatus">
+
+              <option *ngFor="let status of profileStatus" [value]="status">
+                {{status}}
+              </option>
+            </select>
+            <small [hidden]="verificationStatus.valid || (verificationStatus.pristine && !f.submitted)">
+              Verification Status is required
+            </small>
+          </div>
+
+        </div>
+      </div>
+
+      <p style="color: red;opacity: 0.6">Please note that all the changes you make will be verified by Us</p>
+
+
+      <button
+              [disabled]="issueTokenHttpStatus==='pending'"
+              type="submit"
+              class="btn btn-danger pull-right">UPDATE</button>
+      <div class="clearfix"></div>
+    </form>
+
+  </div>
+</div>
