@@ -40,13 +40,13 @@
                 List of Assets
               </h4>
 
-                <h5 *ngIf="!assets.length" class="text-gray">
+                <h5 *ngIf="assets && !assets.length" class="text-gray text-center">
                   No assets created!
                 </h5>
 
 
 
-                <div class="table-responsive" *ngIf="assets.length ">
+                <div class="table-responsive" *ngIf="assets && assets.length ">
 
                   <table class="table" style="border: 1px solid #ddd" >
                     <thead  >
@@ -103,7 +103,91 @@
 
               </div>
               <div class="tab-pane" id="farm_details">
-                Coming Soon
+                <h5 *ngIf="user.profiles.farmDetails && !user.profiles.farmDetails.length"
+                    class="text-gray text-center">
+                  No Farm details found!
+                </h5>
+                <div class="row">
+                  <div style="cursor: pointer" class="col-lg-4 col-md-6 col-sm-6" *ngFor="let farm of user.profiles.farmDetails">
+                    <div class="card card-stats" style="border: 1px solid #c4c4c4" >
+
+                      <div class="card-content" style="text-align: left" >
+
+
+                        <div>
+                          <div class="row">
+                            <div class="col-xs-12 text-left">
+                              <p class="category">{{farm.farmName}}</p>
+
+                            </div>
+
+                          </div>
+
+                          <hr class="hr-margin">
+
+                          <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                              products
+                            </div>
+                            <div class="col-xs-6 text-right">
+                              <b>{{farm.products}}</b>
+                            </div>
+                          </div>
+                          <hr class="hr-margin">
+                          <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                              crops
+                            </div>
+                            <div class="col-xs-6 text-right">
+                              <b>{{farm.crops}}</b>
+                            </div>
+                          </div>
+                          <hr class="hr-margin">
+
+                          <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                              grade
+                            </div>
+                            <div class="col-xs-6 text-right">
+                              <b>{{farm.grade}}</b>
+                            </div>
+                          </div>
+                          <hr class="hr-margin">
+
+
+                          <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                              size
+                            </div>
+                            <div class="col-xs-6 text-right">
+                              <b>{{farm.size}}</b>
+                            </div>
+                          </div>
+                          <hr class="hr-margin">
+
+                          <div class="row" style="text-align: left">
+
+                            <div class="col-xs-6 text-left">
+                              region
+                            </div>
+                            <div class="col-xs-6 text-right">
+                              <b>{{farm.region}}</b>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+
+
+
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 

@@ -30,7 +30,7 @@ export class UserViewComponent implements OnInit {
           this.user=user;
           return this.assetService.getAssetByUserId(this.user.id);
       }).subscribe((assets:any[])=>{
-          this.assets=assets;
+          this.assets=assets||[];
           console.log(assets)
       },(err)=>{
 

@@ -40,7 +40,19 @@ export class UserProfileEditComponent implements OnInit {
     @Output() onProfileUpdate:EventEmitter<any> = new EventEmitter();
 
     constructor(private userService:UserService,private toastService:ToastService) { }
-
+    addMore(){
+        if(this._user.profiles.farmDetails.length>3){
+            return this.toastService.error('Farm','Not allowed!');
+        }
+        this._user.profiles.farmDetails.push({
+            farmName:'',
+            products:'',
+            grade:'',
+            crops:'',
+            size:'',
+            region:''
+        })
+    }
   ngOnInit() {
       this.userService.user.subscribe((user:Iuser)=>{
           this.currentUser=user;
@@ -51,6 +63,17 @@ export class UserProfileEditComponent implements OnInit {
         if(!isValid){
             return;
         }
+
+        this._user.profiles.farmDetails=this._user.profiles.farmDetails.filter((farm)=>{
+            let allowed=false;
+            Object.keys(farm).forEach((prop)=>{
+                if(farm[prop] && farm[prop].length){
+                    allowed=true;
+                }
+            });
+
+            return allowed;
+        });
         this.userService.updateProfile(this._user).subscribe(()=>{
             this.toastService.success('Profile','Updated!');
             this.onProfileUpdate.emit({});
