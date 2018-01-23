@@ -21,7 +21,7 @@ export class UserDetailCardComponent implements OnInit {
                 user.profiles = {}
             }
             if (!user.profiles.farmDetails) {
-                user.profiles.farmDetails={};
+                user.profiles.farmDetails=[];
             }
             if (!user.profiles.address) {
                 user.profiles.address={}
@@ -31,7 +31,7 @@ export class UserDetailCardComponent implements OnInit {
         }
 
         else {
-            this._user = {profiles:{farmDetails:{},address:{}}};
+            this._user = {profiles:{farmDetails:[],address:{}}};
         }
 
     }

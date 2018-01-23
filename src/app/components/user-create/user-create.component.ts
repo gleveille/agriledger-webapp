@@ -15,6 +15,7 @@ export class UserCreateComponent implements OnInit {
     @ViewChild('f') loginForm :NgForm;
     uploader= new FileUploader({url: ContainerApi.profileDocumentsUpload.url()});
     description= Array(10).fill('');
+
     user:Iuser={
         password:'',
         role:'',
@@ -26,14 +27,14 @@ export class UserCreateComponent implements OnInit {
                 line2:'',
                 city:'',
                 province:''
-            },farmDetails:{
+            },farmDetails:[{
                 farmName:'',
                 products:'',
                 grade:'',
                 crops:'',
                 size:'',
                 region:''
-            }
+            }]
         }};
     totalSelectedFiles:number=0;
     roles=['','ops','sponsor','farmer'];
@@ -42,6 +43,20 @@ export class UserCreateComponent implements OnInit {
 
     constructor(private userService:UserService,private toastService:ToastService,private router:Router) { }
 
+
+    addMore(){
+        if(this.user.profiles.farmDetails.length>3){
+            return this.toastService.error('Farm','Not allowed!');
+        }
+        this.user.profiles.farmDetails.push({
+            farmName:'',
+            products:'',
+            grade:'',
+            crops:'',
+            size:'',
+            region:''
+        })
+    }
   ngOnInit() {
       this.createPassword();
 
@@ -151,6 +166,7 @@ export class UserCreateComponent implements OnInit {
             this.toastService.error('Upload','Please fill the description for the document');
             return;
         }
+
         this.createRequestStatus='pending';
         this.userService.register(this.user).subscribe((profile:any)=>{
             if(this.uploader.queue.length){
@@ -195,9 +211,14 @@ export class UserCreateComponent implements OnInit {
         for (const key of Object.keys(this.user.profiles.address)) {
             this.user.profiles.address[key]='';
         }
-        for (const key of Object.keys(this.user.profiles.farmDetails)) {
-            this.user.profiles.farmDetails[key]='';
-        }
+        this.user.profiles.farmDetails=[{
+            farmName:'',
+            products:'',
+            grade:'',
+            crops:'',
+            size:'',
+            region:''
+        }];
         this.createPassword();
 
     }

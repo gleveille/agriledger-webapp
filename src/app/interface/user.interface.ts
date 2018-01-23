@@ -1,3 +1,12 @@
+interface IFarmDetails {
+        farmName?:string,
+        products?:string,
+        crops?: string,
+        grade?: string,
+        size?: string,
+        region?: string
+}
+
 export interface Iuser {
     profiles?: {
         id?:string,
@@ -8,14 +17,7 @@ export interface Iuser {
         name?: string,
         registration?:String,
         company?:string,
-        farmDetails?: {
-            farmName?:string,
-            products?:string,
-            crops?: string,
-            grade?: string,
-            size?: string,
-            region?: string,
-        },
+        farmDetails?:IFarmDetails[],
         address?:{
             line1?:string,
             line2?:string,

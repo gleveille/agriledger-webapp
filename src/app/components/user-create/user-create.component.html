@@ -171,74 +171,91 @@
               </div>
 
               <div class="row" *ngIf="user.role==='farmer'">
-                <h4 class="text-center">Farm Details (optional) </h4>
-                <hr>
+                <div class="col-xs-12">
+                  <h4 style="background-color: #3c3e901a;padding: 5px;" class="text-center">Farm Details (optional) </h4>
 
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="control-label" style="font-size: 14px;">Farm Name</label>
-                    <input  type="text"  [(ngModel)]="user.profiles.farmDetails.farmName"
-                            placeholder="Farm Name"
-                            name="farmName" class="form-control" >
+                  <div class="row">
+                    <div class="col-xs-12 text-right">
+                      <a href="javascript:void(0)" (click)="addMore()" class="text-right">Add more</a>
+                    </div>
+                  </div>
+
+                  <div class="row " *ngFor="let farm of user.profiles.farmDetails;let i=index; ">
+                    <h5 class="text-center text-gray">Farm {{i+1}} </h5>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label" style="font-size: 14px;">Farm Name</label>
+                        <input  type="text"  [(ngModel)]="user.profiles.farmDetails[i].farmName"
+                                placeholder="Farm Name"
+                                name="farmName{{i}}" class="form-control" >
+
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label" style="font-size: 14px;">Product Name</label>
+                        <input  type="text"  [(ngModel)]="user.profiles.farmDetails[i].products"
+                                placeholder="Product name"
+                                name="product{{i}}" class="form-control" >
+
+
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label" style="font-size: 14px;">Grade Name</label>
+                        <input  type="text"  [(ngModel)]="user.profiles.farmDetails[i].grade"
+                                placeholder="Grade Name"
+                                name="grade{{i}}" class="form-control" >
+
+
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label" style="font-size: 14px;">Crop Name</label>
+                        <input  type="text"  [(ngModel)]="user.profiles.farmDetails[i].crops"
+                                placeholder="Crop Name"
+                                name="crop{{i}}" class="form-control" >
+
+
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label" style="font-size: 14px;">Size</label>
+                        <input  type="text"  [(ngModel)]="user.profiles.farmDetails[i].size"
+                                placeholder="Size"
+                                name="size{{i}}" class="form-control" >
+
+
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label" style="font-size: 14px;">Region Name</label>
+                        <input  type="text"  [(ngModel)]="user.profiles.farmDetails[i].region"
+                                placeholder="Region Name"
+                                name="region{{i}}" class="form-control" >
+
+                      </div>
+                    </div>
 
                   </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="control-label" style="font-size: 14px;">Product Name</label>
-                    <input  type="text"  [(ngModel)]="user.profiles.farmDetails.products"
-                            placeholder="Product name"
-                            name="product" class="form-control" >
 
 
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="control-label" style="font-size: 14px;">Grade Name</label>
-                    <input  type="text"  [(ngModel)]="user.profiles.farmDetails.grade"
-                            placeholder="Grade Name"
-                            name="grade" class="form-control" >
-
-
-                  </div>
                 </div>
 
 
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="control-label" style="font-size: 14px;">Crop Name</label>
-                    <input  type="text"  [(ngModel)]="user.profiles.farmDetails.crops"
-                            placeholder="Crop Name"
-                            name="crop" class="form-control" >
 
-
-                  </div>
-                </div>
-
-
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="control-label" style="font-size: 14px;">Size</label>
-                    <input  type="text"  [(ngModel)]="user.profiles.farmDetails.size"
-                            placeholder="Size"
-                            name="size" class="form-control" >
-
-
-                  </div>
-                </div>
-
-
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label class="control-label" style="font-size: 14px;">Region Name</label>
-                    <input  type="text"  [(ngModel)]="user.profiles.farmDetails.region"
-                            placeholder="Region Name"
-                            name="region" class="form-control" >
-
-                  </div>
-                </div>
 
               </div>
 
