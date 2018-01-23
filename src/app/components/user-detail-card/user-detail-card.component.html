@@ -15,7 +15,7 @@
           <b>Internal ID</b>
         </div>
         <div class="col-xs-8 text-right">
-          <span class="text-gray">{{user?.id}}</span>
+          <span class="text-gray">{{_user?.id}}</span>
         </div>
       </div>
 
@@ -26,7 +26,7 @@
           <b>Agri ID</b>
         </div>
         <div class="col-xs-8 text-right">
-          <span class="text-gray">{{user?.agriId || 'N.A'}}</span>
+          <span class="text-gray">{{_user?.agriId || 'N.A'}}</span>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
           <b>Name</b>
         </div>
         <div class="col-xs-8 text-right">
-          <span class="text-gray">{{user?.profiles?.name}}</span>
+          <span class="text-gray">{{_user?.profiles?.name}}</span>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
         </div>
         <div class="col-xs-8 text-right">
                       <span class="text-gray">
-                      {{user?.email}}
+                      {{_user?.email}}
                       </span>
         </div>
       </div>
@@ -69,7 +69,7 @@
         </div>
         <div class="col-xs-8 text-right" >
                       <span class="text-gray">
-                      {{user?.profiles?.phone}}
+                      {{_user?.profiles?.phone}}
                       </span>
         </div>
       </div>
@@ -85,7 +85,7 @@
         </div>
         <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.weChat}}
+                      {{_user?.profiles?.weChat}}
 
                     </span>
 
@@ -102,7 +102,7 @@
         </div>
         <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.isRegisteredOnBlockchain?'Yes':'No'}}
+                      {{_user?.isRegisteredOnBlockchain?'Yes':'No'}}
 
                     </span>
 
@@ -122,7 +122,7 @@
         </div>
         <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.createdAt|moment:true}}
+                      {{_user?.createdAt|moment:true}}
 
                     </span>
 
@@ -139,13 +139,30 @@
         </div>
         <div class="col-xs-8 text-right">
 
-          <span class="text-gray" *ngIf="user.lastLoggedIn">{{user?.lastLoggedIn|moment}}</span>
-          <span  class="text-gray" *ngIf="!user.lastLoggedIn">N.A</span>
+          <span class="text-gray" *ngIf="_user.lastLoggedIn">{{_user?.lastLoggedIn|moment}}</span>
+          <span  class="text-gray" *ngIf="!_user.lastLoggedIn">N.A</span>
 
 
         </div>
       </div>
 
+      <div class="row" style="text-align: left">
+        <hr class="hr-margin">
+
+        <div class="col-xs-4 text-left">
+          <b>Verification status</b>
+
+
+        </div>
+        <div class="col-xs-8 text-right" *ngIf="_user.profiles">
+
+          <span class="text-gray" *ngIf="_user.profiles.verificationStatus==='pending'">Pending</span>
+          <span class="text-gray" *ngIf="_user.profiles.verificationStatus==='approved'">Approved</span>
+          <span class="text-gray" *ngIf="_user.profiles.verificationStatus==='rejected'">Rejected</span>
+
+
+        </div>
+      </div>
 
 
     </div>
@@ -162,7 +179,7 @@
         </div>
         <div class="col-xs-8 text-right" >
                       <span class="text-gray">
-                      {{user.walletAddress || 'N.A'}}
+                      {{_user.walletAddress || 'N.A'}}
                     </span>
         </div>
 
@@ -180,7 +197,7 @@
         </div>
         <div class="col-xs-8 text-right" >
                       <span class="text-gray">
-                      {{user?.profiles?.registration}}
+                      {{_user?.profiles?.registration}}
                     </span>
         </div>
 
@@ -196,7 +213,7 @@
         </div>
         <div class="col-xs-8 text-right" >
                       <span class="text-gray">
-                      {{user?.profiles?.company}}
+                      {{_user?.profiles?.company}}
                       </span>
         </div>
 
@@ -213,7 +230,7 @@
         </div>
         <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.address?.country}}
+                      {{_user?.profiles?.address?.country}}
 
                     </span>
 
@@ -233,7 +250,7 @@
         </div>
         <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.address?.province}}
+                      {{_user?.profiles?.address?.province}}
 
                     </span>
 
@@ -249,7 +266,7 @@
         </div>
         <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.address?.city}}
+                      {{_user?.profiles?.address?.city}}
 
                     </span>
 
@@ -267,7 +284,7 @@
         </div>
         <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.address?.district}}
+                      {{_user?.profiles?.address?.district}}
 
                     </span>
 
@@ -286,7 +303,7 @@
         </div>
         <div class="col-xs-6 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.address?.line1}}
+                      {{_user?.profiles?.address?.line1}}
 
                     </span>
 
@@ -303,7 +320,7 @@
         </div>
         <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.profiles?.address?.line2}}
+                      {{_user?.profiles?.address?.line2}}
 
                     </span>
 
@@ -320,7 +337,7 @@
         </div>
         <div class="col-xs-8 text-right">
                     <span class="text-gray">
-                      {{user?.isIssuerOnBlockchain?'Yes':'No'}}
+                      {{_user?.isIssuerOnBlockchain?'Yes':'No'}}
 
                     </span>
 
@@ -344,6 +361,6 @@
   </div>
 
   <div class="modal-body">
-    <app-user-profile-edit [user]="user" (onProfileUpdate)="onProfileUpdate($event)"></app-user-profile-edit>
+    <app-user-profile-edit [user]="_user" (onProfileUpdate)="onProfileUpdate($event)"></app-user-profile-edit>
   </div>
 </ng-template>

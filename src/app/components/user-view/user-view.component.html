@@ -36,7 +36,71 @@
               </div>
 
               <div class="tab-pane" id="assets">
-                Coming Soon
+                <h4 class="text-center">
+                List of Assets
+              </h4>
+
+                <h5 *ngIf="!assets.length" class="text-gray">
+                  No assets created!
+                </h5>
+
+
+
+                <div class="table-responsive" *ngIf="assets.length ">
+
+                  <table class="table" style="border: 1px solid #ddd" >
+                    <thead  >
+                    <tr >
+                      <th class="boldfont text-center">Sr.no</th>
+
+                      <th class="boldfont text-center">Asset Name</th>
+
+                      <th class="boldfont text-center">Harvest amount</th>
+                      <th class="boldfont text-center">Harvest date</th>
+
+                      <th class="boldfont text-center">Created on</th>
+
+                      <th class="boldfont text-center">Status</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                    <tr *ngFor="let asset of assets;let i=index"  >
+                      <td class="text-center" style="cursor: pointer" [routerLink]="['../../assets',asset.id]">
+                        <span>{{i+1}}</span>
+                      </td>
+                      <td class="text-center" style="cursor: pointer" [routerLink]="['../../assets',asset.id]">
+                        <span>{{asset?.name}}</span>
+                      </td>
+
+
+
+                      <td class="text-center" style="cursor: pointer" [routerLink]="['../../assets',asset.id]">
+                        {{asset?.expectedHarvestAmount}}
+                      </td>
+                      <td class="text-center" style="cursor: pointer" [routerLink]="['../../assets',asset.id]">
+                        {{asset?.expectedHarvestDate|moment}}
+                      </td>
+
+                      <td class="text-center" style="cursor: pointer" [routerLink]="['../../assets',asset.id]" >
+                        {{asset?.createdAt|moment}}
+                      </td>
+
+                      <td class="text-center" [style.color]="getColorForStatus(asset.status)"
+                          style="text-transform: capitalize;font-weight: bold;
+                    cursor: pointer"
+                          [routerLink]="['../../assets',asset.id]">{{asset?.status}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+
+
+
+                </div>
+
               </div>
               <div class="tab-pane" id="farm_details">
                 Coming Soon

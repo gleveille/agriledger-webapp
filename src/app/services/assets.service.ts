@@ -157,6 +157,15 @@ export class AssetsService {
     }
 
 
+    getAssetByUserId(userId:string){
+        const url=`${UserApi.list.url()}/${userId}/assets`;
+
+        return this.http.get(`${url}`)
+            .retry(3)
+            .catch((res) => {
+                return this.errorHandler.handle(res);
+            });
+    }
     getAssetByid(assetId:string){
         //check if it is already in data store
         if(this.dataStore.metadata.isAllAssetLoaded){

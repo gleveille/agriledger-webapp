@@ -10,7 +10,32 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export class UserDetailCardComponent implements OnInit {
     modalRef: BsModalRef;
 
-  @Input() user={profiles:{}};
+
+    private _user:Iuser;
+
+    @Input('user')
+    set user(user:any) {
+        console.log(user)
+        if (user !== null && typeof user === 'object') {
+            if (!user.profiles) {
+                user.profiles = {}
+            }
+            if (!user.profiles.farmDetails) {
+                user.profiles.farmDetails={};
+            }
+            if (!user.profiles.address) {
+                user.profiles.address={}
+            }
+
+            this._user=user;
+        }
+
+        else {
+            this._user = {profiles:{farmDetails:{},address:{}}};
+        }
+
+    }
+
   constructor(private modalService: BsModalService) { }
 
   ngOnInit() {

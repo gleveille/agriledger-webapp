@@ -16,7 +16,7 @@ export class UserProfileEditComponent implements OnInit {
     private _user:Iuser;
 
     @Input('user')
-    set documents(user:any) {
+    set user(user:any) {
         if (user !== null && typeof user === 'object') {
             if (!user.profiles) {
                 user.profiles = {}

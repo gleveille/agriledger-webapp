@@ -5,6 +5,7 @@ import {ToastService} from "../../services/toast.service";
 import {Iuser} from "../../interface/user.interface";
 import {Location} from "@angular/common";
 import {DocumentType} from '../../enum/document_enum'
+import {AssetsService} from "../../services/assets.service";
 
 @Component({
   selector: 'app-user-view',
@@ -14,21 +15,25 @@ import {DocumentType} from '../../enum/document_enum'
 export class UserViewComponent implements OnInit {
     DocumentType=DocumentType;
   user:Iuser={};
+  assets:any[];
   constructor(private activatedRoute:ActivatedRoute,private router:Router,
               private toastService:ToastService,
+              private assetService:AssetsService,
               private location:Location,
               private userService:UserService) { }
 
   ngOnInit() {
       this.activatedRoute.params.concatMap((param)=>{
-          console.log(param)
-          return this.userService.getUserById(param.userId);
-      }).subscribe((user:Iuser)=>{
+          this.user.id=param.userId;
+          return this.userService.getUserById(this.user.id);
+      }).concatMap((user:Iuser)=>{
           this.user=user;
-
-          console.log(this.user)
+          return this.assetService.getAssetByUserId(this.user.id);
+      }).subscribe((assets:any[])=>{
+          this.assets=assets;
+          console.log(assets)
       },(err)=>{
-          console.log(err);
+
       })
   }
 
