@@ -7,7 +7,7 @@ export const ServerUrl=environment.apiURL+':'+environment.apiPORT;
 
 
 
-const ProfileApi= {
+export const ProfileApi= {
     getProfileByPasscode:()=>ServerUrl +'/api/profiles/findOne?filter[where][passcode]',
     getProfileById:()=>ServerUrl +'/api/profiles',
     createProfile:()=>ServerUrl +'/api/profiles' ,
@@ -15,15 +15,38 @@ const ProfileApi= {
     updateProfile:()=>ServerUrl +'/api/profiles'
 };
 
-const ContainerApi={
+export const ContainerApi={
     ProfileUpload:{url:()=>ServerUrl+'/api/containers/profiles/upload'},
     AssetEvidencesUpload:{url:()=>ServerUrl+ '/api/containers/evidences/upload'},
     AssetDocuementsUpload:{url:()=>ServerUrl+ '/api/containers/asset_documents/upload'},
     profileDocumentsUpload:{url:()=>ServerUrl+ '/api/containers/profile_documents/upload'}
 };
 
+export const AddressApi={
+    getCountry:{
+        url:()=>ServerUrl+'/api/countries',
+        method:'GET',
+        queryParams:[]
+    },
+    getProvince:{
+        url:()=>ServerUrl+'/api/provinces',
+        method:'GET',
+        queryParams:['country']
+    },
+    getCity:{
+        url:()=>ServerUrl+'/api/cities',
+        method:'GET',
+        queryParams:['province']
+    },
+    getDistrict:{
+        url:()=>ServerUrl+'/api/districts',
+        method:'GET',
+        queryParams:['city']
+    },
+};
 
-const UserApi={
+
+export const UserApi={
     login:{
         url:()=>ServerUrl+'/api/users/login',
         method:'POST'
@@ -70,7 +93,7 @@ const UserApi={
     }
 }
 
-const AssetApi={
+export const AssetApi={
     getAssets:{
         url:()=>ServerUrl+'/api/assets',
         method:'GET',
@@ -83,7 +106,7 @@ const AssetApi={
     }
 };
 
-const FavouriteAssetApi={
+export const FavouriteAssetApi={
     getAssets:{
         url:()=>ServerUrl+'/api/favouriteAssets',
         method:'GET',
@@ -108,7 +131,7 @@ ALL EXPRESS RELATING ROUTING API GOES HERE
 */
 
 
-const WalletApi={
+export const WalletApi={
     getAccount:{
         url:()=>ServerUrl+'/api/blockchain/wallet/account',
         method:'GET',
@@ -129,7 +152,7 @@ const WalletApi={
 
 
 
-const OnboardingApi={
+export const OnboardingApi={
     createAccount:{
         url:()=>ServerUrl+'/api/blockchain/onboarding/account',
         method:'POST'
@@ -146,7 +169,7 @@ const OnboardingApi={
     }
 }
 
-const TokenApi={
+export const TokenApi={
     getTokens:{
         url:()=>ServerUrl+'/api/tokens',
         method:'GET',
@@ -166,7 +189,7 @@ const TokenApi={
 
 
 
-const AssetPoolApi={
+export const AssetPoolApi={
     createAssetpool:{
         url:()=>ServerUrl+'/api/blockchain/assetpool/create',
         method:'POST'
@@ -190,4 +213,3 @@ const AssetPoolApi={
 
 
 
-export {UserApi,OnboardingApi,WalletApi,AssetApi,AssetPoolApi,TokenApi,ContainerApi,FavouriteAssetApi}

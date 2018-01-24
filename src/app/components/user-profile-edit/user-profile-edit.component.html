@@ -51,21 +51,36 @@
         <div class="col-md-4">
           <div class="form-group">
             <label class="control-label required" style="font-size: 14px;">Country</label>
-            <input #country="ngModel" type="text" required [(ngModel)]="_user.profiles.address.country"
-                   placeholder="Country Name"
-                   name="country" class="form-control" >
+
+            <select (ngModelChange)="onCountryChange($event)"
+                    #country="ngModel" class="form-control "
+                    required
+                    name="country" [(ngModel)]="_user.profiles.address.country">
+
+              <option *ngFor="let c of address.country" [value]="c.name">
+                {{c.name}}
+              </option>
+            </select>
             <small [hidden]="country.valid || (country.pristine && !f.submitted)">
               Country is required
             </small>
 
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="form-group">
             <label class="control-label required" style="font-size: 14px;">Province</label>
-            <input #province="ngModel" type="text" required [(ngModel)]="_user.profiles.address.province"
-                   placeholder="Province"
-                   name="province" class="form-control" >
+            <select (ngModelChange)="onProvinceChange($event)"
+                    #province="ngModel" class="form-control "
+                    required
+                    name="province" [(ngModel)]="_user.profiles.address.province">
+
+
+              <option *ngFor="let c of address.province" [value]="c.name">
+                {{c.name}}
+              </option>
+            </select>
             <small [hidden]="province.valid || (province.pristine && !f.submitted)">
               Province is required
             </small>
@@ -75,10 +90,15 @@
         <div class="col-md-4">
           <div class="form-group">
             <label class="control-label required" style="font-size: 14px;">City</label>
-            <input #city="ngModel" type="text" required [(ngModel)]="_user.profiles.address.city"
-                   placeholder="City"
+            <select (ngModelChange)="onCityChange($event)"
+                    #city="ngModel" class="form-control "
+                    required
+                    name="city" [(ngModel)]="_user.profiles.address.city">
 
-                   name="city" class="form-control" >
+              <option *ngFor="let c of address.city" [value]="c.name">
+                {{c.name}}
+              </option>
+            </select>
             <small [hidden]="city.valid || (city.pristine && !f.submitted)">
               City is required
             </small>
@@ -94,10 +114,15 @@
         <div class="col-md-4">
           <div class="form-group">
             <label class="control-label required" style="font-size: 14px;">District</label>
-            <input #district="ngModel" type="text" required [(ngModel)]="_user.profiles.address.district"
-                   placeholder="District"
+            <select
+                    #district="ngModel" class="form-control "
+                    required
+                    name="district" [(ngModel)]="_user.profiles.address.district">
 
-                   name="district" class="form-control" >
+              <option *ngFor="let c of address.district" [value]="c.name">
+                {{c.name}}
+              </option>
+            </select>
             <small [hidden]="district.valid || (district.pristine && !f.submitted)">
               District is required
             </small>

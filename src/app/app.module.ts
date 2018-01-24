@@ -70,6 +70,7 @@ import { PasswordSetInternalComponent } from './components/password-set-internal
 import { DocumentListComponent } from './components/document-list/document-list.component';
 import { UserDetailCardComponent } from './components/user-detail-card/user-detail-card.component';
 import { UserProfileEditComponent } from './components/user-profile-edit/user-profile-edit.component';
+import {AddressService} from "./services/address.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/translations/', '.json');
@@ -159,7 +160,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       AlreadyAuthenticatedGuard,
       AlreadyResetPasswordGuard,
       AlreadyRegisteredOnBlockchainGuard,
-      AlreadyAnIssuerGuard
+      AlreadyAnIssuerGuard,
+      AddressService
 
   ],
   bootstrap: [AppComponent]

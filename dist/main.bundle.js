@@ -21,15 +21,17 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return ServerUrl; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return UserApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return OnboardingApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return WalletApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssetApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AssetPoolApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return TokenApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ContainerApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return FavouriteAssetApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return ServerUrl; });
+/* unused harmony export ProfileApi */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return ContainerApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddressApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return UserApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AssetApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return FavouriteAssetApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return WalletApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return OnboardingApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return TokenApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return AssetPoolApi; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 // This  file contains list of all the api this angular application uses.
 // This file also documenting how to use the api
@@ -47,6 +49,28 @@ var ContainerApi = {
     AssetEvidencesUpload: { url: function () { return ServerUrl + '/api/containers/evidences/upload'; } },
     AssetDocuementsUpload: { url: function () { return ServerUrl + '/api/containers/asset_documents/upload'; } },
     profileDocumentsUpload: { url: function () { return ServerUrl + '/api/containers/profile_documents/upload'; } }
+};
+var AddressApi = {
+    getCountry: {
+        url: function () { return ServerUrl + '/api/countries'; },
+        method: 'GET',
+        queryParams: []
+    },
+    getProvince: {
+        url: function () { return ServerUrl + '/api/provinces'; },
+        method: 'GET',
+        queryParams: ['country']
+    },
+    getCity: {
+        url: function () { return ServerUrl + '/api/cities'; },
+        method: 'GET',
+        queryParams: ['province']
+    },
+    getDistrict: {
+        url: function () { return ServerUrl + '/api/districts'; },
+        method: 'GET',
+        queryParams: ['city']
+    },
 };
 var UserApi = {
     login: {
@@ -189,7 +213,6 @@ var AssetPoolApi = {
 };
 
 
-
 /***/ }),
 
 /***/ "../../../../../src/app/app.component.css":
@@ -329,12 +352,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_document_list_document_list_component__ = __webpack_require__("../../../../../src/app/components/document-list/document-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_user_detail_card_user_detail_card_component__ = __webpack_require__("../../../../../src/app/components/user-detail-card/user-detail-card.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_user_profile_edit_user_profile_edit_component__ = __webpack_require__("../../../../../src/app/components/user-profile-edit/user-profile-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__services_address_service__ = __webpack_require__("../../../../../src/app/services/address.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -492,7 +517,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_20__guards_already_authenticated_guard__["a" /* AlreadyAuthenticatedGuard */],
                 __WEBPACK_IMPORTED_MODULE_27__guards_onboarding_guard_already_reset_password_guard__["a" /* AlreadyResetPasswordGuard */],
                 __WEBPACK_IMPORTED_MODULE_28__guards_onboarding_guard_already_registered_on_blockchain_guard__["a" /* AlreadyRegisteredOnBlockchainGuard */],
-                __WEBPACK_IMPORTED_MODULE_29__guards_onboarding_guard_already_an_issuer_guard__["a" /* AlreadyAnIssuerGuard */]
+                __WEBPACK_IMPORTED_MODULE_29__guards_onboarding_guard_already_an_issuer_guard__["a" /* AlreadyAnIssuerGuard */],
+                __WEBPACK_IMPORTED_MODULE_65__services_address_service__["a" /* AddressService */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
         })
@@ -866,7 +892,7 @@ var AccountComponent = (function () {
         this.userService = userService;
         this.toastService = toastService;
         this.modalService = modalService;
-        this.serverUrl = __WEBPACK_IMPORTED_MODULE_5__src_app_api_config__["f" /* ServerUrl */];
+        this.serverUrl = __WEBPACK_IMPORTED_MODULE_5__src_app_api_config__["g" /* ServerUrl */];
         this.URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
         this.user = {};
     }
@@ -879,7 +905,7 @@ var AccountComponent = (function () {
     };
     AccountComponent.prototype.initUpload = function () {
         var _this = this;
-        this.uploader = new __WEBPACK_IMPORTED_MODULE_4_ng2_file_upload__["FileUploader"]({ url: __WEBPACK_IMPORTED_MODULE_5__src_app_api_config__["c" /* ContainerApi */].ProfileUpload.url(),
+        this.uploader = new __WEBPACK_IMPORTED_MODULE_4_ng2_file_upload__["FileUploader"]({ url: __WEBPACK_IMPORTED_MODULE_5__src_app_api_config__["d" /* ContainerApi */].ProfileUpload.url(),
             headers: [{ name: 'x-id', value: this.user.profiles.id }] });
         this.uploader.onAfterAddingFile = function (item) {
             _this.uploader.queue = [];
@@ -2251,7 +2277,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var DocumentListComponent = (function () {
     function DocumentListComponent() {
-        this.serverUrl = __WEBPACK_IMPORTED_MODULE_1__api_config__["f" /* ServerUrl */];
+        this.serverUrl = __WEBPACK_IMPORTED_MODULE_1__api_config__["g" /* ServerUrl */];
         this.documentStatus = ['pending', 'approved', 'rejected'];
         this.onStatusChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.documentType = '';
@@ -3710,7 +3736,7 @@ var TransferComponent = (function () {
 /***/ "../../../../../src/app/components/user-create/user-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n\n\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-xs-12\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Create User</h4>\n          </div>\n          <div class=\"card-content\">\n            <form #f=\"ngForm\" (ngSubmit)=\"register(f, f.valid)\" novalidate>\n              <div class=\"row\">\n                <div class=\"col-md-4\">\n                <div class=\"form-group\">\n                  <label class=\"control-label required\" style=\"font-size: 14px;\">Role</label>\n                  <select (ngModelChange)=\"onChange($event)\"  #role=\"ngModel\" class=\"form-control \"\n                          required\n                          name=\"role\" [(ngModel)]=\"user.role\">\n\n                    <option *ngFor=\"let role of roles\" [value]=\"role\">\n                      {{role.length?role:'Select Role'}}\n                    </option>\n                  </select>\n                  <small [hidden]=\"role.valid || (role.pristine && !f.submitted)\">\n                    Role is required\n                  </small>\n                </div>\n              </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Name</label>\n                    <input #name=\"ngModel\" type=\"text\" required [(ngModel)]=\"user.profiles.name\"\n                           placeholder=\"Full Name\"\n                           name=\"name\"\n                           [maxLength]=\"30\"\n                           [minlength]=\"5\"\n                           class=\"form-control\" >\n                    <small [hidden]=\"name.valid || (name.pristine && !f.submitted)\">\n                      Name is required (minimum 5 characters).\n                    </small>\n                  </div>\n                </div>\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Email</label>\n                    <input #email=ngModel  type=\"email\" required [(ngModel)]=\"user.email\"\n                           placeholder=\"Email\"\n                           name=\"email\" class=\"form-control\" >\n                    <small [hidden]=\"email.valid || (email.pristine && !f.submitted)\">\n                      Email is required\n                    </small>\n                  </div>\n                </div>\n\n              </div>\n\n              <div class=\"row\">\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 14px;\">Password</label>\n                    <span class=\"required\" style=\"font-size: 12px;color:gray\">(auto generated)</span>\n                    <input [disabled]=\"true\"  required type=\"text\" [(ngModel)]=\"user.password\" name=\"password\" class=\"form-control\" >\n\n                  </div>\n                </div>\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Phone</label>\n                    <input #phone=\"ngModel\"\n                           [minlength]=\"6\"\n                           [maxlength]=\"15\"\n                           pattern=\"^[0-9]+$\"\n                           type=\"text\" required [(ngModel)]=\"user.profiles.phone\"\n                           placeholder=\"Phone\"\n                           name=\"phone\" class=\"form-control\" >\n                    <small [hidden]=\"phone.valid || (phone.pristine && !f.submitted)\">\n                      Phone is required and should be valid one\n                    </small>\n                  </div>\n                </div>\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Country</label>\n                    <input #country=\"ngModel\" type=\"text\" required [(ngModel)]=\"user.profiles.address.country\"\n                           placeholder=\"Country Name\"\n                           name=\"country\" class=\"form-control\" >\n                    <small [hidden]=\"country.valid || (country.pristine && !f.submitted)\">\n                      Country is required\n                    </small>\n\n                  </div>\n                </div>\n\n\n              </div>\n\n              <div class=\"row\">\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Province</label>\n                    <input #province=\"ngModel\" type=\"text\" required [(ngModel)]=\"user.profiles.address.province\"\n                           placeholder=\"Province\"\n                           name=\"province\" class=\"form-control\" >\n                    <small [hidden]=\"province.valid || (province.pristine && !f.submitted)\">\n                      Province is required\n                    </small>\n\n                  </div>\n                </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">City</label>\n                    <input #city=\"ngModel\" type=\"text\" required [(ngModel)]=\"user.profiles.address.city\"\n                           placeholder=\"City\"\n\n                           name=\"city\" class=\"form-control\" >\n                    <small [hidden]=\"city.valid || (city.pristine && !f.submitted)\">\n                      City is required\n                    </small>\n\n                  </div>\n                </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">District</label>\n                    <input #district=\"ngModel\" type=\"text\" required [(ngModel)]=\"user.profiles.address.district\"\n                           placeholder=\"District\"\n\n                           name=\"district\" class=\"form-control\" >\n                    <small [hidden]=\"district.valid || (district.pristine && !f.submitted)\">\n                      District is required\n                    </small>\n\n                  </div>\n                </div>\n\n\n              </div>\n\n\n\n              <div class=\"row\">\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Address line 1</label>\n                    <input #line1=\"ngModel\" type=\"text\" required [(ngModel)]=\"user.profiles.address.line1\"\n                           placeholder=\"Street address, P.O.box, c\\o\"\n                           name=\"line1\" class=\"form-control\" >\n                    <small [hidden]=\"line1.valid || (line1.pristine && !f.submitted)\">\n                      Address Line1 is required\n                    </small>\n\n                  </div>\n                </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 14px;\">Address line 2</label>\n                    <input type=\"text\"\n                           [(ngModel)]=\"user.profiles.address.line2\"\n                           placeholder=\"Unit, building, floor, etc\"\n                           name=\"line2\" class=\"form-control\" >\n                  </div>\n                </div>\n\n              </div>\n\n              <div class=\"row\" *ngIf=\"user.role==='farmer'\">\n                <div class=\"col-xs-12\">\n                  <h4 style=\"background-color: #3c3e901a;padding: 5px;\" class=\"text-center\">Farm Details (optional) </h4>\n\n                  <div class=\"row\">\n                    <div class=\"col-xs-12 text-right\">\n                      <a href=\"javascript:void(0)\" (click)=\"addMore()\" class=\"text-right\">Add more</a>\n                    </div>\n                  </div>\n\n                  <div class=\"row \" *ngFor=\"let farm of user.profiles.farmDetails;let i=index; \">\n                    <h5 class=\"text-center text-gray\">Farm {{i+1}} </h5>\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Farm Name</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].farmName\"\n                                placeholder=\"Farm Name\"\n                                name=\"farmName{{i}}\" class=\"form-control\" >\n\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Product Name</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].products\"\n                                placeholder=\"Product name\"\n                                name=\"product{{i}}\" class=\"form-control\" >\n\n\n                      </div>\n                    </div>\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Grade Name</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].grade\"\n                                placeholder=\"Grade Name\"\n                                name=\"grade{{i}}\" class=\"form-control\" >\n\n\n                      </div>\n                    </div>\n\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Crop Name</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].crops\"\n                                placeholder=\"Crop Name\"\n                                name=\"crop{{i}}\" class=\"form-control\" >\n\n\n                      </div>\n                    </div>\n\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Size</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].size\"\n                                placeholder=\"Size\"\n                                name=\"size{{i}}\" class=\"form-control\" >\n\n\n                      </div>\n                    </div>\n\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Region Name</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].region\"\n                                placeholder=\"Region Name\"\n                                name=\"region{{i}}\" class=\"form-control\" >\n\n                      </div>\n                    </div>\n\n                  </div>\n\n\n                </div>\n\n\n\n\n              </div>\n\n\n              <div class=\"row\">\n                <div class=\"col-xs-12\">\n                  <div class=\"row\">\n\n                    <div class=\"col-xs-12\">\n\n                      <div class=\"upload-btn-wrapper\">\n                        <button class=\"uploadBtn\">Upload documents</button>\n                        <input type=\"file\" name=\"myfile\" ng2FileSelect [uploader]=\"uploader\"  multiple accept=\"image/*\" />\n                      </div>\n\n                    </div>\n\n                    <div class=\"col-xs-12\">\n                      <table class=\"table\" *ngIf=\"uploader.queue.length\">\n                        <thead>\n                        <tr>\n                          <th class=\"text-left\">Name</th>\n                          <th class=\"text-left\">Size</th>\n\n                          <th class=\"text-left\">Progress</th>\n                          <th class=\"text-left\">Remove</th>\n                          <th class=\"text-left\">Description (mandatory)</th>\n\n                        </tr>\n                        </thead>\n                        <tbody>\n                        <tr *ngFor=\"let item of uploader.queue;let i=index\">\n                          <td class=\"text-left\">\n                            <img class=\"circularImgForUpload\" src=\"\" appImagePreview [image]=\"item?._file\" />\n\n\n                          </td>\n\n                          <td  class=\"text-left\">{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\n\n                          <td class=\"text-left\">\n                            <div class=\"progress\">\n                              <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\n                            </div>\n                          </td>\n\n                          <td class=\"text-left\">\n\n                            <button style=\"position: relative;top:-10px;\" type=\"button\" class=\"btn btn-danger btn-xs\"\n                                    (click)=\"item.remove()\">\n                              <span class=\"glyphicon glyphicon-trash\"></span>\n                            </button>\n                          </td>\n\n                          <td class=\"text-left\">\n                            <textarea type=\"text\"\n                                      maxlength=\"100\"\n                                      placeholder=\"say something about this document\"\n                                      rows=\"1\"\n                                      cols=\"25\"\n                                      [name]=\"'picDescription'+i\" [(ngModel)]=\"description[i]\">\n                            </textarea>\n                          </td>\n\n                        </tr>\n                        </tbody>\n                      </table>\n\n\n                    </div>\n\n                  </div>\n                </div>\n              </div>\n\n              <button\n                      type=\"submit\"\n                      [disabled]=\"createRequestStatus==='pending'\"\n                      class=\"btn btn-danger pull-right\">{{uploader.queue.length?'CREATE AND UPLOAD':'CREATE'}}\n              </button>\n\n\n\n            </form>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"main-content\">\n\n\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-xs-12\">\n        <div class=\"card\">\n          <div class=\"card-header\" data-background-color=\"green\">\n            <h4 class=\"title\">Create User</h4>\n          </div>\n          <div class=\"card-content\">\n            <form #f=\"ngForm\" (ngSubmit)=\"register(f, f.valid)\" novalidate>\n              <div class=\"row\">\n                <div class=\"col-md-4\">\n                <div class=\"form-group\">\n                  <label class=\"control-label required\" style=\"font-size: 14px;\">Role</label>\n                  <select (ngModelChange)=\"onChange($event)\"  #role=\"ngModel\" class=\"form-control \"\n                          required\n                          name=\"role\" [(ngModel)]=\"user.role\">\n\n                    <option *ngFor=\"let role of roles\" [value]=\"role\">\n                      {{role.length?role:'Select Role'}}\n                    </option>\n                  </select>\n                  <small [hidden]=\"role.valid || (role.pristine && !f.submitted)\">\n                    Role is required\n                  </small>\n                </div>\n              </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Name</label>\n                    <input #name=\"ngModel\" type=\"text\" required [(ngModel)]=\"user.profiles.name\"\n                           placeholder=\"Full Name\"\n                           name=\"name\"\n                           [maxLength]=\"30\"\n                           [minlength]=\"5\"\n                           class=\"form-control\" >\n                    <small [hidden]=\"name.valid || (name.pristine && !f.submitted)\">\n                      Name is required (minimum 5 characters).\n                    </small>\n                  </div>\n                </div>\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Email</label>\n                    <input #email=ngModel  type=\"email\" required [(ngModel)]=\"user.email\"\n                           placeholder=\"Email\"\n                           name=\"email\" class=\"form-control\" >\n                    <small [hidden]=\"email.valid || (email.pristine && !f.submitted)\">\n                      Email is required\n                    </small>\n                  </div>\n                </div>\n\n              </div>\n\n              <div class=\"row\">\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 14px;\">Password</label>\n                    <span class=\"required\" style=\"font-size: 12px;color:gray\">(auto generated)</span>\n                    <input [disabled]=\"true\"  required type=\"text\" [(ngModel)]=\"user.password\" name=\"password\" class=\"form-control\" >\n\n                  </div>\n                </div>\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Phone</label>\n                    <input #phone=\"ngModel\"\n                           [minlength]=\"6\"\n                           [maxlength]=\"15\"\n                           pattern=\"^[0-9]+$\"\n                           type=\"text\" required [(ngModel)]=\"user.profiles.phone\"\n                           placeholder=\"Phone\"\n                           name=\"phone\" class=\"form-control\" >\n                    <small [hidden]=\"phone.valid || (phone.pristine && !f.submitted)\">\n                      Phone is required and should be valid one\n                    </small>\n                  </div>\n                </div>\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Country</label>\n\n                    <select (ngModelChange)=\"onCountryChange($event)\"\n                            #country=\"ngModel\" class=\"form-control \"\n                            required\n                            name=\"country\" [(ngModel)]=\"user.profiles.address.country\">\n\n\n\n                      <option *ngFor=\"let c of address.country\" [value]=\"c.name\">\n                        {{c.name}}\n                      </option>\n                    </select>\n                    <small [hidden]=\"country.valid || (country.pristine && !f.submitted)\">\n                      Country is required\n                    </small>\n\n                  </div>\n                </div>\n\n\n              </div>\n\n              <div class=\"row\">\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Province</label>\n                    <select (ngModelChange)=\"onProvinceChange($event)\"\n                            #province=\"ngModel\" class=\"form-control \"\n                            required\n                            name=\"province\" [(ngModel)]=\"user.profiles.address.province\">\n\n                      <option *ngFor=\"let c of address.province\" [value]=\"c.name\">\n                        {{c.name}}\n                      </option>\n                    </select>\n                    <small [hidden]=\"province.valid || (province.pristine && !f.submitted)\">\n                      Province is required\n                    </small>\n\n                  </div>\n                </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">City</label>\n                    <select (ngModelChange)=\"onCityChange($event)\"\n                            #city=\"ngModel\" class=\"form-control \"\n                            required\n                            name=\"city\" [(ngModel)]=\"user.profiles.address.city\">\n\n                      <option *ngFor=\"let c of address.city\" [value]=\"c.name\">\n                        {{c.name}}\n                      </option>\n                    </select>\n                    <small [hidden]=\"city.valid || (city.pristine && !f.submitted)\">\n                      City is required\n                    </small>\n\n                  </div>\n                </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">District</label>\n                    <select\n                            #district=\"ngModel\" class=\"form-control \"\n                            required\n                            name=\"district\" [(ngModel)]=\"user.profiles.address.district\">\n\n                      <option *ngFor=\"let c of address.district\" [value]=\"c.name\">\n                        {{c.name}}\n                      </option>\n                    </select>\n                    <small [hidden]=\"district.valid || (district.pristine && !f.submitted)\">\n                      District is required\n                    </small>\n\n                  </div>\n                </div>\n\n\n              </div>\n\n\n\n              <div class=\"row\">\n\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label required\" style=\"font-size: 14px;\">Address line 1</label>\n                    <input #line1=\"ngModel\" type=\"text\" required [(ngModel)]=\"user.profiles.address.line1\"\n                           placeholder=\"Street address, P.O.box, c\\o\"\n                           name=\"line1\" class=\"form-control\" >\n                    <small [hidden]=\"line1.valid || (line1.pristine && !f.submitted)\">\n                      Address Line1 is required\n                    </small>\n\n                  </div>\n                </div>\n                <div class=\"col-md-4\">\n                  <div class=\"form-group\">\n                    <label class=\"control-label\" style=\"font-size: 14px;\">Address line 2</label>\n                    <input type=\"text\"\n                           [(ngModel)]=\"user.profiles.address.line2\"\n                           placeholder=\"Unit, building, floor, etc\"\n                           name=\"line2\" class=\"form-control\" >\n                  </div>\n                </div>\n\n              </div>\n\n              <div class=\"row\" *ngIf=\"user.role==='farmer'\">\n                <div class=\"col-xs-12\">\n                  <h4 style=\"background-color: #3c3e901a;padding: 5px;\" class=\"text-center\">Farm Details (optional) </h4>\n\n                  <div class=\"row\">\n                    <div class=\"col-xs-12 text-right\">\n                      <a href=\"javascript:void(0)\" (click)=\"addMore()\" class=\"text-right\">Add more</a>\n                    </div>\n                  </div>\n\n                  <div class=\"row \" *ngFor=\"let farm of user.profiles.farmDetails;let i=index; \">\n                    <h5 class=\"text-center text-gray\">Farm {{i+1}} </h5>\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Farm Name</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].farmName\"\n                                placeholder=\"Farm Name\"\n                                name=\"farmName{{i}}\" class=\"form-control\" >\n\n                      </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Product Name</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].products\"\n                                placeholder=\"Product name\"\n                                name=\"product{{i}}\" class=\"form-control\" >\n\n\n                      </div>\n                    </div>\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Grade Name</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].grade\"\n                                placeholder=\"Grade Name\"\n                                name=\"grade{{i}}\" class=\"form-control\" >\n\n\n                      </div>\n                    </div>\n\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Crop Name</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].crops\"\n                                placeholder=\"Crop Name\"\n                                name=\"crop{{i}}\" class=\"form-control\" >\n\n\n                      </div>\n                    </div>\n\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Size</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].size\"\n                                placeholder=\"Size\"\n                                name=\"size{{i}}\" class=\"form-control\" >\n\n\n                      </div>\n                    </div>\n\n\n                    <div class=\"col-md-4\">\n                      <div class=\"form-group\">\n                        <label class=\"control-label\" style=\"font-size: 14px;\">Region Name</label>\n                        <input  type=\"text\"  [(ngModel)]=\"user.profiles.farmDetails[i].region\"\n                                placeholder=\"Region Name\"\n                                name=\"region{{i}}\" class=\"form-control\" >\n\n                      </div>\n                    </div>\n\n                  </div>\n\n\n                </div>\n\n\n\n\n              </div>\n\n\n              <div class=\"row\">\n                <div class=\"col-xs-12\">\n                  <div class=\"row\">\n\n                    <div class=\"col-xs-12\">\n\n                      <div class=\"upload-btn-wrapper\">\n                        <button class=\"uploadBtn\">Upload documents</button>\n                        <input type=\"file\" name=\"myfile\" ng2FileSelect [uploader]=\"uploader\"  multiple accept=\"image/*\" />\n                      </div>\n\n                    </div>\n\n                    <div class=\"col-xs-12\">\n                      <table class=\"table\" *ngIf=\"uploader.queue.length\">\n                        <thead>\n                        <tr>\n                          <th class=\"text-left\">Name</th>\n                          <th class=\"text-left\">Size</th>\n\n                          <th class=\"text-left\">Progress</th>\n                          <th class=\"text-left\">Remove</th>\n                          <th class=\"text-left\">Description (mandatory)</th>\n\n                        </tr>\n                        </thead>\n                        <tbody>\n                        <tr *ngFor=\"let item of uploader.queue;let i=index\">\n                          <td class=\"text-left\">\n                            <img class=\"circularImgForUpload\" src=\"\" appImagePreview [image]=\"item?._file\" />\n\n\n                          </td>\n\n                          <td  class=\"text-left\">{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\n\n                          <td class=\"text-left\">\n                            <div class=\"progress\">\n                              <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\n                            </div>\n                          </td>\n\n                          <td class=\"text-left\">\n\n                            <button style=\"position: relative;top:-10px;\" type=\"button\" class=\"btn btn-danger btn-xs\"\n                                    (click)=\"item.remove()\">\n                              <span class=\"glyphicon glyphicon-trash\"></span>\n                            </button>\n                          </td>\n\n                          <td class=\"text-left\">\n                            <textarea type=\"text\"\n                                      maxlength=\"100\"\n                                      placeholder=\"say something about this document\"\n                                      rows=\"1\"\n                                      cols=\"25\"\n                                      [name]=\"'picDescription'+i\" [(ngModel)]=\"description[i]\">\n                            </textarea>\n                          </td>\n\n                        </tr>\n                        </tbody>\n                      </table>\n\n\n                    </div>\n\n                  </div>\n                </div>\n              </div>\n\n              <button\n                      type=\"submit\"\n                      [disabled]=\"createRequestStatus==='pending'\"\n                      class=\"btn btn-danger pull-right\">{{uploader.queue.length?'CREATE AND UPLOAD':'CREATE'}}\n              </button>\n\n\n\n            </form>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3745,6 +3771,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_file_upload__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_app_api_config__ = __webpack_require__("../../../../../src/app/api.config.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_address_service__ = __webpack_require__("../../../../../src/app/services/address.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3761,13 +3788,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var UserCreateComponent = (function () {
-    function UserCreateComponent(userService, toastService, router) {
+    function UserCreateComponent(userService, addressService, toastService, router) {
         this.userService = userService;
+        this.addressService = addressService;
         this.toastService = toastService;
         this.router = router;
-        this.uploader = new __WEBPACK_IMPORTED_MODULE_4_ng2_file_upload__["FileUploader"]({ url: __WEBPACK_IMPORTED_MODULE_5__src_app_api_config__["c" /* ContainerApi */].profileDocumentsUpload.url() });
+        this.uploader = new __WEBPACK_IMPORTED_MODULE_4_ng2_file_upload__["FileUploader"]({ url: __WEBPACK_IMPORTED_MODULE_5__src_app_api_config__["d" /* ContainerApi */].profileDocumentsUpload.url() });
         this.description = Array(10).fill('');
+        this.address = { country: [], province: [], city: [], district: [] };
         this.user = {
             password: '',
             role: '',
@@ -3808,6 +3838,7 @@ var UserCreateComponent = (function () {
     };
     UserCreateComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.getCountry();
         this.createPassword();
         this.uploader.onSuccessItem = function (item, response, status, headers) {
             //this.resetForm();
@@ -3953,6 +3984,62 @@ var UserCreateComponent = (function () {
             }];
         this.createPassword();
     };
+    UserCreateComponent.prototype.onCountryChange = function (event) {
+        this.getProvinceByCountry(event);
+    };
+    UserCreateComponent.prototype.onProvinceChange = function (event) {
+        this.getCityByProvince(event);
+    };
+    UserCreateComponent.prototype.onCityChange = function (event) {
+        this.getDistrictByCity(event);
+    };
+    UserCreateComponent.prototype.getCountry = function () {
+        var _this = this;
+        this.addressService.getCountry().subscribe(function (data) {
+            _this.address.country = data;
+            _this.address.province = [];
+            _this.address.city = [];
+            _this.address.district = [];
+            _this.user.profiles.address.country = '';
+            _this.user.profiles.address.province = '';
+            _this.user.profiles.address.city = '';
+            _this.user.profiles.address.district = '';
+            console.log(_this.address.country);
+        }, function (err) {
+        });
+    };
+    UserCreateComponent.prototype.getProvinceByCountry = function (countryName) {
+        var _this = this;
+        this.addressService.getProvinceByCountry(countryName).subscribe(function (data) {
+            _this.address.province = data;
+            _this.address.city = [];
+            _this.address.district = [];
+            _this.user.profiles.address.province = '';
+            _this.user.profiles.address.city = '';
+            _this.user.profiles.address.district = '';
+            console.log(_this.address.province);
+        }, function (err) {
+        });
+    };
+    UserCreateComponent.prototype.getCityByProvince = function (provinceName) {
+        var _this = this;
+        this.addressService.getCityByProvince(provinceName).subscribe(function (data) {
+            _this.address.city = data;
+            _this.address.district = [];
+            _this.user.profiles.address.city = '';
+            _this.user.profiles.address.district = '';
+            console.log(_this.address.city);
+        }, function (err) {
+        });
+    };
+    UserCreateComponent.prototype.getDistrictByCity = function (cityName) {
+        var _this = this;
+        this.addressService.getDistrictByCity(cityName).subscribe(function (data) {
+            _this.address.district = data;
+            console.log(_this.address.district);
+        }, function (err) {
+        });
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_6__angular_forms__["d" /* NgForm */])
@@ -3963,7 +4050,9 @@ var UserCreateComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/user-create/user-create.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-create/user-create.component.scss")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_7__services_address_service__["a" /* AddressService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], UserCreateComponent);
     return UserCreateComponent;
 }());
@@ -4229,7 +4318,7 @@ var UserListComponent = (function () {
 /***/ "../../../../../src/app/components/user-profile-edit/user-profile-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-xs-12\" *ngIf=\"currentUser.role\">\n    <form #f=\"ngForm\" (ngSubmit)=\"updateProfile(f, f.valid)\" novalidate>\n      <div class=\"row\">\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Email</label>\n            <input [disabled]=\"true\"  type=\"email\"  [(ngModel)]=\"_user.email\"\n                   placeholder=\"Email\"\n                   name=\"email\" class=\"form-control\" >\n\n          </div>\n        </div>\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Name</label>\n            <input #name=\"ngModel\" type=\"text\" required [(ngModel)]=\"_user.profiles.name\"\n                   placeholder=\"Full Name\"\n                   name=\"name\"\n                   [maxLength]=\"30\"\n                   [minlength]=\"5\"\n                   class=\"form-control\" >\n            <small [hidden]=\"name.valid || (name.pristine && !f.submitted)\">\n              Name is required (minimum 5 characters).\n            </small>\n          </div>\n        </div>\n\n\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Phone</label>\n            <input #phone=\"ngModel\"\n                   [minlength]=\"6\"\n                   [maxlength]=\"15\"\n                   pattern=\"^[0-9]+$\"\n                   type=\"text\" required [(ngModel)]=\"_user.profiles.phone\"\n                   placeholder=\"Phone\"\n                   name=\"phone\" class=\"form-control\" >\n            <small [hidden]=\"phone.valid || (phone.pristine && !f.submitted)\">\n              Phone is required and should be valid one\n            </small>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n\n\n\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Country</label>\n            <input #country=\"ngModel\" type=\"text\" required [(ngModel)]=\"_user.profiles.address.country\"\n                   placeholder=\"Country Name\"\n                   name=\"country\" class=\"form-control\" >\n            <small [hidden]=\"country.valid || (country.pristine && !f.submitted)\">\n              Country is required\n            </small>\n\n          </div>\n        </div>\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Province</label>\n            <input #province=\"ngModel\" type=\"text\" required [(ngModel)]=\"_user.profiles.address.province\"\n                   placeholder=\"Province\"\n                   name=\"province\" class=\"form-control\" >\n            <small [hidden]=\"province.valid || (province.pristine && !f.submitted)\">\n              Province is required\n            </small>\n\n          </div>\n        </div>\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">City</label>\n            <input #city=\"ngModel\" type=\"text\" required [(ngModel)]=\"_user.profiles.address.city\"\n                   placeholder=\"City\"\n\n                   name=\"city\" class=\"form-control\" >\n            <small [hidden]=\"city.valid || (city.pristine && !f.submitted)\">\n              City is required\n            </small>\n\n          </div>\n        </div>\n\n      </div>\n\n      <div class=\"row\">\n\n\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">District</label>\n            <input #district=\"ngModel\" type=\"text\" required [(ngModel)]=\"_user.profiles.address.district\"\n                   placeholder=\"District\"\n\n                   name=\"district\" class=\"form-control\" >\n            <small [hidden]=\"district.valid || (district.pristine && !f.submitted)\">\n              District is required\n            </small>\n\n          </div>\n        </div>\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Address line 1</label>\n            <input #line1=\"ngModel\" type=\"text\" required [(ngModel)]=\"_user.profiles.address.line1\"\n                   placeholder=\"Street address, P.O.box, c\\o\"\n                   name=\"line1\" class=\"form-control\" >\n            <small [hidden]=\"line1.valid || (line1.pristine && !f.submitted)\">\n              Address Line1 is required\n            </small>\n\n          </div>\n        </div>\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label\" style=\"font-size: 14px;\">Address line 2</label>\n            <input type=\"text\"\n                   [(ngModel)]=\"_user.profiles.address.line2\"\n                   placeholder=\"Unit, building, floor, etc\"\n                   name=\"line2\" class=\"form-control\" >\n          </div>\n        </div>\n\n      </div>\n\n\n      <div class=\"row\" *ngIf=\"_user.role==='farmer'\">\n        <div class=\"col-xs-12\">\n          <h4 style=\"background-color: #3c3e901a;padding: 5px;\" class=\"text-center\">Farm Details (optional) </h4>\n\n          <div class=\"row\">\n            <div class=\"col-xs-12 text-right\">\n              <a href=\"javascript:void(0)\" (click)=\"addMore()\" class=\"text-right\">Add</a>\n            </div>\n          </div>\n\n          <div class=\"row \" *ngFor=\"let farm of _user.profiles.farmDetails;let i=index; \">\n            <h5 class=\"text-center text-gray\">Farm {{i+1}} </h5>\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Farm Name</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].farmName\"\n                        placeholder=\"Farm Name\"\n                        name=\"farmName{{i}}\" class=\"form-control\" >\n\n              </div>\n            </div>\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Product Name</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].products\"\n                        placeholder=\"Product name\"\n                        name=\"product{{i}}\" class=\"form-control\" >\n\n\n              </div>\n            </div>\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Grade Name</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].grade\"\n                        placeholder=\"Grade Name\"\n                        name=\"grade{{i}}\" class=\"form-control\" >\n\n\n              </div>\n            </div>\n\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Crop Name</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].crops\"\n                        placeholder=\"Crop Name\"\n                        name=\"crop{{i}}\" class=\"form-control\" >\n\n\n              </div>\n            </div>\n\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Size</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].size\"\n                        placeholder=\"Size\"\n                        name=\"size{{i}}\" class=\"form-control\" >\n\n\n              </div>\n            </div>\n\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Region Name</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].region\"\n                        placeholder=\"Region Name\"\n                        name=\"region{{i}}\" class=\"form-control\" >\n\n              </div>\n            </div>\n\n          </div>\n\n\n        </div>\n\n\n\n\n      </div>\n\n      <div class=\"row\" *ngIf=\"currentUser.role==='ops'\">\n        <div class=\"col-xs-12\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Verification status</label>\n            <select  #verificationStatus=\"ngModel\" class=\"form-control \"\n                    required\n                    name=\"verificationStatus\" [(ngModel)]=\"_user.profiles.verificationStatus\">\n\n              <option *ngFor=\"let status of profileStatus\" [value]=\"status\">\n                {{status}}\n              </option>\n            </select>\n            <small [hidden]=\"verificationStatus.valid || (verificationStatus.pristine && !f.submitted)\">\n              Verification Status is required\n            </small>\n          </div>\n\n        </div>\n      </div>\n\n      <p *ngIf=\"currentUser.role!=='ops'\" style=\"color: red;opacity: 0.6\">Please note that all the changes you make will be verified by Us</p>\n\n\n      <button\n              [disabled]=\"issueTokenHttpStatus==='pending'\"\n              type=\"submit\"\n              class=\"btn btn-danger pull-right\">UPDATE</button>\n      <div class=\"clearfix\"></div>\n    </form>\n\n  </div>\n</div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-xs-12\" *ngIf=\"currentUser.role\">\n    <form #f=\"ngForm\" (ngSubmit)=\"updateProfile(f, f.valid)\" novalidate>\n      <div class=\"row\">\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Email</label>\n            <input [disabled]=\"true\"  type=\"email\"  [(ngModel)]=\"_user.email\"\n                   placeholder=\"Email\"\n                   name=\"email\" class=\"form-control\" >\n\n          </div>\n        </div>\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Name</label>\n            <input #name=\"ngModel\" type=\"text\" required [(ngModel)]=\"_user.profiles.name\"\n                   placeholder=\"Full Name\"\n                   name=\"name\"\n                   [maxLength]=\"30\"\n                   [minlength]=\"5\"\n                   class=\"form-control\" >\n            <small [hidden]=\"name.valid || (name.pristine && !f.submitted)\">\n              Name is required (minimum 5 characters).\n            </small>\n          </div>\n        </div>\n\n\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Phone</label>\n            <input #phone=\"ngModel\"\n                   [minlength]=\"6\"\n                   [maxlength]=\"15\"\n                   pattern=\"^[0-9]+$\"\n                   type=\"text\" required [(ngModel)]=\"_user.profiles.phone\"\n                   placeholder=\"Phone\"\n                   name=\"phone\" class=\"form-control\" >\n            <small [hidden]=\"phone.valid || (phone.pristine && !f.submitted)\">\n              Phone is required and should be valid one\n            </small>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n\n\n\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Country</label>\n\n            <select (ngModelChange)=\"onCountryChange($event)\"\n                    #country=\"ngModel\" class=\"form-control \"\n                    required\n                    name=\"country\" [(ngModel)]=\"_user.profiles.address.country\">\n\n              <option *ngFor=\"let c of address.country\" [value]=\"c.name\">\n                {{c.name}}\n              </option>\n            </select>\n            <small [hidden]=\"country.valid || (country.pristine && !f.submitted)\">\n              Country is required\n            </small>\n\n          </div>\n        </div>\n\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Province</label>\n            <select (ngModelChange)=\"onProvinceChange($event)\"\n                    #province=\"ngModel\" class=\"form-control \"\n                    required\n                    name=\"province\" [(ngModel)]=\"_user.profiles.address.province\">\n\n\n              <option *ngFor=\"let c of address.province\" [value]=\"c.name\">\n                {{c.name}}\n              </option>\n            </select>\n            <small [hidden]=\"province.valid || (province.pristine && !f.submitted)\">\n              Province is required\n            </small>\n\n          </div>\n        </div>\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">City</label>\n            <select (ngModelChange)=\"onCityChange($event)\"\n                    #city=\"ngModel\" class=\"form-control \"\n                    required\n                    name=\"city\" [(ngModel)]=\"_user.profiles.address.city\">\n\n              <option *ngFor=\"let c of address.city\" [value]=\"c.name\">\n                {{c.name}}\n              </option>\n            </select>\n            <small [hidden]=\"city.valid || (city.pristine && !f.submitted)\">\n              City is required\n            </small>\n\n          </div>\n        </div>\n\n      </div>\n\n      <div class=\"row\">\n\n\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">District</label>\n            <select\n                    #district=\"ngModel\" class=\"form-control \"\n                    required\n                    name=\"district\" [(ngModel)]=\"_user.profiles.address.district\">\n\n              <option *ngFor=\"let c of address.district\" [value]=\"c.name\">\n                {{c.name}}\n              </option>\n            </select>\n            <small [hidden]=\"district.valid || (district.pristine && !f.submitted)\">\n              District is required\n            </small>\n\n          </div>\n        </div>\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Address line 1</label>\n            <input #line1=\"ngModel\" type=\"text\" required [(ngModel)]=\"_user.profiles.address.line1\"\n                   placeholder=\"Street address, P.O.box, c\\o\"\n                   name=\"line1\" class=\"form-control\" >\n            <small [hidden]=\"line1.valid || (line1.pristine && !f.submitted)\">\n              Address Line1 is required\n            </small>\n\n          </div>\n        </div>\n        <div class=\"col-md-4\">\n          <div class=\"form-group\">\n            <label class=\"control-label\" style=\"font-size: 14px;\">Address line 2</label>\n            <input type=\"text\"\n                   [(ngModel)]=\"_user.profiles.address.line2\"\n                   placeholder=\"Unit, building, floor, etc\"\n                   name=\"line2\" class=\"form-control\" >\n          </div>\n        </div>\n\n      </div>\n\n\n      <div class=\"row\" *ngIf=\"_user.role==='farmer'\">\n        <div class=\"col-xs-12\">\n          <h4 style=\"background-color: #3c3e901a;padding: 5px;\" class=\"text-center\">Farm Details (optional) </h4>\n\n          <div class=\"row\">\n            <div class=\"col-xs-12 text-right\">\n              <a href=\"javascript:void(0)\" (click)=\"addMore()\" class=\"text-right\">Add</a>\n            </div>\n          </div>\n\n          <div class=\"row \" *ngFor=\"let farm of _user.profiles.farmDetails;let i=index; \">\n            <h5 class=\"text-center text-gray\">Farm {{i+1}} </h5>\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Farm Name</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].farmName\"\n                        placeholder=\"Farm Name\"\n                        name=\"farmName{{i}}\" class=\"form-control\" >\n\n              </div>\n            </div>\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Product Name</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].products\"\n                        placeholder=\"Product name\"\n                        name=\"product{{i}}\" class=\"form-control\" >\n\n\n              </div>\n            </div>\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Grade Name</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].grade\"\n                        placeholder=\"Grade Name\"\n                        name=\"grade{{i}}\" class=\"form-control\" >\n\n\n              </div>\n            </div>\n\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Crop Name</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].crops\"\n                        placeholder=\"Crop Name\"\n                        name=\"crop{{i}}\" class=\"form-control\" >\n\n\n              </div>\n            </div>\n\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Size</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].size\"\n                        placeholder=\"Size\"\n                        name=\"size{{i}}\" class=\"form-control\" >\n\n\n              </div>\n            </div>\n\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label class=\"control-label\" style=\"font-size: 14px;\">Region Name</label>\n                <input  type=\"text\"  [(ngModel)]=\"_user.profiles.farmDetails[i].region\"\n                        placeholder=\"Region Name\"\n                        name=\"region{{i}}\" class=\"form-control\" >\n\n              </div>\n            </div>\n\n          </div>\n\n\n        </div>\n\n\n\n\n      </div>\n\n      <div class=\"row\" *ngIf=\"currentUser.role==='ops'\">\n        <div class=\"col-xs-12\">\n          <div class=\"form-group\">\n            <label class=\"control-label required\" style=\"font-size: 14px;\">Verification status</label>\n            <select  #verificationStatus=\"ngModel\" class=\"form-control \"\n                    required\n                    name=\"verificationStatus\" [(ngModel)]=\"_user.profiles.verificationStatus\">\n\n              <option *ngFor=\"let status of profileStatus\" [value]=\"status\">\n                {{status}}\n              </option>\n            </select>\n            <small [hidden]=\"verificationStatus.valid || (verificationStatus.pristine && !f.submitted)\">\n              Verification Status is required\n            </small>\n          </div>\n\n        </div>\n      </div>\n\n      <p *ngIf=\"currentUser.role!=='ops'\" style=\"color: red;opacity: 0.6\">Please note that all the changes you make will be verified by Us</p>\n\n\n      <button\n              [disabled]=\"issueTokenHttpStatus==='pending'\"\n              type=\"submit\"\n              class=\"btn btn-danger pull-right\">UPDATE</button>\n      <div class=\"clearfix\"></div>\n    </form>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -4259,6 +4348,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_toast_service__ = __webpack_require__("../../../../../src/app/services/toast.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_address_service__ = __webpack_require__("../../../../../src/app/services/address.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4271,10 +4361,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var UserProfileEditComponent = (function () {
-    function UserProfileEditComponent(userService, toastService) {
+    function UserProfileEditComponent(userService, addressService, toastService) {
         this.userService = userService;
+        this.addressService = addressService;
         this.toastService = toastService;
+        this.address = { country: [], province: [], city: [], district: [] };
         this.profileStatus = ['pending', 'approved', 'rejected'];
         this.currentUser = {};
         this.onProfileUpdate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
@@ -4292,6 +4385,15 @@ var UserProfileEditComponent = (function () {
                     user.profiles.address = {};
                 }
                 this._user = user;
+                if (this._user.profiles.address.country) {
+                    this.getProvinceByCountry(this._user.profiles.address.country);
+                }
+                if (this._user.profiles.address.province) {
+                    this.getCityByProvince(this._user.profiles.address.province);
+                }
+                if (this._user.profiles.address.city) {
+                    this.getDistrictByCity(this._user.profiles.address.city);
+                }
             }
             else {
                 this._user = { profiles: { farmDetails: [], address: {} } };
@@ -4315,6 +4417,7 @@ var UserProfileEditComponent = (function () {
     };
     UserProfileEditComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.getCountry();
         this.userService.user.subscribe(function (user) {
             _this.currentUser = user;
         }, function (err) {
@@ -4341,6 +4444,58 @@ var UserProfileEditComponent = (function () {
             _this.toastService.error('Profile', err.message || 'Could not be updated.Try again');
         });
     };
+    UserProfileEditComponent.prototype.onCountryChange = function (event) {
+        this.getProvinceByCountry(event);
+        this.address.province = [];
+        this.address.city = [];
+        this.address.district = [];
+        this._user.profiles.address.province = null;
+        this._user.profiles.address.city = null;
+        this._user.profiles.address.district = null;
+    };
+    UserProfileEditComponent.prototype.onProvinceChange = function (event) {
+        this.address.city = [];
+        this.address.district = [];
+        this._user.profiles.address.city = null;
+        this._user.profiles.address.district = null;
+        this.getCityByProvince(event);
+    };
+    UserProfileEditComponent.prototype.onCityChange = function (event) {
+        this.address.district = [];
+        this._user.profiles.address.district = null;
+        this.getDistrictByCity(event);
+    };
+    UserProfileEditComponent.prototype.getCountry = function () {
+        var _this = this;
+        this.addressService.getCountry().subscribe(function (data) {
+            _this.address.country = data;
+        }, function (err) {
+        });
+    };
+    UserProfileEditComponent.prototype.getProvinceByCountry = function (countryName) {
+        var _this = this;
+        this.addressService.getProvinceByCountry(countryName).subscribe(function (data) {
+            console.log(data);
+            _this.address.province = data;
+        }, function (err) {
+        });
+    };
+    UserProfileEditComponent.prototype.getCityByProvince = function (provinceName) {
+        var _this = this;
+        this.addressService.getCityByProvince(provinceName).subscribe(function (data) {
+            console.log(data);
+            _this.address.city = data;
+        }, function (err) {
+        });
+    };
+    UserProfileEditComponent.prototype.getDistrictByCity = function (cityName) {
+        var _this = this;
+        this.addressService.getDistrictByCity(cityName).subscribe(function (data) {
+            console.log(data);
+            _this.address.district = data;
+        }, function (err) {
+        });
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('user'),
         __metadata("design:type", Object),
@@ -4356,7 +4511,9 @@ var UserProfileEditComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/user-profile-edit/user-profile-edit.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-profile-edit/user-profile-edit.component.scss")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_address_service__["a" /* AddressService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_toast_service__["a" /* ToastService */]])
     ], UserProfileEditComponent);
     return UserProfileEditComponent;
 }());
@@ -5438,6 +5595,123 @@ var XasPipe = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/services/address.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddressService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_config__ = __webpack_require__("../../../../../src/app/api.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_do__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/do.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/catch.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_concatMap__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/concatMap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_interval__ = __webpack_require__("../../../../rxjs/_esm5/add/observable/interval.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_retry__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/retry.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_forkJoin__ = __webpack_require__("../../../../rxjs/_esm5/add/observable/forkJoin.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_share__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/share.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_observable_throw__ = __webpack_require__("../../../../rxjs/_esm5/add/observable/throw.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__error_handler_service__ = __webpack_require__("../../../../../src/app/services/error-handler.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AddressService = (function () {
+    function AddressService(http, errorHandler) {
+        this.http = http;
+        this.errorHandler = errorHandler;
+        this.datastore = { country: [], province: {}, city: {}, district: {} };
+    }
+    AddressService.prototype.getCountry = function () {
+        var _this = this;
+        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AddressApi */].getCountry.url();
+        if (this.datastore.country.length) {
+            return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["a" /* Observable */].of(this.datastore.country.slice());
+        }
+        return this.http.get("" + url)
+            .retry(3)
+            .do(function (data) {
+            _this.datastore.country = data || [];
+        })
+            .catch(function (res) {
+            return _this.errorHandler.handle(res);
+        });
+    };
+    AddressService.prototype.getProvinceByCountry = function (countryName) {
+        var _this = this;
+        if (this.datastore.province[countryName] && this.datastore.province[countryName].length) {
+            return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["a" /* Observable */].of(this.datastore.province[countryName].slice());
+        }
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AddressApi */].getProvince.url() + "?filter[where][country]=" + countryName;
+        return this.http.get("" + url)
+            .retry(3)
+            .do(function (data) {
+            _this.datastore.province[countryName] = data || [];
+        })
+            .catch(function (res) {
+            return _this.errorHandler.handle(res);
+        });
+    };
+    AddressService.prototype.getCityByProvince = function (provinceName) {
+        var _this = this;
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AddressApi */].getCity.url() + "?filter[where][province]=" + provinceName;
+        if (this.datastore.city[provinceName] && this.datastore.city[provinceName].length) {
+            return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["a" /* Observable */].of(this.datastore.city[provinceName].slice());
+        }
+        return this.http.get("" + url)
+            .retry(3)
+            .do(function (data) {
+            _this.datastore.city[provinceName] = data || [];
+        })
+            .catch(function (res) {
+            return _this.errorHandler.handle(res);
+        });
+    };
+    AddressService.prototype.getDistrictByCity = function (cityName) {
+        var _this = this;
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AddressApi */].getDistrict.url() + "?filter[where][city]=" + cityName;
+        if (this.datastore.district[cityName] && this.datastore.district[cityName].length) {
+            return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["a" /* Observable */].of(this.datastore.district[cityName].slice());
+        }
+        return this.http.get("" + url)
+            .retry(3)
+            .do(function (data) {
+            _this.datastore.district[cityName] = data || [];
+        })
+            .catch(function (res) {
+            return _this.errorHandler.handle(res);
+        });
+    };
+    AddressService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_11__angular_common_http__["b" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_12__error_handler_service__["a" /* ErrorHandlerService */]])
+    ], AddressService);
+    return AddressService;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/services/assets-pool.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5492,7 +5766,7 @@ var AssetsPoolService = (function () {
     AssetsPoolService.prototype.createAssetPool = function (assetPool) {
         var _this = this;
         console.log(assetPool);
-        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetPoolApi */].createAssetpool.url();
+        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["c" /* AssetPoolApi */].createAssetpool.url();
         return this.http.post("" + url, assetPool)
             .catch(function (res) {
             return _this.errorHandler.handle(res);
@@ -5503,7 +5777,7 @@ var AssetsPoolService = (function () {
     };
     AssetsPoolService.prototype.getPoolById = function (poolId) {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetPoolApi */].getAssetpool.url() + "/" + poolId;
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["c" /* AssetPoolApi */].getAssetpool.url() + "/" + poolId;
         return this.http.get("" + url)
             .catch(function (res) {
             return _this.errorHandler.handle(res);
@@ -5513,10 +5787,10 @@ var AssetsPoolService = (function () {
         var _this = this;
         var url;
         if (issuerName) {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetPoolApi */].getAssetpool.url() + "?filter[where][issuerName]=" + issuerName;
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["c" /* AssetPoolApi */].getAssetpool.url() + "?filter[where][issuerName]=" + issuerName;
         }
         else {
-            url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetPoolApi */].getAssetpool.url();
+            url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["c" /* AssetPoolApi */].getAssetpool.url();
         }
         return this.http.get("" + url)
             .catch(function (res) {
@@ -5525,14 +5799,14 @@ var AssetsPoolService = (function () {
     };
     AssetsPoolService.prototype.issueToken = function (userId, assetPoolId, amount, exchangeRate, precision, currency) {
         var _this = this;
-        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetPoolApi */].issueToken.url();
+        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["c" /* AssetPoolApi */].issueToken.url();
         return this.http.post("" + url, { userId: userId, assetPoolId: assetPoolId, amount: amount, precision: precision, exchangeRate: exchangeRate, currency: currency })
             .catch(function (res) {
             return _this.errorHandler.handle(res);
         });
     };
     AssetsPoolService.prototype.getAssetPoolInfoFromBlockchain = function (assetName) {
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetPoolApi */].getAssetpoolInfoFromBlockchain.url() + "?assetName=" + assetName;
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["c" /* AssetPoolApi */].getAssetpoolInfoFromBlockchain.url() + "?assetName=" + assetName;
         return this.http.get("" + url)
             .catch(function (res) {
             return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["a" /* Observable */].of({});
@@ -5541,7 +5815,7 @@ var AssetsPoolService = (function () {
     };
     AssetsPoolService.prototype.getTokensByAssetPoolId = function (assetPoolId) {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetPoolApi */].getAssetpool.url() + "/" + assetPoolId + "/tokens?filter[include]=assetpool";
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["c" /* AssetPoolApi */].getAssetpool.url() + "/" + assetPoolId + "/tokens?filter[include]=assetpool";
         return this.http.get("" + url)
             .catch(function (res) {
             return _this.errorHandler.handle(res);
@@ -5652,7 +5926,7 @@ var AssetsService = (function () {
         if (!forceRefresh && this.dataStore.metadata.isAllAssetLoaded) {
             return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["a" /* Observable */].of(this.dataStore.assets);
         }
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getAssets.url() + "?filter[include][user]=profiles";
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetApi */].getAssets.url() + "?filter[include][user]=profiles";
         return this.http.get("" + url)
             .do(function (assets) {
             _this.dataStore.metadata.isAllAssetLoaded = true;
@@ -5669,7 +5943,7 @@ var AssetsService = (function () {
         if (!forceRefresh && this.dataStore.metadata.isAvailableAssetLoaded) {
             return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["a" /* Observable */].of(this.dataStore.assets);
         }
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getAssets.url() + "?filter[include]=user&filter[where][isPutOnBlockchain]=false";
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetApi */].getAssets.url() + "?filter[include]=user&filter[where][isPutOnBlockchain]=false";
         return this.http.get("" + url)
             .do(function (assets) {
             _this.dataStore.metadata.isAvailableAssetLoaded = true;
@@ -5685,9 +5959,9 @@ var AssetsService = (function () {
         if (this.dataStore.metadata.isStatLoaded) {
             return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["a" /* Observable */].of(this.dataStore.stat);
         }
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getAssets.url() + "/count";
-        var url2 = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getAssets.url() + "/count?[where][isPutOnBlockchain]=true";
-        var url3 = __WEBPACK_IMPORTED_MODULE_1__api_config__["d" /* FavouriteAssetApi */].getAssets.url() + "/count?[where][userId]=" + this.userService.dataStore.user.id;
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetApi */].getAssets.url() + "/count";
+        var url2 = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetApi */].getAssets.url() + "/count?[where][isPutOnBlockchain]=true";
+        var url3 = __WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* FavouriteAssetApi */].getAssets.url() + "/count?[where][userId]=" + this.userService.dataStore.user.id;
         return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["a" /* Observable */].forkJoin([
             this.http.get("" + url),
             this.http.get("" + url2),
@@ -5710,7 +5984,7 @@ var AssetsService = (function () {
         if (this.dataStore.metadata.isFavouriteAssetLoaded) {
             return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["a" /* Observable */].of(this.dataStore.assets);
         }
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["d" /* FavouriteAssetApi */].getAssets.url() + "?filter[where][userId]=" + userId + "&filter[include]=asset";
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* FavouriteAssetApi */].getAssets.url() + "?filter[where][userId]=" + userId + "&filter[include]=asset";
         return this.http.get("" + url)
             .do(function (assets) {
             _this.dataStore.metadata.isFavouriteAssetLoaded = true;
@@ -5723,7 +5997,7 @@ var AssetsService = (function () {
     AssetsService.prototype.getAssetsByCategoryId = function (categoryId, isPutOnBlockchain) {
         var _this = this;
         if (isPutOnBlockchain === void 0) { isPutOnBlockchain = false; }
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getAssets.url() + "?filter[where][categoryId]=" + categoryId + "&filter[where][isPutOnBlockchain]=" + isPutOnBlockchain + "&filter[include]=user";
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetApi */].getAssets.url() + "?filter[where][categoryId]=" + categoryId + "&filter[where][isPutOnBlockchain]=" + isPutOnBlockchain + "&filter[include]=user";
         return this.http.get("" + url)
             .retry(3)
             .catch(function (res) {
@@ -5732,7 +6006,7 @@ var AssetsService = (function () {
     };
     AssetsService.prototype.getAssetByUserId = function (userId) {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].list.url() + "/" + userId + "/assets";
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "/" + userId + "/assets";
         return this.http.get("" + url)
             .retry(3)
             .catch(function (res) {
@@ -5754,7 +6028,7 @@ var AssetsService = (function () {
                 return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["a" /* Observable */].of(this.dataStore.assets.allAssets[index_1]);
             }
         }
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getAssets.url() + "/" + assetId + "?filter[include][user]=profiles";
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetApi */].getAssets.url() + "/" + assetId + "?filter[include][user]=profiles";
         return this.http.get("" + url)
             .retry(3)
             .catch(function (res) {
@@ -5763,7 +6037,7 @@ var AssetsService = (function () {
     };
     AssetsService.prototype.updateAsset = function (asset) {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getAssets.url() + "/" + asset.id;
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetApi */].getAssets.url() + "/" + asset.id;
         return this.http.put("" + url, asset)
             .retry(3)
             .catch(function (res) {
@@ -5772,7 +6046,7 @@ var AssetsService = (function () {
     };
     AssetsService.prototype.getCategories = function (level) {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* AssetApi */].getCategories.url() + "?level=" + level;
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* AssetApi */].getCategories.url() + "?level=" + level;
         return this.http.get("" + url).do(function (categories) {
             _this.categories = categories;
         })
@@ -5783,7 +6057,7 @@ var AssetsService = (function () {
     };
     AssetsService.prototype.addAssetToFavourite = function (asset, userId) {
         var _this = this;
-        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["d" /* FavouriteAssetApi */].addToFavourite.url();
+        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* FavouriteAssetApi */].addToFavourite.url();
         var data = { assetId: asset.id, userId: userId };
         return this.http.post("" + url, data)
             .do(function (created) {
@@ -5799,7 +6073,7 @@ var AssetsService = (function () {
     };
     AssetsService.prototype.removeAssetFromFavourite = function (id) {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["d" /* FavouriteAssetApi */].removeFromFavourite.url() + "/" + id;
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* FavouriteAssetApi */].removeFromFavourite.url() + "/" + id;
         return this.http.delete("" + url).do(function () {
             var i = -1;
             _this.dataStore.assets.favouriteAssets.forEach(function (asset, index) {
@@ -6157,10 +6431,10 @@ var TokenService = (function () {
         var _this = this;
         var url;
         if (issuerName) {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["g" /* TokenApi */].getTokens.url() + "?filter[where][issuerName]=" + issuerName + "&filter[include]=assetpool";
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* TokenApi */].getTokens.url() + "?filter[where][issuerName]=" + issuerName + "&filter[include]=assetpool";
         }
         else {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["g" /* TokenApi */].getTokens.url() + "?filter[include]=assetpool";
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* TokenApi */].getTokens.url() + "?filter[include]=assetpool";
         }
         return this.http.get("" + url)
             .catch(function (res) {
@@ -6169,7 +6443,7 @@ var TokenService = (function () {
     };
     TokenService.prototype.getAllTokensByAddressFromBlockchain = function () {
         var _this = this;
-        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["g" /* TokenApi */].getTokensByAddressFromBlockchain.url();
+        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* TokenApi */].getTokensByAddressFromBlockchain.url();
         return this.userService.user
             .concatMap(function (user) {
             return _this.http.get(url + "?address=" + user.walletAddress);
@@ -6180,7 +6454,7 @@ var TokenService = (function () {
     };
     TokenService.prototype.getAllTokensFromBlockchain = function () {
         var _this = this;
-        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["g" /* TokenApi */].getAllTokensFromBlockchain.url();
+        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* TokenApi */].getAllTokensFromBlockchain.url();
         return this.http.get("" + url)
             .catch(function (res) {
             return _this.errorHandler.handle(res);
@@ -6287,7 +6561,7 @@ var UserService = (function () {
     };
     UserService.prototype.login = function (user) {
         var _this = this;
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].login.url() + "?include=User", user)
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].login.url() + "?include=User", user)
             .do(function (res) {
             _this.saveAccessToken(res.id);
             _this.saveUserId(res.user.id);
@@ -6302,7 +6576,7 @@ var UserService = (function () {
     };
     UserService.prototype.register = function (user) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].register.url(), user)
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].register.url(), user)
             .catch(function (res) {
             return _this.errorHandler.handle(res);
         });
@@ -6328,7 +6602,7 @@ var UserService = (function () {
     UserService.prototype.getUser = function () {
         // first time ,this method will be called from authorization guard
         var _this = this;
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].findById.url() + "/" + this.getUserIdFromStorage() + "?filter[include]=profiles").do(function (user) {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].findById.url() + "/" + this.getUserIdFromStorage() + "?filter[include]=profiles").do(function (user) {
             console.log('user from server is');
             console.log(user);
             _this.dataStore.user = user;
@@ -6349,7 +6623,7 @@ var UserService = (function () {
         var profiles = user.profiles;
         console.log('updating profile is');
         console.log(profiles);
-        return this.http.put(__WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].updateProfile.url() + "/" + user.id + "/profiles", profiles).do(function (profile) {
+        return this.http.put(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].updateProfile.url() + "/" + user.id + "/profiles", profiles).do(function (profile) {
             if (isMineProfile) {
                 _this.dataStore.user.profiles = profile;
                 _this._user.next(JSON.parse(JSON.stringify(_this.dataStore.user)));
@@ -6364,7 +6638,7 @@ var UserService = (function () {
     ;
     UserService.prototype.getUsers = function () {
         var _this = this;
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].list.url() + "?filter[include]=profiles&filter[order]=createdAt DESC").do(function (users) {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "?filter[include]=profiles&filter[order]=createdAt DESC").do(function (users) {
             _this.dataStore.otherUsers = users;
         })
             .catch(function (res) {
@@ -6379,13 +6653,13 @@ var UserService = (function () {
                 return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["a" /* Observable */].of(user);
             }
         });
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].list.url() + "/" + userId + "?filter[include]=profiles").catch(function (res) {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "/" + userId + "?filter[include]=profiles").catch(function (res) {
             return _this.errorHandler.handle(res);
         });
     };
     UserService.prototype.sendPasswordResetToken = function (email) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].sendResetPasswordToken.url(), { email: email }).do(function (res) {
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].sendResetPasswordToken.url(), { email: email }).do(function (res) {
         })
             .catch(function (err) {
             return _this.errorHandler.handle(err);
@@ -6394,7 +6668,7 @@ var UserService = (function () {
     ;
     UserService.prototype.resetPassword = function (accessToken, newPassword) {
         var _this = this;
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].resetPassword.url() + "?access_token=" + accessToken, { newPassword: newPassword }).do(function (data) {
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].resetPassword.url() + "?access_token=" + accessToken, { newPassword: newPassword }).do(function (data) {
         }).catch(function (res) {
             return _this.errorHandler.handle(res);
         });
@@ -6402,7 +6676,7 @@ var UserService = (function () {
     ;
     UserService.prototype.changePassword = function (oldPassword, newPassword) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].changePassword.url(), { oldPassword: oldPassword, newPassword: newPassword }).do(function (data) {
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].changePassword.url(), { oldPassword: oldPassword, newPassword: newPassword }).do(function (data) {
             _this.dataStore.user.isPasswordChanged = true;
             _this._user.next(JSON.parse(JSON.stringify(_this.dataStore.user)));
         }).catch(function (res) {
@@ -6412,7 +6686,7 @@ var UserService = (function () {
     ;
     UserService.prototype.logout = function () {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].logout.url(), {}).do(function (data) {
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].logout.url(), {}).do(function (data) {
             _this.resetLocalStorage();
         });
     };
@@ -6422,7 +6696,7 @@ var UserService = (function () {
     };
     UserService.prototype.createAccountOnBlockchain = function () {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* OnboardingApi */].createAccount.url(), { userId: this.dataStore.user.id })
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["f" /* OnboardingApi */].createAccount.url(), { userId: this.dataStore.user.id })
             .do(function (data) {
             _this.dataStore.user.isRegisteredOnBlockchain = true;
             _this.dataStore.user.walletAddress = data.walletAddress;
@@ -6438,7 +6712,7 @@ var UserService = (function () {
         if (!role) {
             return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["a" /* Observable */].throw('Role is not found');
         }
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].list.url() + "?filter[where][role]=" + role + "&filter[order]=createdAt DESC")
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "?filter[where][role]=" + role + "&filter[order]=createdAt DESC")
             .do(function (farmers) {
         })
             .catch(function (res) {
@@ -6452,13 +6726,13 @@ var UserService = (function () {
         }
         var url;
         if (status === 'isPasswordChanged') {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].list.url() + "?filter[where][isPasswordChanged]=true&filter[where][isRegisteredOnBlockchain]=false";
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "?filter[where][isPasswordChanged]=true&filter[where][isRegisteredOnBlockchain]=false";
         }
         if (status === 'isRegisteredOnBlockchain') {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].list.url() + "?filter[where][isRegisteredOnBlockchain]=true&filter[where][isIssuerOnBlockchain]=false";
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "?filter[where][isRegisteredOnBlockchain]=true&filter[where][isIssuerOnBlockchain]=false";
         }
         if (status === 'isIssuerOnBlockchain') {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* UserApi */].list.url() + "?filter[where][isIssuerOnBlockchain]=true";
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "?filter[where][isIssuerOnBlockchain]=true";
         }
         return this.http.get("" + url)
             .do(function (farmers) {
@@ -6472,7 +6746,7 @@ var UserService = (function () {
         var _this = this;
         return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["a" /* Observable */].interval(1000)
             .concatMap(function (val) {
-            return _this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* OnboardingApi */].getAccount.url() + "?address=" + _this.dataStore.user.walletAddress);
+            return _this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["f" /* OnboardingApi */].getAccount.url() + "?address=" + _this.dataStore.user.walletAddress);
         })
             .retry(3)
             .catch(function (res) {
@@ -6481,7 +6755,7 @@ var UserService = (function () {
     };
     UserService.prototype.resgisterAsIssuer = function (issuer) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["e" /* OnboardingApi */].resgisterIssuer.url(), issuer).do(function (data) {
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["f" /* OnboardingApi */].resgisterIssuer.url(), issuer).do(function (data) {
             _this.dataStore.user.isIssuerOnBlockchain = true;
             _this.dataStore.user.issuerName = issuer.name;
             _this._user.next(JSON.parse(JSON.stringify(_this.dataStore.user)));
@@ -6558,7 +6832,7 @@ var WalletService = (function () {
         if (this.dataStore.metadata.isAccountLoaded) {
             return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["a" /* Observable */].of(this.dataStore);
         }
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* WalletApi */].getAccount.url() + "?address=" + walletAddress)
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* WalletApi */].getAccount.url() + "?address=" + walletAddress)
             .do(function (account) {
             _this.dataStore.account = account;
             _this.dataStore.metadata.isAccountLoaded = true;
@@ -6571,7 +6845,7 @@ var WalletService = (function () {
     };
     WalletService.prototype.getTransactions = function (senderPublicKey, recipientId) {
         var _this = this;
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* WalletApi */].getTransaction.url() + "?senderPublicKey=" + senderPublicKey + "&recipientId=" + recipientId)
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* WalletApi */].getTransaction.url() + "?senderPublicKey=" + senderPublicKey + "&recipientId=" + recipientId)
             .retry(3)
             .catch(function (res) {
             return _this.errorHandler.handle(res);
@@ -6579,7 +6853,7 @@ var WalletService = (function () {
     };
     WalletService.prototype.sendTransactions = function (txn) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* WalletApi */].sendTransaction.url(), txn)
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* WalletApi */].sendTransaction.url(), txn)
             .do(function () {
             console.log(txn.amount);
             if (_this.dataStore.account.balance) {

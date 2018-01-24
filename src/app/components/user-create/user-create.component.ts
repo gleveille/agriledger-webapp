@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import { FileUploader } from 'ng2-file-upload';
 import {ContainerApi} from '../../../../src/app/api.config'
 import {NgForm} from "@angular/forms";
+import {AddressService} from "../../services/address.service";
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
@@ -15,6 +16,7 @@ export class UserCreateComponent implements OnInit {
     @ViewChild('f') loginForm :NgForm;
     uploader= new FileUploader({url: ContainerApi.profileDocumentsUpload.url()});
     description= Array(10).fill('');
+    address={country:[],province:[],city:[],district:[]};
 
     user:Iuser={
         password:'',
@@ -36,12 +38,15 @@ export class UserCreateComponent implements OnInit {
                 region:''
             }]
         }};
-    totalSelectedFiles:number=0;
+    totalSelectedFiles=0;
     roles=['','ops','sponsor','farmer'];
 
     createRequestStatus='resolved';
 
-    constructor(private userService:UserService,private toastService:ToastService,private router:Router) { }
+    constructor(private userService:UserService,
+                private addressService:AddressService,
+                private toastService:ToastService,private router:Router) { }
+
 
 
     addMore(){
@@ -57,7 +62,9 @@ export class UserCreateComponent implements OnInit {
             region:''
         })
     }
-  ngOnInit() {
+
+    ngOnInit() {
+      this.getCountry()
       this.createPassword();
 
       this.uploader.onSuccessItem= (item:any, response:any, status:any, headers:any) => {
@@ -222,5 +229,79 @@ export class UserCreateComponent implements OnInit {
         this.createPassword();
 
     }
-    
+
+
+
+    private onCountryChange(event){
+        this.getProvinceByCountry(event)
+    }
+
+    private onProvinceChange(event){
+        this.getCityByProvince(event)
+    }
+
+    private onCityChange(event){
+        this.getDistrictByCity(event)
+    }
+
+
+    private getCountry(){
+
+        this.addressService.getCountry().subscribe((data:any[])=>{
+            this.address.country=data;
+            this.address.province=[];
+            this.address.city=[];
+            this.address.district=[];
+            this.user.profiles.address.country='';
+            this.user.profiles.address.province='';
+            this.user.profiles.address.city='';
+            this.user.profiles.address.district='';
+
+            console.log(this.address.country)
+        },(err)=>{
+
+        })
+    }
+
+
+    private getProvinceByCountry(countryName:string){
+        this.addressService.getProvinceByCountry(countryName).subscribe((data:any[])=>{
+            this.address.province=data;
+
+            this.address.city=[];
+            this.address.district=[];
+            this.user.profiles.address.province='';
+            this.user.profiles.address.city='';
+            this.user.profiles.address.district='';
+            console.log(this.address.province)
+        },(err)=>{
+
+        })
+    }
+
+    private getCityByProvince(provinceName:string){
+        this.addressService.getCityByProvince(provinceName).subscribe((data:any[])=>{
+            this.address.city=data;
+
+            this.address.district=[];
+            this.user.profiles.address.city='';
+            this.user.profiles.address.district='';
+
+            console.log(this.address.city)
+
+        },(err)=>{
+
+        })
+    }
+
+    private getDistrictByCity(cityName:string){
+        this.addressService.getDistrictByCity(cityName).subscribe((data:any[])=>{
+            this.address.district=data;
+
+            console.log(this.address.district)
+
+        },(err)=>{
+
+        })
+    }
 }
