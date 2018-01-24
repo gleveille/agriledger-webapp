@@ -101,6 +101,10 @@ var UserApi = {
         url: function () { return ServerUrl + '/api/users'; },
         method: 'POST'
     },
+    getProfile: {
+        url: function () { return ServerUrl + '/api/users'; },
+        method: 'POST'
+    },
     updateProfile: {
         url: function () { return ServerUrl + '/api/users'; },
         method: 'POST'
@@ -3933,6 +3937,7 @@ var UserCreateComponent = (function () {
         }
         this.createRequestStatus = 'pending';
         this.userService.register(this.user).subscribe(function (profile) {
+            console.log(profile);
             if (_this.uploader.queue.length) {
                 _this.upload(profile.id);
             }
@@ -6576,7 +6581,9 @@ var UserService = (function () {
     };
     UserService.prototype.register = function (user) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].register.url(), user)
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].register.url(), user).concatMap(function (newUser) {
+            return _this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].getProfile.url() + "/" + newUser.id + "/profiles");
+        })
             .catch(function (res) {
             return _this.errorHandler.handle(res);
         });

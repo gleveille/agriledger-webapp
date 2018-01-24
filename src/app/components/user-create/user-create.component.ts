@@ -176,6 +176,7 @@ export class UserCreateComponent implements OnInit {
 
         this.createRequestStatus='pending';
         this.userService.register(this.user).subscribe((profile:any)=>{
+            console.log(profile)
             if(this.uploader.queue.length){
                 this.upload(profile.id);
             }

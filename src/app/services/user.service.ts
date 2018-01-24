@@ -50,7 +50,9 @@ export class UserService {
   }
 
   register(user:Iuser){
-        return this.http.post(`${UserApi.register.url()}`,user)
+        return this.http.post(`${UserApi.register.url()}`,user).concatMap((newUser:any)=>{
+            return this.http.get(`${UserApi.getProfile.url()}/${newUser.id}/profiles`)
+        })
             .catch((res)=> {
                 return this.errorHandler.handle(res);
             });

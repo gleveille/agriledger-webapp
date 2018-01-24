@@ -81,7 +81,10 @@ export const UserApi={
         method:'POST'
 
     },
-
+    getProfile:{
+        url:()=>ServerUrl+'/api/users',
+        method:'POST'
+    },
     updateProfile:{
         url:()=>ServerUrl+'/api/users',
         method:'POST'
