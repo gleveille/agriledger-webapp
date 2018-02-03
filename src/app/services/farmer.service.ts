@@ -6,14 +6,14 @@ import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
-import {ErrorHandlerService} from "./error-handler.service";
+import {HttpErrorHandlerService} from "./http-error-handler.service";
 
 @Injectable()
 export class FarmerService {
 
     user={} as Iuser;
     farmers:any[]=[];
-    constructor(private http:HttpClient,private errorHandler:ErrorHandlerService) {
+    constructor(private http:HttpClient,private errorHandler:HttpErrorHandlerService) {
 
 
     }

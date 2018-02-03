@@ -11,12 +11,12 @@ import 'rxjs/add/operator/retry';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
-import {ErrorHandlerService} from "./error-handler.service";
+import {HttpErrorHandlerService} from "./http-error-handler.service";
 import {UserService} from "./user.service";
 @Injectable()
 export class TokenService {
 
-  constructor(private http:HttpClient,private errorHandler:ErrorHandlerService,private userService:UserService) { }
+  constructor(private http:HttpClient,private errorHandler:HttpErrorHandlerService,private userService:UserService) { }
 
 
   getTokens(issuerName:string){

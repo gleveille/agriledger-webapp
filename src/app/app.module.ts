@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FileUploadModule } from 'ng2-file-upload';
@@ -35,7 +35,7 @@ import {AlreadyAnIssuerGuard} from "./guards/onboarding-guard/already-an-issuer.
 import { AssetsComponent } from './components/assets/assets.component';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { FarmersComponent } from './components/farmers/farmers.component';
-import {ErrorHandlerService} from "./services/error-handler.service";
+import {HttpErrorHandlerService} from "./services/http-error-handler.service";
 import {FarmerService} from "./services/farmer.service";
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ErrorShowComponent } from './shared/error-show/error-show.component';
@@ -71,6 +71,9 @@ import { DocumentListComponent } from './components/document-list/document-list.
 import { UserDetailCardComponent } from './components/user-detail-card/user-detail-card.component';
 import { UserProfileEditComponent } from './components/user-profile-edit/user-profile-edit.component';
 import {AddressService} from "./services/address.service";
+import {AppErrorHandlerService} from "./services/app-error-handler.service";
+import {LogService} from "./services/logger/log.service";
+import {LogPublisherService} from "./services/logger/log-publisher.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/translations/', '.json');
@@ -146,7 +149,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
 
       { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true },
-      ErrorHandlerService,
+      LogService,
+      LogPublisherService,
+      {provide:ErrorHandler,useClass:AppErrorHandlerService},
+      HttpErrorHandlerService,
       UserService,
       ToastService,
       FarmerService,

@@ -11,7 +11,7 @@ import 'rxjs/add/operator/retry';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
-import {ErrorHandlerService} from "./error-handler.service";
+import {HttpErrorHandlerService} from "./http-error-handler.service";
 import {UserService} from "./user.service";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Iwallet} from "../interface/wallet.interface";
@@ -25,7 +25,7 @@ export class WalletService {
 
     dataStore={} as Iwallet;
 
-    constructor(private http: HttpClient, private errorHandler: ErrorHandlerService, private userService: UserService) {
+    constructor(private http: HttpClient, private errorHandler: HttpErrorHandlerService, private userService: UserService) {
         this.initDatastore();
         this.wallet=this._wallet.asObservable();
     }

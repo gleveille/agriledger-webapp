@@ -11,7 +11,7 @@ import 'rxjs/add/operator/retry';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
-import {ErrorHandlerService} from "./error-handler.service";
+import {HttpErrorHandlerService} from "./http-error-handler.service";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 @Injectable()
 export class UserService {
@@ -22,7 +22,7 @@ export class UserService {
     user: Observable<Iuser>;
 
 
-  constructor(private http:HttpClient,private errorHandler:ErrorHandlerService) {
+  constructor(private http:HttpClient,private errorHandler:HttpErrorHandlerService) {
       this.initDatastore();
       this._user = <BehaviorSubject<Iuser>>new BehaviorSubject({});
       this.user = this._user.asObservable();

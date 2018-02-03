@@ -13,7 +13,7 @@ import 'rxjs/add/operator/share'
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
-import {ErrorHandlerService} from "./error-handler.service";
+import {HttpErrorHandlerService} from "./http-error-handler.service";
 import {UserService} from "./user.service";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
@@ -38,7 +38,7 @@ export class AssetsService {
     dataStore:any;
 
     categories:any[]=[];
-    constructor(private http: HttpClient, private errorHandler: ErrorHandlerService, private userService: UserService) {
+    constructor(private http: HttpClient, private errorHandler: HttpErrorHandlerService, private userService: UserService) {
         this.initDatastore();
         this.assets = this._assets.asObservable();
         this.stat = this._stat.asObservable();

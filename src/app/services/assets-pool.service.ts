@@ -11,13 +11,13 @@ import 'rxjs/add/operator/retry';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
-import {ErrorHandlerService} from "./error-handler.service";
+import {HttpErrorHandlerService} from "./http-error-handler.service";
 import {UserService} from "./user.service";
 @Injectable()
 export class AssetsPoolService {
 
   selectedAssetsForPool:any[]=[];
-  constructor(private http:HttpClient,private userService:UserService,private errorHandler:ErrorHandlerService) { }
+  constructor(private http:HttpClient,private userService:UserService,private errorHandler:HttpErrorHandlerService) { }
 
 
   addAssetInPool(assets:any[]){

@@ -13,7 +13,7 @@ import 'rxjs/add/operator/share'
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {HttpClient} from "@angular/common/http";
-import {ErrorHandlerService} from "./error-handler.service";
+import {HttpErrorHandlerService} from "./http-error-handler.service";
 import {UserService} from "./user.service";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
@@ -22,7 +22,7 @@ export class AddressService {
 
     private datastore={country:[],province:{},city:{},district:{}};
 
-  constructor(private http:HttpClient, private errorHandler: ErrorHandlerService) { }
+  constructor(private http:HttpClient, private errorHandler: HttpErrorHandlerService) { }
 
 
     getCountry(){
