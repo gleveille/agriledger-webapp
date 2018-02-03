@@ -22,6 +22,10 @@ export const ContainerApi={
     profileDocumentsUpload:{url:()=>ServerUrl+ '/api/containers/profile_documents/upload'}
 };
 
+export const LogApi={
+    restUrl:{url:()=>ServerUrl+'/api/logs'},
+};
+
 export const AddressApi={
     getCountry:{
         url:()=>ServerUrl+'/api/countries',

@@ -8,6 +8,7 @@ import { FileUploader } from 'ng2-file-upload';
 import {ContainerApi} from '../../../../src/app/api.config'
 import {ServerUrl} from '../../../../src/app/api.config'
 import {NgForm} from "@angular/forms";
+import {LogService} from "../../shared/logger/log.service";
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -21,6 +22,7 @@ export class AccountComponent implements OnInit {
 
     user={} as Iuser;
   constructor(private userService:UserService,
+              private logService:LogService,
               private toastService:ToastService,
               private modalService: BsModalService
   ) { }

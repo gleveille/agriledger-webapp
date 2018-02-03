@@ -14,6 +14,8 @@ import {TxnTypePipe} from "../pipes/txn-type.pipe";
 import {TruncateBalancePipe} from "../pipes/truncate-balance.pipe";
 import {MomentPipe} from "../pipes/moment.pipe";
 import {OnboardingStatusPipe} from "../pipes/onboarding-status.pipe";
+import {LogService} from "./logger/log.service";
+import {LogPublisherService} from "./logger/log-publisher.service";
 
 @NgModule({
   imports: [
@@ -43,6 +45,9 @@ import {OnboardingStatusPipe} from "../pipes/onboarding-status.pipe";
     MomentPipe,
     OnboardingStatusPipe,
     TruncateBalancePipe
-  ]
+  ],providers:[
+      LogService,
+        LogPublisherService
+    ]
 })
 export class SharedModule { }

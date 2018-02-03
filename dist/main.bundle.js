@@ -21,16 +21,17 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return ServerUrl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return ServerUrl; });
 /* unused harmony export ProfileApi */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return ContainerApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return LogApi; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddressApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return UserApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return UserApi; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AssetApi; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return FavouriteAssetApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return WalletApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return OnboardingApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return TokenApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return WalletApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return OnboardingApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return TokenApi; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return AssetPoolApi; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 // This  file contains list of all the api this angular application uses.
@@ -49,6 +50,9 @@ var ContainerApi = {
     AssetEvidencesUpload: { url: function () { return ServerUrl + '/api/containers/evidences/upload'; } },
     AssetDocuementsUpload: { url: function () { return ServerUrl + '/api/containers/asset_documents/upload'; } },
     profileDocumentsUpload: { url: function () { return ServerUrl + '/api/containers/profile_documents/upload'; } }
+};
+var LogApi = {
+    restUrl: { url: function () { return ServerUrl + '/api/logs'; } },
 };
 var AddressApi = {
     getCountry: {
@@ -875,6 +879,7 @@ module.exports = "\n\n<div class=\"main-content\">\n    <div class=\"container-f
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_file_upload__ = __webpack_require__("../../../../ng2-file-upload/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_file_upload__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_app_api_config__ = __webpack_require__("../../../../../src/app/api.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_logger_log_service__ = __webpack_require__("../../../../../src/app/shared/logger/log.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -891,12 +896,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AccountComponent = (function () {
-    function AccountComponent(userService, toastService, modalService) {
+    function AccountComponent(userService, logService, toastService, modalService) {
         this.userService = userService;
+        this.logService = logService;
         this.toastService = toastService;
         this.modalService = modalService;
-        this.serverUrl = __WEBPACK_IMPORTED_MODULE_5__src_app_api_config__["g" /* ServerUrl */];
+        this.serverUrl = __WEBPACK_IMPORTED_MODULE_5__src_app_api_config__["h" /* ServerUrl */];
         this.URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
         this.user = {};
     }
@@ -950,6 +957,7 @@ var AccountComponent = (function () {
             styles: [__webpack_require__("../../../../../src/app/components/account/account.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_6__shared_logger_log_service__["a" /* LogService */],
             __WEBPACK_IMPORTED_MODULE_3__services_toast_service__["a" /* ToastService */],
             __WEBPACK_IMPORTED_MODULE_2_ngx_bootstrap_modal__["a" /* BsModalService */]])
     ], AccountComponent);
@@ -2281,7 +2289,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var DocumentListComponent = (function () {
     function DocumentListComponent() {
-        this.serverUrl = __WEBPACK_IMPORTED_MODULE_1__api_config__["g" /* ServerUrl */];
+        this.serverUrl = __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* ServerUrl */];
         this.documentStatus = ['pending', 'approved', 'rejected'];
         this.onStatusChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.documentType = '';
@@ -6011,7 +6019,7 @@ var AssetsService = (function () {
     };
     AssetsService.prototype.getAssetByUserId = function (userId) {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "/" + userId + "/assets";
+        var url = __WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].list.url() + "/" + userId + "/assets";
         return this.http.get("" + url)
             .retry(3)
             .catch(function (res) {
@@ -6436,10 +6444,10 @@ var TokenService = (function () {
         var _this = this;
         var url;
         if (issuerName) {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* TokenApi */].getTokens.url() + "?filter[where][issuerName]=" + issuerName + "&filter[include]=assetpool";
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* TokenApi */].getTokens.url() + "?filter[where][issuerName]=" + issuerName + "&filter[include]=assetpool";
         }
         else {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* TokenApi */].getTokens.url() + "?filter[include]=assetpool";
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* TokenApi */].getTokens.url() + "?filter[include]=assetpool";
         }
         return this.http.get("" + url)
             .catch(function (res) {
@@ -6448,7 +6456,7 @@ var TokenService = (function () {
     };
     TokenService.prototype.getAllTokensByAddressFromBlockchain = function () {
         var _this = this;
-        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* TokenApi */].getTokensByAddressFromBlockchain.url();
+        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* TokenApi */].getTokensByAddressFromBlockchain.url();
         return this.userService.user
             .concatMap(function (user) {
             return _this.http.get(url + "?address=" + user.walletAddress);
@@ -6459,7 +6467,7 @@ var TokenService = (function () {
     };
     TokenService.prototype.getAllTokensFromBlockchain = function () {
         var _this = this;
-        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["h" /* TokenApi */].getAllTokensFromBlockchain.url();
+        var url = "" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* TokenApi */].getAllTokensFromBlockchain.url();
         return this.http.get("" + url)
             .catch(function (res) {
             return _this.errorHandler.handle(res);
@@ -6566,7 +6574,7 @@ var UserService = (function () {
     };
     UserService.prototype.login = function (user) {
         var _this = this;
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].login.url() + "?include=User", user)
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].login.url() + "?include=User", user)
             .do(function (res) {
             _this.saveAccessToken(res.id);
             _this.saveUserId(res.user.id);
@@ -6581,8 +6589,8 @@ var UserService = (function () {
     };
     UserService.prototype.register = function (user) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].register.url(), user).concatMap(function (newUser) {
-            return _this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].getProfile.url() + "/" + newUser.id + "/profiles");
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].register.url(), user).concatMap(function (newUser) {
+            return _this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].getProfile.url() + "/" + newUser.id + "/profiles");
         })
             .catch(function (res) {
             return _this.errorHandler.handle(res);
@@ -6609,7 +6617,7 @@ var UserService = (function () {
     UserService.prototype.getUser = function () {
         // first time ,this method will be called from authorization guard
         var _this = this;
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].findById.url() + "/" + this.getUserIdFromStorage() + "?filter[include]=profiles").do(function (user) {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].findById.url() + "/" + this.getUserIdFromStorage() + "?filter[include]=profiles").do(function (user) {
             console.log('user from server is');
             console.log(user);
             _this.dataStore.user = user;
@@ -6630,7 +6638,7 @@ var UserService = (function () {
         var profiles = user.profiles;
         console.log('updating profile is');
         console.log(profiles);
-        return this.http.put(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].updateProfile.url() + "/" + user.id + "/profiles", profiles).do(function (profile) {
+        return this.http.put(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].updateProfile.url() + "/" + user.id + "/profiles", profiles).do(function (profile) {
             if (isMineProfile) {
                 _this.dataStore.user.profiles = profile;
                 _this._user.next(JSON.parse(JSON.stringify(_this.dataStore.user)));
@@ -6645,7 +6653,7 @@ var UserService = (function () {
     ;
     UserService.prototype.getUsers = function () {
         var _this = this;
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "?filter[include]=profiles&filter[order]=createdAt DESC").do(function (users) {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].list.url() + "?filter[include]=profiles&filter[order]=createdAt DESC").do(function (users) {
             _this.dataStore.otherUsers = users;
         })
             .catch(function (res) {
@@ -6660,13 +6668,13 @@ var UserService = (function () {
                 return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["a" /* Observable */].of(user);
             }
         });
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "/" + userId + "?filter[include]=profiles").catch(function (res) {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].list.url() + "/" + userId + "?filter[include]=profiles").catch(function (res) {
             return _this.errorHandler.handle(res);
         });
     };
     UserService.prototype.sendPasswordResetToken = function (email) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].sendResetPasswordToken.url(), { email: email }).do(function (res) {
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].sendResetPasswordToken.url(), { email: email }).do(function (res) {
         })
             .catch(function (err) {
             return _this.errorHandler.handle(err);
@@ -6675,7 +6683,7 @@ var UserService = (function () {
     ;
     UserService.prototype.resetPassword = function (accessToken, newPassword) {
         var _this = this;
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].resetPassword.url() + "?access_token=" + accessToken, { newPassword: newPassword }).do(function (data) {
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].resetPassword.url() + "?access_token=" + accessToken, { newPassword: newPassword }).do(function (data) {
         }).catch(function (res) {
             return _this.errorHandler.handle(res);
         });
@@ -6683,7 +6691,7 @@ var UserService = (function () {
     ;
     UserService.prototype.changePassword = function (oldPassword, newPassword) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].changePassword.url(), { oldPassword: oldPassword, newPassword: newPassword }).do(function (data) {
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].changePassword.url(), { oldPassword: oldPassword, newPassword: newPassword }).do(function (data) {
             _this.dataStore.user.isPasswordChanged = true;
             _this._user.next(JSON.parse(JSON.stringify(_this.dataStore.user)));
         }).catch(function (res) {
@@ -6693,7 +6701,7 @@ var UserService = (function () {
     ;
     UserService.prototype.logout = function () {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].logout.url(), {}).do(function (data) {
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].logout.url(), {}).do(function (data) {
             _this.resetLocalStorage();
         });
     };
@@ -6703,7 +6711,7 @@ var UserService = (function () {
     };
     UserService.prototype.createAccountOnBlockchain = function () {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["f" /* OnboardingApi */].createAccount.url(), { userId: this.dataStore.user.id })
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["g" /* OnboardingApi */].createAccount.url(), { userId: this.dataStore.user.id })
             .do(function (data) {
             _this.dataStore.user.isRegisteredOnBlockchain = true;
             _this.dataStore.user.walletAddress = data.walletAddress;
@@ -6719,7 +6727,7 @@ var UserService = (function () {
         if (!role) {
             return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["a" /* Observable */].throw('Role is not found');
         }
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "?filter[where][role]=" + role + "&filter[order]=createdAt DESC")
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].list.url() + "?filter[where][role]=" + role + "&filter[order]=createdAt DESC")
             .do(function (farmers) {
         })
             .catch(function (res) {
@@ -6733,13 +6741,13 @@ var UserService = (function () {
         }
         var url;
         if (status === 'isPasswordChanged') {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "?filter[where][isPasswordChanged]=true&filter[where][isRegisteredOnBlockchain]=false";
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].list.url() + "?filter[where][isPasswordChanged]=true&filter[where][isRegisteredOnBlockchain]=false";
         }
         if (status === 'isRegisteredOnBlockchain') {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "?filter[where][isRegisteredOnBlockchain]=true&filter[where][isIssuerOnBlockchain]=false";
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].list.url() + "?filter[where][isRegisteredOnBlockchain]=true&filter[where][isIssuerOnBlockchain]=false";
         }
         if (status === 'isIssuerOnBlockchain') {
-            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["i" /* UserApi */].list.url() + "?filter[where][isIssuerOnBlockchain]=true";
+            url = __WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* UserApi */].list.url() + "?filter[where][isIssuerOnBlockchain]=true";
         }
         return this.http.get("" + url)
             .do(function (farmers) {
@@ -6753,7 +6761,7 @@ var UserService = (function () {
         var _this = this;
         return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["a" /* Observable */].interval(1000)
             .concatMap(function (val) {
-            return _this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["f" /* OnboardingApi */].getAccount.url() + "?address=" + _this.dataStore.user.walletAddress);
+            return _this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["g" /* OnboardingApi */].getAccount.url() + "?address=" + _this.dataStore.user.walletAddress);
         })
             .retry(3)
             .catch(function (res) {
@@ -6762,7 +6770,7 @@ var UserService = (function () {
     };
     UserService.prototype.resgisterAsIssuer = function (issuer) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["f" /* OnboardingApi */].resgisterIssuer.url(), issuer).do(function (data) {
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["g" /* OnboardingApi */].resgisterIssuer.url(), issuer).do(function (data) {
             _this.dataStore.user.isIssuerOnBlockchain = true;
             _this.dataStore.user.issuerName = issuer.name;
             _this._user.next(JSON.parse(JSON.stringify(_this.dataStore.user)));
@@ -6839,7 +6847,7 @@ var WalletService = (function () {
         if (this.dataStore.metadata.isAccountLoaded) {
             return __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["a" /* Observable */].of(this.dataStore);
         }
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* WalletApi */].getAccount.url() + "?address=" + walletAddress)
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["k" /* WalletApi */].getAccount.url() + "?address=" + walletAddress)
             .do(function (account) {
             _this.dataStore.account = account;
             _this.dataStore.metadata.isAccountLoaded = true;
@@ -6852,7 +6860,7 @@ var WalletService = (function () {
     };
     WalletService.prototype.getTransactions = function (senderPublicKey, recipientId) {
         var _this = this;
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* WalletApi */].getTransaction.url() + "?senderPublicKey=" + senderPublicKey + "&recipientId=" + recipientId)
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__api_config__["k" /* WalletApi */].getTransaction.url() + "?senderPublicKey=" + senderPublicKey + "&recipientId=" + recipientId)
             .retry(3)
             .catch(function (res) {
             return _this.errorHandler.handle(res);
@@ -6860,7 +6868,7 @@ var WalletService = (function () {
     };
     WalletService.prototype.sendTransactions = function (txn) {
         var _this = this;
-        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["j" /* WalletApi */].sendTransaction.url(), txn)
+        return this.http.post("" + __WEBPACK_IMPORTED_MODULE_1__api_config__["k" /* WalletApi */].sendTransaction.url(), txn)
             .do(function () {
             console.log(txn.amount);
             if (_this.dataStore.account.balance) {
@@ -7226,6 +7234,315 @@ var HeaderComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/shared/logger/log-entry.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogEntry; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__log_level_enum__ = __webpack_require__("../../../../../src/app/shared/logger/log-level.enum.ts");
+
+var LogEntry = (function () {
+    function LogEntry() {
+        this.message = '';
+        this.level = __WEBPACK_IMPORTED_MODULE_0__log_level_enum__["a" /* LogLevel */].All;
+        this.extraInfo = [];
+        this.logDate = new Date();
+        this.logWithDate = true;
+    }
+    LogEntry.prototype.buildLogEntry = function () {
+        var value = '';
+        if (this.logWithDate) {
+            value = value + new Date() + ':';
+        }
+        value = value + ("type:" + __WEBPACK_IMPORTED_MODULE_0__log_level_enum__["a" /* LogLevel */][this.level] + ",");
+        value = value + ("message:" + JSON.stringify(this.message) + ",");
+        value += "extra:" + this.formatParams(this.extraInfo);
+        return value;
+    };
+    LogEntry.prototype.formatParams = function (params) {
+        var ret = params.join(',');
+        if (params.some(function (p) { return typeof p === 'object'; })) {
+            ret = '';
+            for (var _i = 0, params_1 = params; _i < params_1.length; _i++) {
+                var item = params_1[_i];
+                ret += JSON.stringify(item) + ',';
+            }
+        }
+        return ret;
+    };
+    return LogEntry;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/logger/log-level.enum.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogLevel; });
+var LogLevel;
+(function (LogLevel) {
+    LogLevel[LogLevel["All"] = 0] = "All";
+    LogLevel[LogLevel["Debug"] = 1] = "Debug";
+    LogLevel[LogLevel["Info"] = 2] = "Info";
+    LogLevel[LogLevel["Warn"] = 3] = "Warn";
+    LogLevel[LogLevel["Error"] = 4] = "Error";
+    LogLevel[LogLevel["Fatal"] = 5] = "Fatal";
+    LogLevel[LogLevel["Off"] = 6] = "Off";
+})(LogLevel || (LogLevel = {}));
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/logger/log-publisher.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogPublisherService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__log_publisher__ = __webpack_require__("../../../../../src/app/shared/logger/log-publisher.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__log_level_enum__ = __webpack_require__("../../../../../src/app/shared/logger/log-level.enum.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var LogPublisherService = (function () {
+    function LogPublisherService(http) {
+        this.http = http;
+        this.publishers = [];
+        this.buildPublishers();
+    }
+    LogPublisherService.prototype.buildPublishers = function () {
+        this.publishers.push(new __WEBPACK_IMPORTED_MODULE_1__log_publisher__["a" /* LogConsole */](__WEBPACK_IMPORTED_MODULE_4_environments_environment__["a" /* environment */].production ? __WEBPACK_IMPORTED_MODULE_3__log_level_enum__["a" /* LogLevel */].Off : __WEBPACK_IMPORTED_MODULE_3__log_level_enum__["a" /* LogLevel */].All));
+        //this.publishers.push(new LogLocalStorage(LogLevel.Error));
+        this.publishers.push(new __WEBPACK_IMPORTED_MODULE_1__log_publisher__["b" /* LogWebApiStorage */](__WEBPACK_IMPORTED_MODULE_3__log_level_enum__["a" /* LogLevel */].Error, this.http));
+    };
+    LogPublisherService.prototype.getPublishers = function () {
+        return this.publishers;
+    };
+    LogPublisherService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */]])
+    ], LogPublisherService);
+    return LogPublisherService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/logger/log-publisher.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export LogPublisher */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogConsole; });
+/* unused harmony export LogLocalStorage */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LogWebApiStorage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_config__ = __webpack_require__("../../../../../src/app/api.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__log_level_enum__ = __webpack_require__("../../../../../src/app/shared/logger/log-level.enum.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+var LogPublisher = (function () {
+    function LogPublisher() {
+        this.location = '';
+        this.level = __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].All;
+    }
+    LogPublisher.prototype.shouldLog = function (level) {
+        if (level !== __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].Off && level >= this.level) {
+            return true;
+        }
+        return false;
+    };
+    return LogPublisher;
+}());
+
+var LogConsole = (function (_super) {
+    __extends(LogConsole, _super);
+    function LogConsole(level) {
+        var _this = _super.call(this) || this;
+        _this.level = level || __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].All;
+        return _this;
+    }
+    LogConsole.prototype.log = function (record) {
+        if (!this.shouldLog(record.level)) {
+            return;
+        }
+        console.log(record.buildLogEntry());
+    };
+    LogConsole.prototype.clear = function () {
+        console.clear();
+    };
+    return LogConsole;
+}(LogPublisher));
+
+var LogLocalStorage = (function (_super) {
+    __extends(LogLocalStorage, _super);
+    function LogLocalStorage(level) {
+        var _this = _super.call(this) || this;
+        _this.location = 'localstoragelog';
+        _this.level = level || __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].All;
+        return _this;
+    }
+    LogLocalStorage.prototype.log = function (record) {
+        if (!this.shouldLog(record.level)) {
+            return;
+        }
+        var entry = [];
+        if (record.logWithDate)
+            record.logDate = new Date();
+        entry = JSON.parse(localStorage.getItem(this.location)) || [];
+        entry.push(record);
+        localStorage.setItem(this.location, JSON.stringify(entry));
+    };
+    LogLocalStorage.prototype.clear = function () {
+        localStorage.clear();
+    };
+    return LogLocalStorage;
+}(LogPublisher));
+
+var LogWebApiStorage = (function (_super) {
+    __extends(LogWebApiStorage, _super);
+    function LogWebApiStorage(level, http) {
+        var _this = _super.call(this) || this;
+        _this.http = http;
+        _this.location = __WEBPACK_IMPORTED_MODULE_0__api_config__["f" /* LogApi */].restUrl.url();
+        _this.level = level || __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].All;
+        return _this;
+    }
+    LogWebApiStorage.prototype.log = function (record) {
+        if (!this.shouldLog(record.level)) {
+            return;
+        }
+        this.http.post(this.location, record).subscribe(function (val) {
+        }, function (err) {
+        });
+    };
+    LogWebApiStorage.prototype.clear = function () {
+    };
+    return LogWebApiStorage;
+}(LogPublisher));
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/logger/log.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__log_level_enum__ = __webpack_require__("../../../../../src/app/shared/logger/log-level.enum.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__log_entry__ = __webpack_require__("../../../../../src/app/shared/logger/log-entry.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__log_publisher_service__ = __webpack_require__("../../../../../src/app/shared/logger/log-publisher.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var LogService = (function () {
+    function LogService(logPublisherService) {
+        this.logPublisherService = logPublisherService;
+        this.publishers = [];
+        this.logWithDate = true;
+        this.publishers = this.logPublisherService.getPublishers();
+    }
+    LogService.prototype.log = function (message) {
+        var optionalParams = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            optionalParams[_i - 1] = arguments[_i];
+        }
+        this.writeToLog(message, __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].All, optionalParams);
+    };
+    LogService.prototype.debug = function (message) {
+        var optionalParams = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            optionalParams[_i - 1] = arguments[_i];
+        }
+        this.writeToLog(message, __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].Debug, optionalParams);
+    };
+    LogService.prototype.info = function (message) {
+        var optionalParams = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            optionalParams[_i - 1] = arguments[_i];
+        }
+        this.writeToLog(message, __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].Info, optionalParams);
+    };
+    LogService.prototype.error = function (message) {
+        var optionalParams = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            optionalParams[_i - 1] = arguments[_i];
+        }
+        this.writeToLog(message, __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].Error, optionalParams);
+    };
+    LogService.prototype.warning = function (message) {
+        var optionalParams = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            optionalParams[_i - 1] = arguments[_i];
+        }
+        this.writeToLog(message, __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].Error, optionalParams);
+    };
+    LogService.prototype.fatal = function (message) {
+        var optionalParams = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            optionalParams[_i - 1] = arguments[_i];
+        }
+        this.writeToLog(message, __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].Fatal, optionalParams);
+    };
+    LogService.prototype.writeToLog = function (message, level, params) {
+        var entry = new __WEBPACK_IMPORTED_MODULE_2__log_entry__["a" /* LogEntry */]();
+        entry.level = level;
+        entry.message = message;
+        entry.extraInfo = params;
+        entry.logWithDate = this.logWithDate;
+        this.publishers.forEach(function (publisher) {
+            publisher.log(entry);
+        });
+    };
+    LogService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__log_publisher_service__["a" /* LogPublisherService */]])
+    ], LogService);
+    return LogService;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/shared/navbar/navbar.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7525,12 +7842,16 @@ var PrivacyComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pipes_truncate_balance_pipe__ = __webpack_require__("../../../../../src/app/pipes/truncate-balance.pipe.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pipes_moment_pipe__ = __webpack_require__("../../../../../src/app/pipes/moment.pipe.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pipes_onboarding_status_pipe__ = __webpack_require__("../../../../../src/app/pipes/onboarding-status.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__logger_log_service__ = __webpack_require__("../../../../../src/app/shared/logger/log.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__logger_log_publisher_service__ = __webpack_require__("../../../../../src/app/shared/logger/log-publisher.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -7578,6 +7899,9 @@ var SharedModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_13__pipes_moment_pipe__["a" /* MomentPipe */],
                 __WEBPACK_IMPORTED_MODULE_14__pipes_onboarding_status_pipe__["a" /* OnboardingStatusPipe */],
                 __WEBPACK_IMPORTED_MODULE_12__pipes_truncate_balance_pipe__["a" /* TruncateBalancePipe */]
+            ], providers: [
+                __WEBPACK_IMPORTED_MODULE_15__logger_log_service__["a" /* LogService */],
+                __WEBPACK_IMPORTED_MODULE_16__logger_log_publisher_service__["a" /* LogPublisherService */]
             ]
         })
     ], SharedModule);
